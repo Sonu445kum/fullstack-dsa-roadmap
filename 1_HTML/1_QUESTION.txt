@@ -1,0 +1,247 @@
+🔹 HTML Basics (1–20)
+
+What is HTML?
+HTML (HyperText Markup Language) is used to structure web pages.
+
+What is the latest version of HTML?
+HTML5.
+
+What are HTML tags?
+Tags define elements like <p>, <div>, <h1>.
+
+What is an HTML element?
+Tag + content = element.
+
+What is <!DOCTYPE html>?
+Tells browser the document is HTML5.
+
+Difference between HTML & XHTML?
+XHTML is stricter and XML-based.
+
+What are attributes?
+Provide extra info to tags (e.g., class, id).
+
+What is semantic HTML?
+Tags that define meaning (<article>, <section>).
+
+What is the <head> tag used for?
+Metadata, title, CSS, SEO.
+
+What is <meta> tag?
+Used for SEO, charset, viewport.
+
+What is <title> tag?
+Sets page title in browser tab.
+
+What is <body> tag?
+Contains visible content.
+
+Difference between <div> and <span>?
+<div> is block, <span> is inline.
+
+What is an empty tag?
+Tag without closing (<br>, <img>).
+
+What is <br>?
+Line break.
+
+What is <hr>?
+Horizontal line.
+
+What is nesting?
+Placing elements inside others.
+
+What is comment in HTML?
+<!-- comment -->
+
+Is HTML case-sensitive?
+No.
+
+Can we run HTML without browser?
+No.
+
+🔹 HTML Forms (21–40)
+
+What is <form>?
+Collects user input.
+
+Difference between GET & POST?
+GET shows data in URL, POST doesn’t.
+
+What is <input>?
+User input field.
+
+Types of input?
+text, email, password, checkbox, radio.
+
+What is name attribute?
+Used to send data to server.
+
+What is required?
+Makes field mandatory.
+
+What is placeholder?
+Hint text.
+
+What is readonly?
+Cannot edit value.
+
+What is disabled?
+Field is inactive.
+
+Difference between checkbox & radio?
+Checkbox → multiple, Radio → one.
+
+What is <label>?
+Defines label for input.
+
+What is <select>?
+Dropdown list.
+
+What is <option>?
+Dropdown item.
+
+What is <textarea>?
+Multi-line input.
+
+What is form validation?
+Checking user input.
+
+What is action attribute?
+URL where data is sent.
+
+What is method?
+GET or POST.
+
+What is autocomplete?
+Auto fill input.
+
+What is pattern attribute?
+Regex validation.
+
+What is maxlength?
+Limits input length.
+
+🔹 HTML Media & Graphics (41–60)
+
+What is <img>?
+Displays image.
+
+What is alt attribute?
+Image description (SEO + accessibility).
+
+What is <audio>?
+Plays audio.
+
+What is <video>?
+Plays video.
+
+What is <source>?
+Media source.
+
+What is <canvas>?
+Draw graphics using JS.
+
+What is SVG?
+Scalable Vector Graphics.
+
+Difference between SVG & Canvas?
+SVG is XML, Canvas is bitmap.
+
+What is <iframe>?
+Embed another webpage.
+
+What is controls attribute?
+Shows media controls.
+
+What is autoplay?
+Plays automatically.
+
+What is muted?
+No sound.
+
+What is poster attribute?
+Video thumbnail.
+
+What is preload?
+Preloads media.
+
+What is responsive image?
+Adapts to screen size.
+
+What is srcset?
+Multiple image sizes.
+
+What is lazy loading?
+Load images when needed.
+
+How to embed YouTube video?
+Using <iframe>.
+
+What is <figure>?
+Wraps image + caption.
+
+What is <figcaption>?
+Caption for image.
+
+🔹 Advanced & SEO (61–80)
+
+What is accessibility?
+Making site usable for all.
+
+What is ARIA?
+Accessibility roles.
+
+What is tabindex?
+Keyboard navigation.
+
+What is SEO?
+Search Engine Optimization.
+
+How HTML helps SEO?
+Semantic tags, meta tags.
+
+What is viewport?
+Responsive design.
+
+What is mobile-first?
+Design for mobile first.
+
+What is <nav>?
+Navigation section.
+
+What is <header>?
+Page header.
+
+What is <footer>?
+Page footer.
+
+What is <section>?
+Logical section.
+
+What is <article>?
+Independent content.
+
+What is <aside>?
+Sidebar content.
+
+What is favicon?
+Tab icon.
+
+How to add favicon?
+<link rel="icon">
+
+What is charset?
+Character encoding.
+
+What is UTF-8?
+Universal character set.
+
+What is lang attribute?
+Page language.
+
+What is defer?
+Delays script loading.
+
+What is async?
+Loads script asynchronously.
