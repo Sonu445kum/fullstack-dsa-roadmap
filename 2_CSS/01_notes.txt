@@ -1,0 +1,311 @@
+CSS Basics (1–20)
+
+What is CSS?
+CSS (Cascading Style Sheets) is used to style and layout web pages.
+
+Types of CSS?
+Inline, Internal, External.
+
+Difference between class and id?
+Class can be reused; ID must be unique.
+
+What is specificity?
+Rule that decides which CSS rule applies when multiple rules target the same element.
+
+Specificity order?
+Inline > ID > Class > Element.
+
+What is !important?
+Overrides all other CSS rules.
+
+What is box model?
+Content + Padding + Border + Margin.
+
+Difference between margin and padding?
+Margin = outside spacing, Padding = inside spacing.
+
+What is display property?
+Defines how an element is displayed (block, inline, inline-block, none).
+
+Difference between display:none and visibility:hidden?
+none removes element; hidden keeps space.
+
+What is overflow?
+Controls content overflow (hidden, scroll, auto).
+
+What is z-index?
+Controls vertical stacking order.
+
+What is float?
+Positions element left or right.
+
+Clear float?
+Using clear: both.
+
+What is opacity?
+Transparency (0–1).
+
+Difference between px, %, em, rem?
+px = fixed, % = relative, em = parent, rem = root.
+
+What is shorthand property?
+Multiple values in one line (e.g. margin).
+
+What is inheritance?
+Child elements inherit styles from parent.
+
+What is cursor:pointer?
+Changes cursor to hand icon.
+
+What is outline?
+Border outside element (not part of box model).
+
+🔹 Layout & Positioning (21–40)
+
+Position types?
+static, relative, absolute, fixed, sticky.
+
+Relative vs absolute?
+Relative → relative to itself
+Absolute → relative to nearest positioned ancestor.
+
+What is Flexbox?
+One-dimensional layout system.
+
+Main axis in Flexbox?
+Controlled by flex-direction.
+
+Cross axis?
+Perpendicular to main axis.
+
+justify-content?
+Aligns items on main axis.
+
+align-items?
+Aligns items on cross axis.
+
+Difference between align-items and align-content?
+align-items → items
+align-content → rows
+
+What is CSS Grid?
+Two-dimensional layout system.
+
+Grid vs Flexbox?
+Grid → 2D
+Flexbox → 1D
+
+What is fr unit?
+Fractional unit in Grid.
+
+What is gap?
+Space between grid/flex items.
+
+What is min-width?
+Minimum width allowed.
+
+What is max-width?
+Maximum width allowed.
+
+Sticky position use?
+Sticks element while scrolling.
+
+Center div horizontally?
+margin: auto.
+
+Center div vertically?
+Flexbox or Grid.
+
+What is viewport?
+Visible area of browser.
+
+vh & vw?
+Viewport height & width.
+
+What is media query?
+Responsive design tool.
+
+🔹 Advanced CSS (41–70)
+
+What is pseudo-class?
+Defines special states (:hover).
+
+Pseudo-element?
+Styles part of element (::before).
+
+Difference :nth-child vs :nth-of-type?
+Child vs element type.
+
+What is calc()?
+Dynamic calculation.
+
+What is transition?
+Smooth property change.
+
+Transition properties?
+property, duration, timing, delay.
+
+What is transform?
+Rotate, scale, translate.
+
+What is animation?
+Multiple keyframes.
+
+Difference transition & animation?
+Transition = trigger based
+Animation = continuous.
+
+What is @keyframes?
+Defines animation steps.
+
+What is object-fit?
+Controls image fit.
+
+What is filter?
+Blur, brightness, etc.
+
+What is box-shadow?
+Shadow around box.
+
+What is text-shadow?
+Shadow on text.
+
+What is clip-path?
+Shapes elements.
+
+What is pointer-events?
+Enable/disable mouse events.
+
+What is user-select?
+Control text selection.
+
+What is currentColor?
+Uses current text color.
+
+What is aspect-ratio?
+Maintain width-height ratio.
+
+What is will-change?
+Performance hint.
+
+What is CSS variable?
+Reusable custom properties.
+
+Syntax of variable?
+--main-color.
+
+Use variable?
+var(--main-color).
+
+What is @supports?
+Feature detection.
+
+What is :root?
+Root element.
+
+What is overflow-x?
+Horizontal overflow.
+
+What is white-space?
+Text wrapping control.
+
+What is line-height?
+Space between lines.
+
+What is letter-spacing?
+Space between letters.
+
+What is word-break?
+Word breaking behavior.
+
+🔹 Performance & Best Practices (71–100)
+
+Why avoid inline CSS?
+Poor maintainability.
+
+What is critical CSS?
+CSS needed for initial render.
+
+What is BEM?
+Block Element Modifier naming.
+
+What is CSS reset?
+Normalize browser styles.
+
+What is normalize.css?
+Consistent browser styling.
+
+What is !important downside?
+Breaks cascade.
+
+How to reduce CSS size?
+Minify, remove unused.
+
+What is @import issue?
+Slower loading.
+
+What is content-box?
+Default box sizing.
+
+What is border-box?
+Includes padding & border.
+
+Which is better?
+border-box.
+
+What is responsive design?
+Adapt to all screens.
+
+Mobile-first approach?
+Design for mobile first.
+
+What is em problem?
+Nested scaling issue.
+
+What is rem benefit?
+Consistent scaling.
+
+What is position:fixed issue?
+Overlaps content.
+
+What is 100vh issue on mobile?
+Address bar issue.
+
+How to fix vh issue?
+JS + CSS variables.
+
+What is display:contents?
+Removes wrapper.
+
+What is CSS preprocessor?
+Sass, Less.
+
+Sass vs CSS?
+Variables, nesting.
+
+What is nesting problem?
+High specificity.
+
+What is atomic CSS?
+Utility-first.
+
+Example atomic CSS?
+Tailwind CSS.
+
+What is CSS-in-JS?
+Styles inside JS.
+
+Example CSS-in-JS?
+Styled-components.
+
+Shadow DOM?
+Scoped styles.
+
+What is :has()?
+Parent selector.
+
+Is CSS Turing complete?
+No.
+
+Best CSS practice?
+Clean, modular, responsive.
