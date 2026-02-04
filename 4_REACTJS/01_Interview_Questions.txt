@@ -1,0 +1,615 @@
+1. What is React?
+React is a JavaScript library used to build fast, interactive user interfaces using components.
+
+2. Who developed React?
+Facebook (Meta).
+
+3. What is JSX?
+JSX is a syntax extension that allows writing HTML inside JavaScript.
+
+4. Is JSX mandatory?
+No, but it makes code readable.
+
+5. What is a component?
+A reusable UI block in React.
+
+6. Types of components?
+Class components and Functional components.
+
+7. Which component type is preferred now?
+Functional components with Hooks.
+
+8. What is Virtual DOM?
+A lightweight copy of the real DOM for faster updates.
+
+9. Why Virtual DOM is faster?
+It updates only changed nodes, not the entire DOM.
+
+10. What is ReactDOM?
+Used to render React components into the DOM.
+
+11. What is createRoot()?
+Used to initialize React 18 rendering.
+
+12. What is StrictMode?
+Helps detect potential problems in development.
+
+13. What is Babel?
+A JavaScript compiler that converts JSX to JS.
+
+14. What is npm?
+Node Package Manager for managing dependencies.
+
+15. What is SPA?
+Single Page Application.
+
+16. Difference between React and Angular?
+React is a library; Angular is a framework.
+
+17. What is state?
+An object that stores component data.
+
+18. What is props?
+Data passed from parent to child component.
+
+19. Are props mutable?
+No.
+
+20. Is state mutable?
+No, it must be updated using setter functions.
+
+21. What is setState?
+Used to update state in class components.
+
+22. What is a functional component?
+A JS function that returns JSX.
+
+23. What is default export?
+Allows exporting a single value.
+
+24. What is named export?
+Allows exporting multiple values.
+
+25. What is fragment?
+Used to return multiple elements without extra div.
+
+26. Syntax of fragment?
+<>...</>
+
+27. What is conditional rendering?
+Rendering UI based on conditions.
+
+28. How do you add comments in JSX?
+{/* comment */}
+
+29. What is key in React?
+Unique identifier for list items.
+
+30. Why keys are important?
+For efficient re-rendering.
+
+31. What happens if key is missing?
+React throws a warning.
+
+32. Can browser read JSX?
+No.
+
+33. What is index.js?
+Entry point of React app.
+
+34. What is App.js?
+Main component.
+
+35. What is public folder?
+Contains static files.
+
+36. What is src folder?
+Contains React code.
+
+37. What is package.json?
+Project metadata and dependencies.
+
+38. What is React version currently used widely?
+React 18+
+
+39. What is className?
+JSX equivalent of class.
+
+40. What is inline styling?
+Styling using JS objects.
+
+🟡 SECTION 2: Hooks & State (41–90)
+
+41. What are Hooks?
+Functions that let you use state and lifecycle in functional components.
+
+42. Name some hooks.
+useState, useEffect, useContext, useRef.
+
+43. What is useState?
+Hook to manage state.
+
+44. Syntax of useState?
+const [state, setState] = useState(initialValue)
+
+45. Can we use hooks in class components?
+No.
+
+46. Rules of hooks?
+Only call at top level, only inside React functions.
+
+47. What is useEffect?
+Handles side effects.
+
+48. When does useEffect run?
+After render.
+
+49. Dependency array use?
+Controls re-rendering.
+
+50. Empty dependency array means?
+Runs once on mount.
+
+51. Cleanup function?
+Used to clean resources.
+
+52. What is useRef?
+Access DOM or persist value without re-render.
+
+53. Difference between useRef and useState?
+useRef doesn't cause re-render.
+
+54. What is useContext?
+Access context without props drilling.
+
+55. What is context?
+Global state management tool.
+
+56. What problem does context solve?
+Props drilling.
+
+57. What is useReducer?
+Alternative to useState for complex logic.
+
+58. Redux vs Context?
+Redux is better for large apps.
+
+59. What is useMemo?
+Memoizes expensive calculations.
+
+60. What is useCallback?
+Memoizes functions.
+
+61. Difference between useMemo & useCallback?
+useMemo returns value, useCallback returns function.
+
+62. What is lifting state up?
+Sharing state between components.
+
+63. What is controlled component?
+Form controlled by React state.
+
+64. Uncontrolled component?
+Form handled by DOM.
+
+65. What is two-way binding?
+Input value synced with state.
+
+66. How to handle input?
+Using onChange.
+
+67. How to handle form submit?
+onSubmit.
+
+68. What is synthetic event?
+Cross-browser wrapper event.
+
+69. Event bubbling in React?
+Same as JS.
+
+70. Prevent default behavior?
+e.preventDefault().
+
+71. What is lazy loading?
+Load components on demand.
+
+72. How to lazy load?
+React.lazy().
+
+73. What is Suspense?
+Fallback UI while loading.
+
+74. What is memo?
+Prevents unnecessary re-renders.
+
+75. React.memo used for?
+Performance optimization.
+
+76. When component re-renders?
+When state or props change.
+
+77. What is reconciliation?
+Diffing algorithm process.
+
+78. What is batching?
+Combining multiple state updates.
+
+79. What is hydration?
+Attach event listeners in SSR.
+
+80. What is Strict Mode double rendering?
+Dev-only check.
+
+81. Can hooks be conditional?
+No.
+
+82. Why hooks must be at top?
+To maintain call order.
+
+83. Custom hook?
+Reusable hook logic.
+
+84. Naming convention of hook?
+Must start with use.
+
+85. Can hooks return JSX?
+No.
+
+86. useEffect vs lifecycle?
+Replaces componentDidMount, etc.
+
+87. What is useLayoutEffect?
+Runs before browser paint.
+
+88. When to use useLayoutEffect?
+DOM measurements.
+
+89. What is state batching?
+Grouping state updates.
+
+90. Is state update synchronous?
+No.
+
+🔵 SECTION 3: Routing, Redux, Performance (91–150)
+
+91. What is React Router?
+Library for routing.
+
+92. What is BrowserRouter?
+Wraps app for routing.
+
+93. What is Route?
+Maps path to component.
+
+94. What is Link?
+Navigation without reload.
+
+95. What is useParams?
+Access route params.
+
+96. What is useNavigate?
+Programmatic navigation.
+
+97. SPA routing vs normal routing?
+No page reload.
+
+98. What is Redux?
+State management library.
+
+99. Redux core principles?
+Single store, immutable state, pure reducers.
+
+100. What is store?
+Central state container.
+
+101. What is action?
+Plain object describing change.
+
+102. What is reducer?
+Function updating state.
+
+103. Redux flow?
+Action → Reducer → Store → UI.
+
+104. What is dispatch?
+Sends action.
+
+105. What is useSelector?
+Access store state.
+
+106. What is useDispatch?
+Dispatch actions.
+
+107. What is middleware?
+Intercepts actions.
+
+108. What is Redux Thunk?
+Async logic handling.
+
+109. RTK full form?
+Redux Toolkit.
+
+110. Why Redux Toolkit?
+Less boilerplate.
+
+111. What is slice?
+Redux Toolkit feature.
+
+112. createSlice use?
+Auto actions + reducers.
+
+113. What is createAsyncThunk?
+Async API handling.
+
+114. What is normalization?
+Flattening data.
+
+115. What is performance optimization?
+Improving speed.
+
+116. How to optimize React app?
+Memo, lazy loading, code splitting.
+
+117. What is code splitting?
+Break bundle into chunks.
+
+118. What is tree shaking?
+Remove unused code.
+
+119. What is error boundary?
+Catch JS errors.
+
+120. Can hooks catch errors?
+No.
+
+121. Error boundary lifecycle?
+componentDidCatch.
+
+122. What is SSR?
+Server Side Rendering.
+
+123. Benefits of SSR?
+SEO, faster first load.
+
+124. What is CSR?
+Client Side Rendering.
+
+125. Next.js used for?
+SSR & SSG.
+
+126. What is hydration mismatch?
+HTML mismatch SSR/CSR.
+
+127. What is portal?
+Render outside DOM tree.
+
+128. Example of portal?
+Modals.
+
+129. What is ref forwarding?
+Passing ref to child.
+
+130. What is HOC?
+Higher Order Component.
+
+131. HOC example?
+withAuth(Component)
+
+132. HOC vs hooks?
+Hooks preferred.
+
+133. What is render props?
+Function as prop.
+
+134. Pure component?
+Shallow comparison.
+
+135. React.memo vs PureComponent?
+Function vs class.
+
+136. Why avoid index as key?
+Causes bugs.
+
+137. What is strict equality in React?
+Object reference check.
+
+138. What is immutability?
+No direct state mutation.
+
+139. How to update object state?
+Spread operator.
+
+140. How to update array state?
+map, filter.
+
+141. Why state should be immutable?
+Efficient rendering.
+
+142. What is debounce?
+Delay function call.
+
+143. What is throttle?
+Limit calls.
+
+144. Where debounce used?
+Search input.
+
+145. What is controlled rerender?
+Using memo.
+
+146. What is hydration in React 18?
+Concurrent features.
+
+147. What is concurrent rendering?
+Interruptible rendering.
+
+148. What is startTransition?
+Low-priority update.
+
+149. When to use transition?
+Large UI updates.
+
+150. What is useId?
+Unique IDs for accessibility.
+
+🔴 SECTION 4: Coding & Advanced (151–200)
+
+151. Create counter using useState?
+
+const [count, setCount] = useState(0);
+
+
+152. Toggle button example?
+
+setToggle(prev => !prev);
+
+
+153. How to fetch API?
+Using fetch or axios.
+
+154. Where API call placed?
+useEffect.
+
+155. How to handle loading state?
+useState.
+
+156. Error handling in API?
+try-catch.
+
+157. Show list using map?
+
+items.map(item => <li>{item}</li>)
+
+
+158. Conditional rendering syntax?
+condition && <Component />
+
+159. Show fallback UI?
+Using ternary.
+
+160. Create custom hook example?
+
+function useFetch(){}
+
+
+161. How to optimize large lists?
+React Virtualization.
+
+162. What is windowing?
+Render visible items only.
+
+163. What is memoization?
+Caching result.
+
+164. Why avoid anonymous functions in JSX?
+Performance issues.
+
+165. Controlled input example?
+
+value={state} onChange={e=>setState(e.target.value)}
+
+
+166. Prevent re-render?
+React.memo.
+
+167. Pass data child to parent?
+Callback function.
+
+168. How to reset form?
+Reset state.
+
+169. File upload handling?
+e.target.files[0]
+
+170. Image preview?
+URL.createObjectURL.
+
+171. Environment variables?
+process.env.REACT_APP_
+
+172. Difference between Vite & CRA?
+Vite is faster.
+
+173. Build command?
+npm run build
+
+174. What is bundle size?
+Final JS size.
+
+175. How to reduce bundle size?
+Lazy loading.
+
+176. React testing library used for?
+Unit testing.
+
+177. Jest use?
+Testing framework.
+
+178. Snapshot testing?
+UI comparison.
+
+179. What is CI/CD?
+Automated deployment.
+
+180. Production build difference?
+Minified code.
+
+181. What is PWA?
+Progressive Web App.
+
+182. Offline support?
+Service workers.
+
+183. SEO in React?
+SSR / Meta tags.
+
+184. React Helmet?
+Manage head tags.
+
+185. Accessibility in React?
+ARIA attributes.
+
+186. What is aria-label?
+Screen reader support.
+
+187. Security risk in React?
+XSS.
+
+188. How React prevents XSS?
+Escaping values.
+
+189. What is dangerouslySetInnerHTML?
+Inject raw HTML.
+
+190. When to avoid it?
+Always unless necessary.
+
+191. What is reconciliation algorithm?
+Diffing process.
+
+192. What is fiber?
+React rendering engine.
+
+193. React 18 feature?
+Concurrent mode.
+
+194. What is batching in React 18?
+Automatic batching.
+
+195. How to share logic?
+Custom hooks.
+
+196. Can React replace Angular?
+Depends on project.
+
+197. When not to use React?
+Simple static websites.
+
+198. Biggest advantage of React?
+Component reusability.
+
+199. Biggest disadvantage?
+Learning curve.
+
+200. Why hire React developer?
+Fast, scalable UI development
