@@ -1,0 +1,906 @@
+What is JavaScript?
+JavaScript is a high-level scripting language used to create dynamic and interactive web pages.
+
+Who created JavaScript?
+Brendan Eich.
+
+Is JavaScript case-sensitive?
+Yes, JavaScript is case-sensitive.
+
+What are JavaScript data types?
+String, Number, Boolean, Undefined, Null, Symbol, BigInt, Object.
+
+What is undefined?
+A variable declared but not assigned a value.
+
+What is null?
+An intentional absence of any object value.
+
+Difference between null and undefined?
+undefined is default, null is assigned intentionally.
+
+What is NaN?
+Represents an invalid number result.
+
+What is typeof operator?
+Used to determine the type of a variable.
+
+What is variable?
+A container to store data values.
+
+What is var?
+Function-scoped variable declaration.
+
+What is let?
+Block-scoped variable declaration.
+
+What is const?
+Block-scoped variable that cannot be reassigned.
+
+What is hoisting?
+Moving declarations to the top of scope before execution.
+
+What gets hoisted in JS?
+Variable declarations and function declarations.
+
+What is scope?
+Region where variables are accessible.
+
+Types of scope?
+Global, Function, Block.
+
+What is global scope?
+Variables accessible everywhere.
+
+What is block scope?
+Variables accessible only inside {}.
+
+What is function?
+Reusable block of code.
+
+Function declaration vs expression?
+Declaration is hoisted, expression is not.
+
+What is arrow function?
+Short syntax function without its own this.
+
+What is this keyword?
+Refers to the object executing the function.
+
+What is an array?
+Ordered collection of values.
+
+How arrays are stored?
+Using indexed positions.
+
+What is object?
+Collection of key-value pairs.
+
+How to access object properties?
+Dot or bracket notation.
+
+What is loop?
+Used to repeat execution.
+
+Types of loops?
+for, while, do-while, for…of, for…in.
+
+What is for…of?
+Used to iterate values.
+
+What is for…in?
+Used to iterate keys.
+
+What is conditional statement?
+Used to make decisions.
+
+What is if-else?
+Conditional branching.
+
+What is switch?
+Alternative to multiple if-else.
+
+What are operators?
+Symbols to perform operations.
+
+Types of operators?
+Arithmetic, Logical, Comparison, Assignment.
+
+What is ==?
+Checks value only.
+
+What is ===?
+Checks value and type.
+
+What is type coercion?
+Automatic conversion of data types.
+
+What is truthy value?
+Evaluates to true.
+
+Falsy values?
+false, 0, "", null, undefined, NaN.
+
+What is string?
+Sequence of characters.
+
+What is template literal?
+String using backticks with expressions.
+
+What is concatenation?
+Joining strings.
+
+What is escape character?
+Used to include special characters.
+
+What is event?
+User or browser action.
+
+What is event handler?
+Function executed on event.
+
+What is DOM?
+Document Object Model.
+
+What does DOM represent?
+HTML as a tree structure.
+
+What is getElementById()?
+Selects element by ID.
+
+What is querySelector()?
+Selects first matching element.
+
+Difference between innerHTML and textContent?
+innerHTML parses HTML, textContent does not.
+
+What is alert()?
+Popup message.
+
+What is prompt()?
+Takes input from user.
+
+What is confirm()?
+Yes/No dialog.
+
+What is console.log()?
+Outputs data to console.
+
+What is comment in JS?
+Ignored code used for explanation.
+
+Single-line comment?
+//
+
+Multi-line comment?
+/* */
+
+What is strict mode?
+Prevents unsafe actions.
+
+How to enable strict mode?
+"use strict"
+
+What is error?
+Unexpected program behavior.
+
+Types of errors?
+Syntax, Runtime, Logical.
+
+What is try-catch?
+Handles runtime errors.
+
+What is break?
+Stops loop execution.
+
+What is continue?
+Skips current iteration.
+
+What is default parameter?
+Function parameter with default value.
+
+What is rest parameter?
+Collects remaining arguments.
+
+What is spread operator?
+Expands elements.
+
+What is destructuring?
+Extracting values from arrays/objects.
+
+What is JSON?
+Data exchange format.
+
+What is JSON.stringify()?
+Object → JSON string.
+
+What is JSON.parse()?
+JSON string → Object.
+
+What is setTimeout()?
+Executes function after delay.
+
+What is setInterval()?
+Executes function repeatedly.
+
+What is callback function?
+Function passed as argument.
+
+What is synchronous code?
+Executes line by line.
+
+What is asynchronous code?
+Executes independently.
+
+What is single-threaded?
+Executes one task at a time.
+
+What is event loop?
+Handles async operations.
+
+What is browser?
+Software to access web pages.
+
+What is BOM?
+Browser Object Model.
+
+What is window object?
+Global object in browser.
+
+What is localStorage?
+Stores data permanently.
+
+What is sessionStorage?
+Stores data per session.
+
+What is cookie?
+Small data stored by browser.
+
+What is URL?
+Address of resource.
+
+What is HTTP?
+Protocol for data transfer.
+
+What is GET request?
+Fetch data.
+
+What is POST request?
+Send data.
+
+What is API?
+Interface for communication.
+
+What is frontend JS?
+JS running in browser.
+
+What is backend JS?
+JS running on server.
+
+What is ES6?
+Modern JavaScript standard.
+
+Features of ES6?
+let, const, arrow, promises.
+
+What is module?
+Reusable JS file.
+
+What is export?
+Makes code reusable.
+
+What is import?
+Brings exported code.
+
+What is default export?
+Single export per file.
+
+What is named export?
+Multiple exports per file.
+
+
+What is execution context?
+Environment where JS code is evaluated and executed.
+
+Types of execution context?
+Global, Function, Eval.
+
+What is call stack?
+Tracks function calls during execution.
+
+What is lexical scope?
+Scope defined at write time, not runtime.
+
+What is closure?
+Function that remembers variables from outer scope.
+
+Why closures are used?
+Data hiding and encapsulation.
+
+What is hoisting priority?
+Function declarations > var > let/const (temporal dead zone).
+
+What is Temporal Dead Zone (TDZ)?
+Time before let/const initialization where access is invalid.
+
+What is this in global scope?
+Refers to window (browser).
+
+this inside object method?
+Refers to the object.
+
+this inside arrow function?
+Lexically inherited from parent scope.
+
+What is implicit binding?
+this bound to object calling the method.
+
+What is explicit binding?
+Using call, apply, bind.
+
+Difference between call and apply?
+Arguments: call → comma, apply → array.
+
+What is bind?
+Returns new function with bound this.
+
+What is higher-order function?
+Function that takes or returns another function.
+
+What is callback hell?
+Nested callbacks causing unreadable code.
+
+How to avoid callback hell?
+Promises and async/await.
+
+What is promise?
+Object representing eventual completion or failure.
+
+Promise states?
+Pending, Fulfilled, Rejected.
+
+What is .then()?
+Handles fulfilled promise.
+
+What is .catch()?
+Handles rejected promise.
+
+What is .finally()?
+Executes regardless of result.
+
+What is async function?
+Function that returns a promise.
+
+What is await?
+Pauses execution until promise resolves.
+
+Difference between sync and async?
+Sync blocks execution, async does not.
+
+What is event loop?
+Manages async callbacks execution.
+
+What is task queue?
+Queue for async callbacks (macrotasks).
+
+What is microtask queue?
+Queue for promises.
+
+Priority: microtask vs macrotask?
+Microtask first.
+
+What is setTimeout?
+Schedules function after delay.
+
+Is setTimeout guaranteed time?
+No, minimum delay only.
+
+What is debounce?
+Delays function execution until inactivity.
+
+What is throttle?
+Limits function execution rate.
+
+Difference between map and forEach?
+map returns new array, forEach does not.
+
+Difference between filter and find?
+filter returns array, find returns first match.
+
+What is reduce?
+Reduces array to single value.
+
+What is immutability?
+Not modifying original data.
+
+Why immutability is important?
+Predictability and performance.
+
+Shallow copy vs deep copy?
+Shallow copies references, deep copies values.
+
+Ways to clone object?
+Spread, Object.assign, JSON, structuredClone.
+
+Limitations of JSON cloning?
+Loses functions, undefined, dates.
+
+What is prototype?
+Mechanism for inheritance.
+
+What is prototype chain?
+Lookup chain for properties.
+
+What is constructor function?
+Function used to create objects.
+
+What is new keyword?
+Creates new object and binds prototype.
+
+What is class in JS?
+Syntactic sugar over constructor functions.
+
+What is inheritance?
+Child acquiring parent properties.
+
+What is encapsulation?
+Hiding internal data.
+
+What is polymorphism?
+Same method, different behavior.
+
+What is coercion?
+Implicit type conversion.
+
+What is explicit conversion?
+Manual type casting.
+
+What is Object.freeze()?
+Prevents modification.
+
+What is Object.seal()?
+Allows modification but no add/remove.
+
+Difference between freeze & seal?
+Freeze disallows all changes.
+
+What is currying?
+Transform function with multiple args into chain.
+
+What is partial application?
+Fixing some arguments.
+
+What is memoization?
+Caching function results.
+
+What is IIFE?
+Immediately Invoked Function Expression.
+
+Why IIFE used?
+Avoid global pollution.
+
+What is module pattern?
+Encapsulation using closures.
+
+What is strict equality edge case?
+NaN !== NaN.
+
+What is Object.is()?
+Better equality check.
+
+What is event bubbling?
+Event flows from child to parent.
+
+What is event capturing?
+Event flows from parent to child.
+
+What is event delegation?
+Handling events via parent.
+
+Why event delegation used?
+Performance and dynamic elements.
+
+What is memory leak?
+Unused memory not released.
+
+Common causes of memory leak?
+Closures, DOM references.
+
+What is garbage collection?
+Automatic memory cleanup.
+
+What is reference type?
+Stored by reference (objects).
+
+What is value type?
+Stored by value (primitives).
+
+What is stack memory?
+Stores primitives.
+
+What is heap memory?
+Stores objects.
+
+Why JS is single-threaded?
+To avoid race conditions.
+
+
+
+What is JavaScript engine?
+A program that executes JavaScript code (e.g., V8).
+
+What is V8 engine?
+Google’s JavaScript engine written in C++.
+
+What is JIT compilation?
+Just-In-Time compilation improves performance by compiling at runtime.
+
+What is parsing in JS engine?
+Converting code into AST (Abstract Syntax Tree).
+
+What is AST?
+Tree representation of source code structure.
+
+What is execution phase?
+Where code is actually executed line by line.
+
+What is memory heap?
+Area where objects are stored.
+
+What is call stack overflow?
+Too many function calls exceeding stack limit.
+
+What is tail call optimization?
+Optimizing recursive calls to avoid stack overflow.
+
+Why tail call optimization is rare in JS?
+Not widely supported by engines.
+
+What is garbage collection strategy?
+Mark-and-sweep.
+
+What is mark-and-sweep?
+Removes unreachable memory.
+
+What is reference counting?
+GC technique based on reference count.
+
+Why reference counting fails?
+Circular references.
+
+What is hidden class?
+Internal optimization for object shapes in V8.
+
+What is inline caching?
+Optimization to speed up property access.
+
+What is de-optimization?
+Reverting optimized code when assumptions fail.
+
+What is hot code?
+Frequently executed code.
+
+What is cold code?
+Rarely executed code.
+
+What is event-driven architecture?
+Program flow determined by events.
+
+What is non-blocking I/O?
+Does not block main thread.
+
+Why JS is non-blocking?
+Event loop handles async tasks.
+
+What is Web API?
+Browser-provided async APIs.
+
+What is macro task?
+Tasks like setTimeout, setInterval.
+
+What is micro task?
+Tasks like Promises.
+
+Order of execution?
+Call stack → Microtasks → Macrotasks.
+
+What is starvation?
+Tasks never executed due to priority issues.
+
+What is race condition?
+Unpredictable behavior due to async timing.
+
+What is atomic operation?
+Operation completed fully or not at all.
+
+What is SharedArrayBuffer?
+Memory shared between threads.
+
+What is Web Worker?
+Runs JS in background thread.
+
+Can Web Workers access DOM?
+No.
+
+What is message passing?
+Communication between threads.
+
+What is structured cloning?
+Algorithm to deep copy objects.
+
+What is structuredClone()?
+Built-in deep clone method.
+
+What is transpilation?
+Converting modern JS to older JS.
+
+What is Babel?
+JavaScript transpiler.
+
+What is tree shaking?
+Removing unused code.
+
+What is bundling?
+Combining multiple files.
+
+What is minification?
+Reducing file size.
+
+What is source map?
+Maps compiled code to source code.
+
+What is polyfill?
+Code to support missing features.
+
+What is shim?
+Alternative implementation for missing API.
+
+Difference between polyfill and shim?
+Polyfill adds missing feature; shim modifies behavior.
+
+What is strict mode impact on this?
+this becomes undefined in functions.
+
+What is module scope?
+Variables scoped to module.
+
+What is dynamic import?
+Import modules at runtime.
+
+What is top-level await?
+Await outside async function in modules.
+
+What is CORS?
+Cross-Origin Resource Sharing policy.
+
+Why CORS exists?
+Security for cross-origin requests.
+
+What is same-origin policy?
+Restricts cross-origin access.
+
+What is memory profiling?
+Analyzing memory usage.
+
+What is performance profiling?
+Analyzing execution time.
+
+What is time complexity?
+Measure of algorithm efficiency.
+
+What is space complexity?
+Memory usage measure.
+
+What is Big-O notation?
+Asymptotic complexity representation.
+
+What is lazy evaluation?
+Compute only when needed.
+
+What is eager evaluation?
+Compute immediately.
+
+What is functional programming?
+Paradigm based on pure functions.
+
+What is pure function?
+No side effects, same output for same input.
+
+What are side effects?
+Modifying external state.
+
+What is referential transparency?
+Function call can be replaced by value.
+
+What is immutability principle?
+State should not change.
+
+What is monad (JS context)?
+Abstraction for chaining computations.
+
+What is Promise chaining?
+Linking .then() calls.
+
+What is async stack trace?
+Trace across async calls.
+
+What is cancellation token?
+Mechanism to cancel async tasks.
+
+What is AbortController?
+API to cancel fetch requests.
+
+What is WeakMap?
+Map with weakly held keys.
+
+What is WeakSet?
+Set with weak references.
+
+Why WeakMap is useful?
+Prevents memory leaks.
+
+What is Symbol?
+Unique immutable identifier.
+
+What is well-known Symbol?
+Built-in symbols like Symbol.iterator.
+
+What is iterator protocol?
+Defines how objects are iterated.
+
+What is generator function?
+Function that yields values using yield.
+
+
+TRICKY INTERVIEW / OUTPUT-BASED THEORY (1–50) — WITH ANSWERS
+
+What is output of typeof null?
+"object" (historical bug).
+
+Is NaN === NaN true?
+No.
+
+Best way to check NaN?
+Number.isNaN().
+
+Output of [] + []?
+Empty string "".
+
+Output of [] + {}?
+"[object Object]".
+
+Output of {} + []?
+Depends on context; often 0 or syntax block.
+
+Why 0.1 + 0.2 !== 0.3?
+Floating-point precision issue.
+
+Is JS pass-by-value or reference?
+Pass-by-value (references are values).
+
+Does const make object immutable?
+No, only binding is immutable.
+
+Difference between deep & shallow copy?
+Deep copies nested data; shallow copies references.
+
+Does forEach support async/await?
+No, it doesn’t await promises.
+
+Why arrow functions don’t have arguments?
+They inherit from parent scope.
+
+Can arrow functions be constructors?
+No.
+
+What happens if promise resolves twice?
+Only first resolve is considered.
+
+Order: Promise vs setTimeout?
+Promise (microtask) runs first.
+
+What is Zalgo?
+Mix of sync and async execution.
+
+What is temporal dead zone?
+Accessing let/const before initialization.
+
+Is JS truly single-threaded?
+Yes, but async handled via event loop.
+
+What breaks tail call optimization?
+Additional operations after recursive call.
+
+Difference between microtask & macrotask?
+Microtasks have higher priority.
+
+What is memory leak in JS?
+Unused memory not released.
+
+Why closures cause memory leaks?
+They retain outer scope references.
+
+What is weak reference?
+Reference that doesn’t prevent GC.
+
+Why WeakMap keys must be objects?
+To allow garbage collection.
+
+What is symbol used for?
+Unique object keys.
+
+What is iterator protocol?
+Defines next() method.
+
+What does yield do?
+Pauses generator execution.
+
+Difference between generator & async function?
+Generators yield values; async returns promise.
+
+What is structured cloning?
+Algorithm for deep copying objects.
+
+Why JSON cloning is unsafe?
+Loses functions, dates, undefined.
+
+What is referential transparency?
+Same input → same output.
+
+What breaks purity of function?
+Side effects.
+
+What is idempotent function?
+Same result on repeated calls.
+
+What is race condition?
+Timing-dependent bug.
+
+What is starvation?
+Low-priority task never runs.
+
+What is backpressure?
+Overwhelming consumer with data.
+
+What is lazy loading?
+Load when needed.
+
+What is tree shaking?
+Removing unused code.
+
+What is dead code elimination?
+Removing unreachable code.
+
+What is hydration?
+Attaching JS to server HTML.
+
+What is transpiler?
+Converts code to compatible version.
+
+What is bundler?
+Combines files into one.
+
+What is source map used for?
+Debugging compiled code.
+
+What is sandboxing?
+Isolating execution environment.
+
+What is capability-based security?
+Access via explicit permissions.
+
+What is same-origin policy?
+Restricts cross-origin access.
+
+Why CORS is browser-only?
+Security enforcement by browsers.
+
+What is AbortController used for?
+Cancel async tasks.
+
+What is eventual consistency?
+Data becomes consistent over time.
+
+What is deterministic execution?
+Same input → same output always.
+
