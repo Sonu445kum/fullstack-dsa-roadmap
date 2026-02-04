@@ -1,0 +1,915 @@
+🟦 PART 1: PHP INTERVIEW QUESTIONS (1–150)
+🔹 PHP Basics (1–40)
+
+1. What is PHP?
+PHP is an open-source, server-side scripting language mainly used for web development.
+
+2. What does PHP stand for?
+PHP: Hypertext Preprocessor.
+
+3. Is PHP case-sensitive?
+Variables are case-sensitive, but functions and keywords are not.
+
+4. Difference between PHP and JavaScript?
+PHP runs on the server, JavaScript runs on the client.
+
+5. What are PHP tags?
+<?php ... ?> is used to embed PHP code.
+
+6. How to display output in PHP?
+Using echo or print.
+
+7. Difference between echo and print?
+Echo is faster and doesn’t return a value; print returns 1.
+
+8. What is a variable in PHP?
+A container to store data, starts with $.
+
+9. What are PHP data types?
+String, Integer, Float, Boolean, Array, Object, NULL, Resource.
+
+10. What is NULL?
+A variable with no value.
+
+11. What is constant?
+A variable whose value cannot change.
+
+12. How to define a constant?
+define("NAME", "value");
+
+13. What are PHP comments?
+//, #, /* */
+
+14. What is type casting?
+Converting one data type to another.
+
+15. What is loosely typed language?
+No need to define data types explicitly.
+
+16. What is isset()?
+Checks if a variable is set and not NULL.
+
+17. What is empty()?
+Checks if variable is empty.
+
+18. What is unset()?
+Destroys a variable.
+
+19. What is PHP syntax?
+Similar to C, Java, Perl.
+
+20. What is a superglobal variable?
+Accessible anywhere (e.g. $_GET, $_POST).
+
+21. List PHP superglobals.
+$_GET, $_POST, $_SESSION, $_COOKIE, $_SERVER, $_FILES, $_REQUEST, $_ENV.
+
+22. What is $_SERVER?
+Contains server and execution environment info.
+
+23. What is $_REQUEST?
+Collects GET, POST, COOKIE data.
+
+24. What is PHP_EOL?
+End-of-line constant.
+
+25. What is PHP version used now?
+PHP 8.x (interview-safe answer).
+
+26. What is strict typing?
+Enforces strict type checking.
+
+27. What is error_reporting()?
+Controls PHP error levels.
+
+28. What is die() vs exit()?
+Both terminate script execution.
+
+29. What is PHP.ini?
+Configuration file for PHP.
+
+30. What is display_errors?
+Shows errors on screen.
+
+31. What is memory_limit?
+Maximum memory PHP script can use.
+
+32. What is max_execution_time?
+Max time script can run.
+
+33. What is var_dump()?
+Displays variable type and value.
+
+34. What is print_r()?
+Prints human-readable variable info.
+
+35. What is heredoc?
+Multiline string syntax.
+
+36. What is nowdoc?
+Like heredoc but no variable parsing.
+
+37. What is PHP CLI?
+Command Line Interface.
+
+38. What is PHP-FPM?
+FastCGI Process Manager.
+
+39. What is opcode cache?
+Stores compiled PHP bytecode.
+
+40. What is OPcache?
+Built-in PHP opcode caching.
+
+🔹 Control Structures & Functions (41–80)
+
+41. What are control structures?
+if, else, switch, loops.
+
+42. Types of loops in PHP?
+for, while, do-while, foreach.
+
+43. Difference between for & foreach?
+foreach is used for arrays.
+
+44. What is break?
+Terminates loop.
+
+45. What is continue?
+Skips current iteration.
+
+46. What is switch-case?
+Multiple condition branching.
+
+47. What is function?
+Reusable block of code.
+
+48. What is function declaration?
+function test(){}
+
+49. What is function overloading?
+Not directly supported in PHP.
+
+50. What is function overriding?
+Child class redefining parent method.
+
+51. What is default parameter?
+Parameter with default value.
+
+52. What is return statement?
+Returns value from function.
+
+53. What is pass by value?
+Copy of variable is passed.
+
+54. What is pass by reference?
+Reference using &.
+
+55. What is anonymous function?
+Function without name.
+
+56. What is closure?
+Anonymous function using external variables.
+
+57. What is recursive function?
+Function calling itself.
+
+58. What is global keyword?
+Access global variable inside function.
+
+59. What is static keyword?
+Retains variable value.
+
+60. What is include?
+Includes file, warning on failure.
+
+61. What is require?
+Includes file, fatal error on failure.
+
+62. Difference include vs require?
+Require stops script execution.
+
+63. What is include_once?
+Includes file once.
+
+64. What is require_once?
+Same but mandatory.
+
+65. What is namespace?
+Avoids class/function name conflicts.
+
+66. What is use keyword?
+Imports namespace.
+
+67. What is error handling?
+Managing runtime errors.
+
+68. What is try-catch?
+Exception handling block.
+
+69. What is finally?
+Always executes.
+
+70. What is throw?
+Throws exception.
+
+71. What is custom exception?
+User-defined exception class.
+
+72. What is error vs exception?
+Errors are fatal; exceptions are catchable.
+
+73. What is PHP strict mode?
+declare(strict_types=1);
+
+74. What is eval()?
+Executes PHP code as string (unsafe).
+
+75. What is PHP magic constant?
+Predefined constants like __LINE__.
+
+76. List magic constants.
+__FILE__, __DIR__, __CLASS__, etc.
+
+77. What is variable scope?
+Local, global, static.
+
+78. What is output buffering?
+Stores output before sending.
+
+79. What is ob_start()?
+Starts output buffering.
+
+80. What is ob_end_flush()?
+Flushes buffer.
+
+🔹 Arrays, Strings & OOP (81–120)
+
+81. Types of arrays?
+Indexed, Associative, Multidimensional.
+
+82. How to create array?
+$arr = [];
+
+83. What is associative array?
+Key-value pair array.
+
+84. What is multidimensional array?
+Array inside array.
+
+85. What is count()?
+Counts elements.
+
+86. What is array_push()?
+Adds element.
+
+87. What is array_pop()?
+Removes last element.
+
+88. What is explode()?
+String to array.
+
+89. What is implode()?
+Array to string.
+
+90. What is strlen()?
+String length.
+
+91. What is strpos()?
+Find string position.
+
+92. What is substr()?
+Extract substring.
+
+93. What is trim()?
+Removes spaces.
+
+94. What is OOP?
+Programming using objects.
+
+95. What is class?
+Blueprint of object.
+
+96. What is object?
+Instance of class.
+
+97. What is constructor?
+Automatically called method.
+
+98. What is destructor?
+Called when object destroyed.
+
+99. What is inheritance?
+One class inherits another.
+
+100. What is encapsulation?
+Data hiding.
+
+101. What is abstraction?
+Hiding implementation details.
+
+102. What is interface?
+Contract for classes.
+
+103. What is trait?
+Code reuse mechanism.
+
+104. Difference interface vs abstract class?
+Interface has no implementation.
+
+105. What is polymorphism?
+Same method, different behavior.
+
+106. Access modifiers?
+public, private, protected.
+
+107. What is final keyword?
+Prevents inheritance/override.
+
+108. What is static method?
+Called without object.
+
+109. What is late static binding?
+Static method resolution.
+
+110. What is magic method?
+Special methods like __get().
+
+111. List magic methods.
+__construct, __destruct, etc.
+
+112. What is autoloading?
+Auto load classes.
+
+113. What is spl_autoload_register()?
+Registers autoload function.
+
+114. What is PSR?
+PHP Standard Recommendation.
+
+115. What is PSR-4?
+Autoloading standard.
+
+116. What is Composer?
+Dependency manager.
+
+117. What is vendor folder?
+Contains dependencies.
+
+118. What is composer.json?
+Dependency config file.
+
+119. What is composer.lock?
+Locked versions.
+
+120. What is MVC?
+Model-View-Controller architecture.
+
+🔹 PHP Security, Sessions & DB (121–150)
+
+121. What is session?
+Stores user data server-side.
+
+122. How to start session?
+session_start();
+
+123. What is cookie?
+Client-side storage.
+
+124. Difference session vs cookie?
+Session is secure.
+
+125. What is CSRF?
+Cross Site Request Forgery.
+
+126. What is XSS?
+Cross Site Scripting.
+
+127. How to prevent XSS?
+HTML escaping.
+
+128. What is SQL Injection?
+Malicious SQL execution.
+
+129. How to prevent SQL Injection?
+Prepared statements.
+
+130. What is PDO?
+PHP Data Objects.
+
+131. PDO vs MySQLi?
+PDO supports multiple DBs.
+
+132. What is prepared statement?
+Precompiled SQL.
+
+133. What is hashing?
+Encrypting passwords.
+
+134. password_hash()?
+Creates secure hash.
+
+135. password_verify()?
+Verifies password.
+
+136. What is SSL?
+Secure Socket Layer.
+
+137. What is HTTPS?
+Secure HTTP.
+
+138. What is file upload?
+Uploading files via form.
+
+139. What is $_FILES?
+Uploaded file info.
+
+140. What is MIME type?
+File type identifier.
+
+141. What is chmod()?
+Change file permissions.
+
+142. What is fopen()?
+Opens file.
+
+143. What is fread()?
+Reads file.
+
+144. What is fwrite()?
+Writes file.
+
+145. What is unlink()?
+Deletes file.
+
+146. What is REST API?
+Stateless web service.
+
+147. HTTP methods?
+GET, POST, PUT, DELETE.
+
+148. What is JSON?
+JavaScript Object Notation.
+
+149. json_encode()?
+Array to JSON.
+
+150. json_decode()?
+JSON to array.
+
+🟩 PART 2: LARAVEL INTERVIEW QUESTIONS (151–300)
+🔹 Laravel Basics (151–190)
+
+151. What is Laravel?
+PHP MVC framework.
+
+152. Who developed Laravel?
+Taylor Otwell.
+
+153. What is artisan?
+Laravel CLI tool.
+
+154. How to create project?
+composer create-project laravel/laravel
+
+155. What is routing?
+Maps URL to controller.
+
+156. Where routes defined?
+routes/web.php
+
+157. What is controller?
+Handles logic.
+
+158. What is model?
+Represents database table.
+
+159. What is view?
+UI layer.
+
+160. What is Blade?
+Laravel templating engine.
+
+161. Blade directives?
+@if, @foreach, @yield.
+
+162. What is layout?
+Reusable UI structure.
+
+163. What is migration?
+Database version control.
+
+164. Create migration?
+php artisan make:migration
+
+165. What is seeder?
+Inserts dummy data.
+
+166. What is factory?
+Fake data generator.
+
+167. What is Eloquent?
+Laravel ORM.
+
+168. What is ORM?
+Object Relational Mapping.
+
+169. What is mass assignment?
+Bulk data insert.
+
+170. fillable vs guarded?
+Allowed vs blocked fields.
+
+171. What is middleware?
+Request filter.
+
+172. Create middleware?
+php artisan make:middleware
+
+173. What is request lifecycle?
+Request → Middleware → Controller → Response.
+
+174. What is service container?
+Dependency injection container.
+
+175. What is service provider?
+Bootstraps services.
+
+176. What is facades?
+Static-like access to services.
+
+177. Example of facade?
+Auth, DB, Cache.
+
+178. What is config caching?
+Optimize performance.
+
+179. What is environment file?
+.env
+
+180. What is APP_KEY?
+Encryption key.
+
+181. What is validation?
+Input checking.
+
+182. Validation rules?
+required, email, min.
+
+183. What is CSRF protection?
+Prevents fake requests.
+
+184. What is CSRF token?
+Security token.
+
+185. What is auth?
+Authentication.
+
+186. Laravel auth types?
+Session, Token, Sanctum, Passport.
+
+187. What is guard?
+Auth mechanism.
+
+188. What is policy?
+Authorization logic.
+
+189. What is gate?
+Simple authorization.
+
+190. What is role-based auth?
+Permission-based access.
+
+🔹 Advanced Laravel (191–250)
+
+191. What is queue?
+Background job processing.
+
+192. Queue drivers?
+Database, Redis, SQS.
+
+193. What is job?
+Task for queue.
+
+194. What is event?
+System action trigger.
+
+195. What is listener?
+Handles event.
+
+196. What is broadcasting?
+Real-time events.
+
+197. What is cache?
+Temporary storage.
+
+198. Cache drivers?
+File, Redis, Memcached.
+
+199. What is Redis?
+In-memory database.
+
+200. What is API resource?
+Transforms data.
+
+201. What is API versioning?
+Multiple API versions.
+
+202. What is rate limiting?
+Restrict request count.
+
+203. What is throttle middleware?
+Controls API requests.
+
+204. What is soft delete?
+Marks deleted data.
+
+205. How soft delete works?
+deleted_at column.
+
+206. What is pivot table?
+Many-to-many relation.
+
+207. Eloquent relationships?
+One-to-One, One-to-Many, Many-to-Many.
+
+208. What is eager loading?
+Preload relationships.
+
+209. What is lazy loading?
+Load when accessed.
+
+210. N+1 problem?
+Multiple DB queries issue.
+
+211. What is accessor?
+Modify attribute on get.
+
+212. What is mutator?
+Modify attribute on set.
+
+213. What is collection?
+Enhanced array object.
+
+214. What is pagination?
+Split large data.
+
+215. What is API pagination?
+Paginated API response.
+
+216. What is resource controller?
+CRUD controller.
+
+217. What is form request?
+Validation class.
+
+218. What is command?
+Custom artisan command.
+
+219. What is scheduler?
+Task automation.
+
+220. Where scheduler defined?
+Kernel.php
+
+221. What is mail?
+Email service.
+
+222. Mail drivers?
+SMTP, Mailgun.
+
+223. What is notification?
+Send alerts.
+
+224. Notification channels?
+Mail, SMS, DB.
+
+225. What is filesystem?
+File storage system.
+
+226. Storage disks?
+Local, S3.
+
+227. What is API authentication?
+Token-based auth.
+
+228. Sanctum vs Passport?
+Sanctum is lightweight.
+
+229. What is testing?
+Code verification.
+
+230. Laravel testing tools?
+PHPUnit, Pest.
+
+231. What is feature test?
+Tests HTTP requests.
+
+232. What is unit test?
+Tests functions.
+
+233. What is mocking?
+Fake objects.
+
+234. What is dependency injection?
+Inject dependencies.
+
+235. What is binding?
+Register class in container.
+
+236. What is singleton binding?
+Single instance.
+
+237. What is API throttle?
+Limits API calls.
+
+238. What is Laravel Octane?
+High performance server.
+
+239. What is Horizon?
+Queue monitoring.
+
+240. What is Telescope?
+Debugging tool.
+
+241. What is Laravel Mix?
+Asset bundler.
+
+242. What is Vite?
+Modern frontend bundler.
+
+243. What is SPA?
+Single Page Application.
+
+244. Laravel + React?
+API + frontend.
+
+245. What is CORS?
+Cross-origin policy.
+
+246. What is API Resource Collection?
+Multiple resource transformer.
+
+247. What is JSON API?
+Standard API format.
+
+248. What is Laravel logging?
+Application logs.
+
+249. Log channels?
+Single, daily, slack.
+
+250. What is exception handler?
+Handles app errors.
+
+🔹 Laravel Deployment & Best Practices (251–300)
+
+251. How to deploy Laravel?
+Upload files + config server.
+
+252. Required permissions?
+storage, bootstrap/cache.
+
+253. What is env caching?
+Optimizes config loading.
+
+254. What is route caching?
+Improves routing speed.
+
+255. What is composer install?
+Install dependencies.
+
+256. What is composer update?
+Update dependencies.
+
+257. What is zero downtime deployment?
+Deploy without outage.
+
+258. What is .env.example?
+Sample environment file.
+
+259. What is API rate limit config?
+Throttle middleware.
+
+260. What is Laravel best practice?
+Thin controllers.
+
+261. What is fat model?
+Business logic in model.
+
+262. What is repository pattern?
+Data abstraction layer.
+
+263. What is SOLID?
+Design principles.
+
+264. What is DRY?
+Don’t Repeat Yourself.
+
+265. What is KISS?
+Keep It Simple.
+
+266. What is Laravel versioning?
+Semantic versioning.
+
+267. What is semantic versioning?
+Major.Minor.Patch.
+
+268. What is backward compatibility?
+Old code support.
+
+269. What is LTS version?
+Long Term Support.
+
+270. How to optimize Laravel?
+Caching + queues.
+
+271. What is API response structure?
+status, message, data.
+
+272. What is DTO?
+Data Transfer Object.
+
+273. What is event-driven architecture?
+Events-based system.
+
+274. What is Laravel contract?
+Interface definitions.
+
+275. What is HTTP client?
+Consume external APIs.
+
+276. What is Guzzle?
+HTTP client.
+
+277. What is Laravel helper?
+Global helper functions.
+
+278. What is Tinker?
+REPL tool.
+
+279. What is schedule:run?
+Runs scheduled tasks.
+
+280. What is cron job?
+Scheduled task.
+
+281. What is API token expiration?
+Token validity period.
+
+282. What is refresh token?
+Generate new token.
+
+283. What is load balancer?
+Distributes traffic.
+
+284. What is horizontal scaling?
+Multiple servers.
+
+285. What is vertical scaling?
+Increase server power.
+
+286. What is CI/CD?
+Automated deployment.
+
+287. What is GitHub Actions?
+CI/CD tool.
+
+288. What is testing coverage?
+Code tested percentage.
+
+289. What is Laravel upgrade process?
+Follow official docs.
+
+290. What is backward incompatible change?
+Breaking change.
+
+291. What is API documentation?
+Swagger, Postman.
+
+292. What is OpenAPI?
+API standard.
+
+293. What is Swagger?
+API doc tool.
+
+294. What is Laravel API Resource?
+Response formatter.
+
+295. What is response macro?
+Custom response.
+
+296. What is blade component?
+Reusable UI.
+
+297. What is slot?
+Dynamic content area.
+
+298. What is Laravel security best practice?
+Validation + hashing.
+
+299. What is production mode?
+APP_DEBUG=false.
+
+300. Why Laravel is preferred in MNCs?
+Secure, scalable, clean architecture.

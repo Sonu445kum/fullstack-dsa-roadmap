@@ -1,0 +1,1763 @@
+What is Node.js?
+
+Answer:
+Node.js is a runtime environment that allows JavaScript to run outside the browser, built on Chrome’s V8 engine.
+
+Deep Insight:
+
+Browser JS → UI focused
+
+Node.js → Server-side, file system, networking
+
+Why Node is fast?
+
+V8 compiles JS to machine code
+
+Non-blocking I/O
+
+2️⃣ Is Node.js a programming language?
+
+❌ No
+
+Explanation:
+Node.js is:
+
+❌ Not a language
+
+✅ A runtime
+
+✅ Uses JavaScript
+
+Think of Node.js like:
+
+JavaScript + Superpowers (FS, HTTP, OS access)
+
+3️⃣ Why is Node.js single-threaded?
+
+Node.js uses one main thread to handle requests.
+
+Why this is good?
+
+No thread switching overhead
+
+Less memory usage
+
+Faster I/O handling
+
+Interview Trap:
+👉 Node.js is single-threaded but NOT single-core
+
+4️⃣ How does Node.js handle multiple requests?
+
+Using:
+
+Event Loop
+
+Callback Queue
+
+Async I/O
+
+It doesn’t wait for one request to finish before starting another.
+
+5️⃣ What is non-blocking I/O?
+
+Blocking:
+
+readFileSync()
+
+
+→ waits until file read completes
+
+Non-blocking:
+
+readFile()
+
+
+→ continues execution, callback runs later
+
+This is the heart of Node.js performance
+
+6️⃣ What is the Event Loop?
+
+The Event Loop is a scheduler that decides:
+
+Which callback executes next
+
+When async code runs
+
+Key Role:
+It allows Node.js to behave asynchronously.
+
+7️⃣ Explain Event Loop phases
+
+Order of execution:
+
+Timers (setTimeout)
+
+I/O callbacks
+
+Idle, prepare
+
+Poll
+
+Check (setImmediate)
+
+Close callbacks
+
+🔥 Interview Favorite
+
+8️⃣ What is V8 engine?
+
+V8 is:
+
+Google’s JS engine
+
+Written in C++
+
+Converts JS → Machine Code
+
+Used in:
+
+Chrome
+
+Node.js
+
+Deno
+
+9️⃣ What is libuv?
+
+libuv is a C library used by Node.js to:
+
+Handle async I/O
+
+Manage thread pool
+
+Work with OS
+
+Without libuv, Node wouldn’t be async.
+
+🔟 What is the Node.js thread pool?
+
+Used for:
+
+File system
+
+Crypto
+
+Compression
+
+Default size: 4 threads
+
+You can increase it using:
+
+UV_THREADPOOL_SIZE=8
+
+1️⃣1️⃣ What are globals in Node.js?
+
+Examples:
+
+__dirname
+
+__filename
+
+process
+
+global
+
+They are available without importing
+
+1️⃣2️⃣ Difference between process.nextTick() and setImmediate()?
+nextTick	setImmediate
+Executes before event loop	Executes after poll phase
+Higher priority	Lower priority
+1️⃣3️⃣ What is process object?
+
+Provides info about:
+
+Environment
+
+Arguments
+
+Exit codes
+
+Memory usage
+
+Example:
+
+process.env.NODE_ENV
+
+1️⃣4️⃣ What is REPL?
+
+REPL =
+Read → Evaluate → Print → Loop
+
+Used for:
+
+Testing snippets
+
+Debugging
+
+Run using:
+
+node
+
+1️⃣5️⃣ What is require()?
+
+Used to:
+
+Import modules
+
+Cache modules
+
+Execute once
+
+Important:
+👉 Modules are cached after first load
+
+1️⃣6️⃣ Difference between CommonJS & ES Modules?
+CommonJS	ES Modules
+require	import
+module.exports	export
+Sync	Async
+1️⃣7️⃣ What is module caching?
+
+Once a module is loaded:
+
+Node stores it in memory
+
+Re-using doesn’t re-execute code
+
+Improves performance
+
+1️⃣8️⃣ What is __dirname?
+
+Gives:
+
+Absolute path of current directory
+
+Very useful for:
+
+File handling
+
+Static assets
+
+1️⃣9️⃣ What is __filename?
+
+Returns:
+
+Absolute path of current file
+
+2️⃣0️⃣ How does Node.js handle memory?
+
+Uses:
+
+Heap memory
+
+Garbage collection (V8)
+
+Default memory limit ≈ 1.5 GB
+
+2️⃣1️⃣ What is Garbage Collection?
+
+Automatic cleanup of:
+
+Unused variables
+
+Unreachable objects
+
+Handled by V8
+
+2️⃣2️⃣ What is Buffer?
+
+Buffer handles:
+
+Binary data
+
+File streams
+
+Network packets
+
+Example:
+
+Buffer.from("Hello")
+
+2️⃣3️⃣ Difference between Buffer & Stream?
+Buffer	Stream
+Loads all data	Loads chunks
+Memory heavy	Memory efficient
+2️⃣4️⃣ What are Streams?
+
+Streams process data piece by piece
+
+Types:
+
+Readable
+
+Writable
+
+Duplex
+
+Transform
+
+2️⃣5️⃣ Why streams are important?
+
+They:
+
+Reduce memory usage
+
+Improve speed
+
+Handle large files efficiently
+
+2️⃣6️⃣ What is fs module?
+
+Used for:
+
+File operations
+
+Read/write
+
+Delete files
+
+Supports:
+
+Sync
+
+Async
+
+Promises
+
+2️⃣7️⃣ Sync vs Async FS methods?
+Sync	Async
+Blocking	Non-blocking
+Avoid in prod	Preferred
+2️⃣8️⃣ What is path module?
+
+Helps with:
+
+File paths
+
+Cross-platform compatibility
+
+2️⃣9️⃣ What is http module?
+
+Used to:
+
+Create servers
+
+Handle requests & responses
+
+Node’s base server module
+
+3️⃣0️⃣ How does Node.js handle errors?
+
+Using:
+
+Try/catch (sync)
+
+Callbacks
+
+Promises
+
+Async/await
+
+3️⃣1️⃣ What is Error object?
+
+Contains:
+
+message
+
+stack
+
+name
+
+Used for debugging
+
+3️⃣2️⃣ What is uncaughtException?
+
+Triggered when:
+
+Error not handled
+
+⚠️ App may crash
+
+3️⃣3️⃣ What is process.exit()?
+
+Forces Node to stop execution
+
+3️⃣4️⃣ What is cluster module?
+
+Allows:
+
+Multiple Node processes
+
+Use of multiple CPU cores
+
+3️⃣5️⃣ Why Node.js is good for APIs?
+
+Fast I/O
+
+JSON native support
+
+Scalable
+
+Non-blocking
+
+3️⃣6️⃣ Why Node.js is bad for CPU-heavy tasks?
+
+Because:
+
+Single thread
+
+CPU blocks event loop
+
+Solution:
+
+Worker Threads
+
+Microservices
+
+3️⃣7️⃣ What are Worker Threads?
+
+Used for:
+
+CPU intensive tasks
+
+Parallel execution
+
+3️⃣8️⃣ What is os module?
+
+Provides:
+
+CPU info
+
+Memory info
+
+Platform
+
+3️⃣9️⃣ What is dns module?
+
+Used for:
+
+Domain lookup
+
+IP resolution
+
+4️⃣0️⃣ What is crypto module?
+
+Used for:
+
+Hashing
+
+Encryption
+
+Tokens
+
+Passwords
+
+4️⃣1️⃣ What is hashing?
+
+One-way encryption
+
+Used for:
+
+Password storage
+
+4️⃣2️⃣ What is salting?
+
+Adding random data to password before hashing
+
+Prevents rainbow attacks
+
+4️⃣3️⃣ What is zlib?
+
+Used for:
+
+Compression
+
+Gzip
+
+4️⃣4️⃣ What is setTimeout()?
+
+Executes after minimum delay
+
+4️⃣5️⃣ What is setInterval()?
+
+Executes repeatedly
+
+4️⃣6️⃣ Difference between setImmediate and setTimeout(0)?
+
+setImmediate runs after poll phase
+
+4️⃣7️⃣ What is stdout and stdin?
+
+Used for:
+
+Input/output streams
+
+4️⃣8️⃣ What is exit code 0?
+
+Success
+
+4️⃣9️⃣ What is exit code 1?
+
+Failure
+
+5️⃣0️⃣ Why Node.js is used in startups?
+
+Fast development
+
+Same language frontend + backend
+
+High scalability
+
+
+5️⃣1️⃣ Explain Node.js Event Loop in simple words
+
+Answer:
+The Event Loop is a mechanism that allows Node.js to:
+
+Execute non-blocking operations
+
+Handle thousands of requests with one thread
+
+Analogy:
+🧑‍🍳 One chef (single thread)
+📋 Orders queue (callbacks)
+⏳ Chef keeps checking which order is ready
+
+5️⃣2️⃣ Why Event Loop is needed?
+
+Because:
+
+JavaScript is single-threaded
+
+Blocking operations would freeze the server
+
+Event Loop ensures:
+✔ High performance
+✔ Async execution
+
+5️⃣3️⃣ What happens when an async function is called?
+
+Request goes to Web APIs / libuv
+
+Execution continues
+
+Callback added to queue
+
+Event Loop picks it when stack is empty
+
+5️⃣4️⃣ What are the Event Loop phases (in order)?
+
+Timers → setTimeout, setInterval
+
+I/O callbacks
+
+Idle, prepare
+
+Poll (most important)
+
+Check → setImmediate
+
+Close callbacks
+
+🔥 VERY COMMON INTERVIEW QUESTION
+
+5️⃣5️⃣ What happens in the Poll phase?
+
+Executes I/O callbacks
+
+Waits for new I/O
+
+Decides whether to block or move forward
+
+5️⃣6️⃣ Difference between setTimeout() and setImmediate()?
+setTimeout	setImmediate
+Executes after delay	Executes after poll
+Not guaranteed exact time	More predictable
+5️⃣7️⃣ What is process.nextTick()?
+
+Executes before event loop
+
+Higher priority than Promises
+
+⚠️ Overuse can block event loop
+
+5️⃣8️⃣ Order of execution: nextTick vs Promise vs setTimeout?
+
+Priority order:
+
+process.nextTick
+
+Promise.then
+
+setTimeout
+
+setImmediate
+
+5️⃣9️⃣ Can Event Loop be blocked?
+
+✅ Yes
+
+Blocking reasons:
+
+Infinite loop
+
+Heavy CPU computation
+
+Synchronous code
+
+6️⃣0️⃣ How to avoid blocking Event Loop?
+
+Use:
+
+Async APIs
+
+Worker Threads
+
+Microservices
+
+Streams
+
+⚙️ CALLBACKS & ASYNC
+6️⃣1️⃣ What is a callback?
+
+A function passed as an argument to be executed later.
+
+Example:
+
+fs.readFile("a.txt", callback)
+
+6️⃣2️⃣ What is Callback Hell?
+
+Nested callbacks that:
+
+Reduce readability
+
+Increase bugs
+
+Also called Pyramid of Doom
+
+6️⃣3️⃣ How to solve Callback Hell?
+
+✔ Promises
+✔ async/await
+✔ Modular functions
+
+6️⃣4️⃣ What is Inversion of Control?
+
+When control of execution is handed to:
+
+External function
+
+Library
+
+Callbacks suffer from this problem.
+
+6️⃣5️⃣ What are Promises?
+
+Promises represent:
+
+A value that may be available now, later, or never
+
+States:
+
+Pending
+
+Fulfilled
+
+Rejected
+
+6️⃣6️⃣ Promise vs Callback?
+Promise	Callback
+Better readability	Nested
+Chainable	Hard to manage
+Error handling easier	Complex
+6️⃣7️⃣ What is Promise chaining?
+
+Executing promises sequentially using:
+
+.then()
+
+
+Avoids nested callbacks.
+
+6️⃣8️⃣ What is Promise.all()?
+
+Runs promises in parallel
+Fails if any promise fails
+
+Use when:
+✔ All results are mandatory
+
+6️⃣9️⃣ Difference between Promise.all & Promise.allSettled?
+all	allSettled
+Fails fast	Waits for all
+Rejects on one fail	Returns status
+7️⃣0️⃣ What is Promise.race()?
+
+Returns result of first settled promise
+
+7️⃣1️⃣ What is Promise.any()?
+
+Returns:
+
+First fulfilled promise
+
+Ignores rejections
+
+7️⃣2️⃣ What is async/await?
+
+Syntactic sugar over Promises
+Makes async code look synchronous
+
+7️⃣3️⃣ Why async/await is better?
+
+✔ Cleaner syntax
+✔ Easier debugging
+✔ Better error handling
+
+7️⃣4️⃣ How does async/await work internally?
+
+Uses Promises
+
+Pauses execution until promise resolves
+
+Non-blocking
+
+7️⃣5️⃣ How to handle errors in async/await?
+
+Use:
+
+try {
+  await task()
+} catch(err) {
+  console.error(err)
+}
+
+7️⃣6️⃣ Can async function return a value?
+
+Yes
+It always returns a Promise
+
+7️⃣7️⃣ What happens if you forget await?
+
+Promise is returned
+
+Code executes incorrectly
+
+Leads to bugs
+
+7️⃣8️⃣ Can you use await outside async?
+
+❌ No
+(Except top-level await in ES modules)
+
+7️⃣9️⃣ What is top-level await?
+
+Allows await outside functions in ES modules
+
+8️⃣0️⃣ What is microtask queue?
+
+Holds:
+
+Promise callbacks
+
+nextTick callbacks
+
+Executed before macrotasks
+
+⚡ PERFORMANCE & SCALABILITY
+8️⃣1️⃣ What is non-blocking architecture?
+
+Node processes requests:
+
+Without waiting
+
+Using async I/O
+
+8️⃣2️⃣ How Node.js handles high concurrency?
+
+✔ Event Loop
+✔ Async operations
+✔ No thread per request
+
+8️⃣3️⃣ Why Node.js is faster than traditional servers?
+
+Traditional:
+
+One thread per request ❌
+
+Node.js:
+
+One thread, many requests ✅
+
+8️⃣4️⃣ What is throughput?
+
+Number of requests processed per unit time
+
+Node.js excels at high throughput
+
+8️⃣5️⃣ What is latency?
+
+Time taken to respond
+
+Blocking code increases latency
+
+8️⃣6️⃣ How to improve Node.js performance?
+
+✔ Use clustering
+✔ Avoid sync code
+✔ Use caching
+✔ Use load balancing
+
+8️⃣7️⃣ What is clustering?
+
+Using:
+
+Multiple Node processes
+
+Single port
+
+Multiple CPU cores
+
+8️⃣8️⃣ Difference between cluster & worker threads?
+Cluster	Worker Threads
+Multiple processes	Same process
+Better isolation	Shared memory
+Higher memory	Faster IPC
+8️⃣9️⃣ What is load balancing?
+
+Distributing traffic across:
+
+Servers
+
+Processes
+
+9️⃣0️⃣ What is backpressure?
+
+When:
+
+Producer sends data faster than consumer can handle
+
+Streams handle backpressure automatically.
+
+9️⃣1️⃣ What is caching?
+
+Storing frequently accessed data
+
+Types:
+
+In-memory
+
+Redis
+
+CDN
+
+9️⃣2️⃣ What is memory leak?
+
+When memory:
+
+Is allocated
+
+Never released
+
+Causes:
+
+Global variables
+
+Event listeners not removed
+
+9️⃣3️⃣ How to detect memory leaks?
+
+✔ Heap snapshots
+✔ Monitoring tools
+✔ process.memoryUsage()
+
+9️⃣4️⃣ What is process.memoryUsage()?
+
+Returns:
+
+Heap used
+
+RSS
+
+External memory
+
+9️⃣5️⃣ What is CPU profiling?
+
+Analyzing:
+
+CPU usage
+
+Hot functions
+
+9️⃣6️⃣ How Node.js handles child processes?
+
+Using:
+
+child_process module
+
+9️⃣7️⃣ Difference between spawn & exec?
+spawn	exec
+Streams	Buffers
+Large data	Small data
+9️⃣8️⃣ What is IPC?
+
+Inter-Process Communication
+
+Used in:
+
+Cluster
+
+Child processes
+
+9️⃣9️⃣ What is graceful shutdown?
+
+Allowing:
+
+Requests to finish
+
+Resources to close
+
+1️⃣0️⃣0️⃣ Why is async knowledge critical in Node.js interviews?
+
+Because:
+
+Node is async by nature
+
+Most bugs are async-related
+
+Performance depends on it
+
+
+EXPRESS.JS CORE
+1️⃣0️⃣1️⃣ What is Express.js?
+
+Answer:
+Express.js is a minimal, flexible Node.js web framework used to:
+
+Build APIs
+
+Handle routes
+
+Manage middleware
+
+Create server-side applications
+
+👉 Built on top of Node.js HTTP module
+
+1️⃣0️⃣2️⃣ Why use Express instead of pure Node.js?
+
+Pure Node.js:
+
+Too much boilerplate
+
+Manual routing
+
+Express:
+✔ Cleaner syntax
+✔ Faster development
+✔ Middleware support
+
+1️⃣0️⃣3️⃣ What is middleware in Express?
+
+Middleware is a function that:
+
+Executes between request & response
+
+Has access to:
+
+req
+
+res
+
+next
+
+1️⃣0️⃣4️⃣ Types of middleware
+
+Application-level
+
+Router-level
+
+Error-handling
+
+Built-in
+
+Third-party
+
+1️⃣0️⃣5️⃣ Example of middleware
+app.use((req, res, next) => {
+  console.log("Request received");
+  next();
+});
+
+1️⃣0️⃣6️⃣ What is next()?
+
+It tells Express:
+
+“Move to the next middleware”
+
+❌ If not called → request hangs
+
+1️⃣0️⃣7️⃣ What happens if next() is not called?
+
+Request stuck
+
+Client waits forever
+
+Server appears frozen
+
+🔥 Common interview trap
+
+1️⃣0️⃣8️⃣ What is application-level middleware?
+
+Applies to all routes
+
+app.use(middleware)
+
+1️⃣0️⃣9️⃣ What is router-level middleware?
+
+Applies to specific routes
+
+router.use(middleware)
+
+1️⃣1️⃣0️⃣ What is error-handling middleware?
+
+Special middleware with 4 parameters
+
+(err, req, res, next)
+
+
+Used to:
+
+Catch errors
+
+Send proper responses
+
+1️⃣1️⃣1️⃣ Why error middleware must be last?
+
+Because:
+
+Express executes middleware sequentially
+
+Errors bubble down
+
+1️⃣1️⃣2️⃣ What are built-in middlewares?
+
+Examples:
+
+express.json()
+
+express.urlencoded()
+
+express.static()
+
+1️⃣1️⃣3️⃣ What is express.json()?
+
+Parses:
+
+Incoming JSON request body
+
+Attaches it to req.body
+
+1️⃣1️⃣4️⃣ What is express.urlencoded()?
+
+Used for:
+
+HTML form submissions
+
+1️⃣1️⃣5️⃣ What is express.static()?
+
+Serves:
+
+Static files
+
+Images, CSS, JS
+
+🛣️ ROUTING
+1️⃣1️⃣6️⃣ What is routing?
+
+Routing defines:
+
+How app responds to requests
+
+Based on URL & HTTP method
+
+1️⃣1️⃣7️⃣ HTTP methods supported by Express
+
+GET
+
+POST
+
+PUT
+
+PATCH
+
+DELETE
+
+1️⃣1️⃣8️⃣ Difference between PUT & PATCH?
+PUT	PATCH
+Replace entire resource	Update partial
+Idempotent	Usually idempotent
+1️⃣1️⃣9️⃣ What are route parameters?
+
+Dynamic values in URL
+
+/user/:id
+
+
+Access via:
+
+req.params.id
+
+1️⃣2️⃣0️⃣ What are query parameters?
+
+After ?
+
+/search?name=sonu
+
+
+Access via:
+
+req.query
+
+🌐 REST APIs
+1️⃣2️⃣1️⃣ What is REST?
+
+REST = Representational State Transfer
+
+A set of principles for designing APIs
+
+1️⃣2️⃣2️⃣ REST principles
+
+Client-server
+
+Stateless
+
+Cacheable
+
+Uniform interface
+
+Layered system
+
+1️⃣2️⃣3️⃣ What does stateless mean?
+
+Server:
+
+Does NOT store client state
+
+Each request is independent
+
+1️⃣2️⃣4️⃣ What is resource in REST?
+
+Any data:
+
+User
+
+Product
+
+Order
+
+Identified via URL
+
+1️⃣2️⃣5️⃣ RESTful API example
+GET /users
+POST /users
+GET /users/1
+DELETE /users/1
+
+1️⃣2️⃣6️⃣ What are HTTP status codes?
+
+Codes that indicate:
+
+Request result
+
+Success or failure
+
+1️⃣2️⃣7️⃣ Common HTTP status codes
+
+200 → OK
+
+201 → Created
+
+400 → Bad Request
+
+401 → Unauthorized
+
+403 → Forbidden
+
+404 → Not Found
+
+500 → Server Error
+
+1️⃣2️⃣8️⃣ Difference between 401 & 403?
+401	403
+Not authenticated	Authenticated but forbidden
+1️⃣2️⃣9️⃣ What is idempotency?
+
+Multiple identical requests produce same result
+
+Example:
+
+PUT
+
+DELETE
+
+1️⃣3️⃣0️⃣ What is pagination?
+
+Breaking large data into pages
+
+Methods:
+
+limit + offset
+
+cursor-based
+
+🔐 SECURITY (VERY IMPORTANT)
+1️⃣3️⃣1️⃣ What is authentication?
+
+Verifying:
+
+Who the user is
+
+1️⃣3️⃣2️⃣ What is authorization?
+
+Verifying:
+
+What user can access
+
+1️⃣3️⃣3️⃣ Difference between authentication & authorization?
+Auth	Authorization
+Identity	Permission
+Login	Access control
+1️⃣3️⃣4️⃣ What is JWT?
+
+JWT = JSON Web Token
+
+Used for:
+
+Authentication
+
+Stateless sessions
+
+1️⃣3️⃣5️⃣ Structure of JWT
+
+3 parts:
+
+Header
+
+Payload
+
+Signature
+
+Separated by dots
+
+1️⃣3️⃣6️⃣ Why JWT is stateless?
+
+Because:
+
+Server doesn’t store session
+
+Token contains user info
+
+1️⃣3️⃣7️⃣ Where should JWT be stored?
+
+✔ HTTP-only cookies (best)
+⚠️ LocalStorage (XSS risk)
+
+1️⃣3️⃣8️⃣ What is CORS?
+
+Cross-Origin Resource Sharing
+
+Controls:
+
+Which domains can access API
+
+1️⃣3️⃣9️⃣ What is CSRF?
+
+Cross-Site Request Forgery
+
+Attack where:
+
+Unauthorized action is performed
+
+1️⃣4️⃣0️⃣ How to prevent CSRF?
+
+✔ CSRF tokens
+✔ SameSite cookies
+
+1️⃣4️⃣1️⃣ What is XSS?
+
+Cross-Site Scripting
+
+Injecting malicious JS into app
+
+1️⃣4️⃣2️⃣ How to prevent XSS?
+
+✔ Input sanitization
+✔ HTTP-only cookies
+✔ Content Security Policy
+
+1️⃣4️⃣3️⃣ What is rate limiting?
+
+Limits:
+
+Number of requests per user/IP
+
+Prevents:
+
+DDoS
+
+Brute force attacks
+
+1️⃣4️⃣4️⃣ What is helmet?
+
+Security middleware for Express
+
+Adds:
+
+Secure HTTP headers
+
+1️⃣4️⃣5️⃣ What is bcrypt?
+
+Used for:
+
+Password hashing
+
+Salting
+
+1️⃣4️⃣6️⃣ Why hashing passwords is important?
+
+If DB leaks:
+
+Plain passwords exposed ❌
+
+Hashed passwords safe ✅
+
+1️⃣4️⃣7️⃣ What is environment variable?
+
+Used to store:
+
+Secrets
+
+API keys
+
+Configs
+
+Example:
+
+process.env.PORT
+
+1️⃣4️⃣8️⃣ Why .env should not be pushed to GitHub?
+
+Because:
+
+Contains secrets
+
+Security risk
+
+1️⃣4️⃣9️⃣ What is API versioning?
+
+Maintaining:
+
+Multiple API versions
+
+Example:
+
+/api/v1/users
+/api/v2/users
+
+1️⃣5️⃣0️⃣ Why Express + Node is popular?
+
+✔ Fast
+✔ Scalable
+✔ JS everywhere
+✔ Huge ecosystem
+
+
+1️⃣5️⃣1️⃣ What is system design?
+
+System design is:
+
+Planning how a system will scale, perform, and stay reliable
+
+It covers:
+
+Architecture
+
+Scalability
+
+Reliability
+
+Security
+
+1️⃣5️⃣2️⃣ Difference between low-level & high-level design?
+Low-Level	High-Level
+Code structure	Architecture
+Classes	Services
+APIs	Load balancers
+1️⃣5️⃣3️⃣ What is monolithic architecture?
+
+Single codebase:
+
+Frontend
+
+Backend
+
+Database
+
+❌ Hard to scale
+
+1️⃣5️⃣4️⃣ What is microservices architecture?
+
+Multiple independent services:
+
+Auth service
+
+User service
+
+Payment service
+
+✔ Easy scaling
+✔ Fault isolation
+
+1️⃣5️⃣5️⃣ Why Node.js is good for microservices?
+
+✔ Lightweight
+✔ Fast startup
+✔ JSON friendly
+✔ Async I/O
+
+1️⃣5️⃣6️⃣ What is API Gateway?
+
+Single entry point that:
+
+Routes requests
+
+Handles auth
+
+Rate limiting
+
+1️⃣5️⃣7️⃣ What is service discovery?
+
+Finding:
+
+Service locations dynamically
+
+Used in microservices
+
+1️⃣5️⃣8️⃣ What is load balancer?
+
+Distributes traffic across:
+
+Servers
+
+Instances
+
+Examples:
+
+Nginx
+
+AWS ALB
+
+1️⃣5️⃣9️⃣ Horizontal vs Vertical scaling?
+Horizontal	Vertical
+Add servers	Add power
+Scalable	Limited
+1️⃣6️⃣0️⃣ Stateless vs Stateful services?
+Stateless	Stateful
+No memory	Stores state
+Scales easily	Hard to scale
+🗄️ DATABASE & CACHING
+1️⃣6️⃣1️⃣ SQL vs NoSQL?
+SQL	NoSQL
+Structured	Flexible
+ACID	Eventually consistent
+1️⃣6️⃣2️⃣ Why MongoDB with Node.js?
+
+✔ JSON-like documents
+✔ Flexible schema
+✔ Fast prototyping
+
+1️⃣6️⃣3️⃣ What is indexing?
+
+Optimizes:
+
+Query speed
+
+Tradeoff:
+
+Slower writes
+
+1️⃣6️⃣4️⃣ What is caching?
+
+Storing:
+
+Frequently used data
+
+In memory
+
+Improves performance
+
+1️⃣6️⃣5️⃣ Redis use cases?
+
+✔ Session storage
+✔ Caching
+✔ Rate limiting
+
+1️⃣6️⃣6️⃣ Cache invalidation strategies?
+
+TTL
+
+Write-through
+
+Write-back
+
+⚡ PERFORMANCE OPTIMIZATION
+1️⃣6️⃣7️⃣ What is N+1 problem?
+
+Multiple DB queries:
+
+One for list
+
+One per item
+
+Solution:
+✔ Joins
+✔ Aggregation
+
+1️⃣6️⃣8️⃣ What is lazy loading?
+
+Load data:
+
+Only when needed
+
+1️⃣6️⃣9️⃣ What is eager loading?
+
+Load data:
+
+Immediately
+
+1️⃣7️⃣0️⃣ How to optimize Node.js APIs?
+
+✔ Use caching
+✔ Use pagination
+✔ Avoid sync code
+✔ Use compression
+
+🔐 SECURITY & RELIABILITY
+1️⃣7️⃣1️⃣ What is HTTPS?
+
+Secure HTTP using:
+
+SSL/TLS encryption
+
+1️⃣7️⃣2️⃣ Why HTTPS is mandatory?
+
+Prevents:
+
+MITM attacks
+
+Data leaks
+
+1️⃣7️⃣3️⃣ What is SSL/TLS handshake?
+
+Process to:
+
+Establish secure connection
+
+1️⃣7️⃣4️⃣ What is secret management?
+
+Storing secrets securely:
+
+AWS Secrets Manager
+
+Vault
+
+1️⃣7️⃣5️⃣ What is rate limiting at scale?
+
+Protect APIs from:
+
+Abuse
+
+DDoS
+
+🧪 TESTING & MONITORING
+1️⃣7️⃣6️⃣ Types of testing?
+
+Unit
+
+Integration
+
+E2E
+
+1️⃣7️⃣7️⃣ What is unit testing?
+
+Testing:
+
+Smallest unit of code
+
+1️⃣7️⃣8️⃣ Popular Node.js testing libraries?
+
+Jest
+
+Mocha
+
+Chai
+
+1️⃣7️⃣9️⃣ What is logging?
+
+Recording:
+
+Application behavior
+
+Errors
+
+1️⃣8️⃣0️⃣ Why logging is important?
+
+✔ Debugging
+✔ Monitoring
+✔ Auditing
+
+🚢 DEPLOYMENT & DEVOPS
+1️⃣8️⃣1️⃣ What is CI/CD?
+
+Automated:
+
+Build
+
+Test
+
+Deploy
+
+1️⃣8️⃣2️⃣ What is Docker?
+
+Containerization tool:
+
+Same environment everywhere
+
+1️⃣8️⃣3️⃣ Benefits of Docker?
+
+✔ Consistency
+✔ Portability
+✔ Scalability
+
+1️⃣8️⃣4️⃣ What is container?
+
+Lightweight isolated environment
+
+1️⃣8️⃣5️⃣ Docker vs VM?
+Docker	VM
+Lightweight	Heavy
+Fast	Slow
+1️⃣8️⃣6️⃣ What is Kubernetes?
+
+Orchestration tool:
+
+Manages containers
+
+Auto-scaling
+
+1️⃣8️⃣7️⃣ Why Kubernetes with Node.js?
+
+✔ Auto scaling
+✔ Self healing
+✔ Load balancing
+
+1️⃣8️⃣8️⃣ What is PM2?
+
+Production process manager for Node.js
+
+Features:
+
+Auto restart
+
+Clustering
+
+Monitoring
+
+1️⃣8️⃣9️⃣ What is blue-green deployment?
+
+Two environments:
+
+Blue (live)
+
+Green (new)
+
+Zero downtime
+
+☁️ CLOUD (AWS FOCUS)
+1️⃣9️⃣0️⃣ What is AWS EC2?
+
+Virtual server in cloud
+
+1️⃣9️⃣1️⃣ What is AWS S3?
+
+Object storage:
+
+Images
+
+Videos
+
+Backups
+
+1️⃣9️⃣2️⃣ What is AWS RDS?
+
+Managed relational database
+
+1️⃣9️⃣3️⃣ What is AWS Lambda?
+
+Serverless function:
+
+No server management
+
+1️⃣9️⃣4️⃣ Node.js in serverless?
+
+✔ Fast cold start
+✔ Lightweight
+
+1️⃣9️⃣5️⃣ What is CDN?
+
+Content Delivery Network
+
+Reduces:
+
+Latency
+
+Load
+
+1️⃣9️⃣6️⃣ What is health check?
+
+Ensures:
+
+Server is running
+
+1️⃣9️⃣7️⃣ What is graceful scaling?
+
+Scaling:
+
+Without downtime
+
+1️⃣9️⃣8️⃣ What is disaster recovery?
+
+Backup plan for:
+
+Failures
+
+Data loss
+
+1️⃣9️⃣9️⃣ How do you design a scalable Node.js app?
+
+✔ Stateless APIs
+✔ Load balancer
+✔ Caching
+✔ Horizontal scaling
+
+2️⃣0️⃣0️⃣ Why companies choose Node.js in production?
+
+✔ High performance
+✔ Scalability
+✔ Huge ecosystem
+✔ JS full-stack advantage
