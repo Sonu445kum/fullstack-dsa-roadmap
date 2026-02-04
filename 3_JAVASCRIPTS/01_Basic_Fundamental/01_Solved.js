@@ -177,9 +177,9 @@
 // console.log(containsSubstring("This is my Village", "Village"));
 
 // Find ASCII value of character
-function asciiValue(char) {
-  return char.charCodeAt(0);
-}
+// function asciiValue(char) {
+//   return char.charCodeAt(0);
+// }
 
-console.log(asciiValue("A"));
-console.log(asciiValue("a"));
+// console.log(asciiValue("A"));
+// console.log(asciiValue("a"));
