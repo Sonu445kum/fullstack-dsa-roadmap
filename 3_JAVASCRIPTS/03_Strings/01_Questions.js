@@ -65,12 +65,45 @@
 // console.log("The  Remove Duplicate Character:",findDulicate(str));
 
 // Find first non-repeating character
+// function nonRepeatingCharacter(str){
+//     let freq={};
+//     // count the frequency
+//     for(let ch of str){
+//         freq[ch] =(freq[ch] || 0) + 1;
+//     }
+//     // find the non repeating character
+//     for(let ch of str){
+//         if(freq[ch] === 1){
+//             return ch;
+//         }
+//     }
+//     return -1;
+// };
+// console.log("First Non-Repeating Character:",nonRepeatingCharacter("hello"));
+// console.log("First Non-Repeating Character:",nonRepeatingCharacter("yellow"));
+// console.log("First Non-Repeating Character:",nonRepeatingCharacter("swiss"));
 
 // Find first repeating character
+// function RepeatingCharacter(str){
+//     let set = new Set();
+//     for(let ch of str){
+//         if(set.has(ch)){
+//             return ch;
+//         };
+//         set.add(ch);
+//     }
+//     return -1;
+// };
+// console.log("First Repeating Character:",RepeatingCharacter("hello"));
+// console.log("First Repeating Character:",RepeatingCharacter("yellow"));
+// console.log("First Repeating Character:",RepeatingCharacter("swiss"));
 
 // Check string rotation
 
 // Replace all spaces with dash
+// let str ="heloo bro where are you right now";
+// let replaceAllwithDash =str.split(" ").join('-');
+// console.log(replaceAllwithDash);
 
 // Check valid palindrome (ignore symbols)
 
@@ -112,14 +145,53 @@
 // console.log(countVow_Consonants(str));
 
 // Check string startsWith manually
+// function startsWithManual(str,prefix){
+//     if(prefix.length > str.length){
+//         return false;
+//     };
+//     for(let i=0; i<prefix.length; i++){
+//         if(str[i] !== prefix[i]){
+//             return false;
+//         }
+//     }
+//     return true;
+
+// }
+// console.log(startsWithManual("javascript", "java")); // true
+// console.log(startsWithManual("javascript", "script")); // false
 
 // Check string endsWith manually
+// function endsWithManual(str,suffix){
+//     if(suffix.length > str.length) return false;
+//     // startIndex
+//     let startIndex=str.length - suffix.length;
+//     for(let i=0; i<suffix.length ; i++){
+//         if(str[startIndex + i] !==suffix[i]){
+//             return false;
+//         }
+//     }
+//     return true;
+
+// }
+// console.log(endsWithManual("javascript", "script")); // true
+// console.log(endsWithManual("javascript", "java")); // false
 
 // Truncate string
 
 // Repeat string N times
 
 // Find all substrings
+// let str="abc";
+// function findAllStr(str){
+//     let result =[];
+//     for(let i=0; i<str.length; i++){
+//         for(let j=i+1; j<=str.length; j++){
+//             result.push(str.slice(i,j));
+//         }
+//     }
+//     return result;
+// };
+// console.log("The Longest Substring:",findAllStr(str));
 
 // String compression
 
