@@ -143,8 +143,35 @@
 // console.log(sortArr(arr));
 
 // Find kth largest element
-function kthLargestNum(arr){
+// function kthLargestNum(arr){
     
-}
+// }
 
 // Shuffle array
+// You are given a large integer represented as an integer array digits,
+//  where each digits[i] is the ith digit of the integer. 
+// The digits are ordered from most significant to least significant in left-to-right order. 
+// The large integer does not contain any leading 0's.
+// Increment the large integer by one and return the resulting array of digits.
+
+// var plusOne = function(digits) {
+//     let pluseOne=1;
+//     let sum=0;
+//     for(let i=0; i<digits.length; i++){
+//         sum=sum*10 + digits[i];
+//     }
+//     sum+=pluseOne;
+//    let array=[...sum.toString()].map(Number);
+//     return array;
+// };
+// const digits=[9];
+// console.log(plusOne(digits));
+
+// find the length of last word;
+let str ='Hello Wolrd sonu';
+function findLenLastWord(str){
+  let word=str.trim().split(" ");
+  word = word[word.length - 1].length;
+  return word;
+}
+console.log(findLenLastWord(str));
