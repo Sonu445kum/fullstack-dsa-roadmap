@@ -48,13 +48,31 @@
 // console.log(isPower4(num));
 
 // check the power5
-function isPower5(num){
-    // base case
-    if(num <=0) return false;
-    while(num % 5 === 0){
-        num = num / 5;
-    }
-    return num === 1;
+// function isPower5(num){
+//     // base case
+//     if(num <=0) return false;
+//     while(num % 5 === 0){
+//         num = num / 5;
+//     }
+//     return num === 1;
+// };
+// let num=125;
+// console.log(isPower5(num));
+
+// find the tribonacci number
+function tribonacci(n){
+    // base case;
+    if(n===0) return 0;
+    if(n === 1 || n === 2) return 1;
+    // recursive call
+    let a=0,b=1,c=1;
+    for(let i=3; i<=n; i++){
+        let next = a+b+c;
+        a=b;
+        b=c;
+        c=next;
+    };
+    return c;
 };
-let num=125;
-console.log(isPower5(num));
+let n=4;
+console.log("The Tribonacci Number:",tribonacci(n));
