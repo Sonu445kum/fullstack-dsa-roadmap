@@ -168,10 +168,52 @@
 // console.log(plusOne(digits));
 
 // find the length of last word;
-let str ='Hello Wolrd sonu';
-function findLenLastWord(str){
-  let word=str.trim().split(" ");
-  word = word[word.length - 1].length;
-  return word;
-}
-console.log(findLenLastWord(str));
+// let str ='Hello Wolrd sonu';
+// function findLenLastWord(str){
+//   let word=str.trim().split(" ");
+//   word = word[word.length - 1].length;
+//   return word;
+// }
+// console.log(findLenLastWord(str));
+
+
+// Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+// You must implement a solution with a linear runtime complexity and use only constant extra space.
+
+// Example 1:
+// Input: nums = [2,2,1]
+// Output: 1
+
+// Example 2:
+// Input: nums = [4,1,2,1,2]
+// Output: 4
+
+// Example 3:
+// Input: nums = [1]
+// Output: 1
+// first Approach:
+// function findSingleNum(nums){
+
+//   let single=0;
+//   // base case
+//   if(nums.length === 0) return;
+//   if(nums.length === 1) return nums[0];
+//   // recursive call
+//   for(let i=0 ; i<nums.length; i++){
+//     single=nums[i]^single;
+//   }
+//   return single;
+
+
+// }
+
+// 2nd Approach
+// function findSingleNum(nums){
+//   let single=0;
+//   for(let num of nums){
+//     single ^= num
+//   }
+//   return single;
+// }
+// let nums =[4,1,2,1,2];
+// console.log("The Single Number:",findSingleNum(nums))
