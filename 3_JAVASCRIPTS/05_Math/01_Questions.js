@@ -60,19 +60,75 @@
 // console.log(isPower5(num));
 
 // find the tribonacci number
-function tribonacci(n){
-    // base case;
-    if(n===0) return 0;
-    if(n === 1 || n === 2) return 1;
-    // recursive call
-    let a=0,b=1,c=1;
-    for(let i=3; i<=n; i++){
-        let next = a+b+c;
-        a=b;
-        b=c;
-        c=next;
-    };
-    return c;
+// function tribonacci(n){
+//     // base case;
+//     if(n===0) return 0;
+//     if(n === 1 || n === 2) return 1;
+//     // recursive call
+//     let a=0,b=1,c=1;
+//     for(let i=3; i<=n; i++){
+//         let next = a+b+c;
+//         a=b;
+//         b=c;
+//         c=next;
+//     };
+//     return c;
+// };
+// let n=4;
+// console.log("The Tribonacci Number:",tribonacci(n));
+
+// check the number is the Valid Perfect Sqaure
+// function isPerfectSquare(num){
+//     // base case
+//     if(num <=0) return false;
+//     for(let i=1; i<=num; i++){
+//         if(num % i === 0 && i*i === num){
+//             return true;
+//         }
+//     }
+//     return false;
+
+// };
+// let num=2147483647;
+// console.log("The Number is Perfect or not:",isPerfectSquare(num))
+
+// 2nd Approach
+// function isPerfectSquare(num) {
+//   let left = 1,right = num;
+//   while (left <= right) {
+//     let mid = Math.floor((left + right) / 2);
+//     let sqaure = mid * mid;
+//     if (sqaure === num) return true;
+//     else if (sqaure < num) left = mid + 1;
+//     else if (sqaure > num) right = mid - 1;
+//   }
+//   return false;
+// }
+// let num = 144;
+// console.log("The Number is Perfect or not:", isPerfectSquare(num));
+
+var mySqrt = function(num) {
+    if (num < 2) return num;
+
+    let left = 1;
+    let right = Math.floor(num / 2);
+    let ans = 0;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        let square = mid * mid;
+
+        if (square === num) {
+            return mid;
+        } else if (square < num) {
+            ans = mid;       // store possible answer
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return ans;
 };
-let n=4;
-console.log("The Tribonacci Number:",tribonacci(n));
+let num = 4;
+console.log("The Square Root of the Number:", mySqrt(num));
