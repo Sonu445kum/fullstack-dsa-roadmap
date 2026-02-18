@@ -12,19 +12,50 @@
 // Input: n = 4, start = 3
 // Output: 8
 // Explanation: Array nums is equal to [3, 5, 7, 9] where (3 ^ 5 ^ 7 ^ 9) = 8.
+// first Approach
+// function xorOperations(n, start) {
+//   let emptyArr = [];
+//   for (let i = 0; i < n; i++) {
+//     emptyArr[i] = start + 2 * i;
+//   }
+//   let ans = emptyArr[0];
+//   for (let i = 1; i < n; i++) {
+//     ans = emptyArr[i] ^ ans;
+//   }
+//   return ans;
+// }
+// let n = 5,
+//   start = 0;
+// // let n= 4 , start = 3;
+// console.log("The XorOperations:", xorOperations(n, start));
 
-function xorOperations(n, start) {
-  let emptyArr = [];
-  for (let i = 0; i < n; i++) {
-    emptyArr[i] = start + 2 * i;
-  }
-  let ans = emptyArr[0];
-  for (let i = 1; i < n; i++) {
-    ans = emptyArr[i] ^ ans;
-  }
-  return ans;
-}
-let n = 5,
-  start = 0;
+// 2nd Appraoch for more Optimized
+// function xorOperations(n, start) {
+//   let ans=0;
+//   for(let i=0; i<n; i++){
+//     ans^=(start + 2 * i);
+//   }
+//   return ans;
+
+// }
+// // let n = 5, start = 0;
 // let n= 4 , start = 3;
-console.log("The XorOperations:", xorOperations(n, start));
+// console.log("The XorOperations:", xorOperations(n, start));
+
+// find the Compliment
+function findCompliment(num){
+    let mask = 0;
+    let temp = num;
+
+    // Create mask like 111... of same length
+    while (temp > 0) {
+        mask = (mask << 1) | 1;
+        temp >>= 1;
+    }
+
+    return num ^ mask;
+
+};
+let num=5;
+console.log("The Compliment of given Num:",findCompliment(num));
+
