@@ -43,19 +43,51 @@
 // console.log("The XorOperations:", xorOperations(n, start));
 
 // find the Compliment
-function findCompliment(num){
-    let mask = 0;
-    let temp = num;
+// function findCompliment(num){
+//     let mask = 0;
+//     let temp = num;
 
-    // Create mask like 111... of same length
-    while (temp > 0) {
-        mask = (mask << 1) | 1;
-        temp >>= 1;
+//     // Create mask like 111... of same length
+//     while (temp > 0) {
+//         mask = (mask << 1) | 1;
+//         temp >>= 1;
+//     }
+
+//     return num ^ mask;
+
+// };
+// let num=5;
+// console.log("The Compliment of given Num:",findCompliment(num));
+
+// Given a positive integer n, write a function that returns the number of set bits in its binary representation (also known as the Hamming weight).
+// Example 1:
+
+// Input: n = 11
+
+// Output: 3
+
+// Explanation:
+
+// The input binary string 1011 has a total of three set bits.
+
+// Example 2:
+
+// Input: n = 128
+
+// Output: 1
+
+// Explanation:
+
+// The input binary string 10000000 has a total of one set bit.
+var hammingWeight = function(n) {
+    let count =0;
+    while(n > 0){
+        n = n & (n-1);
+        count++;
     }
-
-    return num ^ mask;
-
+    return count;
+    
 };
-let num=5;
-console.log("The Compliment of given Num:",findCompliment(num));
+let n=11;
+console.log(hammingWeight(n));
 
