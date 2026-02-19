@@ -232,23 +232,53 @@
 // Input: nums = [1,3,5,6], target = 7
 // Output: 4
 
-function searchInsertPost(nums,target){
-    let n = nums.length;
-    let start = 0, end  = n -1;
-    // if the element is found in the given arrays
-    while(start <=end){
-        let mid = Math.floor((start + end)/2);
-        if(nums[mid] === target) return mid;
-        else if(target > nums[mid]) start = mid + 1;
-        else if( target < nums[mid]) end = mid - 1 ;
-    }
-    // if the element is not found in the given array
-    return start;
+// function searchInsertPost(nums,target){
+//     let n = nums.length;
+//     let start = 0, end  = n -1;
+//     // if the element is found in the given arrays
+//     while(start <=end){
+//         let mid = Math.floor((start + end)/2);
+//         if(nums[mid] === target) return mid;
+//         else if(target > nums[mid]) start = mid + 1;
+//         else if( target < nums[mid]) end = mid - 1 ;
+//     }
+//     // if the element is not found in the given array
+//     return start;
 
 
 
+// };
+// // let nums =[1,3,5,6],target = 5;
+// // let nums = [1,3,5,6], target = 2 ;
+// let nums = [1,3,5,6], target = 7
+// console.log("The Index of Search Element:",searchInsertPost(nums,target));
+
+// Given an array nums of size n, return the majority element.
+
+// The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+ 
+
+// Example 1:
+
+// Input: nums = [3,2,3]
+// Output: 3
+// Example 2:
+
+// Input: nums = [2,2,1,1,1,2,2]
+// Output: 2
+
+function majorityElement(nums){
+    let major =null;
+    let count = 0;
+    for(let num of nums){
+        if(count === 0){
+            major = num;
+        }
+        count += (num === major) ? 1 : -1;
+    };
+    
+    return major;
 };
-// let nums =[1,3,5,6],target = 5;
-// let nums = [1,3,5,6], target = 2 ;
-let nums = [1,3,5,6], target = 7
-console.log("The Index of Search Element:",searchInsertPost(nums,target));
+let nums = [3,2,3];
+console.log("The Majority Element :",majorityElement(nums));
