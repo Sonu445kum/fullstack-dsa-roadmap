@@ -104,16 +104,16 @@
 // Input: nums = [0,1,0,1,0,1,99]
 // Output: 99
 
-function findUnique(nums){
-    let ones = 0;
-    let twices = 0;
-    for(let num of nums){
-        ones = (ones ^ num) & ~twices;
-        twices = (twices ^ num) & ~ones;
-    };
-    return ones;
+// function findUnique(nums){
+//     let ones = 0;
+//     let twices = 0;
+//     for(let num of nums){
+//         ones = (ones ^ num) & ~twices;
+//         twices = (twices ^ num) & ~ones;
+//     };
+//     return ones;
 
-};
-let nums =[2,2,2,3,3,3,4,4,4,5];
-console.log("The unique num:",findUnique(nums));
+// };
+// let nums =[2,2,2,3,3,3,4,4,4,5];
+// console.log("The unique num:",findUnique(nums));
 
