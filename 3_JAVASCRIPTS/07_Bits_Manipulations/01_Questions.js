@@ -79,15 +79,41 @@
 // Explanation:
 
 // The input binary string 10000000 has a total of one set bit.
-var hammingWeight = function(n) {
-    let count =0;
-    while(n > 0){
-        n = n & (n-1);
-        count++;
-    }
-    return count;
+// var hammingWeight = function(n) {
+//     let count =0;
+//     while(n > 0){
+//         n = n & (n-1);
+//         count++;
+//     }
+//     return count;
     
+// };
+// let n=11;
+// console.log(hammingWeight(n));
+
+
+// Given an integer array nums where every element appears three times except for one, which appears exactly once. Find the single element and return it.
+
+// You must implement a solution with a linear runtime complexity and use only constant extra space.
+// Example 1:
+
+// Input: nums = [2,2,3,2]
+// Output: 3
+// Example 2:
+
+// Input: nums = [0,1,0,1,0,1,99]
+// Output: 99
+
+function findUnique(nums){
+    let ones = 0;
+    let twices = 0;
+    for(let num of nums){
+        ones = (ones ^ num) & ~twices;
+        twices = (twices ^ num) & ~ones;
+    };
+    return ones;
+
 };
-let n=11;
-console.log(hammingWeight(n));
+let nums =[2,2,2,3,3,3,4,4,4,5];
+console.log("The unique num:",findUnique(nums));
 
