@@ -269,7 +269,7 @@
 // Output: 2
 
 function majorityElement(nums){
-    let major =null;
+    let major = null;
     let count = 0;
     for(let num of nums){
         if(count === 0){

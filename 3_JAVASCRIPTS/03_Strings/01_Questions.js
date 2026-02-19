@@ -286,19 +286,40 @@
 // console.log("The Sum Of the Two String:", addTwoString(num1, num2));
 
 // check the two string is anagram or not
-function isAnagram(s,t){
-  // base case
-  if(s.length !== t.length) return false;
-  let map ={};
-  for(let char of s){
-    map[char] = (map[char] || 0) + 1;
-  };
-  for(let char of t){
-    if(!map[char]) return false;
-    map[char]--;
-  }
-  return true;
+// function isAnagram(s,t){
+//   // base case
+//   if(s.length !== t.length) return false;
+//   let map ={};
+//   for(let char of s){
+//     map[char] = (map[char] || 0) + 1;
+//   };
+//   for(let char of t){
+//     if(!map[char]) return false;
+//     map[char]--;
+//   }
+//   return true;
+// };
+// let s="listen";
+// let t="slient";
+// console.log("The Two string is Anagram or not:",isAnagram(s,t));
+
+// Given a string s, return the string after replacing every uppercase letter with the same lowercase letter.
+// Example 1:
+
+// Input: s = "Hello"
+// Output: "hello"
+// Example 2:
+
+// Input: s = "here"
+// Output: "here"
+// Example 3:
+
+// Input: s = "LOVELY"
+// Output: "lovely"
+
+var toLowerCase = function(s) {
+    let lowerCase =s.toLowerCase();
+    return lowerCase;
 };
-let s="listen";
-let t="slient";
-console.log("The Two string is Anagram or not:",isAnagram(s,t));
+let s = "Hellow";
+console.log("The LowerCase of the String:",toLowerCase(s));
