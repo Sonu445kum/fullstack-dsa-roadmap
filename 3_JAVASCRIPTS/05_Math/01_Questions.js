@@ -166,23 +166,57 @@
 // console.log("This Number is Perfect or not:",checkPerfectNumber(num));
 
 // 2nd Approach
-var checkPerfectNumber = function (num) {
+// var checkPerfectNumber = function (num) {
  
-    if (num <= 1) return false;
+//     if (num <= 1) return false;
 
-    let sum = 1; // 1 is always divisor (except 1 itself)
+//     let sum = 1; // 1 is always divisor (except 1 itself)
 
-    for (let i = 2; i * i <= num; i++) {
-        if (num % i === 0) {
-            sum += i;
+//     for (let i = 2; i * i <= num; i++) {
+//         if (num % i === 0) {
+//             sum += i;
 
-            if (i !== num / i) {
-                sum += num / i;
-            }
-        }
-    }
+//             if (i !== num / i) {
+//                 sum += num / i;
+//             }
+//         }
+//     }
 
-    return sum === num;
+//     return sum === num;
+// };
+// let num = 6;
+// console.log("This Number is Perfect or not:", checkPerfectNumber(num));
+
+// You are given a non-negative floating point number rounded to two decimal places celsius, that denotes the temperature in Celsius.
+
+// You should convert Celsius into Kelvin and Fahrenheit and return it as an array ans = [kelvin, fahrenheit].
+
+// Return the array ans. Answers within 10-5 of the actual answer will be accepted.
+
+// Note that:
+
+// Kelvin = Celsius + 273.15
+// Fahrenheit = Celsius * 1.80 + 32.00
+ 
+
+// Example 1:
+
+// Input: celsius = 36.50
+// Output: [309.65000,97.70000]
+// Explanation: Temperature at 36.50 Celsius converted in Kelvin is 309.65 and converted in Fahrenheit is 97.70.
+// Example 2:
+
+// Input: celsius = 122.11
+// Output: [395.26000,251.79800]
+// Explanation: Temperature at 122.11 Celsius converted in Kelvin is 395.26 and converted in Fahrenheit is 251.798.
+
+var convertTemperature = function(celsius) {
+    let ans = [];
+    let Kelvin = celsius + 273.15;
+    ans.push(Kelvin);
+    let Fahrenheit = celsius * 1.80 + 32 ;
+    ans.push(Fahrenheit);
+    return ans;
 };
-let num = 6;
-console.log("This Number is Perfect or not:", checkPerfectNumber(num));
+let celsius = 36.50;
+console.log(convertTemperature(celsius));
