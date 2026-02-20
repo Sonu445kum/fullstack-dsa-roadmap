@@ -210,13 +210,52 @@
 // Output: [395.26000,251.79800]
 // Explanation: Temperature at 122.11 Celsius converted in Kelvin is 395.26 and converted in Fahrenheit is 251.798.
 
-var convertTemperature = function(celsius) {
-    let ans = [];
-    let Kelvin = celsius + 273.15;
-    ans.push(Kelvin);
-    let Fahrenheit = celsius * 1.80 + 32 ;
-    ans.push(Fahrenheit);
-    return ans;
+// var convertTemperature = function(celsius) {
+//     let ans = [];
+//     let Kelvin = celsius + 273.15;
+//     ans.push(Kelvin);
+//     let Fahrenheit = celsius * 1.80 + 32 ;
+//     ans.push(Fahrenheit);
+//     return ans;
+// };
+// let celsius = 36.50;
+// console.log(convertTemperature(celsius));
+
+// You are given an integer n. Your task is to compute the GCD (greatest common divisor) of two values:
+
+// sumOdd: the sum of the smallest n positive odd numbers.
+
+// sumEven: the sum of the smallest n positive even numbers.
+
+// Return the GCD of sumOdd and sumEven.
+
+ 
+
+// Example 1:
+
+// Input: n = 4
+
+// Output: 4
+
+// Explanation:
+
+// Sum of the first 4 odd numbers sumOdd = 1 + 3 + 5 + 7 = 16
+// Sum of the first 4 even numbers sumEven = 2 + 4 + 6 + 8 = 20
+// Hence, GCD(sumOdd, sumEven) = GCD(16, 20) = 4.
+
+var gcdOfOddEvenSums = function(n) {
+    let sumOdd = 0;
+    let sumEven = 0;
+    for(let i=1; i<=n; i++){
+         sumOdd += 2*i -1;
+         sumEven+= 2*i;   
+    }
+    let a=sumEven,b=sumOdd;
+
+    while(b !==0){
+        [a , b ]= [b,a % b];
+    }
+    return a;
 };
-let celsius = 36.50;
-console.log(convertTemperature(celsius));
+let n =9;
+console.log("The GCD of SumOdd and SumEven:",gcdOfOddEvenSums(n));
