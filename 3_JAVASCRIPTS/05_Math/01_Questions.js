@@ -243,19 +243,49 @@
 // Sum of the first 4 even numbers sumEven = 2 + 4 + 6 + 8 = 20
 // Hence, GCD(sumOdd, sumEven) = GCD(16, 20) = 4.
 
-var gcdOfOddEvenSums = function(n) {
-    let sumOdd = 0;
-    let sumEven = 0;
-    for(let i=1; i<=n; i++){
-         sumOdd += 2*i -1;
-         sumEven+= 2*i;   
-    }
-    let a=sumEven,b=sumOdd;
+// var gcdOfOddEvenSums = function(n) {
+//     let sumOdd = 0;
+//     let sumEven = 0;
+//     for(let i=1; i<=n; i++){
+//          sumOdd += 2*i -1;
+//          sumEven+= 2*i;   
+//     }
+//     let a=sumEven,b=sumOdd;
 
-    while(b !==0){
-        [a , b ]= [b,a % b];
+//     while(b !==0){
+//         [a , b ]= [b,a % b];
+//     }
+//     return a;
+// };
+// let n =9;
+// console.log("The GCD of SumOdd and SumEven:",gcdOfOddEvenSums(n));
+
+// Given an integer n, return true if n has exactly three positive divisors. Otherwise, return false.
+
+// An integer m is a divisor of n if there exists an integer k such that n = k * m.
+
+ 
+
+// Example 1:
+
+// Input: n = 2
+// Output: false
+// Explantion: 2 has only two divisors: 1 and 2.
+// Example 2:
+
+// Input: n = 4
+// Output: true
+// Explantion: 4 has three divisors: 1, 2, and 4.
+
+var isThree = function(n) {
+    let count = 0;
+    for(let i = 1; i<=n; i++){
+        if(n % i === 0){
+            count++;
+        }
     }
-    return a;
+    return count === 3;
+    
 };
-let n =9;
-console.log("The GCD of SumOdd and SumEven:",gcdOfOddEvenSums(n));
+let n = 9;
+console.log(isThree(n));
