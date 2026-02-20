@@ -277,15 +277,15 @@
 // Output: true
 // Explantion: 4 has three divisors: 1, 2, and 4.
 
-var isThree = function(n) {
-    let count = 0;
-    for(let i = 1; i<=n; i++){
-        if(n % i === 0){
-            count++;
-        }
-    }
-    return count === 3;
+// var isThree = function(n) {
+//     let count = 0;
+//     for(let i = 1; i<=n; i++){
+//         if(n % i === 0){
+//             count++;
+//         }
+//     }
+//     return count === 3;
     
-};
-let n = 9;
-console.log(isThree(n));
+// };
+// let n = 9;
+// console.log(isThree(n));
