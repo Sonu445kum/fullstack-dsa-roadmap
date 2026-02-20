@@ -47,7 +47,6 @@
 
 // Remove duplicates from array
 
-
 // Find duplicate elements
 
 // Find sum of array elements
@@ -72,7 +71,6 @@
 // let count=0;
 // function countFrequency(arr){
 //     for(let i=0; i<arr.length; i++){
-
 
 //     }
 
@@ -123,10 +121,8 @@
 //     return arr;
 // }
 
-
 // let arr = [1, 0, 30, 4, 0, 3];
 // console.log(moveAllZero(arr));
-
 
 // Sort array without using sort()
 // function sortArr(arr){
@@ -144,13 +140,13 @@
 
 // Find kth largest element
 // function kthLargestNum(arr){
-    
+
 // }
 
 // Shuffle array
 // You are given a large integer represented as an integer array digits,
-//  where each digits[i] is the ith digit of the integer. 
-// The digits are ordered from most significant to least significant in left-to-right order. 
+//  where each digits[i] is the ith digit of the integer.
+// The digits are ordered from most significant to least significant in left-to-right order.
 // The large integer does not contain any leading 0's.
 // Increment the large integer by one and return the resulting array of digits.
 
@@ -175,7 +171,6 @@
 //   return word;
 // }
 // console.log(findLenLastWord(str));
-
 
 // Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
 // You must implement a solution with a linear runtime complexity and use only constant extra space.
@@ -203,7 +198,6 @@
 //     single=nums[i]^single;
 //   }
 //   return single;
-
 
 // }
 
@@ -245,8 +239,6 @@
 //     // if the element is not found in the given array
 //     return start;
 
-
-
 // };
 // // let nums =[1,3,5,6],target = 5;
 // // let nums = [1,3,5,6], target = 2 ;
@@ -256,8 +248,6 @@
 // Given an array nums of size n, return the majority element.
 
 // The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
-
- 
 
 // Example 1:
 
@@ -277,7 +267,7 @@
 //         }
 //         count += (num === major) ? 1 : -1;
 //     };
-    
+
 //     return major;
 // };
 // let nums = [3,2,3];
@@ -288,8 +278,6 @@
 // An array nums is monotone increasing if for all i <= j, nums[i] <= nums[j]. An array nums is monotone decreasing if for all i <= j, nums[i] >= nums[j].
 
 // Given an integer array nums, return true if the given array is monotonic, or false otherwise.
-
- 
 
 // Example 1:
 
@@ -304,18 +292,65 @@
 // Input: nums = [1,3,2]
 // Output: false
 
-var isMonotonic = function(nums) {
-    let increasing = true;
-    let decreasing = true;
+// var isMonotonic = function(nums) {
+//     let increasing = true;
+//     let decreasing = true;
 
-    for (let i = 1; i < nums.length; i++) {
-        if (nums[i] < nums[i - 1]) {
-            increasing = false;
-        }
-        if (nums[i] > nums[i - 1]) {
-            decreasing = false;
-        }
+//     for (let i = 1; i < nums.length; i++) {
+//         if (nums[i] < nums[i - 1]) {
+//             increasing = false;
+//         }
+//         if (nums[i] > nums[i - 1]) {
+//             decreasing = false;
+//         }
+//     }
+
+//     return increasing || decreasing;
+// };
+
+// first appraoch
+// var maximizeExpressionOfThree = function (nums) {
+//   let max1 = -Infinity,
+//     max2 = -Infinity,
+//     min1 = Infinity;
+//   let expressions = 0;
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] > max1) {
+//       max2 = max1;
+//       max1 = nums[i];
+//     } else if (nums[i] > max2) {
+//       max2 = nums[i];
+//     }
+    
+//     if (nums[i] < min1) {
+//       min1 = nums[i];
+//     }
+//   }
+//   expressions = max1 + max2 - min1;
+//   return expressions;
+// };
+// let nums = [1, 4, 2, 5];
+// console.log(maximizeExpressionOfThree(nums));
+
+var maximizeExpressionOfThree = function (nums) {
+  let max1 = -Infinity,
+    max2 = -Infinity,
+    min1 = Infinity;
+  let expressions = 0;
+  for (let num of nums) {
+    if (nums > max1) {
+      max2 = max1;
+      max1 = num;
+    } else if (num > max2) {
+      max2 = num;
     }
-
-    return increasing || decreasing;
+    
+    if (nums < min1) {
+      min1 = nums;
+    }
+  }
+  expressions = max1 + max2 - min1;
+  return expressions;
 };
+let nums = [1, 4, 2, 5];
+console.log(maximizeExpressionOfThree(nums));
