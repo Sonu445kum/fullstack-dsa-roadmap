@@ -332,25 +332,53 @@
 // let nums = [1, 4, 2, 5];
 // console.log(maximizeExpressionOfThree(nums));
 
-var maximizeExpressionOfThree = function (nums) {
-  let max1 = -Infinity,
-    max2 = -Infinity,
-    min1 = Infinity;
-  let expressions = 0;
-  for (let num of nums) {
-    if (nums > max1) {
-      max2 = max1;
-      max1 = num;
-    } else if (num > max2) {
-      max2 = num;
-    }
+// var maximizeExpressionOfThree = function (nums) {
+//   let max1 = -Infinity,
+//     max2 = -Infinity,
+//     min1 = Infinity;
+//   let expressions = 0;
+//   for (let num of nums) {
+//     if (nums > max1) {
+//       max2 = max1;
+//       max1 = num;
+//     } else if (num > max2) {
+//       max2 = num;
+//     }
     
-    if (nums < min1) {
-      min1 = nums;
+//     if (nums < min1) {
+//       min1 = nums;
+//     }
+//   }
+//   expressions = max1 + max2 - min1;
+//   return expressions;
+// };
+// let nums = [1, 4, 2, 5];
+// console.log(maximizeExpressionOfThree(nums));
+
+
+var minimumDistance = function(nums) {
+    let map = new Map();
+    let minDist = Infinity;
+
+    for (let i = 0; i < nums.length; i++) {
+        if (!map.has(nums[i])) {
+            map.set(nums[i], []);
+        }
+        map.get(nums[i]).push(i);
     }
-  }
-  expressions = max1 + max2 - min1;
-  return expressions;
+
+    for (let indices of map.values()) {
+        if (indices.length >= 3) {
+            for (let i = 0; i <= indices.length - 3; i++) {
+                let first = indices[i];
+                let third = indices[i + 2];
+                minDist = Math.min(minDist, 2 * (third - first));
+            }
+        }
+    }
+
+    return minDist === Infinity ? -1 : minDist;
+    
 };
-let nums = [1, 4, 2, 5];
-console.log(maximizeExpressionOfThree(nums));
+let nums = [1,2,1,1,3];
+console.log(minimumDistance(nums));
