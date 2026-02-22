@@ -168,14 +168,23 @@
 # print("Largest element:", findLargest(li))
 
 # Write a function to remove duplicates from a list.
-def removeDuplicates(li):
-    return list(set(li))
+# def removeDuplicates(li):
+#     return list(set(li))
+
+
+# li = list(map(int, input("Enter numbers separated by space: ").split()))
+# print("After removing duplicates:", removeDuplicates(li))
+
+# Create a function that returns the length of a list without using len().
+def findLength(li):
+    count = 0
+    for _ in li:
+        count += 1
+    return count
 
 
 li = list(map(int, input("Enter numbers separated by space: ").split()))
-print("After removing duplicates:", removeDuplicates(li))
-
-# Create a function that returns the length of a list without using len().
+print("Length of list:", findLength(li))
 
 # Write a function to find the GCD of two numbers.
 
