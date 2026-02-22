@@ -101,27 +101,37 @@
 # print("The Sum of Element:",sumElement(li))
 
 # Write a function to return the Fibonacci number at position n.
-def fibonacci(n):
-    if n == 0:
-        return 0
-    if n == 1:
-        return 1
-    
-    a = 0
-    b = 1
-    
-    for _ in range(2, n + 1):
-        c = a + b
-        a = b
-        b = c
-        
-    return b
+# def fibonacci(n):
+#     if n == 0:
+#         return 0
+#     if n == 1:
+#         return 1
+
+#     a = 0
+#     b = 1
+
+#     for _ in range(2, n + 1):
+#         c = a + b
+#         a = b
+#         b = c
+
+#     return b
 
 
-n = int(input("Enter position: "))
-print("Fibonacci number is:", fibonacci(n))
+# n = int(input("Enter position: "))
+# print("Fibonacci number is:", fibonacci(n))
 
 # Write a function to check if a string is palindrome.
+def isPalindrome(s):
+    for i in range(len(s)//2):
+        if s[i] != s[len(s) - i - 1]:
+            return False
+    
+    return True
+
+
+s = input("Enter the String:")
+print("The String is Plaindrome or not:", isPalindrome(s))
 
 # Create a function to convert Celsius to Fahrenheit.
 
