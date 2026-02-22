@@ -142,15 +142,30 @@
 # print("Temperature in Fahrenheit:", celsiusToFahrenheit(c))
 
 # Write a function to count words in a sentence.
-def countWords(sentence):
-    words = sentence.split()
-    return len(words)
+# def countWords(sentence):
+#     words = sentence.split()
+#     return len(words)
 
 
-s = input("Enter a sentence: ")
-print("Number of words:", countWords(s))
+# s = input("Enter a sentence: ")
+# print("Number of words:", countWords(s))
 
 # Create a function that returns the largest element in a list.
+def findLargest(li):
+    if len(li) == 0:
+        return None   # handle empty list
+    
+    largest = li[0]
+    
+    for num in li:
+        if num > largest:
+            largest = num
+            
+    return largest
+
+
+li = list(map(int, input("Enter numbers separated by space: ").split()))
+print("Largest element:", findLargest(li))
 
 # Write a function to remove duplicates from a list.
 
