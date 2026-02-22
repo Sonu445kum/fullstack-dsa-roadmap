@@ -134,14 +134,21 @@
 # print("The String is Plaindrome or not:", isPalindrome(s))
 
 # Create a function to convert Celsius to Fahrenheit.
-def celsiusToFahrenheit(c):
-    return (c * 9/5) + 32
+# def celsiusToFahrenheit(c):
+#     return (c * 9/5) + 32
 
 
-c = float(input("Enter temperature in Celsius: "))
-print("Temperature in Fahrenheit:", celsiusToFahrenheit(c))
+# c = float(input("Enter temperature in Celsius: "))
+# print("Temperature in Fahrenheit:", celsiusToFahrenheit(c))
 
 # Write a function to count words in a sentence.
+def countWords(sentence):
+    words = sentence.split()
+    return len(words)
+
+
+s = input("Enter a sentence: ")
+print("Number of words:", countWords(s))
 
 # Create a function that returns the largest element in a list.
 
