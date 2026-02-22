@@ -92,15 +92,34 @@
 
 
 # Create a function to calculate the sum of elements in a list.
-li = list(map(int, input("Enter numbers separated by space: ").split()))
-def sumElement(li):
-    sum = 0
-    for l in li :
-        sum += l
-    return sum
-print("The Sum of Element:",sumElement(li))
+# li = list(map(int, input("Enter numbers separated by space: ").split()))
+# def sumElement(li):
+#     sum = 0
+#     for l in li :
+#         sum += l
+#     return sum
+# print("The Sum of Element:",sumElement(li))
 
 # Write a function to return the Fibonacci number at position n.
+def fibonacci(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    
+    a = 0
+    b = 1
+    
+    for _ in range(2, n + 1):
+        c = a + b
+        a = b
+        b = c
+        
+    return b
+
+
+n = int(input("Enter position: "))
+print("Fibonacci number is:", fibonacci(n))
 
 # Write a function to check if a string is palindrome.
 
