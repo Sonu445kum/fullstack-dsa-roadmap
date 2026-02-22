@@ -167,7 +167,7 @@
 
 // 2nd Approach
 // var checkPerfectNumber = function (num) {
- 
+
 //     if (num <= 1) return false;
 
 //     let sum = 1; // 1 is always divisor (except 1 itself)
@@ -197,7 +197,6 @@
 
 // Kelvin = Celsius + 273.15
 // Fahrenheit = Celsius * 1.80 + 32.00
- 
 
 // Example 1:
 
@@ -229,8 +228,6 @@
 
 // Return the GCD of sumOdd and sumEven.
 
- 
-
 // Example 1:
 
 // Input: n = 4
@@ -248,7 +245,7 @@
 //     let sumEven = 0;
 //     for(let i=1; i<=n; i++){
 //          sumOdd += 2*i -1;
-//          sumEven+= 2*i;   
+//          sumEven+= 2*i;
 //     }
 //     let a=sumEven,b=sumOdd;
 
@@ -263,8 +260,6 @@
 // Given an integer n, return true if n has exactly three positive divisors. Otherwise, return false.
 
 // An integer m is a divisor of n if there exists an integer k such that n = k * m.
-
- 
 
 // Example 1:
 
@@ -285,7 +280,56 @@
 //         }
 //     }
 //     return count === 3;
-    
+
 // };
 // let n = 9;
 // console.log(isThree(n));
+
+// Given an integer n, return the number of trailing zeroes in n!.
+// Note that n! = n * (n - 1) * (n - 2) * ... * 3 * 2 * 1.
+
+// Example 1:
+// Input: n = 3
+// Output: 0
+// Explanation: 3! = 6, no trailing zero.
+
+// Example 2:
+// Input: n = 5
+// Output: 1
+// Explanation: 5! = 120, one trailing zero.
+
+// Example 3:
+// Input: n = 0
+// Output: 0
+
+// function trailingZeroes(n) {
+//   // base case
+//   if (n <= 1) return 0;
+
+//   let fact = 1;
+
+//   for (let i = 1; i <= n; i++) {
+//     fact *= i;
+//   }
+//   let count = 0;
+//   let temp = fact;
+//   while (temp % 10 === 0) {
+//     count += 1;
+//     temp = Math.floor(fact / 10);
+//   }
+//   return count;
+// }
+// let n = 7;
+// console.log("Number of Trailing Zeros are:", trailingZeroes(n));
+
+// 2nd Appraoch
+function trailingZeroes(n) {
+  let count = 0;
+  while (n > 0) {
+    n = Math.floor(n / 5);
+    count += n;
+  }
+  return count;
+}
+let n = 7;
+console.log("Number of Trailing Zeros are:", trailingZeroes(n));
