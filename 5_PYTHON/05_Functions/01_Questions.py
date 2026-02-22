@@ -80,18 +80,25 @@
 # print("The Reverse String:", reverseString(s))
 
 # Write a function to count vowels in a string.
-def countVowels(s):
-    vowels ="aioueAIOUE"
-    count = 0
-    for ch in s :
-        if ch in vowels:
-            count +=1
-    return count
-s = input("Enter the Name:")
-print("Count Vowles:",countVowels(s))
+# def countVowels(s):
+#     vowels ="aioueAIOUE"
+#     count = 0
+#     for ch in s :
+#         if ch in vowels:
+#             count +=1
+#     return count
+# s = input("Enter the Name:")
+# print("Count Vowles:",countVowels(s))
 
 
 # Create a function to calculate the sum of elements in a list.
+li = list(map(int, input("Enter numbers separated by space: ").split()))
+def sumElement(li):
+    sum = 0
+    for l in li :
+        sum += l
+    return sum
+print("The Sum of Element:",sumElement(li))
 
 # Write a function to return the Fibonacci number at position n.
 
