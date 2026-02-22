@@ -151,23 +151,29 @@
 # print("Number of words:", countWords(s))
 
 # Create a function that returns the largest element in a list.
-def findLargest(li):
-    if len(li) == 0:
-        return None   # handle empty list
+# def findLargest(li):
+#     if len(li) == 0:
+#         return None   # handle empty list
     
-    largest = li[0]
+#     largest = li[0]
     
-    for num in li:
-        if num > largest:
-            largest = num
+#     for num in li:
+#         if num > largest:
+#             largest = num
             
-    return largest
+#     return largest
+
+
+# li = list(map(int, input("Enter numbers separated by space: ").split()))
+# print("Largest element:", findLargest(li))
+
+# Write a function to remove duplicates from a list.
+def removeDuplicates(li):
+    return list(set(li))
 
 
 li = list(map(int, input("Enter numbers separated by space: ").split()))
-print("Largest element:", findLargest(li))
-
-# Write a function to remove duplicates from a list.
+print("After removing duplicates:", removeDuplicates(li))
 
 # Create a function that returns the length of a list without using len().
 
