@@ -122,18 +122,24 @@
 # print("Fibonacci number is:", fibonacci(n))
 
 # Write a function to check if a string is palindrome.
-def isPalindrome(s):
-    for i in range(len(s)//2):
-        if s[i] != s[len(s) - i - 1]:
-            return False
+# def isPalindrome(s):
+#     for i in range(len(s)//2):
+#         if s[i] != s[len(s) - i - 1]:
+#             return False
     
-    return True
+#     return True
 
 
-s = input("Enter the String:")
-print("The String is Plaindrome or not:", isPalindrome(s))
+# s = input("Enter the String:")
+# print("The String is Plaindrome or not:", isPalindrome(s))
 
 # Create a function to convert Celsius to Fahrenheit.
+def celsiusToFahrenheit(c):
+    return (c * 9/5) + 32
+
+
+c = float(input("Enter temperature in Celsius: "))
+print("Temperature in Fahrenheit:", celsiusToFahrenheit(c))
 
 # Write a function to count words in a sentence.
 
