@@ -70,17 +70,26 @@
 
 
 # Create a function to reverse a string.
-s = input("Enter the String")
+# s = input("Enter the String")
+# def reverseString(s):
+#     rev = ""
+#     for i in range(len(s)- 1, -1, -1):
+#         rev += s[i]
+#     return rev
 
-def reverseString(s):
-    rev = ""
-    for i in range(len(s)- 1, -1, -1):
-        rev += s[i]
-    return rev
-
-print("The Reverse String:", reverseString(s))
+# print("The Reverse String:", reverseString(s))
 
 # Write a function to count vowels in a string.
+def countVowels(s):
+    vowels ="aioueAIOUE"
+    count = 0
+    for ch in s :
+        if ch in vowels:
+            count +=1
+    return count
+s = input("Enter the Name:")
+print("Count Vowles:",countVowels(s))
+
 
 # Create a function to calculate the sum of elements in a list.
 
