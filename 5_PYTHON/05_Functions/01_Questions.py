@@ -52,23 +52,33 @@
 # print("The Factorial of Number:",factorial(num))
 
 # Write a function to check if a number is prime.
-num = int(input("Enter the number:"))
-def isPrime(num):
-    if num < 2:
-        return False
+# num = int(input("Enter the number:"))
+# def isPrime(num):
+#     if num < 2:
+#         return False
 
-    for i in range(2, int(num**0.5) + 1):
-        if num % i == 0:
-            return False
-    return True
+#     for i in range(2, int(num**0.5) + 1):
+#         if num % i == 0:
+#             return False
+#     return True
 
-if isPrime(num):
-    print("The number is Prime")
-else:
-    print("The Number is Not Prime")
+
+# if isPrime(num):
+#     print("The number is Prime")
+# else:
+#     print("The Number is Not Prime")
 
 
 # Create a function to reverse a string.
+s = input("Enter the String")
+
+def reverseString(s):
+    rev = ""
+    for i in range(len(s)- 1, -1, -1):
+        rev += s[i]
+    return rev
+
+print("The Reverse String:", reverseString(s))
 
 # Write a function to count vowels in a string.
 
