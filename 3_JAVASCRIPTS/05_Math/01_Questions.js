@@ -381,18 +381,50 @@
 // Input: nums = [1,0,1,1,0,1]
 // Output: 2
 
-function findMaxConsecutiveOnes(nums){
-    let maxCount = 0;
-    let currentCount = 0 ;
-    for(let i =0; i<nums.length; i++){
-        if(nums[i] === 1){
-            currentCount++;
-            maxCount = Math.max(maxCount , currentCount);
-        }else{
-            currentCount = 0;
+// function findMaxConsecutiveOnes(nums){
+//     let maxCount = 0;
+//     let currentCount = 0 ;
+//     for(let i =0; i<nums.length; i++){
+//         if(nums[i] === 1){
+//             currentCount++;
+//             maxCount = Math.max(maxCount , currentCount);
+//         }else{
+//             currentCount = 0;
+//         }
+//     }
+//     return maxCount;
+// };
+// let nums = [1,0,2,1,1,1,1];
+// console.log("The Max Consecutive ones:",findMaxConsecutiveOnes(nums));
+
+// Given an integer num, return the number of steps to reduce it to zero.
+
+// In one step, if the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
+// Example 1:
+
+// Input: num = 14
+// Output: 6
+// Explanation: 
+// Step 1) 14 is even; divide by 2 and obtain 7. 
+// Step 2) 7 is odd; subtract 1 and obtain 6.
+// Step 3) 6 is even; divide by 2 and obtain 3. 
+// Step 4) 3 is odd; subtract 1 and obtain 2. 
+// Step 5) 2 is even; divide by 2 and obtain 1. 
+// Step 6) 1 is odd; subtract 1 and obtain 0.
+
+function numberOfSteps(nums){
+    let step = 0;
+    while(nums > 0){
+        if(nums % 2 === 0){
+            step++;
+            nums = nums /2
+        }else if( nums %2 !==0){
+            step++;
+            nums = nums-1
         }
     }
-    return maxCount;
-};
-let nums = [1,0,2,1,1,1,1];
-console.log("The Max Consecutive ones:",findMaxConsecutiveOnes(nums));
+    return step;
+
+}
+let nums = 123
+console.log("The Number of Steps:",numberOfSteps(nums))

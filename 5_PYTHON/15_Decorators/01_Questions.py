@@ -101,17 +101,17 @@
 
 # Implement memoization decorator
 
-def memoize(func):
-    cache = {}
+# def memoize(func):
+#     cache = {}
 
-    def wrapper(*args):
-        if args in cache:
-            print("Fetching from cache:", args)
-            return cache[args]
+#     def wrapper(*args):
+#         if args in cache:
+#             print("Fetching from cache:", args)
+#             return cache[args]
 
-        print("Computing:", args)
-        result = func(*args)
-        cache[args] = result
-        return result
+#         print("Computing:", args)
+#         result = func(*args)
+#         cache[args] = result
+#         return result
 
-    return wrapper
+#     return wrapper
