@@ -444,15 +444,52 @@
 // Output: 1
 // Explanation: The odd numbers between 8 and 10 are [9].
 
-var countOdds = function(low, high) {
-    // let count = 0;
-    // for( let i = low; i <=high; i++){
-    //     if(i % 2 !== 0){
-    //         count = count + 1;
-    //     }
-    // }
-    // return count;
-    return Math.floor((high + 1) / 2) - Math.floor(low / 2);
+// var countOdds = function(low, high) {
+//     // let count = 0;
+//     // for( let i = low; i <=high; i++){
+//     //     if(i % 2 !== 0){
+//     //         count = count + 1;
+//     //     }
+//     // }
+//     // return count;
+//     return Math.floor((high + 1) / 2) - Math.floor(low / 2);
+// };
+// let low = 3 ,high = 7
+// console.log("The number of Odds:",countOdds(low , high))
+
+// Given an array of positive integers arr, return the sum of all possible odd-length subarrays of arr.
+
+// A subarray is a contiguous subsequence of the array.
+
+ 
+
+// Example 1:
+
+// Input: arr = [1,4,2,5,3]
+// Output: 58
+// Explanation: The odd-length subarrays of arr and their sums are:
+// [1] = 1
+// [4] = 4
+// [2] = 2
+// [5] = 5
+// [3] = 3
+// [1,4,2] = 7
+// [4,2,5] = 11
+// [2,5,3] = 10
+// [1,4,2,5,3] = 15
+// If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58
+
+var sumOddLengthSubarrays = function(arr) {
+    let totalSum = 0;
+    let n = arr.length;
+
+    for (let i = 0; i < n; i++) {
+        let totalSubarrays = (i + 1) * (n - i);
+        let oddCount = Math.floor((totalSubarrays + 1) / 2);
+        totalSum += arr[i] * oddCount;
+    }
+
+    return totalSum;
 };
-let low = 3 ,high = 7
-console.log("The number of Odds:",countOdds(low , high))
+let arr = [1,4,2,5,3]
+console.log("sumOddLengthSubarrays :",sumOddLengthSubarrays(arr))
