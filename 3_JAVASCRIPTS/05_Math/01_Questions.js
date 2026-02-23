@@ -412,19 +412,47 @@
 // Step 5) 2 is even; divide by 2 and obtain 1. 
 // Step 6) 1 is odd; subtract 1 and obtain 0.
 
-function numberOfSteps(nums){
-    let step = 0;
-    while(nums > 0){
-        if(nums % 2 === 0){
-            step++;
-            nums = nums /2
-        }else if( nums %2 !==0){
-            step++;
-            nums = nums-1
-        }
-    }
-    return step;
+// function numberOfSteps(nums){
+//     let step = 0;
+//     while(nums > 0){
+//         if(nums % 2 === 0){
+//             step++;
+//             nums = nums /2
+//         }else if( nums %2 !==0){
+//             step++;
+//             nums = nums-1
+//         }
+//     }
+//     return step;
 
-}
-let nums = 123
-console.log("The Number of Steps:",numberOfSteps(nums))
+// }
+// let nums = 123
+// console.log("The Number of Steps:",numberOfSteps(nums))
+
+// Given two non-negative integers low and high. Return the count of odd numbers between low and high (inclusive).
+
+ 
+
+// Example 1:
+
+// Input: low = 3, high = 7
+// Output: 3
+// Explanation: The odd numbers between 3 and 7 are [3,5,7].
+// Example 2:
+
+// Input: low = 8, high = 10
+// Output: 1
+// Explanation: The odd numbers between 8 and 10 are [9].
+
+var countOdds = function(low, high) {
+    // let count = 0;
+    // for( let i = low; i <=high; i++){
+    //     if(i % 2 !== 0){
+    //         count = count + 1;
+    //     }
+    // }
+    // return count;
+    return Math.floor((high + 1) / 2) - Math.floor(low / 2);
+};
+let low = 3 ,high = 7
+console.log("The number of Odds:",countOdds(low , high))
