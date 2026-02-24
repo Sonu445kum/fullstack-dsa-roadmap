@@ -479,17 +479,17 @@
 // [1,4,2,5,3] = 15
 // If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58
 
-var sumOddLengthSubarrays = function(arr) {
-    let totalSum = 0;
-    let n = arr.length;
+// var sumOddLengthSubarrays = function(arr) {
+//     let totalSum = 0;
+//     let n = arr.length;
 
-    for (let i = 0; i < n; i++) {
-        let totalSubarrays = (i + 1) * (n - i);
-        let oddCount = Math.floor((totalSubarrays + 1) / 2);
-        totalSum += arr[i] * oddCount;
-    }
+//     for (let i = 0; i < n; i++) {
+//         let totalSubarrays = (i + 1) * (n - i);
+//         let oddCount = Math.floor((totalSubarrays + 1) / 2);
+//         totalSum += arr[i] * oddCount;
+//     }
 
-    return totalSum;
-};
-let arr = [1,4,2,5,3]
-console.log("sumOddLengthSubarrays :",sumOddLengthSubarrays(arr))
+//     return totalSum;
+// };
+// let arr = [1,4,2,5,3]
+// console.log("sumOddLengthSubarrays :",sumOddLengthSubarrays(arr))

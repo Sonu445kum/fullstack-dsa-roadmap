@@ -356,29 +356,60 @@
 // console.log(maximizeExpressionOfThree(nums));
 
 
-var minimumDistance = function(nums) {
-    let map = new Map();
-    let minDist = Infinity;
+// var minimumDistance = function(nums) {
+//     let map = new Map();
+//     let minDist = Infinity;
 
-    for (let i = 0; i < nums.length; i++) {
-        if (!map.has(nums[i])) {
-            map.set(nums[i], []);
-        }
-        map.get(nums[i]).push(i);
-    }
+//     for (let i = 0; i < nums.length; i++) {
+//         if (!map.has(nums[i])) {
+//             map.set(nums[i], []);
+//         }
+//         map.get(nums[i]).push(i);
+//     }
 
-    for (let indices of map.values()) {
-        if (indices.length >= 3) {
-            for (let i = 0; i <= indices.length - 3; i++) {
-                let first = indices[i];
-                let third = indices[i + 2];
-                minDist = Math.min(minDist, 2 * (third - first));
-            }
-        }
-    }
+//     for (let indices of map.values()) {
+//         if (indices.length >= 3) {
+//             for (let i = 0; i <= indices.length - 3; i++) {
+//                 let first = indices[i];
+//                 let third = indices[i + 2];
+//                 minDist = Math.min(minDist, 2 * (third - first));
+//             }
+//         }
+//     }
 
-    return minDist === Infinity ? -1 : minDist;
+//     return minDist === Infinity ? -1 : minDist;
     
+// };
+// let nums = [1,2,1,1,3];
+// console.log(minimumDistance(nums));
+
+// merge short:
+var merge = function(nums1, m, nums2, n) {
+    let i = m - 1;          // last element in nums1
+    let j = n - 1;          // last element in nums2
+    let k = m + n - 1;      // last position of nums1
+
+    while (i >= 0 && j >= 0) {
+        if (nums1[i] > nums2[j]) {
+            nums1[k] = nums1[i];
+            i--;
+        } else {
+            nums1[k] = nums2[j];
+            j--;
+        }
+        k--;
+    }
+
+    // If nums2 still has elements left
+    while (j >= 0) {
+        nums1[k] = nums2[j];
+        j--;
+        k--;
+    }
 };
-let nums = [1,2,1,1,3];
-console.log(minimumDistance(nums));
+let nums1 = [1,2,3,0,0,0], m = 3;
+let nums2 = [2,5,6], n = 3;
+// console.log("The Merge Short of this:",merge(nums1 , m , nums2 , n));
+
+console.log(merge(nums1 , m , nums2 , n));
+
