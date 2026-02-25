@@ -539,26 +539,65 @@
 // The 14 integers less than or equal to 30 whose digit sums are even are
 // 2, 4, 6, 8, 11, 13, 15, 17, 19, 20, 22, 24, 26, and 28.
 
-function countEven(nums){
-    let count = 0;
-    // create a loop for the traaversal 2 to nums
-    for(let i = 2; i<=nums; i++){
-        let digitSum = 0 ;
-        // store i in the temp varaibles because we dont cahnges the original values of i
-        let temp = i ;
-        while(temp > 0){
-            let lastDigit = temp % 10 ;
-            digitSum = digitSum + lastDigit ;
-            temp = Math.floor(temp / 10);
-        }
-        // now we check the digitSum are divisble by 2 , then increase the count
-        if(digitSum % 2 === 0){
-            count++;
-        }
+// function countEven(nums){
+//     let count = 0;
+//     // create a loop for the traaversal 2 to nums
+//     for(let i = 2; i<=nums; i++){
+//         let digitSum = 0 ;
+//         // store i in the temp varaibles because we dont cahnges the original values of i
+//         let temp = i ;
+//         while(temp > 0){
+//             let lastDigit = temp % 10 ;
+//             digitSum = digitSum + lastDigit ;
+//             temp = Math.floor(temp / 10);
+//         }
+//         // now we check the digitSum are divisble by 2 , then increase the count
+//         if(digitSum % 2 === 0){
+//             count++;
+//         }
 
-    }
-    // return count
-    return count;
-}
-let nums = 4;
-console.log("CountEven:",countEven(nums))
+//     }
+//     // return count
+//     return count;
+// }
+// let nums = 4;
+// console.log("CountEven:",countEven(nums))
+
+// You are climbing a staircase. It takes n steps to reach the top.
+
+// Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+// Example 1:
+
+// Input: n = 2
+// Output: 2
+// Explanation: There are two ways to climb to the top.
+// 1. 1 step + 1 step
+// 2. 2 steps
+// Example 2:
+
+// Input: n = 3
+// Output: 3
+// Explanation: There are three ways to climb to the top.
+// 1. 1 step + 1 step + 1 step
+// 2. 1 step + 2 steps
+// 3. 2 steps + 1 step
+
+// function climbStairs(n){
+//     // base case
+//     if(n <=2) return n;
+
+//     // lete take two pointer
+//     let slow = 1;
+//     let fast = 2;
+
+//     // loop start from three
+//     for(let i = 3 ; i<=n; i++){
+//         let current = fast + slow;
+//         slow = fast;
+//         fast = current;
+//     }
+//     return fast;
+// }
+// let n = 8;
+// console.log("The Climbs Stairs:",climbStairs(n));
