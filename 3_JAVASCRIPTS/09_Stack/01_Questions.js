@@ -5,23 +5,67 @@
 
 // Output: [1,2,3]
 
-var preorderTraversal = function(root) {
-    if (!root) return [];
+// var preorderTraversal = function(root) {
+//     if (!root) return [];
     
-    let stack = [root];
+//     let stack = [root];
+//     let result = [];
+    
+//     while (stack.length > 0) {
+//         let node = stack.pop();
+//         result.push(node.val);
+        
+//         if (node.right) stack.push(node.right);
+//         if (node.left) stack.push(node.left);
+//     }
+    
+//     return result;
+// };
+
+// class TreeNode {
+//     constructor(val, left = null, right = null) {
+//         this.val = val;
+//         this.left = left;
+//         this.right = right;
+//     }
+// }
+
+// let root = new TreeNode(
+//     1,
+//     null,
+//     new TreeNode(
+//         2,
+//         new TreeNode(3),
+//         null
+//     )
+// );
+
+// console.log(preorderTraversal(root));
+
+var binaryTreePaths = function(root) {
     let result = [];
     
-    while (stack.length > 0) {
-        let node = stack.pop();
-        result.push(node.val);
+    function dfs(node, path) {
+        if (!node) return;
         
-        if (node.right) stack.push(node.right);
-        if (node.left) stack.push(node.left);
+        // Add current node to path
+        path += node.val;
+        
+        // If leaf node → save path
+        if (!node.left && !node.right) {
+            result.push(path);
+            return;
+        }
+        
+        // Continue DFS
+        path += "->";
+        dfs(node.left, path);
+        dfs(node.right, path);
     }
     
+    dfs(root, "");
     return result;
 };
-
 class TreeNode {
     constructor(val, left = null, right = null) {
         this.val = val;
@@ -39,5 +83,4 @@ let root = new TreeNode(
         null
     )
 );
-
-console.log(preorderTraversal(root));
+console.log(binaryTreePaths(root))
