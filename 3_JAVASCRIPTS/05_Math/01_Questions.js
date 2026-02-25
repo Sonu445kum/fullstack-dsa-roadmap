@@ -519,3 +519,46 @@
 // let nums = [1], k = 0 ;
 // console.log(smallestRangeI(nums , k));
 
+// Given a positive integer num, return the number of positive integers less than or equal to num whose digit sums are even.
+
+// The digit sum of a positive integer is the sum of all its digits.
+
+ 
+
+// Example 1:
+
+// Input: num = 4
+// Output: 2
+// Explanation:
+// The only integers less than or equal to 4 whose digit sums are even are 2 and 4.    
+// Example 2:
+
+// Input: num = 30
+// Output: 14
+// Explanation:
+// The 14 integers less than or equal to 30 whose digit sums are even are
+// 2, 4, 6, 8, 11, 13, 15, 17, 19, 20, 22, 24, 26, and 28.
+
+function countEven(nums){
+    let count = 0;
+    // create a loop for the traaversal 2 to nums
+    for(let i = 2; i<=nums; i++){
+        let digitSum = 0 ;
+        // store i in the temp varaibles because we dont cahnges the original values of i
+        let temp = i ;
+        while(temp > 0){
+            let lastDigit = temp % 10 ;
+            digitSum = digitSum + lastDigit ;
+            temp = Math.floor(temp / 10);
+        }
+        // now we check the digitSum are divisble by 2 , then increase the count
+        if(digitSum % 2 === 0){
+            count++;
+        }
+
+    }
+    // return count
+    return count;
+}
+let nums = 4;
+console.log("CountEven:",countEven(nums))
