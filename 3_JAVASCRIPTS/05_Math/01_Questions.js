@@ -618,25 +618,33 @@
 // The greatest common divisor of 2 and 10 is 2.
 
 function findGCD(nums){
-    // firstAppraoch
-    let maxValue = -Infinity , minValue = Infinity ;
-    // traverse Loops
-    for(let num of nums){
-        // checking for the maxValue
-        if(num > maxValue){
-            maxValue = num
-        }
-        // checking for the minValue
-        if(num < minValue){
-            minValue = num;
-        }
-    }
-    let a = maxValue , b =minValue ;
-    while(b!==0){
-        [a , b] = [b , a%b]
+    // // firstAppraoch
+    // let maxValue = -Infinity , minValue = Infinity ;
+    // // traverse Loops
+    // for(let num of nums){
+    //     // checking for the maxValue
+    //     if(num > maxValue){
+    //         maxValue = num
+    //     }
+    //     // checking for the minValue
+    //     if(num < minValue){
+    //         minValue = num;
+    //     }
+    // }
+    // let a = maxValue , b =minValue ;
+    // while(b!==0){
+    //     [a , b] = [b , a%b]
+    // }
+    // return a;
+
+    // 2ndAppraoch
+    const max = Math.max(...nums);
+    const min = Math.min(...nums);
+    let a = max , b = min ;
+    while(b !== 0){
+        [a , b] = [b , a%b] ;
     }
     return a;
-    
 }
 let nums = [2,5,6,9,10];
 console.log("The GCD of the given Number:",findGCD(nums));
