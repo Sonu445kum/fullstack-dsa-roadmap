@@ -334,24 +334,23 @@
 // let n = 7;
 // console.log("Number of Trailing Zeros are:", trailingZeroes(n));
 
-
 // Given an integer number n, return the difference between the product of its digits and the sum of its digits.
 
 // Example 1:
 
 // Input: n = 234
-// Output: 15 
-// Explanation: 
-// Product of digits = 2 * 3 * 4 = 24 
-// Sum of digits = 2 + 3 + 4 = 9 
+// Output: 15
+// Explanation:
+// Product of digits = 2 * 3 * 4 = 24
+// Sum of digits = 2 + 3 + 4 = 9
 // Result = 24 - 9 = 15
 // Example 2:
 
 // Input: n = 4421
 // Output: 21
-// Explanation: 
-// Product of digits = 4 * 4 * 2 * 1 = 32 
-// Sum of digits = 4 + 4 + 2 + 1 = 11 
+// Explanation:
+// Product of digits = 4 * 4 * 2 * 1 = 32
+// Sum of digits = 4 + 4 + 2 + 1 = 11
 // Result = 32 - 11 = 21
 
 // var subtractProductAndSum = function(n) {
@@ -364,7 +363,6 @@
 //     };
 //     return product - sum ;
 
-    
 // };
 // let n = 234;
 // console.log("subtractProductAndSum:",subtractProductAndSum(n));
@@ -404,12 +402,12 @@
 
 // Input: num = 14
 // Output: 6
-// Explanation: 
-// Step 1) 14 is even; divide by 2 and obtain 7. 
+// Explanation:
+// Step 1) 14 is even; divide by 2 and obtain 7.
 // Step 2) 7 is odd; subtract 1 and obtain 6.
-// Step 3) 6 is even; divide by 2 and obtain 3. 
-// Step 4) 3 is odd; subtract 1 and obtain 2. 
-// Step 5) 2 is even; divide by 2 and obtain 1. 
+// Step 3) 6 is even; divide by 2 and obtain 3.
+// Step 4) 3 is odd; subtract 1 and obtain 2.
+// Step 5) 2 is even; divide by 2 and obtain 1.
 // Step 6) 1 is odd; subtract 1 and obtain 0.
 
 // function numberOfSteps(nums){
@@ -430,8 +428,6 @@
 // console.log("The Number of Steps:",numberOfSteps(nums))
 
 // Given two non-negative integers low and high. Return the count of odd numbers between low and high (inclusive).
-
- 
 
 // Example 1:
 
@@ -460,8 +456,6 @@
 // Given an array of positive integers arr, return the sum of all possible odd-length subarrays of arr.
 
 // A subarray is a contiguous subsequence of the array.
-
- 
 
 // Example 1:
 
@@ -502,8 +496,6 @@
 
 // Return the minimum score of nums after applying the mentioned operation at most once for each index in it.
 
- 
-
 // Example 1:
 
 // Input: nums = [1], k = 0
@@ -523,14 +515,12 @@
 
 // The digit sum of a positive integer is the sum of all its digits.
 
- 
-
 // Example 1:
 
 // Input: num = 4
 // Output: 2
 // Explanation:
-// The only integers less than or equal to 4 whose digit sums are even are 2 and 4.    
+// The only integers less than or equal to 4 whose digit sums are even are 2 and 4.
 // Example 2:
 
 // Input: num = 30
@@ -606,8 +596,6 @@
 
 // The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
 
- 
-
 // Example 1:
 
 // Input: nums = [2,5,6,9,10]
@@ -618,26 +606,26 @@
 // The greatest common divisor of 2 and 10 is 2.
 
 // function findGCD(nums){
-    // // firstAppraoch
-    // let maxValue = -Infinity , minValue = Infinity ;
-    // // traverse Loops
-    // for(let num of nums){
-    //     // checking for the maxValue
-    //     if(num > maxValue){
-    //         maxValue = num
-    //     }
-    //     // checking for the minValue
-    //     if(num < minValue){
-    //         minValue = num;
-    //     }
-    // }
-    // let a = maxValue , b =minValue ;
-    // while(b!==0){
-    //     [a , b] = [b , a%b]
-    // }
-    // return a;
+// // firstAppraoch
+// let maxValue = -Infinity , minValue = Infinity ;
+// // traverse Loops
+// for(let num of nums){
+//     // checking for the maxValue
+//     if(num > maxValue){
+//         maxValue = num
+//     }
+//     // checking for the minValue
+//     if(num < minValue){
+//         minValue = num;
+//     }
+// }
+// let a = maxValue , b =minValue ;
+// while(b!==0){
+//     [a , b] = [b , a%b]
+// }
+// return a;
 
-    // 2ndAppraoch
+// 2ndAppraoch
 //     const max = Math.max(...nums);
 //     const min = Math.min(...nums);
 //     let a = max , b = min ;
@@ -662,12 +650,12 @@
 // Input: s = "1101"
 // Output: 6
 // Explanation: "1101" corressponds to number 13 in their decimal representation.
-// Step 1) 13 is odd, add 1 and obtain 14. 
+// Step 1) 13 is odd, add 1 and obtain 14.
 // Step 2) 14 is even, divide by 2 and obtain 7.
 // Step 3) 7 is odd, add 1 and obtain 8.
-// Step 4) 8 is even, divide by 2 and obtain 4.  
-// Step 5) 4 is even, divide by 2 and obtain 2. 
-// Step 6) 2 is even, divide by 2 and obtain 1. 
+// Step 4) 8 is even, divide by 2 and obtain 4.
+// Step 5) 4 is even, divide by 2 and obtain 2.
+// Step 6) 2 is even, divide by 2 and obtain 1.
 
 // function findNumStep(s){
 //     let step =0;
@@ -696,8 +684,6 @@
 
 // For example, reversing 2021 gives 1202. Reversing 12300 gives 321 as the leading zeros are not retained.
 // Given an integer num, reverse num to get reversed1, then reverse reversed1 to get reversed2. Return true if reversed2 equals num. Otherwise return false.
-
- 
 
 // Example 1:
 
@@ -744,13 +730,11 @@
 // For example, if num1 = 5 and num2 = 4, subtract num2 from num1, thus obtaining num1 = 1 and num2 = 4. However, if num1 = 4 and num2 = 5, after one operation, num1 = 4 and num2 = 1.
 // Return the number of operations required to make either num1 = 0 or num2 = 0.
 
- 
-
 // Example 1:
 
 // Input: num1 = 2, num2 = 3
 // Output: 3
-// Explanation: 
+// Explanation:
 // - Operation 1: num1 = 2, num2 = 3. Since num1 < num2, we subtract num1 from num2 and get num1 = 2, num2 = 3 - 2 = 1.
 // - Operation 2: num1 = 2, num2 = 1. Since num1 > num2, we subtract num2 from num1.
 // - Operation 3: num1 = 1, num2 = 1. Since num1 == num2, we subtract num2 from num1.
@@ -776,7 +760,6 @@
 // console.log("The Count Operartions to Reduce Zero:",countOperations(num1 , num2));
 
 // Given a positive integer n, return the smallest positive integer that is a multiple of both 2 and n.
- 
 
 // Example 1:
 
@@ -817,8 +800,6 @@
 // num2: The sum of all integers in the range [1, n] (both inclusive) that are divisible by m.
 // Return the integer num1 - num2.
 
- 
-
 // Example 1:
 
 // Input: n = 10, m = 3
@@ -828,18 +809,89 @@
 // - Integers in the range [1, 10] that are divisible by 3 are [3,6,9], num2 is the sum of those integers = 18.
 // We return 37 - 18 = 19 as the answer.
 
-var differenceOfSums = function(n, m) {
-    let sumDiv = 0;
-    let sumNotDiv =0;
-    for(let i =1 ; i<=n;i++){
-        // check num is divisble by 3 then sum of all number
-        if(i % m ===0){
-            sumDiv += i;
-        }else{
-            sumNotDiv += i;
-        }
+// var differenceOfSums = function(n, m) {
+//     let sumDiv = 0;
+//     let sumNotDiv =0;
+//     for(let i =1 ; i<=n;i++){
+//         // check num is divisble by 3 then sum of all number
+//         if(i % m ===0){
+//             sumDiv += i;
+//         }else{
+//             sumNotDiv += i;
+//         }
+//     }
+//     return sumNotDiv - sumDiv;
+// };
+// let n = 10 , m =3;
+// console.log("The Difference of sumNotDiv - sumDiv: ",differenceOfSums(n , m));
+
+// You are given an integer array nums.
+
+// You replace each element in nums with the sum of its digits.
+
+// Return the minimum element in nums after all replacements.
+
+// Example 1:
+
+// Input: nums = [10,12,13,14]
+
+// Output: 1
+
+// Explanation:
+
+// nums becomes [1, 3, 4, 5] after all replacements, with minimum element 1.
+
+// Example 2:
+
+// Input: nums = [1,2,3,4]
+
+// Output: 1
+
+// Explanation:
+
+// nums becomes [1, 2, 3, 4] after all replacements, with minimum element 1.
+
+// Example 3:
+
+// Input: nums = [999,19,199]
+
+// Output: 10
+
+// Explanation:
+
+// nums becomes [27, 10, 19] after all replacements, with minimum element 10.
+
+// firstAppraoch
+// function  minElement(num){
+//     for(let i = 0; i<num.length; i++){
+//         let sum =0;
+//         let temp = num[i];
+
+//         while(temp > 0){
+//             sum += temp % 10;
+//             temp = Math.floor(temp/10);
+//         }
+//         num[i] = sum;
+
+//     }
+//     let min =Math.min(...num);
+//     return min;
+// }
+
+// 2nd Approach
+function minElement(nums) {
+  let min = Infinity;
+  for (let num of nums) {
+    let sum = 0;
+    let temp = num;
+
+    while (temp > 0) {
+      sum += temp % 10;
+      temp = Math.floor(temp / 10);
     }
-    return sumNotDiv - sumDiv;
-};
-let n = 10 , m =3;
-console.log("The Difference of sumNotDiv - sumDiv: ",differenceOfSums(n , m));
+    min = Math.min(min, sum);
+  }
+  return min;
+}
+let nums = [999, 19, 199];
+console.log("The MinElement:", minElement(nums));
