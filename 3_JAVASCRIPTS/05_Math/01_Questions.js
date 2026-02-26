@@ -757,20 +757,41 @@
 // Now num1 = 0 and num2 = 1. Since num1 == 0, we do not need to perform any further operations.
 // So the total number of operations required is 3.
 
-var countOperations = function(num1, num2) {
-    let operations = 0;
-    let temp1 = num1,temp2 =num2;
-    while(temp1 !== 0 && temp2 !== 0){
-        if(temp1 > temp2){
-            temp1 = temp1 - temp2 ;
-            operations++;
-        }else{
-            temp2 = temp2 - temp1;
-            operations++;
-        }
-    }
-    return operations;
-};
-// let num1 = 5 , num2 = 4;
-let num1 = 2, num2 = 3 ;
-console.log("The Count Operartions to Reduce Zero:",countOperations(num1 , num2));
+// var countOperations = function(num1, num2) {
+//     let operations = 0;
+//     let temp1 = num1,temp2 =num2;
+//     while(temp1 !== 0 && temp2 !== 0){
+//         if(temp1 > temp2){
+//             temp1 = temp1 - temp2 ;
+//             operations++;
+//         }else{
+//             temp2 = temp2 - temp1;
+//             operations++;
+//         }
+//     }
+//     return operations;
+// };
+// // let num1 = 5 , num2 = 4;
+// let num1 = 2, num2 = 3 ;
+// console.log("The Count Operartions to Reduce Zero:",countOperations(num1 , num2));
+
+// Given a positive integer n, return the smallest positive integer that is a multiple of both 2 and n.
+ 
+
+// Example 1:
+
+// Input: n = 5
+// Output: 10
+// Explanation: The smallest multiple of both 5 and 2 is 10.
+// Example 2:
+
+// Input: n = 6
+// Output: 6
+// Explanation: The smallest multiple of both 6 and 2 is 6. Note that a number is a multiple of itself.
+function smallestEvenMultiple(num){
+    // base case
+    if(num % 2 === 0) return num;
+    return 2 * num;
+}
+let num = 5;
+console.log("The Smallest Even Multiple:",smallestEvenMultiple(num))
