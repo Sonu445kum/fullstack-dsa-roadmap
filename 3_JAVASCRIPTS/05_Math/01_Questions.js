@@ -617,7 +617,7 @@
 // The largest number in nums is 10.
 // The greatest common divisor of 2 and 10 is 2.
 
-function findGCD(nums){
+// function findGCD(nums){
     // // firstAppraoch
     // let maxValue = -Infinity , minValue = Infinity ;
     // // traverse Loops
@@ -638,13 +638,49 @@ function findGCD(nums){
     // return a;
 
     // 2ndAppraoch
-    const max = Math.max(...nums);
-    const min = Math.min(...nums);
-    let a = max , b = min ;
-    while(b !== 0){
-        [a , b] = [b , a%b] ;
+//     const max = Math.max(...nums);
+//     const min = Math.min(...nums);
+//     let a = max , b = min ;
+//     while(b !== 0){
+//         [a , b] = [b , a%b] ;
+//     }
+//     return a;
+// }
+// let nums = [2,5,6,9,10];
+// console.log("The GCD of the given Number:",findGCD(nums));
+
+// Given the binary representation of an integer as a string s, return the number of steps to reduce it to 1 under the following rules:
+
+// If the current number is even, you have to divide it by 2.
+
+// If the current number is odd, you have to add 1 to it.
+
+// It is guaranteed that you can always reach one for all test cases.
+
+// Example 1:
+
+// Input: s = "1101"
+// Output: 6
+// Explanation: "1101" corressponds to number 13 in their decimal representation.
+// Step 1) 13 is odd, add 1 and obtain 14. 
+// Step 2) 14 is even, divide by 2 and obtain 7.
+// Step 3) 7 is odd, add 1 and obtain 8.
+// Step 4) 8 is even, divide by 2 and obtain 4.  
+// Step 5) 4 is even, divide by 2 and obtain 2. 
+// Step 6) 2 is even, divide by 2 and obtain 1. 
+
+function findNumStep(s){
+    let step =0;
+    let carry =0;
+    for (let i = s.length - 1; i > 0; i--) {
+        if ((Number(s[i]) + carry) % 2 === 0) {
+            step += 1; // even → divide
+        } else {
+            step += 2; // odd → add + divide
+            carry = 1;
+        }
     }
-    return a;
+    return step + carry;
 }
-let nums = [2,5,6,9,10];
-console.log("The GCD of the given Number:",findGCD(nums));
+let s ="1101";
+console.log("The Number of Steps to Reduce 1:",findNumStep(s));
