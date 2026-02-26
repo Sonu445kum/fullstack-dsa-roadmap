@@ -796,15 +796,50 @@
 // let num = 5;
 // console.log("The Smallest Even Multiple:",smallestEvenMultiple(num))
 
-var commonFactors = function(a, b) {
-    let count =0;
-    let limit =Math.min(a ,b);
-    for (let i = 1; i <= limit; i++) {
-        if (a % i === 0 && b % i === 0) {
-            count++;
+// var commonFactors = function(a, b) {
+//     let count =0;
+//     let limit =Math.min(a ,b);
+//     for (let i = 1; i <= limit; i++) {
+//         if (a % i === 0 && b % i === 0) {
+//             count++;
+//         }
+//     }
+//     return count;
+// };
+// let a = 12 , b = 6;
+// console.log(commonFactors(a , b));
+
+// You are given positive integers n and m.
+
+// Define two integers as follows:
+
+// num1: The sum of all integers in the range [1, n] (both inclusive) that are not divisible by m.
+// num2: The sum of all integers in the range [1, n] (both inclusive) that are divisible by m.
+// Return the integer num1 - num2.
+
+ 
+
+// Example 1:
+
+// Input: n = 10, m = 3
+// Output: 19
+// Explanation: In the given example:
+// - Integers in the range [1, 10] that are not divisible by 3 are [1,2,4,5,7,8,10], num1 is the sum of those integers = 37.
+// - Integers in the range [1, 10] that are divisible by 3 are [3,6,9], num2 is the sum of those integers = 18.
+// We return 37 - 18 = 19 as the answer.
+
+var differenceOfSums = function(n, m) {
+    let sumDiv = 0;
+    let sumNotDiv =0;
+    for(let i =1 ; i<=n;i++){
+        // check num is divisble by 3 then sum of all number
+        if(i % m ===0){
+            sumDiv += i;
+        }else{
+            sumNotDiv += i;
         }
     }
-    return count;
+    return sumNotDiv - sumDiv;
 };
-let a = 12 , b = 6;
-console.log(commonFactors(a , b));
+let n = 10 , m =3;
+console.log("The Difference of sumNotDiv - sumDiv: ",differenceOfSums(n , m));
