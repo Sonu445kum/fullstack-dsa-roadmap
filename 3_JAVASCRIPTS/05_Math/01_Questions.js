@@ -601,3 +601,42 @@
 // }
 // let n = 8;
 // console.log("The Climbs Stairs:",climbStairs(n));
+
+// Given an integer array nums, return the greatest common divisor of the smallest number and largest number in nums.
+
+// The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
+
+ 
+
+// Example 1:
+
+// Input: nums = [2,5,6,9,10]
+// Output: 2
+// Explanation:
+// The smallest number in nums is 2.
+// The largest number in nums is 10.
+// The greatest common divisor of 2 and 10 is 2.
+
+function findGCD(nums){
+    // firstAppraoch
+    let maxValue = -Infinity , minValue = Infinity ;
+    // traverse Loops
+    for(let num of nums){
+        // checking for the maxValue
+        if(num > maxValue){
+            maxValue = num
+        }
+        // checking for the minValue
+        if(num < minValue){
+            minValue = num;
+        }
+    }
+    let a = maxValue , b =minValue ;
+    while(b!==0){
+        [a , b] = [b , a%b]
+    }
+    return a;
+    
+}
+let nums = [2,5,6,9,10];
+console.log("The GCD of the given Number:",findGCD(nums));
