@@ -45,3 +45,23 @@
 
 # s1 = Student("Rahul", 88)
 # print(s1.calculate_grade())
+
+# Class method & static method
+# class Example:
+#     count = 0
+
+#     def __init__(self):
+#         Example.count += 1
+
+#     @classmethod
+#     def get_count(cls):
+#         return cls.count
+
+#     @staticmethod
+#     def greet():
+#         return "Hello!"
+
+# e1 = Example()
+# e2 = Example()
+# print(Example.get_count())
+# print(Example.greet())
