@@ -788,10 +788,23 @@
 // Input: n = 6
 // Output: 6
 // Explanation: The smallest multiple of both 6 and 2 is 6. Note that a number is a multiple of itself.
-function smallestEvenMultiple(num){
-    // base case
-    if(num % 2 === 0) return num;
-    return 2 * num;
-}
-let num = 5;
-console.log("The Smallest Even Multiple:",smallestEvenMultiple(num))
+// function smallestEvenMultiple(num){
+//     // base case
+//     if(num % 2 === 0) return num;
+//     return 2 * num;
+// }
+// let num = 5;
+// console.log("The Smallest Even Multiple:",smallestEvenMultiple(num))
+
+var commonFactors = function(a, b) {
+    let count =0;
+    let limit =Math.min(a ,b);
+    for (let i = 1; i <= limit; i++) {
+        if (a % i === 0 && b % i === 0) {
+            count++;
+        }
+    }
+    return count;
+};
+let a = 12 , b = 6;
+console.log(commonFactors(a , b));
