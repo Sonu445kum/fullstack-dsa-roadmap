@@ -879,19 +879,42 @@
 // }
 
 // 2nd Approach
-function minElement(nums) {
-  let min = Infinity;
-  for (let num of nums) {
-    let sum = 0;
-    let temp = num;
+// function minElement(nums) {
+//   let min = Infinity;
+//   for (let num of nums) {
+//     let sum = 0;
+//     let temp = num;
 
-    while (temp > 0) {
-      sum += temp % 10;
-      temp = Math.floor(temp / 10);
+//     while (temp > 0) {
+//       sum += temp % 10;
+//       temp = Math.floor(temp / 10);
+//     }
+//     min = Math.min(min, sum);
+//   }
+//   return min;
+// }
+// let nums = [999, 19, 199];
+// console.log("The MinElement:", minElement(nums));
+
+var isHappy = function(n) {
+    let seen = new Set();
+
+    while (n !== 1 && !seen.has(n)) {
+        seen.add(n);
+        
+        let sum = 0;
+        let temp = n;
+
+        while (temp > 0) {
+            let digit = temp % 10;
+            sum += digit * digit;
+            temp = Math.floor(temp / 10);
+        }
+
+        n = sum;  // move to next number
     }
-    min = Math.min(min, sum);
-  }
-  return min;
-}
-let nums = [999, 19, 199];
-console.log("The MinElement:", minElement(nums));
+
+    return n === 1;
+};
+let n = 19 ;
+console.log("is This Number Happy or not:",isHappy(n));
