@@ -896,25 +896,60 @@
 // let nums = [999, 19, 199];
 // console.log("The MinElement:", minElement(nums));
 
-var isHappy = function(n) {
-    let seen = new Set();
+// var isHappy = function(n) {
+//     let seen = new Set();
 
-    while (n !== 1 && !seen.has(n)) {
-        seen.add(n);
+//     while (n !== 1 && !seen.has(n)) {
+//         seen.add(n);
         
-        let sum = 0;
-        let temp = n;
+//         let sum = 0;
+//         let temp = n;
 
-        while (temp > 0) {
-            let digit = temp % 10;
-            sum += digit * digit;
-            temp = Math.floor(temp / 10);
-        }
+//         while (temp > 0) {
+//             let digit = temp % 10;
+//             sum += digit * digit;
+//             temp = Math.floor(temp / 10);
+//         }
 
-        n = sum;  // move to next number
+//         n = sum;  // move to next number
+//     }
+
+//     return n === 1;
+// };
+// let n = 19 ;
+// console.log("is This Number Happy or not:",isHappy(n));
+
+// Given a 32-bit integer num, return a string representing its hexadecimal representation. For negative integers, two’s complement method is used.
+
+// All the letters in the answer string should be lowercase characters, and there should not be any leading zeros in the answer except for the zero itself.
+
+// Note: You are not allowed to use any built-in library method to directly solve this problem.
+
+ 
+
+// Example 1:
+
+// Input: num = 26
+// Output: "1a"
+// Example 2:
+
+// Input: num = -1
+// Output: "ffffffff"
+
+function numberToHex(num){
+    // base case
+    if(num === "0") return "0" ;
+    let result = "";
+    let hexChar = "0123456789abcdef";
+    // now shift num to unsinged 32 bits;
+    num = num >>> 0 ;
+
+    while(num > 0){
+        let digit = num & 15 ;
+        result = hexChar[digit] + result ;
+        num = num >>> 4 ;
     }
-
-    return n === 1;
-};
-let n = 19 ;
-console.log("is This Number Happy or not:",isHappy(n));
+    return result;
+}
+let num = 26;
+console.log("ToHexaDecimal num:",numberToHex(num));

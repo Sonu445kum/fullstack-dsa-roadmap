@@ -15,13 +15,13 @@
 // Input: n = "27346209830709182346"
 // Output: 9
 
-function minPartitions(n){
-    let maxDigit = 0 ;
-    for(let digit of n){
-        maxDigit = Math.max(maxDigit , Number(digit));
-        if(maxDigit === 9) return 9;
-    }
-    return maxDigit; 
-}
-let n = "32";
-console.log("The MaxDigit:",minPartitions(n));
+// function minPartitions(n){
+//     let maxDigit = 0 ;
+//     for(let digit of n){
+//         maxDigit = Math.max(maxDigit , Number(digit));
+//         if(maxDigit === 9) return 9;
+//     }
+//     return maxDigit; 
+// }
+// let n = "32";
+// console.log("The MaxDigit:",minPartitions(n));
