@@ -969,16 +969,32 @@
 // let num = 50 ;
 // console.log("The Number to Binary:",numToBinary(num));
 
-function numToOctal(num){
-    // base case
-    if(num === 0) return "0";
-    let result = "";
-    while(num > 0){
-        let digit = num % 8;
-        result = digit + result ;
-        num = Math.floor(num/8);
+// function numToOctal(num){
+//     // base case
+//     if(num === 0) return "0";
+//     let result = "";
+//     while(num > 0){
+//         let digit = num % 8;
+//         result = digit + result ;
+//         num = Math.floor(num/8);
+//     }
+//     return result;
+// }
+// let num = 50 ;
+// console.log("The Number to Octal:",numToOctal(num));
+
+
+// convert binary to number
+function binaryToNumber(binary){
+    let result = 0;
+    let n = binary.length;
+    for(let i = 0 ; i<n; i++){
+        let digit = Number(binary[i]);
+        result += digit * Math.pow(2, n-i-1);
+
     }
     return result;
+
 }
-let num = 50 ;
-console.log("The Number to Octal:",numToOctal(num));
+let binary ="1101";
+console.log("The Binary To Number:",binaryToNumber(binary))
