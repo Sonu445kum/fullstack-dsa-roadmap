@@ -955,16 +955,30 @@
 // console.log("ToHexaDecimal num:",numberToHex(num));
 
 // convert number to binary
-function numToBinary(num){
+// function numToBinary(num){
+//     // base case
+//     if(num === 0) return "0";
+//     let result = "";
+//     while(num > 0){
+//         let digit = num % 2;
+//         result = digit + result ;
+//         num = Math.floor(num/2);
+//     }
+//     return result;
+// }
+// let num = 50 ;
+// console.log("The Number to Binary:",numToBinary(num));
+
+function numToOctal(num){
     // base case
     if(num === 0) return "0";
     let result = "";
     while(num > 0){
-        let digit = num % 2;
+        let digit = num % 8;
         result = digit + result ;
-        num = Math.floor(num/2);
+        num = Math.floor(num/8);
     }
     return result;
 }
 let num = 50 ;
-console.log("The Number to Binary:",numToBinary(num));
+console.log("The Number to Octal:",numToOctal(num));
