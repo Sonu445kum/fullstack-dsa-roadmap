@@ -985,16 +985,30 @@
 
 
 // convert binary to number
-function binaryToNumber(binary){
+// function binaryToNumber(binary){
+//     let result = 0;
+//     let n = binary.length;
+//     for(let i = 0 ; i<n; i++){
+//         let digit = Number(binary[i]);
+//         result += digit * Math.pow(2, n-i-1);
+
+//     }
+//     return result;
+
+// }
+// let binary ="1101";
+// console.log("The Binary To Number:",binaryToNumber(binary))
+
+function OctalToNumber(binary){
     let result = 0;
     let n = binary.length;
     for(let i = 0 ; i<n; i++){
         let digit = Number(binary[i]);
-        result += digit * Math.pow(2, n-i-1);
+        result += digit * Math.pow(8, n-i-1);
 
     }
     return result;
 
 }
-let binary ="1101";
-console.log("The Binary To Number:",binaryToNumber(binary))
+let octal="65";
+console.log("The Binary To Number:",OctalToNumber(octal))
