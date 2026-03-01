@@ -1054,16 +1054,28 @@
 
 // The sum of digits of x is 5. 23 is not divisible by 5. So 23 is not a Harshad number and the answer is -1.
 
-function sumOfTheDigitsOfHarshadNumber(x) {
-  let sumDigit = 0 ;
-    let temp = x ;
-    while(temp > 0){
-        let lastDigit = temp % 10 ;
-        sumDigit = sumDigit + lastDigit ;
-        temp = Math.floor(temp/10);
+// function sumOfTheDigitsOfHarshadNumber(x) {
+//   let sumDigit = 0 ;
+//     let temp = x ;
+//     while(temp > 0){
+//         let lastDigit = temp % 10 ;
+//         sumDigit = sumDigit + lastDigit ;
+//         temp = Math.floor(temp/10);
+//     }
+//     // now check sum is divisible by x;
+//     return x % sumDigit === 0 ? sumDigit : -1;
+// }
+// let x = 23;
+// console.log("sumOfTheDigitsOfHarshadNumber:", sumOfTheDigitsOfHarshadNumber(x));
+
+var uniqueOccurrences = function(arr) {
+    let occ = {} ;
+    for( let newArr of arr){
+        occ[newArr] = (occ[newArr] | 0) + 1;
     }
-    // now check sum is divisible by x;
-    return x % sumDigit === 0 ? sumDigit : -1;
-}
-let x = 23;
-console.log("sumOfTheDigitsOfHarshadNumber:", sumOfTheDigitsOfHarshadNumber(x));
+   let value = Object.values(occ);
+   let set = new Set(value);
+   return value.length === set.size;
+};
+let arr = [1,2,2,1,1,3];
+console.log("The Number of Occurrences:",uniqueOccurrences(arr));
