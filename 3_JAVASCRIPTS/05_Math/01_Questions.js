@@ -999,16 +999,40 @@
 // let binary ="1101";
 // console.log("The Binary To Number:",binaryToNumber(binary))
 
-function OctalToNumber(binary){
-    let result = 0;
-    let n = binary.length;
-    for(let i = 0 ; i<n; i++){
-        let digit = Number(binary[i]);
-        result += digit * Math.pow(8, n-i-1);
+// Convert Octal to Number
 
+// function OctalToNumber(binary){
+//     let result = 0;
+//     let n = binary.length;
+//     for(let i = 0 ; i<n; i++){
+//         let digit = Number(binary[i]);
+//         result += digit * Math.pow(8, n-i-1);
+
+//     }
+//     return result;
+
+// }
+// let octal="65";
+// console.log("The Binary To Number:",OctalToNumber(octal))
+
+// Convert HexaDecimal to Number
+
+function OctalToNumber(hexadecimal){
+    let result = 0;
+    hexadecimal = hexadecimal.toLowerCase();
+    
+    for(char of hexadecimal){
+        let value;
+        if(char >="0" && char <="9"){
+            value = char.charAtCode(0) - "0".charCodeAt(0);
+        }else{
+            value = char.charAtCode(0) - 'a'.charCodeAt(0) + 10;
+        }
+        result = result*16 + value;
     }
     return result;
 
+
 }
-let octal="65";
-console.log("The Binary To Number:",OctalToNumber(octal))
+let hexadecimal="ff";
+console.log("The Binary To Number:",OctalToNumber(hexadecimal))
