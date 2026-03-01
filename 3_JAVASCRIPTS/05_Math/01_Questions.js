@@ -936,20 +936,35 @@
 // Input: num = -1
 // Output: "ffffffff"
 
-function numberToHex(num){
-    // base case
-    if(num === "0") return "0" ;
-    let result = "";
-    let hexChar = "0123456789abcdef";
-    // now shift num to unsinged 32 bits;
-    num = num >>> 0 ;
+// function numberToHex(num){
+//     // base case
+//     if(num === "0") return "0" ;
+//     let result = "";
+//     let hexChar = "0123456789abcdef";
+//     // now shift num to unsinged 32 bits;
+//     num = num >>> 0 ;
 
+//     while(num > 0){
+//         let digit = num & 15 ;
+//         result = hexChar[digit] + result ;
+//         num = num >>> 4 ;
+//     }
+//     return result;
+// }
+// let num = 26;
+// console.log("ToHexaDecimal num:",numberToHex(num));
+
+// convert number to binary
+function numToBinary(num){
+    // base case
+    if(num === 0) return "0";
+    let result = "";
     while(num > 0){
-        let digit = num & 15 ;
-        result = hexChar[digit] + result ;
-        num = num >>> 4 ;
+        let digit = num % 2;
+        result = digit + result ;
+        num = Math.floor(num/2);
     }
     return result;
 }
-let num = 26;
-console.log("ToHexaDecimal num:",numberToHex(num));
+let num = 50 ;
+console.log("The Number to Binary:",numToBinary(num));
