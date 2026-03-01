@@ -384,32 +384,63 @@
 // console.log(minimumDistance(nums));
 
 // merge short:
-var merge = function(nums1, m, nums2, n) {
-    let i = m - 1;          // last element in nums1
-    let j = n - 1;          // last element in nums2
-    let k = m + n - 1;      // last position of nums1
+// var merge = function(nums1, m, nums2, n) {
+//     let i = m - 1;          // last element in nums1
+//     let j = n - 1;          // last element in nums2
+//     let k = m + n - 1;      // last position of nums1
 
-    while (i >= 0 && j >= 0) {
-        if (nums1[i] > nums2[j]) {
-            nums1[k] = nums1[i];
-            i--;
-        } else {
-            nums1[k] = nums2[j];
-            j--;
-        }
-        k--;
-    }
+//     while (i >= 0 && j >= 0) {
+//         if (nums1[i] > nums2[j]) {
+//             nums1[k] = nums1[i];
+//             i--;
+//         } else {
+//             nums1[k] = nums2[j];
+//             j--;
+//         }
+//         k--;
+//     }
 
-    // If nums2 still has elements left
-    while (j >= 0) {
-        nums1[k] = nums2[j];
-        j--;
-        k--;
-    }
-};
-let nums1 = [1,2,3,0,0,0], m = 3;
-let nums2 = [2,5,6], n = 3;
+//     // If nums2 still has elements left
+//     while (j >= 0) {
+//         nums1[k] = nums2[j];
+//         j--;
+//         k--;
+//     }
+// };
+// let nums1 = [1,2,3,0,0,0], m = 3;
+// let nums2 = [2,5,6], n = 3;
 // console.log("The Merge Short of this:",merge(nums1 , m , nums2 , n));
 
-console.log(merge(nums1 , m , nums2 , n));
+// console.log(merge(nums1 , m , nums2 , n));
 
+// Given an array of integers nums, return the number of good pairs.
+
+// A pair (i, j) is called good if nums[i] == nums[j] and i < j.
+// Example 1:
+
+// Input: nums = [1,2,3,1,1,3]
+// Output: 4
+// Explanation: There are 4 good pairs (0,3), (0,4), (3,4), (2,5) 0-indexed.
+// Example 2:
+
+// Input: nums = [1,1,1,1]
+// Output: 6
+// Explanation: Each pair in the array are good.
+// Example 3:
+
+// Input: nums = [1,2,3]
+// Output: 0
+
+var numIdenticalPairs = function(nums) {
+    let count = 0;
+    for(let i = 0 ; i <nums.length; i++){
+        for(let j = i+1; j<nums.length ; j++){
+            if(nums[i] === nums[j] && i < j){
+                count++;
+            }
+        }
+    }
+    return count;
+};
+let nums = [1,2,3,1,1,3];
+console.log("The Number of Goods Pair:",numIdenticalPairs(nums));
