@@ -901,7 +901,7 @@
 
 //     while (n !== 1 && !seen.has(n)) {
 //         seen.add(n);
-        
+
 //         let sum = 0;
 //         let temp = n;
 
@@ -924,8 +924,6 @@
 // All the letters in the answer string should be lowercase characters, and there should not be any leading zeros in the answer except for the zero itself.
 
 // Note: You are not allowed to use any built-in library method to directly solve this problem.
-
- 
 
 // Example 1:
 
@@ -983,7 +981,6 @@
 // let num = 50 ;
 // console.log("The Number to Octal:",numToOctal(num));
 
-
 // convert binary to number
 // function binaryToNumber(binary){
 //     let result = 0;
@@ -1017,22 +1014,56 @@
 
 // Convert HexaDecimal to Number
 
-function OctalToNumber(hexadecimal){
-    let result = 0;
-    hexadecimal = hexadecimal.toLowerCase();
-    
-    for(char of hexadecimal){
-        let value;
-        if(char >="0" && char <="9"){
-            value = char.charAtCode(0) - "0".charCodeAt(0);
-        }else{
-            value = char.charAtCode(0) - 'a'.charCodeAt(0) + 10;
-        }
-        result = result*16 + value;
+// function OctalToNumber(hexadecimal){
+//     let result = 0;
+//     hexadecimal = hexadecimal.toLowerCase();
+
+//     for(char of hexadecimal){
+//         let value;
+//         if(char >="0" && char <="9"){
+//             value = char.charAtCode(0) - "0".charCodeAt(0);
+//         }else{
+//             value = char.charAtCode(0) - 'a'.charCodeAt(0) + 10;
+//         }
+//         result = result*16 + value;
+//     }
+//     return result;
+
+// }
+// let hexadecimal="ff";
+// console.log("The Binary To Number:",OctalToNumber(hexadecimal))
+
+// An integer divisible by the sum of its digits is said to be a Harshad number. You are given an integer x. Return the sum of the digits of x if x is a Harshad number, otherwise, return -1.
+// Example 1:
+
+// Input: x = 18
+
+// Output: 9
+
+// Explanation:
+
+// The sum of digits of x is 9. 18 is divisible by 9. So 18 is a Harshad number and the answer is 9.
+
+// Example 2:
+
+// Input: x = 23
+
+// Output: -1
+
+// Explanation:
+
+// The sum of digits of x is 5. 23 is not divisible by 5. So 23 is not a Harshad number and the answer is -1.
+
+function sumOfTheDigitsOfHarshadNumber(x) {
+  let sumDigit = 0 ;
+    let temp = x ;
+    while(temp > 0){
+        let lastDigit = temp % 10 ;
+        sumDigit = sumDigit + lastDigit ;
+        temp = Math.floor(temp/10);
     }
-    return result;
-
-
+    // now check sum is divisible by x;
+    return x % sumDigit === 0 ? sumDigit : -1;
 }
-let hexadecimal="ff";
-console.log("The Binary To Number:",OctalToNumber(hexadecimal))
+let x = 23;
+console.log("sumOfTheDigitsOfHarshadNumber:", sumOfTheDigitsOfHarshadNumber(x));
