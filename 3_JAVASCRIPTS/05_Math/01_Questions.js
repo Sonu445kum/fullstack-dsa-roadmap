@@ -1068,14 +1068,95 @@
 // let x = 23;
 // console.log("sumOfTheDigitsOfHarshadNumber:", sumOfTheDigitsOfHarshadNumber(x));
 
-var uniqueOccurrences = function(arr) {
-    let occ = {} ;
-    for( let newArr of arr){
-        occ[newArr] = (occ[newArr] | 0) + 1;
-    }
-   let value = Object.values(occ);
-   let set = new Set(value);
-   return value.length === set.size;
+// var uniqueOccurrences = function(arr) {
+//     let occ = {} ;
+//     for( let newArr of arr){
+//         occ[newArr] = (occ[newArr] | 0) + 1;
+//     }
+//    let value = Object.values(occ);
+//    let set = new Set(value);
+//    return value.length === set.size;
+// };
+// let arr = [1,2,2,1,1,3];
+// console.log("The Number of Occurrences:",uniqueOccurrences(arr));
+
+// You are given a positive integer n.
+
+// Return the maximum product of any two digits in n.
+
+// Note: You may use the same digit twice if it appears more than once in n.
+
+// Example 1:
+
+// Input: n = 31
+
+// Output: 3
+
+// Explanation:
+
+// The digits of n are [3, 1].
+// The possible products of any two digits are: 3 * 1 = 3.
+// The maximum product is 3.
+
+// function maximumProduct(n) {
+//   let arr = [];
+//   let temp = n;
+//   while (temp> 0) {
+//     let lastDigit = temp % 10;
+//     arr.unshift(lastDigit);
+//     temp = Math.floor(temp / 10);
+//   }
+//   let maxProduct = 1;
+//   for (let i = 0; i < arr.length; i++) {
+//     maxProduct *= arr[i];
+//   }
+//   return maxProduct;
+// }
+// let n = 31;
+// console.log("The Maximum Product of the Digit:", maximumProduct(n));
+
+// You are given a positive integer n. Determine whether n is divisible by the sum of the following two values:
+
+// The digit sum of n (the sum of its digits).
+
+// The digit product of n (the product of its digits).
+
+// Return true if n is divisible by this sum; otherwise, return false.
+
+ 
+
+// Example 1:
+
+// Input: n = 99
+
+// Output: true
+
+// Explanation:
+
+// Since 99 is divisible by the sum (9 + 9 = 18) plus product (9 * 9 = 81) of its digits (total 99), the output is true.
+
+// Example 2:
+
+// Input: n = 23
+
+// Output: false
+
+// Explanation:
+
+// Since 23 is not divisible by the sum (2 + 3 = 5) plus product (2 * 3 = 6) of its digits (total 11), the output is false.
+
+var checkDivisibility = function(n) {
+   let sum = 0 ;
+   let prod = 1;
+   let temp = n;
+   while(temp > 0){
+    let lastDigit = temp%10;
+    sum = sum + lastDigit;
+    prod = prod * lastDigit ;
+    temp = Math.floor(temp/10);
+   }
+    // check if sum + product is divible by n or not
+    return n % (sum + prod) === 0 ? 1 : 0;
 };
-let arr = [1,2,2,1,1,3];
-console.log("The Number of Occurrences:",uniqueOccurrences(arr));
+let n = 99;
+console.log("checkDivisibility:",checkDivisibility(n));

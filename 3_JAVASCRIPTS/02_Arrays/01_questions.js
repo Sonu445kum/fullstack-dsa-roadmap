@@ -446,16 +446,18 @@
 // console.log("The Number of Goods Pair:",numIdenticalPairs(nums));
 //  T.C => O(n*n);
 
-var numIdenticalPairs = function(nums) {
-    let count = 0;
-    let freq = {};
-    for(let num of nums){
-        if(freq[num]){
-            count += freq[num];
-        }
-        freq[num] = (freq[num] | 0) + 1;
-    }
-    return count;
-};
-let nums = [1,2,3,1,1,3];
-console.log("The Number of Goods Pair:",numIdenticalPairs(nums));
+// var numIdenticalPairs = function(nums) {
+//     let count = 0;
+//     let freq = {};
+//     for(let num of nums){
+//         if(freq[num]){
+//             count += freq[num];
+//         }
+//         freq[num] = (freq[num] | 0) + 1;
+//     }
+//     return count;
+// };
+// let nums = [1,2,3,1,1,3];
+// console.log("The Number of Goods Pair:",numIdenticalPairs(nums));
+
+
