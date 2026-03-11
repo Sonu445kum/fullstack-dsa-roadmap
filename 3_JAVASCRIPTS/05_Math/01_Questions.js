@@ -1199,13 +1199,53 @@
 // Output: -2
 // Explanation: 7/-3 = -2.33333.. which is truncated to -2.
 
-var divide = function(dividend, divisor) {
-    if(dividend === -2147483648 && divisor === -1){
-        return 2147483647;
-    }
+// var divide = function(dividend, divisor) {
+//     if(dividend === -2147483648 && divisor === -1){
+//         return 2147483647;
+//     }
     
-    return Math.trunc(dividend / divisor);
-};
-// let dividend = -2147483648 , divisor = -1;
-let dividend = 7, divisor = -3;
-console.log("The Result:",divide(dividend , divisor));
+//     return Math.trunc(dividend / divisor);
+// };
+// // let dividend = -2147483648 , divisor = -1;
+// let dividend = 7, divisor = -3;
+// console.log("The Result:",divide(dividend , divisor));
+
+// Your task is to calculate ab mod 1337 where a is a positive integer and b is an extremely large positive integer given in the form of an array.
+
+ 
+
+// Example 1:
+
+// Input: a = 2, b = [3]
+// Output: 8
+// Example 2:
+
+// Input: a = 2, b = [1,0]
+// Output: 1024
+// Example 3:
+
+// Input: a = 1, b = [4,3,3,8,5,2]
+// Output: 1
+
+function superPow(a,b){
+   const mod = 1337;
+    function modPow(x,n){
+        let res = 1;
+        x %=mod;
+
+        while (n > 0) {
+            if (n & 1) res = (res * x) % mod;
+            x = (x * x) % mod;
+            n >>= 1;
+        }
+        return res;
+    }
+    let result = 1;
+        for(let digit of b){
+            result = ((modPow(result,10)*modPow(a,digit)))%mod
+        }
+        return result;
+}
+// let a = 2,b =[3];
+let a = 1 , b =[4,5,6,7,8];
+console.log("The SuperPow of:",superPow(a,b));
