@@ -1227,25 +1227,66 @@
 // Input: a = 1, b = [4,3,3,8,5,2]
 // Output: 1
 
-function superPow(a,b){
-   const mod = 1337;
-    function modPow(x,n){
-        let res = 1;
-        x %=mod;
+// function superPow(a,b){
+//    const mod = 1337;
+//     function modPow(x,n){
+//         let res = 1;
+//         x %=mod;
 
-        while (n > 0) {
-            if (n & 1) res = (res * x) % mod;
-            x = (x * x) % mod;
-            n >>= 1;
-        }
-        return res;
+//         while (n > 0) {
+//             if (n & 1) res = (res * x) % mod;
+//             x = (x * x) % mod;
+//             n >>= 1;
+//         }
+//         return res;
+//     }
+//     let result = 1;
+//         for(let digit of b){
+//             result = ((modPow(result,10)*modPow(a,digit)))%mod
+//         }
+//         return result;
+// }
+// // let a = 2,b =[3];
+// let a = 1 , b =[4,5,6,7,8];
+// console.log("The SuperPow of:",superPow(a,b));
+
+// For two strings s and t, we say "t divides s" if and only if s = t + t + t + ... + t + t (i.e., t is concatenated with itself one or more times).
+
+// Given two strings str1 and str2, return the largest string x such that x divides both str1 and str2.
+
+ 
+
+// Example 1:
+
+// Input: str1 = "ABCABC", str2 = "ABC"
+
+// Output: "ABC"
+
+// Example 2:
+
+// Input: str1 = "ABABAB", str2 = "ABAB"
+
+// Output: "AB"
+
+// Example 3:
+
+// Input: str1 = "LEET", str2 = "CODE"
+
+// Output: ""
+
+function gcdToString(str1,str2){
+    // base case
+    if(str1 + str2 !== str1 + str2) return "";
+
+    // create a function for find the gcd
+    function gcd(a,b){
+        while(b !==0){
+        [a,b] = [b, a%b];
     }
-    let result = 1;
-        for(let digit of b){
-            result = ((modPow(result,10)*modPow(a,digit)))%mod
-        }
-        return result;
+    return a;
+    }
+    let len = gcd(str1.length ,str2.length);
+    return str1.slice(0,len);
 }
-// let a = 2,b =[3];
-let a = 1 , b =[4,5,6,7,8];
-console.log("The SuperPow of:",superPow(a,b));
+let str1 = "LEET", str2 = "CODE";
+console.log("The GCD of Two String:",gcdToString(str1 , str2));
