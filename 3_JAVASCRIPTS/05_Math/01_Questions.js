@@ -1145,18 +1145,35 @@
 
 // Since 23 is not divisible by the sum (2 + 3 = 5) plus product (2 * 3 = 6) of its digits (total 11), the output is false.
 
-var checkDivisibility = function(n) {
-   let sum = 0 ;
-   let prod = 1;
-   let temp = n;
-   while(temp > 0){
-    let lastDigit = temp%10;
-    sum = sum + lastDigit;
-    prod = prod * lastDigit ;
-    temp = Math.floor(temp/10);
-   }
-    // check if sum + product is divible by n or not
-    return n % (sum + prod) === 0 ? 1 : 0;
+// var checkDivisibility = function(n) {
+//    let sum = 0 ;
+//    let prod = 1;
+//    let temp = n;
+//    while(temp > 0){
+//     let lastDigit = temp%10;
+//     sum = sum + lastDigit;
+//     prod = prod * lastDigit ;
+//     temp = Math.floor(temp/10);
+//    }
+//     // check if sum + product is divible by n or not
+//     return n % (sum + prod) === 0 ? 1 : 0;
+// };
+// let n = 99;
+// console.log("checkDivisibility:",checkDivisibility(n));
+
+// Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.
+
+// Note: You must not use any built-in BigInteger library or convert the inputs to integer directly.
+// Example 1:
+// Input: num1 = "2", num2 = "3"
+// Output: "6"
+// Example 2:
+
+// Input: num1 = "123", num2 = "456"
+// Output: "56088"
+
+function multiplyTwoString(num1,num2){
+    return (BigInt(num1) * BigInt(num2)).toString();
 };
-let n = 99;
-console.log("checkDivisibility:",checkDivisibility(n));
+let num1 ="4" ,num2 ="6";
+console.log("The Multiply of Two String:",multiplyTwoString(num1,num2));

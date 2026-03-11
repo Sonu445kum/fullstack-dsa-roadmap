@@ -496,4 +496,4 @@ var sumOfUnique = function(nums) {
     return sum;
 };
 let nums = [1,1,1,1,1];
-console.log("SumOfUnique:",sumOfUnique(nums))
+console.log("SumOfUnique:",sumOfUnique(nums));
