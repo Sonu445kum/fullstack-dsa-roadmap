@@ -1308,13 +1308,17 @@
 // Output: 1
 // Explanation: n is already in base 10. 1 + 0 = 1.
 
-function sumBase(n ,k){
-    let sum = 0;
-    while(n > 0){
-        sum += n % k ;
-        n = Math.floor(n/k);
-    }
-    return sum;
-};
-let n = 95 , k = 8;
-console.log("The Sum of Base:",sumBase(n , k));
+// function sumBase(n ,k){
+//     let sum = 0;
+//     while(n > 0){
+//         sum += n % k ;
+//         n = Math.floor(n/k);
+//     }
+//     return sum;
+// };
+// let n = 95 , k = 8;
+// console.log("The Sum of Base:",sumBase(n , k));
+let num = "521";
+
+let newNum =(num.split("").join(','));
+console.log((newNum));
