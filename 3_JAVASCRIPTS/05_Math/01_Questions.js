@@ -1274,19 +1274,47 @@
 
 // Output: ""
 
-function gcdToString(str1,str2){
-    // base case
-    if(str1 + str2 !== str1 + str2) return "";
+// function gcdToString(str1,str2){
+//     // base case
+//     if(str1 + str2 !== str1 + str2) return "";
 
-    // create a function for find the gcd
-    function gcd(a,b){
-        while(b !==0){
-        [a,b] = [b, a%b];
+//     // create a function for find the gcd
+//     function gcd(a,b){
+//         while(b !==0){
+//         [a,b] = [b, a%b];
+//     }
+//     return a;
+//     }
+//     let len = gcd(str1.length ,str2.length);
+//     return str1.slice(0,len);
+// }
+// let str1 = "LEET", str2 = "CODE";
+// console.log("The GCD of Two String:",gcdToString(str1 , str2));
+
+// Given an integer n (in base 10) and a base k, return the sum of the digits of n after converting n from base 10 to base k.
+
+// After converting, each digit should be interpreted as a base 10 number, and the sum should be returned in base 10.
+
+ 
+
+// Example 1:
+
+// Input: n = 34, k = 6
+// Output: 9
+// Explanation: 34 (base 10) expressed in base 6 is 54. 5 + 4 = 9.
+// Example 2:
+
+// Input: n = 10, k = 10
+// Output: 1
+// Explanation: n is already in base 10. 1 + 0 = 1.
+
+function sumBase(n ,k){
+    let sum = 0;
+    while(n > 0){
+        sum += n % k ;
+        n = Math.floor(n/k);
     }
-    return a;
-    }
-    let len = gcd(str1.length ,str2.length);
-    return str1.slice(0,len);
-}
-let str1 = "LEET", str2 = "CODE";
-console.log("The GCD of Two String:",gcdToString(str1 , str2));
+    return sum;
+};
+let n = 95 , k = 8;
+console.log("The Sum of Base:",sumBase(n , k));
