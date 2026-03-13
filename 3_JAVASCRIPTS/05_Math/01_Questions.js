@@ -1360,31 +1360,65 @@
 // Output: 1994
 // Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 
-var romanToInt = function(s) {
-    const map = {
-        I: 1,
-        V: 5,
-        X: 10,
-        L: 50,
-        C: 100,
-        D: 500,
-        M: 1000
-    };
+// var romanToInt = function(s) {
+//     const map = {
+//         I: 1,
+//         V: 5,
+//         X: 10,
+//         L: 50,
+//         C: 100,
+//         D: 500,
+//         M: 1000
+//     };
 
-    let result = 0;
+//     let result = 0;
 
-    for (let i = 0; i < s.length; i++) {
-        let current = map[s[i]];
-        let next = map[s[i + 1]];
+//     for (let i = 0; i < s.length; i++) {
+//         let current = map[s[i]];
+//         let next = map[s[i + 1]];
 
-        if (current < next) {
-            result -= current;
-        } else {
-            result += current;
-        }
+//         if (current < next) {
+//             result -= current;
+//         } else {
+//             result += current;
+//         }
+//     }
+
+//     return result;
+// };
+// let s ="MCMXCIV";
+// console.log("Roman To Integer:",romanToInt(s));
+
+// Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+
+ 
+
+// Example 1:
+
+// Input: nums = [3,0,1]
+
+// Output: 2
+
+// Explanation:
+
+// n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
+
+// Example 2:
+
+// Input: nums = [0,1]
+
+// Output: 2
+
+var missingNumber = function(nums) {
+     let n = nums.length;
+    let expectedSum = (n * (n + 1)) / 2;
+
+    let actualSum = 0;
+    for (let num of nums) {
+        actualSum += num;
     }
 
-    return result;
+    return expectedSum - actualSum;
 };
-let s ="MCMXCIV";
-console.log("Roman To Integer:",romanToInt(s));
+let nums = [0,1];
+console.log("Missing Number:",missingNumber(nums));
