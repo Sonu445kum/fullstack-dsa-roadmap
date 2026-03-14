@@ -103,16 +103,45 @@
 // The strings "nat" and "tan" are anagrams as they can be rearranged to form each other.
 // The strings "ate", "eat", and "tea" are anagrams as they can be rearranged to form each other.
 
-var groupAnagrams = function(strs) {
-    let map = new Map();
-    for(let str of strs){
-        let key =str.split('').sort().join('');
-        if(!map.has(key)){
-            map.set(key,[])
+// var groupAnagrams = function(strs) {
+//     let map = new Map();
+//     for(let str of strs){
+//         let key =str.split('').sort().join('');
+//         if(!map.has(key)){
+//             map.set(key,[])
+//         }
+//         map.get(key).push(str);
+//     };
+//     return [...map.values()]
+// };
+// let strs = ["eat","tea","tan","ate","nat","bat"];
+// console.log("GroupAnagrams:",groupAnagrams(strs));
+
+// Given an unsorted integer array nums. Return the smallest positive integer that is not present in nums.
+
+// You must implement an algorithm that runs in O(n) time and uses O(1) auxiliary space.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,0]
+// Output: 3
+// Explanation: The numbers in the range [1,2] are all in the array.
+// Example 2:
+
+// Input: nums = [3,4,-1,1]
+// Output: 2
+// Explanation: 1 is in the array but 2 is missing.
+
+function firstMissingPositive(nums){
+    let n = nums.length;
+    let set = new Set(nums);
+    for(let i = 1; i<=n; i++){
+        if(!set.has(i)){
+            return i;
         }
-        map.get(key).push(str);
-    };
-    return [...map.values()]
+    }
 };
-let strs = ["eat","tea","tan","ate","nat","bat"];
-console.log("GroupAnagrams:",groupAnagrams(strs));
+let nums = [3,4,-1,1];
+console.log("First Missing Positive Integer:",firstMissingPositive(nums));
