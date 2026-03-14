@@ -66,23 +66,53 @@
 // Input: a = "1010", b = "1011"
 // Output: "10101"
 
-var addBinary = function(a, b) {
-    let i = a.length - 1;
-    let j = b.length - 1;
-    let carry = 0;
-    let result = "";
+// var addBinary = function(a, b) {
+//     let i = a.length - 1;
+//     let j = b.length - 1;
+//     let carry = 0;
+//     let result = "";
 
-    while (i >= 0 || j >= 0 || carry) {
-        let sum = carry;
+//     while (i >= 0 || j >= 0 || carry) {
+//         let sum = carry;
 
-        if (i >= 0) sum += Number(a[i--]);
-        if (j >= 0) sum += Number(b[j--]);
+//         if (i >= 0) sum += Number(a[i--]);
+//         if (j >= 0) sum += Number(b[j--]);
 
-        result = (sum % 2) + result;
-        carry = Math.floor(sum / 2);
-    }
+//         result = (sum % 2) + result;
+//         carry = Math.floor(sum / 2);
+//     }
 
-    return result;
+//     return result;
+// };
+// let a = "1010", b = "1011" ;
+// console.log("The Sum of Two Binary Number:",addBinary(a,b))
+
+// Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+ 
+
+// Example 1:
+
+// Input: strs = ["eat","tea","tan","ate","nat","bat"]
+
+// Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+// Explanation:
+
+// There is no string in strs that can be rearranged to form "bat".
+// The strings "nat" and "tan" are anagrams as they can be rearranged to form each other.
+// The strings "ate", "eat", and "tea" are anagrams as they can be rearranged to form each other.
+
+var groupAnagrams = function(strs) {
+    let map = new Map();
+    for(let str of strs){
+        let key =str.split('').sort().join('');
+        if(!map.has(key)){
+            map.set(key,[])
+        }
+        map.get(key).push(str);
+    };
+    return [...map.values()]
 };
-let a = "1010", b = "1011" ;
-console.log("The Sum of Two Binary Number:",addBinary(a,b))
+let strs = ["eat","tea","tan","ate","nat","bat"];
+console.log("GroupAnagrams:",groupAnagrams(strs));
