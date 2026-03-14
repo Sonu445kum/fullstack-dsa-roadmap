@@ -339,22 +339,55 @@
 // Input: words = ["a","banana","app","appl","ap","apply","apple"]
 // Output: "apple"
 // Explanation: Both "apply" and "apple" can be built from other words in the dictionary. However, "apple" is lexicographically smaller than "apply".
-function findLongestWord(words) {
-  words.sort(); // lexicographical sort
-  let built = new Set([""]);
-  let max = "";
 
-  for (let word of words) {
-    if (built.has(word.slice(0, word.length - 1))) {
-      built.add(word);
-      if (word.length > max.length) {
-        max = word;
-      }
-    }
-  }
+// function findLongestWord(words) {
+//   words.sort(); // lexicographical sort
+//   let built = new Set([""]);
+//   let max = "";
 
-  return max;
-}
-// let words = ["w","wo","wor","worl","world"];
-let words = ["a", "banana", "app", "appl", "ap", "apply", "apple"];
-console.log("The Longest Words:", findLongestWord(words));
+//   for (let word of words) {
+//     if (built.has(word.slice(0, word.length - 1))) {
+//       built.add(word);
+//       if (word.length > max.length) {
+//         max = word;
+//       }
+//     }
+//   }
+
+//   return max;
+// }
+// // let words = ["w","wo","wor","worl","world"];
+// let words = ["a", "banana", "app", "appl", "ap", "apply", "apple"];
+// console.log("The Longest Words:", findLongestWord(words));
+
+// You are given a string title consisting of one or more words separated by a single space, where each word consists of English letters. Capitalize the string by changing the capitalization of each word such that:
+
+// If the length of the word is 1 or 2 letters, change all letters to lowercase.
+// Otherwise, change the first letter to uppercase and the remaining letters to lowercase.
+// Return the capitalized title.
+
+ 
+
+// Example 1:
+
+// Input: title = "capiTalIze tHe titLe"
+// Output: "Capitalize The Title"
+// Explanation:
+// Since all the words have a length of at least 3, the first letter of each word is uppercase, and the remaining letters are lowercase.
+
+var capitalizeTitle = function(title) {
+    return title
+        .toLowerCase()
+        .split(" ")
+        .map(word => {
+            if(word.length <= 2){
+                return word;
+            }
+            return word[0].toUpperCase() + word.slice(1);
+        })
+        .join(" ");
+    
+};
+let title = "capiTalIze tHe titLe";
+console.log("CapitalizeTitle:",capitalizeTitle(title));
+

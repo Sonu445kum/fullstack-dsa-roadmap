@@ -511,23 +511,63 @@
 // rotate 2 steps to the right: [6,7,1,2,3,4,5]
 // rotate 3 steps to the right: [5,6,7,1,2,3,4]
 
-function rotateArray(nums,k){
-    k = k%nums.length;
-    function reverse(arr,left,right){
-        while(left < right){
-            [arr[left],arr[right]]=[arr[right] , arr[left]];
-            left++;
-            right--;
-        }
-    }
-    // reverse the whole array
-    reverse(nums,0,nums.length -1);
-    // reverse the k element
-    reverse(nums,0,k-1);
-    // reverse the remaining elements
-    reverse(nums,k,nums.length - 1);
-    return nums;
+// function rotateArray(nums,k){
+//     k = k%nums.length;
+//     function reverse(arr,left,right){
+//         while(left < right){
+//             [arr[left],arr[right]]=[arr[right] , arr[left]];
+//             left++;
+//             right--;
+//         }
+//     }
+//     // reverse the whole array
+//     reverse(nums,0,nums.length -1);
+//     // reverse the k element
+//     reverse(nums,0,k-1);
+//     // reverse the remaining elements
+//     reverse(nums,k,nums.length - 1);
+//     return nums;
     
-};
-let nums = [1,2,3,4,5,6,7] , k = 3;
-console.log("Rotate Array:",rotateArray(nums,k));
+// };
+// let nums = [1,2,3,4,5,6,7] , k = 3;
+// console.log("Rotate Array:",rotateArray(nums,k));
+
+// You are given an integer array nums and an integer k.
+
+// For each index i where 0 <= i < nums.length, change nums[i] to be either nums[i] + k or nums[i] - k.
+
+// The score of nums is the difference between the maximum and minimum elements in nums.
+
+// Return the minimum score of nums after changing the values at each index.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1], k = 0
+// Output: 0
+// Explanation: The score is max(nums) - min(nums) = 1 - 1 = 0.
+// Example 2:
+
+// Input: nums = [0,10], k = 2
+// Output: 6
+// Explanation: Change nums to be [2, 8]. The score is max(nums) - min(nums) = 8 - 2 = 6.
+// Example 3:
+
+// Input: nums = [1,3,6], k = 3
+// Output: 3
+// Explanation: Change nums to be [4, 6, 3]. The score is max(nums) - min(nums) = 6 - 3 = 3.
+
+function smallestRangeII(nums , k){
+    
+    for(let i = 0; i<nums.length; i++){
+        if(nums[i] === nums[nums.length-1]){
+            nums[i] = nums[nums.length-1] -k;
+        }
+        nums[i] = nums[i]+ k;
+    }
+    return nums;
+   
+}
+let nums = [1,3,6], k = 3;
+console.log("SmallestRangeII:",smallestRangeII(nums,k));
