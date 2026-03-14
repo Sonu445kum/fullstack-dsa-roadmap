@@ -558,16 +558,32 @@
 // Output: 3
 // Explanation: Change nums to be [4, 6, 3]. The score is max(nums) - min(nums) = 6 - 3 = 3.
 
-function smallestRangeII(nums , k){
-    
-    for(let i = 0; i<nums.length; i++){
-        if(nums[i] === nums[nums.length-1]){
-            nums[i] = nums[nums.length-1] -k;
+// Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.
+
+// A subarray is a contiguous non-empty sequence of elements within an array.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,1,1], k = 2
+// Output: 2
+// Example 2:
+
+// Input: nums = [1,2,3], k = 3
+// Output: 2
+
+function sumSubArrayByK(nums,k){
+    let map = {0:1},sum = 0 , count = 0;
+    for(let num of nums){
+        sum += num;
+
+        if(map[sum - k]){
+            count += map[sum - k];
         }
-        nums[i] = nums[i]+ k;
+        map[sum] = (map[sum] || 0) + 1;
     }
-    return nums;
-   
-}
-let nums = [1,3,6], k = 3;
-console.log("SmallestRangeII:",smallestRangeII(nums,k));
+    return count;
+};
+let nums = [1,2,3] , k = 3;
+console.log("The Sum of SubArray By K:",sumSubArrayByK(nums,k));
