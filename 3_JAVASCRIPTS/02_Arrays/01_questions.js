@@ -482,18 +482,52 @@
 // Output: 15
 // Explanation: The unique elements are [1,2,3,4,5], and the sum is 15.
 
-var sumOfUnique = function(nums) {
-    let freq = {};
-    for(let num of nums){
-        freq[num] = (freq[num] || 0) + 1;
-    }
-    let sum = 0;
-    for(let [key, value] of Object.entries(freq)){
-        if(value === 1){
-            sum +=Number(key);
+// var sumOfUnique = function(nums) {
+//     let freq = {};
+//     for(let num of nums){
+//         freq[num] = (freq[num] || 0) + 1;
+//     }
+//     let sum = 0;
+//     for(let [key, value] of Object.entries(freq)){
+//         if(value === 1){
+//             sum +=Number(key);
+//         }
+//     }
+//     return sum;
+// };
+// let nums = [1,1,1,1,1];
+// console.log("SumOfUnique:",sumOfUnique(nums));
+
+// Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,3,4,5,6,7], k = 3
+// Output: [5,6,7,1,2,3,4]
+// Explanation:
+// rotate 1 steps to the right: [7,1,2,3,4,5,6]
+// rotate 2 steps to the right: [6,7,1,2,3,4,5]
+// rotate 3 steps to the right: [5,6,7,1,2,3,4]
+
+function rotateArray(nums,k){
+    k = k%nums.length;
+    function reverse(arr,left,right){
+        while(left < right){
+            [arr[left],arr[right]]=[arr[right] , arr[left]];
+            left++;
+            right--;
         }
     }
-    return sum;
+    // reverse the whole array
+    reverse(nums,0,nums.length -1);
+    // reverse the k element
+    reverse(nums,0,k-1);
+    // reverse the remaining elements
+    reverse(nums,k,nums.length - 1);
+    return nums;
+    
 };
-let nums = [1,1,1,1,1];
-console.log("SumOfUnique:",sumOfUnique(nums));
+let nums = [1,2,3,4,5,6,7] , k = 3;
+console.log("Rotate Array:",rotateArray(nums,k));
