@@ -85,41 +85,51 @@
 // );
 // console.log(binaryTreePaths(root))
 
-class Stack {
-  constructor(){
-    this.items = [];
-  }
+// class Stack {
+//   constructor(){
+//     this.items = [];
+//   }
 
-  push(element){
-    this.items.push(element);
-  }
+//   push(element){
+//     this.items.push(element);
+//   }
 
-  pop(){
-    if(this.isEmpty()){
-        return "Stack is empty";
-    }
-    return this.items.pop();
-  }
+//   pop(){
+//     if(this.isEmpty()){
+//         return "Stack is empty";
+//     }
+//     return this.items.pop();
+//   }
 
-  peek(){
-    return this.items[this.items.length - 1];
-  }
+//   peek(){
+//     return this.items[this.items.length - 1];
+//   }
 
-  isEmpty(){
-    return this.items.length === 0;
-  }
+//   isEmpty(){
+//     return this.items.length === 0;
+//   }
 
-  size(){
-    return this.items.length;
-  }
-}
+//   size(){
+//     return this.items.length;
+//   }
+// }
 
-let stack = new Stack();
+// let stack = new Stack();
+
+// stack.push(10);
+// stack.push(20);
+// stack.push(30);
+
+// console.log(stack.peek()); // 30
+// console.log(stack.pop());  // 30
+// console.log(stack.size()); // 2
+
+// Stack Using Array (Most Used in Interviews)
+let stack = [];
 
 stack.push(10);
 stack.push(20);
 stack.push(30);
 
-console.log(stack.peek()); // 30
-console.log(stack.pop());  // 30
-console.log(stack.size()); // 2
+console.log(stack.pop()); // 30
+console.log(stack[stack.length-1]); // peek
