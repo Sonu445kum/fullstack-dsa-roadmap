@@ -125,11 +125,34 @@
 // console.log(stack.size()); // 2
 
 // Stack Using Array (Most Used in Interviews)
-let stack = [];
+// let stack = [];
 
-stack.push(10);
-stack.push(20);
-stack.push(30);
+// stack.push(10);
+// stack.push(20);
+// stack.push(30);
 
-console.log(stack.pop()); // 30
-console.log(stack[stack.length-1]); // peek
+// console.log(stack.pop()); // 30
+// console.log(stack[stack.length-1]); // peek
+
+var isValid = function(s) {
+    let stack = [];
+    let map = {
+        ')':'(',
+        ']':'[',
+        '}':'{'
+    };
+
+    for(let char of s){
+
+        if(char === '(' || char === '[' || char === '{'){
+            stack.push(char);
+        }
+        else{
+            if(stack.pop() !== map[char]){
+                return false;
+            }
+        }
+    }
+
+    return stack.length === 0;
+};
