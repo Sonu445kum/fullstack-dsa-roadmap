@@ -1409,16 +1409,51 @@
 
 // Output: 2
 
-var missingNumber = function(nums) {
-    let n = nums.length;
-    let expectedSum = (n * (n + 1)) / 2;
+// var missingNumber = function(nums) {
+//     let n = nums.length;
+//     let expectedSum = (n * (n + 1)) / 2;
 
-    let actualSum = 0;
-    for (let num of nums) {
-        actualSum += num;
+//     let actualSum = 0;
+//     for (let num of nums) {
+//         actualSum += num;
+//     }
+
+//     return expectedSum - actualSum;
+// };
+// let nums = [0,1];
+// console.log("Missing Number:",missingNumber(nums));
+
+// The array-form of an integer num is an array representing its digits in left to right order.
+
+// For example, for num = 1321, the array form is [1,3,2,1].
+// Given num, the array-form of an integer, and an integer k, return the array-form of the integer num + k.
+
+ 
+
+// Example 1:
+
+// Input: num = [1,2,0,0], k = 34
+// Output: [1,2,3,4]
+// Explanation: 1200 + 34 = 1234
+
+function addToArrayForm(num , k){
+    let arr = [];
+    let str = "";
+    for(let i = 0; i<num.length; i++){
+        str += num[i]
     }
+    let ans = Number(str)  + k;
+    // Conver number into array;
+    let temp = ans;
+    while(temp > 0){
+        let lastDigit = temp %10;
+        arr.push(lastDigit);
+        temp = Math.floor(temp/10);
+    }
+    // reverse the array
+    return arr.reverse();
+    
 
-    return expectedSum - actualSum;
-};
-let nums = [0,1];
-console.log("Missing Number:",missingNumber(nums));
+}
+let num = [1,2,0,0] ,  k = 34;
+console.log("The Add To Array Form:",addToArrayForm(num , k));
