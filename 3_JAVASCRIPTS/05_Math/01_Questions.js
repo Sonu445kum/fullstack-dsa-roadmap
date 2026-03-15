@@ -1436,24 +1436,40 @@
 // Output: [1,2,3,4]
 // Explanation: 1200 + 34 = 1234
 
-function addToArrayForm(num , k){
-    let arr = [];
-    let str = "";
-    for(let i = 0; i<num.length; i++){
-        str += num[i]
-    }
-    let ans = Number(str)  + k;
-    // Conver number into array;
-    let temp = ans;
-    while(temp > 0){
-        let lastDigit = temp %10;
-        arr.push(lastDigit);
-        temp = Math.floor(temp/10);
-    }
-    // reverse the array
-    return arr.reverse();
+// function addToArrayForm(num , k){
+//     let arr = [];
+//     let str = "";
+//     for(let i = 0; i<num.length; i++){
+//         str += num[i]
+//     }
+//     let ans = Number(str)  + k;
+//     // Conver number into array;
+//     let temp = ans;
+//     while(temp > 0){
+//         let lastDigit = temp %10;
+//         arr.push(lastDigit);
+//         temp = Math.floor(temp/10);
+//     }
+//     // reverse the array
+//     return arr.reverse();
     
 
-}
+// }
+
+// 2nd Appraoch:
+var addToArrayForm = function(num, k) {
+    for (let i = num.length - 1; i >= 0; i--) {
+        k += num[i];
+        num[i] = k % 10;
+        k = Math.floor(k / 10);
+    }
+
+    while (k > 0) {
+        num.unshift(k % 10);
+        k = Math.floor(k / 10);
+    }
+
+    return num;
+};
 let num = [1,2,0,0] ,  k = 34;
 console.log("The Add To Array Form:",addToArrayForm(num , k));
