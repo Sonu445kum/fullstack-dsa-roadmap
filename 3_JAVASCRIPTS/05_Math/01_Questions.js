@@ -1457,19 +1457,43 @@
 // }
 
 // 2nd Appraoch:
-var addToArrayForm = function(num, k) {
-    for (let i = num.length - 1; i >= 0; i--) {
-        k += num[i];
-        num[i] = k % 10;
-        k = Math.floor(k / 10);
-    }
+// var addToArrayForm = function(num, k) {
+//     for (let i = num.length - 1; i >= 0; i--) {
+//         k += num[i];
+//         num[i] = k % 10;
+//         k = Math.floor(k / 10);
+//     }
 
-    while (k > 0) {
-        num.unshift(k % 10);
-        k = Math.floor(k / 10);
-    }
+//     while (k > 0) {
+//         num.unshift(k % 10);
+//         k = Math.floor(k / 10);
+//     }
 
-    return num;
+//     return num;
+// };
+// let num = [1,2,0,0] ,  k = 34;
+// console.log("The Add To Array Form:",addToArrayForm(num , k));
+
+// You are given two positive integers n and k. A factor of an integer n is defined as an integer i where n % i == 0.
+
+// Consider a list of all factors of n sorted in ascending order, return the kth factor in this list or return -1 if n has less than k factors.
+
+ 
+
+// Example 1:
+
+// Input: n = 12, k = 3
+// Output: 3
+// Explanation: Factors list is [1, 2, 3, 4, 6, 12], the 3rd factor is 3.
+
+var kthFactor = function(n, k) {
+    let list = [];
+    for(let i = 1; i<=n; i++){
+        if((n % i === 0)){
+            list.push(i);
+        }
+    } 
+    return list[k-1] || -1;
 };
-let num = [1,2,0,0] ,  k = 34;
-console.log("The Add To Array Form:",addToArrayForm(num , k));
+let n = 12, k = 3;
+console.log("Kth Factor:",kthFactor(n , k));
