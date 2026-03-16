@@ -136,16 +136,33 @@
 // The XOR sum = 0 XOR 1 XOR 2 XOR 0 XOR 2 XOR 1 = 0.
 
 // Brute Force
+// function getXorSum(arr1,arr2){
+//     let sum =0;
+//     for(let i=0; i<arr1.length; i++){
+//         for(let j=0; j<arr2.length; j++){
+//             sum ^= (arr1[i] & arr2[j]);
+//         }
+//     }
+//     return sum;
+// };
+// // let arr1 = [1,2,3], arr2 = [6,5]; // output ->0
+// let arr1 =[12],arr2 =[4]; // output -> 4
+// console.log("The XorSum:",getXorSum(arr1, arr2));
+
+// optimal Appraoch
 function getXorSum(arr1,arr2){
-    let sum =0;
-    for(let i=0; i<arr1.length; i++){
-        for(let j=0; j<arr2.length; j++){
-            sum ^= (arr1[i] & arr2[j]);
-        }
+   let xorSum1 =0 ,xorSum2 =0;
+    // find xorSum1 for first array
+    for(let num of arr1){
+        xorSum1 ^=num;
     }
-    return sum;
+    // find xorSum2 for 2nd Array
+    for(let num of arr2){
+        xorSum2 ^=num;
+    }
+    // return
+    return xorSum1 & xorSum2;
 };
 // let arr1 = [1,2,3], arr2 = [6,5]; // output ->0
 let arr1 =[12],arr2 =[4]; // output -> 4
 console.log("The XorSum:",getXorSum(arr1, arr2));
-
