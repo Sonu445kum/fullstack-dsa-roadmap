@@ -573,17 +573,67 @@
 // Input: nums = [1,2,3], k = 3
 // Output: 2
 
-function sumSubArrayByK(nums,k){
-    let map = {0:1},sum = 0 , count = 0;
-    for(let num of nums){
-        sum += num;
+// function sumSubArrayByK(nums,k){
+//     let map = {0:1},sum = 0 , count = 0;
+//     for(let num of nums){
+//         sum += num;
 
-        if(map[sum - k]){
-            count += map[sum - k];
+//         if(map[sum - k]){
+//             count += map[sum - k];
+//         }
+//         map[sum] = (map[sum] || 0) + 1;
+//     }
+//     return count;
+// };
+// let nums = [1,2,3] , k = 3;
+// console.log("The Sum of SubArray By K:",sumSubArrayByK(nums,k));
+
+// Find the Kth Largest Element
+function kthLargest(nums) {
+
+    let map = {
+        firstMax: -Infinity,
+        secMax: -Infinity,
+        thirMax: -Infinity,
+        fourthMax: -Infinity,
+        fifthMax: -Infinity,
+        sixthMax: -Infinity,
+        sevenThMax: -Infinity
+    };
+
+    for (let num of nums) {
+
+        if (
+            num > map.firstMax &&
+            num > map.secMax &&
+            num > map.thirMax &&
+            num > map.fourthMax &&
+            num > map.fifthMax &&
+            num > map.sixthMax &&
+            num > map.sevenThMax
+        ) {
+
+            map.sevenThMax = map.sixthMax;
+            map.sixthMax = map.fifthMax;
+            map.fifthMax = map.fourthMax;
+            map.fourthMax = map.thirMax;
+            map.thirMax = map.secMax;
+            map.secMax = map.firstMax;
+            map.firstMax = num;
         }
-        map[sum] = (map[sum] || 0) + 1;
     }
-    return count;
-};
-let nums = [1,2,3] , k = 3;
-console.log("The Sum of SubArray By K:",sumSubArrayByK(nums,k));
+
+    return [
+        map.firstMax,
+        map.secMax,
+        map.thirMax,
+        map.fourthMax,
+        map.fifthMax,
+        map.sixthMax,
+        map.sevenThMax
+    ];
+}
+
+let nums = [2,3,4,5,1,4,56,500,600];
+
+console.log(kthLargest(nums));
