@@ -589,51 +589,96 @@
 // console.log("The Sum of SubArray By K:",sumSubArrayByK(nums,k));
 
 // Find the Kth Largest Element
-function kthLargest(nums) {
+// function kthLargest(nums) {
 
-    let map = {
-        firstMax: -Infinity,
-        secMax: -Infinity,
-        thirMax: -Infinity,
-        fourthMax: -Infinity,
-        fifthMax: -Infinity,
-        sixthMax: -Infinity,
-        sevenThMax: -Infinity
-    };
+//     let map = {
+//         firstMax: -Infinity,
+//         secMax: -Infinity,
+//         thirMax: -Infinity,
+//         fourthMax: -Infinity,
+//         fifthMax: -Infinity,
+//         sixthMax: -Infinity,
+//         sevenThMax: -Infinity
+//     };
 
-    for (let num of nums) {
+//     for (let num of nums) {
 
-        if (
-            num > map.firstMax &&
-            num > map.secMax &&
-            num > map.thirMax &&
-            num > map.fourthMax &&
-            num > map.fifthMax &&
-            num > map.sixthMax &&
-            num > map.sevenThMax
-        ) {
+//         if (
+//             num > map.firstMax &&
+//             num > map.secMax &&
+//             num > map.thirMax &&
+//             num > map.fourthMax &&
+//             num > map.fifthMax &&
+//             num > map.sixthMax &&
+//             num > map.sevenThMax
+//         ) {
 
-            map.sevenThMax = map.sixthMax;
-            map.sixthMax = map.fifthMax;
-            map.fifthMax = map.fourthMax;
-            map.fourthMax = map.thirMax;
-            map.thirMax = map.secMax;
-            map.secMax = map.firstMax;
-            map.firstMax = num;
-        }
+//             map.sevenThMax = map.sixthMax;
+//             map.sixthMax = map.fifthMax;
+//             map.fifthMax = map.fourthMax;
+//             map.fourthMax = map.thirMax;
+//             map.thirMax = map.secMax;
+//             map.secMax = map.firstMax;
+//             map.firstMax = num;
+//         }
+//     }
+
+//     return [
+//         map.firstMax,
+//         map.secMax,
+//         map.thirMax,
+//         map.fourthMax,
+//         map.fifthMax,
+//         map.sixthMax,
+//         map.sevenThMax
+//     ];
+// }
+
+// let nums = [2,3,4,5,1,4,56,500,600];
+
+// console.log(kthLargest(nums));
+
+// function kthLargest(nums , k) {
+//     // sort the elements
+//     nums.sort((a,b)=>a-b); // its sort the element with ascending order -> [1,2,3,4,5,56,500,600]
+//     return nums[k-1];
+// }
+
+// let nums = [2,3,4,5,1,4,56,500,600] , k=5;
+
+// console.log(kthLargest(nums , k));
+
+// Given two string arrays word1 and word2, return true if the two arrays represent the same string, and false otherwise.
+
+// A string is represented by an array if the array elements concatenated in order forms the string.
+
+ 
+
+// Example 1:
+
+// Input: word1 = ["ab", "c"], word2 = ["a", "bc"]
+// Output: true
+// Explanation:
+// word1 represents string "ab" + "c" -> "abc"
+// word2 represents string "a" + "bc" -> "abc"
+// The strings are the same, so return true.
+// Example 2:
+
+// Input: word1 = ["a", "cb"], word2 = ["ab", "c"]
+// Output: false
+
+var arrayStringsAreEqual = function(word1, word2) {
+    let sum1 ="",sum2 ="";
+    // find the sum1 for word1
+    for(let num of word1){
+        sum1 += num;
     }
-
-    return [
-        map.firstMax,
-        map.secMax,
-        map.thirMax,
-        map.fourthMax,
-        map.fifthMax,
-        map.sixthMax,
-        map.sevenThMax
-    ];
-}
-
-let nums = [2,3,4,5,1,4,56,500,600];
-
-console.log(kthLargest(nums));
+    // find the sum2 for word2
+    for(let num of word2){
+        sum2 += num;
+    }
+    return sum1 === sum2;
+};
+// let word1 = ["ab", "c"], word2 = ["a", "bc"]; // true
+let word1 = ["a", "cb"], word2 = ["ab", "c"]; // false
+console.log("arrayStringsAreEqual:",arrayStringsAreEqual(word1 , word2));
