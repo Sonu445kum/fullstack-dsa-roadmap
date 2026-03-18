@@ -697,17 +697,53 @@
 // Output: [9,4]
 // Explanation: [4,9] is also accepted.
 
-function intersectionTwoArray(nums1, nums2){
-    // create a set object
-    let set = new Set(nums1);
-    let result = new Set();
+// function intersectionTwoArray(nums1, nums2){
+//     // create a set object
+//     let set = new Set(nums1);
+//     let result = new Set();
 
-    for(let num of nums2){
-        if(set.has(num)){
-            result.add(num)
+//     for(let num of nums2){
+//         if(set.has(num)){
+//             result.add(num)
+//         }
+//     }
+//     return [...result];
+// };
+// let nums1 = [4,9,5], nums2 = [9,4,9,8,4];
+// console.log("Interscetions Of Two Array:",intersectionTwoArray(nums1,nums2));
+
+// Given an integer array nums of length n where all the integers of nums are in the range [1, n] and each integer appears at most twice, return an array of all the integers that appears twice.
+
+// You must write an algorithm that runs in O(n) time and uses only constant auxiliary space, excluding the space needed to store the output
+
+ 
+
+// Example 1:
+
+// Input: nums = [4,3,2,7,8,2,3,1]
+// Output: [2,3]
+// Example 2:
+
+// Input: nums = [1,1,2]
+// Output: [1]
+// Example 3:
+
+// Input: nums = [1]
+// Output: []
+
+var findDuplicates = function(nums) {
+    let freq = {};
+    let result =[];
+    for(let num of nums){
+        freq[num] = (freq[num] || 0) + 1;
+    }
+    // apply second loops
+    for(let [key ,value] of Object.entries(freq)){
+        if(value > 1){
+            result.push(Number(key));
         }
     }
-    return [...result];
+    return result;
 };
-let nums1 = [4,9,5], nums2 = [9,4,9,8,4];
-console.log("Interscetions Of Two Array:",intersectionTwoArray(nums1,nums2));
+let nums = [4,3,2,7,8,2,3,1];
+console.log("FindDuplicate:",findDuplicates(nums));
