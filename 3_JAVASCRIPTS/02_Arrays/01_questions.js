@@ -730,17 +730,34 @@
 
 // Input: nums = [1]
 // Output: []
+// First approach
+// var findDuplicates = function(nums) {
+//     let freq = {};
+//     let result =[];
+//     for(let num of nums){
+//         freq[num] = (freq[num] || 0) + 1;
+//     }
+//     // apply second loops
+//     for(let [key ,value] of Object.entries(freq)){
+//         if(value > 1){
+//             result.push(Number(key));
+//         }
+//     }
+//     return result;
+// };
+// let nums = [4,3,2,7,8,2,3,1];
+// console.log("FindDuplicate:",findDuplicates(nums));
 
+// 2nd Appraoch
 var findDuplicates = function(nums) {
-    let freq = {};
     let result =[];
-    for(let num of nums){
-        freq[num] = (freq[num] || 0) + 1;
-    }
-    // apply second loops
-    for(let [key ,value] of Object.entries(freq)){
-        if(value > 1){
-            result.push(Number(key));
+    for(let i =0; i<nums.length; i++){
+        let index =Math.abs(nums[i]) - 1;
+        // if the element are already present
+        if(nums[index] < 0){
+            result.push(Math.abs(nums[i]));
+        }else{
+            nums[index] = -nums[index];
         }
     }
     return result;
