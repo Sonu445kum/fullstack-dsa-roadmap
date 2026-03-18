@@ -1512,15 +1512,47 @@
 // 7 has 2 divisors: 1, 7
 // The answer is the sum of divisors of 21 only.
 
+// brute force Approach
+// var sumFourDivisors = function(nums) {
+//     let totalSum =0;
+//     for(let i=0; i<nums.length; i++){
+//         let sum =0;
+//         let count =0;
+//         for(let j =1; j<=nums[i]; j++){
+//             if(nums[i]%j === 0){
+//                 sum +=j;
+//                 count++;
+//             }
+//             if(count > 4) break;
+//         }
+//         if(count === 4){
+//         totalSum +=sum;
+//     }
+//     }
+    
+//     return totalSum;
+// };
+
+// Optimal Approach
 var sumFourDivisors = function(nums) {
     let totalSum =0;
-    for(let i=0; i<nums.length; i++){
+    for(let num of nums){
         let sum =0;
         let count =0;
-        for(let j =1; j<=nums[i]; j++){
-            if(nums[i]%j === 0){
-                sum +=j;
-                count++;
+        for(let j =1; j*j<=num; j++){
+            if(num%j === 0){
+                let pair = num/j;
+                if(j === pair){
+                    // Perfect case
+                    count += 1;
+                    sum += j;
+                }
+                // Perfect Divisor
+                else{
+                    count +=2;
+                    sum += j + pair;
+                }
+                
             }
             if(count > 4) break;
         }
