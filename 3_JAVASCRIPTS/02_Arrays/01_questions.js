@@ -749,18 +749,35 @@
 // console.log("FindDuplicate:",findDuplicates(nums));
 
 // 2nd Appraoch
-var findDuplicates = function(nums) {
-    let result =[];
-    for(let i =0; i<nums.length; i++){
-        let index =Math.abs(nums[i]) - 1;
-        // if the element are already present
-        if(nums[index] < 0){
-            result.push(Math.abs(nums[i]));
-        }else{
-            nums[index] = -nums[index];
+// var findDuplicates = function(nums) {
+//     let result =[];
+//     for(let i =0; i<nums.length; i++){
+//         let index =Math.abs(nums[i]) - 1;
+//         // if the element are already present
+//         if(nums[index] < 0){
+//             result.push(Math.abs(nums[i]));
+//         }else{
+//             nums[index] = -nums[index];
+//         }
+//     }
+//     return result;
+// };
+// let nums = [4,3,2,7,8,2,3,1];
+// console.log("FindDuplicate:",findDuplicates(nums));
+
+var findDisappearedNumbers = function(nums) {
+    let result = [];
+    // sort the all element of the given array
+    nums.sort((a,b)=>a-b);
+    console.log("Sort nums:",nums);
+    let set = new Set(nums);
+    console.log("Sort nums:",set);
+    for(let i =1; i<=set.size; i++){
+        if(set[i] !== i){
+            result.push(i+1);
         }
     }
     return result;
 };
 let nums = [4,3,2,7,8,2,3,1];
-console.log("FindDuplicate:",findDuplicates(nums));
+console.log("findDisappearedNumber:",findDisappearedNumbers(nums));
