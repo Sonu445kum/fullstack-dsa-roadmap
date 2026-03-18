@@ -434,15 +434,28 @@
 
 // Input: s = "", t = "y"
 // Output: "y"
-
-var findTheDifference = function(s, t) {
-    let xor = 0;
-    for(let char of (s + t)){
-        xor ^= char.charCodeAt(0);
-    }
-    return String.fromCharCode(xor);
+// 1st Appraoch
+// var findTheDifference = function(s, t) {
+//     let xor = 0;
+//     for(let char of (s + t)){
+//         xor ^= char.charCodeAt(0);
+//     }
+//     return String.fromCharCode(xor);
     
+// };
+// let s = "abcd", t = "abcde";
+// console.log("Diffrences:",findTheDifference(s,t));
+
+// 2nd Appraoch
+var findTheDifference = function(s, t) {
+    let freq = {};
+    for(let char of s){
+       freq[char] = (freq[char] || 0) + 1;
+    }
+    for(let char of t){
+        if(!freq[char]) return char;
+        freq[char]--;
+    }
 };
 let s = "abcd", t = "abcde";
 console.log("Diffrences:",findTheDifference(s,t));
-
