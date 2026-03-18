@@ -1486,14 +1486,50 @@
 // Output: 3
 // Explanation: Factors list is [1, 2, 3, 4, 6, 12], the 3rd factor is 3.
 
-var kthFactor = function(n, k) {
-    let list = [];
-    for(let i = 1; i<=n; i++){
-        if((n % i === 0)){
-            list.push(i);
+// var kthFactor = function(n, k) {
+//     let list = [];
+//     for(let i = 1; i<=n; i++){
+//         if((n % i === 0)){
+//             list.push(i);
+//         }
+//     } 
+//     return list[k-1] || -1;
+// };
+// let n = 12, k = 3;
+// console.log("Kth Factor:",kthFactor(n , k));
+
+// Given an integer array nums, return the sum of divisors of the integers in that array that have exactly four divisors. If there is no such integer in the array, return 0.
+
+ 
+
+// Example 1:
+
+// Input: nums = [21,4,7]
+// Output: 32
+// Explanation: 
+// 21 has 4 divisors: 1, 3, 7, 21
+// 4 has 3 divisors: 1, 2, 4
+// 7 has 2 divisors: 1, 7
+// The answer is the sum of divisors of 21 only.
+
+var sumFourDivisors = function(nums) {
+    let totalSum =0;
+    for(let i=0; i<nums.length; i++){
+        let sum =0;
+        let count =0;
+        for(let j =1; j<=nums[i]; j++){
+            if(nums[i]%j === 0){
+                sum +=j;
+                count++;
+            }
+            if(count > 4) break;
         }
-    } 
-    return list[k-1] || -1;
+        if(count === 4){
+        totalSum +=sum;
+    }
+    }
+    
+    return totalSum;
 };
-let n = 12, k = 3;
-console.log("Kth Factor:",kthFactor(n , k));
+let nums = [21,4,7];
+console.log("SumFourDivisor:",sumFourDivisors(nums));
