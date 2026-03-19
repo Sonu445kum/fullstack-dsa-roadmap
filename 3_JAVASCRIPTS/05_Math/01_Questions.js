@@ -1123,8 +1123,6 @@
 
 // Return true if n is divisible by this sum; otherwise, return false.
 
- 
-
 // Example 1:
 
 // Input: n = 99
@@ -1186,8 +1184,6 @@
 
 // Note: Assume we are dealing with an environment that could only store integers within the 32-bit signed integer range: [−231, 231 − 1]. For this problem, if the quotient is strictly greater than 231 - 1, then return 231 - 1, and if the quotient is strictly less than -231, then return -231.
 
- 
-
 // Example 1:
 
 // Input: dividend = 10, divisor = 3
@@ -1203,7 +1199,7 @@
 //     if(dividend === -2147483648 && divisor === -1){
 //         return 2147483647;
 //     }
-    
+
 //     return Math.trunc(dividend / divisor);
 // };
 // // let dividend = -2147483648 , divisor = -1;
@@ -1211,8 +1207,6 @@
 // console.log("The Result:",divide(dividend , divisor));
 
 // Your task is to calculate ab mod 1337 where a is a positive integer and b is an extremely large positive integer given in the form of an array.
-
- 
 
 // Example 1:
 
@@ -1254,8 +1248,6 @@
 
 // Given two strings str1 and str2, return the largest string x such that x divides both str1 and str2.
 
- 
-
 // Example 1:
 
 // Input: str1 = "ABCABC", str2 = "ABC"
@@ -1294,8 +1286,6 @@
 // Given an integer n (in base 10) and a base k, return the sum of the digits of n after converting n from base 10 to base k.
 
 // After converting, each digit should be interpreted as a base 10 number, and the sum should be returned in base 10.
-
- 
 
 // Example 1:
 
@@ -1337,12 +1327,10 @@
 
 // Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
 
-// I can be placed before V (5) and X (10) to make 4 and 9. 
-// X can be placed before L (50) and C (100) to make 40 and 90. 
+// I can be placed before V (5) and X (10) to make 4 and 9.
+// X can be placed before L (50) and C (100) to make 40 and 90.
 // C can be placed before D (500) and M (1000) to make 400 and 900.
 // Given a roman numeral, convert it to an integer.
-
- 
 
 // Example 1:
 
@@ -1391,8 +1379,6 @@
 
 // Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
 
- 
-
 // Example 1:
 
 // Input: nums = [3,0,1]
@@ -1428,8 +1414,6 @@
 // For example, for num = 1321, the array form is [1,3,2,1].
 // Given num, the array-form of an integer, and an integer k, return the array-form of the integer num + k.
 
- 
-
 // Example 1:
 
 // Input: num = [1,2,0,0], k = 34
@@ -1452,7 +1436,6 @@
 //     }
 //     // reverse the array
 //     return arr.reverse();
-    
 
 // }
 
@@ -1478,8 +1461,6 @@
 
 // Consider a list of all factors of n sorted in ascending order, return the kth factor in this list or return -1 if n has less than k factors.
 
- 
-
 // Example 1:
 
 // Input: n = 12, k = 3
@@ -1492,7 +1473,7 @@
 //         if((n % i === 0)){
 //             list.push(i);
 //         }
-//     } 
+//     }
 //     return list[k-1] || -1;
 // };
 // let n = 12, k = 3;
@@ -1500,13 +1481,11 @@
 
 // Given an integer array nums, return the sum of divisors of the integers in that array that have exactly four divisors. If there is no such integer in the array, return 0.
 
- 
-
 // Example 1:
 
 // Input: nums = [21,4,7]
 // Output: 32
-// Explanation: 
+// Explanation:
 // 21 has 4 divisors: 1, 3, 7, 21
 // 4 has 3 divisors: 1, 2, 4
 // 7 has 2 divisors: 1, 7
@@ -1529,7 +1508,7 @@
 //         totalSum +=sum;
 //     }
 //     }
-    
+
 //     return totalSum;
 // };
 
@@ -1552,7 +1531,7 @@
 //                     count +=2;
 //                     sum += j + pair;
 //                 }
-                
+
 //             }
 //             if(count > 4) break;
 //         }
@@ -1560,7 +1539,7 @@
 //         totalSum +=sum;
 //     }
 //     }
-    
+
 //     return totalSum;
 // };
 // let nums = [21,4,7];
@@ -1572,8 +1551,6 @@
 
 // In other words, result[i] is equal to sum(|nums[i]-nums[j]|) where 0 <= j < nums.length and j != i (0-indexed).
 
- 
-
 // Example 1:
 
 // Input: nums = [2,3,5]
@@ -1583,17 +1560,68 @@
 // result[1] = |3-2| + |3-3| + |3-5| = 1 + 0 + 2 = 3,
 // result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5.
 
-function getSumAbsoluteDifferences(nums){
-    let result =[];
-    for(let i = 0; i<nums.length; i++){
-        let sum =0;
-        for(let j =0; j<nums.length; j++){
-            sum = sum + Math.abs(nums[i] - nums[j]);
-        }
-        result.push(sum);
-    }
-    return result;
+// function getSumAbsoluteDifferences(nums){
+//     let result =[];
+//     for(let i = 0; i<nums.length; i++){
+//         let sum =0;
+//         for(let j =0; j<nums.length; j++){
+//             sum = sum + Math.abs(nums[i] - nums[j]);
+//         }
+//         result.push(sum);
+//     }
+//     return result;
 
+// };
+// let nums = [2,3,5];
+// console.log("getSumAbsoluteDifferences:",getSumAbsoluteDifferences(nums))
+
+// You are given an integer array nums and an integer k.
+
+// For each index i where 0 <= i < nums.length, change nums[i] to be either nums[i] + k or nums[i] - k.
+
+// The score of nums is the difference between the maximum and minimum elements in nums.
+
+// Return the minimum score of nums after changing the values at each index.
+
+// Example 1:
+
+// Input: nums = [1], k = 0
+// Output: 0
+// Explanation: The score is max(nums) - min(nums) = 1 - 1 = 0.
+// Example 2:
+
+// Input: nums = [0,10], k = 2
+// Output: 6
+// Explanation: Change nums to be [2, 8]. The score is max(nums) - min(nums) = 8 - 2 = 6.
+// Example 3:
+
+// Input: nums = [1,3,6], k = 3
+// Output: 3
+// Explanation: Change nums to be [4, 6, 3]. The score is max(nums) - min(nums) = 6 - 3 = 3.
+
+var smallestRangeII = function (nums, k) {
+  let ans = nums[nums.length - 1] - k;
+  console.log("ans:",ans);
+  let newArr = [];
+  for (let i = 0; i < nums.length - 1; i++) {
+    let result = nums[i] + k;
+    newArr.push(result);
+  }
+  newArr.push(ans);
+  console.log("newArr:",newArr);
+  
+  let max = -Infinity , min = Infinity;
+  for(let i =0 ; i<newArr.length; i++){
+    if(newArr[i] > max){
+        max = newArr[i];
+    }else if (newArr[i] < min){
+        min = newArr[i];
+    }
+    
+  }
+  let res = max - min;
+  console.log("Max:",max,"Min:",min);
+  return res;
 };
-let nums = [2,3,5];
-console.log("getSumAbsoluteDifferences:",getSumAbsoluteDifferences(nums))
+nums = [0,10], k = 2;
+console.log("SmallestRangeII:",smallestRangeII(nums , k));
