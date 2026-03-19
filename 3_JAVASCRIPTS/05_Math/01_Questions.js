@@ -1599,29 +1599,29 @@
 // Output: 3
 // Explanation: Change nums to be [4, 6, 3]. The score is max(nums) - min(nums) = 6 - 3 = 3.
 
-var smallestRangeII = function (nums, k) {
-  let ans = nums[nums.length - 1] - k;
-  console.log("ans:",ans);
-  let newArr = [];
-  for (let i = 0; i < nums.length - 1; i++) {
-    let result = nums[i] + k;
-    newArr.push(result);
-  }
-  newArr.push(ans);
-  console.log("newArr:",newArr);
+// var smallestRangeII = function (nums, k) {
+//   let ans = nums[nums.length - 1] - k;
+//   console.log("ans:",ans);
+//   let newArr = [];
+//   for (let i = 0; i < nums.length - 1; i++) {
+//     let result = nums[i] + k;
+//     newArr.push(result);
+//   }
+//   newArr.push(ans);
+//   console.log("newArr:",newArr);
   
-  let max = -Infinity , min = Infinity;
-  for(let i =0 ; i<newArr.length; i++){
-    if(newArr[i] > max){
-        max = newArr[i];
-    }else if (newArr[i] < min){
-        min = newArr[i];
-    }
+//   let max = -Infinity , min = Infinity;
+//   for(let i =0 ; i<newArr.length; i++){
+//     if(newArr[i] > max){
+//         max = newArr[i];
+//     }else if (newArr[i] < min){
+//         min = newArr[i];
+//     }
     
-  }
-  let res = max - min;
-  console.log("Max:",max,"Min:",min);
-  return res;
-};
-nums = [0,10], k = 2;
-console.log("SmallestRangeII:",smallestRangeII(nums , k));
+//   }
+//   let res = max - min;
+//   console.log("Max:",max,"Min:",min);
+//   return res;
+// };
+// nums = [0,10], k = 2;
+// console.log("SmallestRangeII:",smallestRangeII(nums , k));

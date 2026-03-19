@@ -765,19 +765,57 @@
 // let nums = [4,3,2,7,8,2,3,1];
 // console.log("FindDuplicate:",findDuplicates(nums));
 
-var findDisappearedNumbers = function(nums) {
-    let result = [];
-    // sort the all element of the given array
-    nums.sort((a,b)=>a-b);
-    console.log("Sort nums:",nums);
-    let set = new Set(nums);
-    console.log("Sort nums:",set);
-    for(let i =1; i<=set.size; i++){
-        if(set[i] !== i){
-            result.push(i+1);
-        }
+// var findDisappearedNumbers = function(nums) {
+//     let result = [];
+//     // sort the all element of the given array
+//     nums.sort((a,b)=>a-b);
+//     console.log("Sort nums:",nums);
+//     let set = new Set(nums);
+//     console.log("Sort nums:",set);
+//     for(let i =1; i<=set.size; i++){
+//         if(set[i] !== i){
+//             result.push(i+1);
+//         }
+//     }
+//     return result;
+// };
+// let nums = [4,3,2,7,8,2,3,1];
+// console.log("findDisappearedNumber:",findDisappearedNumbers(nums));
+
+// Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,1,1,2,2,3], k = 2
+
+// Output: [1,2]
+
+// Example 2:
+
+// Input: nums = [1], k = 1
+
+// Output: [1]
+
+// Example 3:
+
+// Input: nums = [1,2,1,2,1,2,3,1,3,2], k = 2
+
+// Output: [1,2]
+
+function topKFrequent(nums,k){
+    let freq = {};
+    for(let num of nums){
+        freq[num] = (freq[num] || 0) + 1;
     }
-    return result;
-};
-let nums = [4,3,2,7,8,2,3,1];
-console.log("findDisappearedNumber:",findDisappearedNumbers(nums));
+    // sort the value of Freq
+    let sortedNum =Object.entries(freq).sort((a,b)=>b[1]-a[1]);
+    let ans = [];
+    for(let i = 0; i<k; i++){
+        ans.push(Number(sortedNum[i][0]))
+    }
+    return ans;
+}
+nums = [1,2,1,2,1,2,3,1,3,2], k = 2;
+console.log("topKfrequent:",topKFrequent(nums,k));
