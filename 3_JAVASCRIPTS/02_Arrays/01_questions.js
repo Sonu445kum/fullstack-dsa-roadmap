@@ -836,21 +836,56 @@
 // Output: [1,2]
 // Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
 
-function twoSum(numbers , target){
-    let n = numbers.length; 
-    let left = 0;
-    let right = n -1;
-    while(left < right){
-        let sum = numbers[left] + numbers[right];
-        // check sum === target
-        if(sum === target){
-            return[left+1 , right+1];
-        }else if(sum < target){
-            left++;
-        }else{
-            right--;
+// function twoSum(numbers , target){
+//     let n = numbers.length; 
+//     let left = 0;
+//     let right = n -1;
+//     while(left < right){
+//         let sum = numbers[left] + numbers[right];
+//         // check sum === target
+//         if(sum === target){
+//             return[left+1 , right+1];
+//         }else if(sum < target){
+//             left++;
+//         }else{
+//             right--;
+//         }
+//     }
+// };
+// numbers = [2,7,11,15], target = 9;
+// console.log("TwoSum:",twoSum(numbers,target));
+
+var sortArray = function(nums) {
+    return mergeSort(nums);
+};
+
+function mergeSort(arr) {
+    if (arr.length <= 1) return arr;
+
+    let mid = Math.floor(arr.length / 2);
+
+    let left = mergeSort(arr.slice(0, mid));
+    let right = mergeSort(arr.slice(mid));
+
+    return merge(left, right);
+}
+
+function merge(left, right) {
+    let result = [];
+    let i = 0, j = 0;
+
+    while (i < left.length && j < right.length) {
+        if (left[i] < right[j]) {
+            result.push(left[i]);
+            i++;
+        } else {
+            result.push(right[j]);
+            j++;
         }
     }
-};
-numbers = [2,7,11,15], target = 9;
-console.log("TwoSum:",twoSum(numbers,target));
+
+    // remaining elements
+    return result.concat(left.slice(i)).concat(right.slice(j));
+}
+let nums = [5,2,3,1];
+console.log("mergeSort:",sortArray(nums));
