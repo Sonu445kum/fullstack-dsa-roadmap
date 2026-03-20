@@ -485,22 +485,51 @@
 // The consonants are: 's' (frequency 4), 'c' (frequency 2). The maximum frequency is 4.
 // The output is 2 + 4 = 6.
 
-var maxFreqSum = function(s) {
-   let freq ={};
-   let vowles = "aeiou";
-   for(let char of s){
-    freq[char] =(freq[char] || 0) + 1;
-   };
-   let maxVowels = 0;
-   let maxConsonants = 0;
-   for(let [key,value] of Object.entries(freq)){
-        if(vowles.includes(key)){
-            maxVowels = Math.max(maxVowels , value);
-        }else{
-            maxConsonants = Math.max(maxConsonants,value)
+// var maxFreqSum = function(s) {
+//    let freq ={};
+//    let vowles = "aeiou";
+//    for(let char of s){
+//     freq[char] =(freq[char] || 0) + 1;
+//    };
+//    let maxVowels = 0;
+//    let maxConsonants = 0;
+//    for(let [key,value] of Object.entries(freq)){
+//         if(vowles.includes(key)){
+//             maxVowels = Math.max(maxVowels , value);
+//         }else{
+//             maxConsonants = Math.max(maxConsonants,value)
+//         }
+//    }
+//    return maxVowels + maxConsonants;
+// };
+// let s = "successes";
+// console.log("maxFreqSum:",maxFreqSum(s));
+
+// Given a string s, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+
+ 
+
+// Example 1:
+
+// Input: s = "Let's take LeetCode contest"
+// Output: "s'teL ekat edoCteeL tsetnoc"
+// Example 2:
+
+// Input: s = "Mr Ding"
+// Output: "rM gniD"
+
+function reverseWord(s){
+    let result = [];
+    let word = s.split(" ");
+    for(let i =0 ; i<word.length; i++){
+        let str = word[i];
+        let rev = "";
+        for(let j=str.length - 1; j>=0; j--){
+            rev += str[j];
         }
-   }
-   return maxVowels + maxConsonants;
-};
-let s = "successes";
-console.log("maxFreqSum:",maxFreqSum(s));
+        result.push(rev);
+    }
+    return result.join(" ");
+}
+;let s = "Let's take LeetCode contest";
+console.log("Reverse Word:",reverseWord(s));
