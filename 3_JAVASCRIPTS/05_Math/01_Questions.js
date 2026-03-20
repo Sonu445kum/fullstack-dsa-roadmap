@@ -1726,20 +1726,65 @@
 // For nums[2] = 11, the sum of digits is 1 + 1 = 2, which is equal to index i = 2.
 // Since index 1 is the smallest, the output is 1.
 
-function smallestIndex(nums){
-    for(let i=0; i<nums.length; i++){
-        let ans = nums[i];
-        let sum = 0;
-        while(ans > 0){
-            sum += ans%10;
-            ans = Math.floor(ans/10);
-        }
-        if(sum === i){
-            return i;
-        }
-    }
-    return -1;
-};
-let nums = [1,3,2];
-console.log("SmallestIndex:",smallestIndex(nums));
 
+
+// function smallestIndex(nums){
+//     for(let i=0; i<nums.length; i++){
+//         let ans = nums[i];
+//         let sum = 0;
+//         while(ans > 0){
+//             sum += ans%10;
+//             ans = Math.floor(ans/10);
+//         }
+//         if(sum === i){
+//             return i;
+//         }
+//     }
+//     return -1;
+// };
+// let nums = [1,3,2];
+// console.log("SmallestIndex:",smallestIndex(nums));
+
+// Given an integer n, find the digit that occurs least frequently in its decimal representation. If multiple digits have the same frequency, choose the smallest digit.
+
+// Return the chosen digit as an integer.
+
+// The frequency of a digit x is the number of times it appears in the decimal representation of n.
+ 
+
+// Example 1:
+
+// Input: n = 1553322
+
+// Output: 1
+
+// Explanation:
+
+// The least frequent digit in n is 1, which appears only once. All other digits appear twice.
+
+// Example 2:
+
+// Input: n = 723344511
+
+var getLeastFrequentDigit = function(n) {
+   let freq = {};
+   while(n >0){
+    let digit = n%10;
+    freq[digit] = (freq[digit] || 0) + 1;
+    n = Math.floor(n/10);
+   } 
+   let minValue = Infinity;
+   let result = Infinity;
+   for(let [key,value] of Object.entries(freq)){
+    key = Number(key);
+    if(value < minValue){
+        minValue = value;
+        result = key;
+    }else if (value === minValue){
+        result = Math.min(result ,key);
+    }
+   }
+   return result;
+};
+let  n = 1553322;
+console.log("getLeastFrequentDigit:",getLeastFrequentDigit(n));
