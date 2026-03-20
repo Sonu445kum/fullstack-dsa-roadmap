@@ -1676,24 +1676,70 @@
 
 // The digit product of 16 is 6, which is divisible by 3, making it the smallest number greater than or equal to 15 that satisfies the condition.
 
-var smallestNumber = function (n, t) {
-  let prod = 1;
-  function getProduct(n) {
-    while (n > 0) {
-      prod *= n % 10;
-      n = Math.floor(n / 10);
+// var smallestNumber = function (n, t) {
+//   let prod = 1;
+//   function getProduct(n) {
+//     while (n > 0) {
+//       prod *= n % 10;
+//       n = Math.floor(n / 10);
+//     }
+//     return prod;
+//   }
+//   while (true) {
+//     if (getProduct(n) % t === 0) {
+//       return n;
+//     } else {
+//       n++;
+//     }
+//   }
+// };
+// let n = 10,
+//   t = 2;
+// console.log(smallestNumber(n, t));
+
+// You are given an integer array nums.
+
+// Return the smallest index i such that the sum of the digits of nums[i] is equal to i.
+
+// If no such index exists, return -1.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,3,2]
+
+// Output: 2
+
+// Explanation:
+
+// For nums[2] = 2, the sum of digits is 2, which is equal to index i = 2. Thus, the output is 2.
+// Example 2:
+
+// Input: nums = [1,10,11]
+
+// Output: 1
+
+// Explanation:
+
+// For nums[1] = 10, the sum of digits is 1 + 0 = 1, which is equal to index i = 1.
+// For nums[2] = 11, the sum of digits is 1 + 1 = 2, which is equal to index i = 2.
+// Since index 1 is the smallest, the output is 1.
+
+function smallestIndex(nums){
+    for(let i=0; i<nums.length; i++){
+        let ans = nums[i];
+        let sum = 0;
+        while(ans > 0){
+            sum += ans%10;
+            ans = Math.floor(ans/10);
+        }
+        if(sum === i){
+            return i;
+        }
     }
-    return prod;
-  }
-  while (true) {
-    if (getProduct(n) % t === 0) {
-      return n;
-    } else {
-      n++;
-    }
-  }
+    return -1;
 };
-let n = 10,
-  t = 2;
-console.log(smallestNumber(n, t));
+let nums = [1,3,2];
+console.log("SmallestIndex:",smallestIndex(nums));
 
