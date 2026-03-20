@@ -1609,7 +1609,7 @@
 //   }
 //   newArr.push(ans);
 //   console.log("newArr:",newArr);
-  
+
 //   let max = -Infinity , min = Infinity;
 //   for(let i =0 ; i<newArr.length; i++){
 //     if(newArr[i] > max){
@@ -1617,7 +1617,7 @@
 //     }else if (newArr[i] < min){
 //         min = newArr[i];
 //     }
-    
+
 //   }
 //   let res = max - min;
 //   console.log("Max:",max,"Min:",min);
@@ -1626,11 +1626,8 @@
 // nums = [0,10], k = 2;
 // console.log("SmallestRangeII:",smallestRangeII(nums , k));
 
-
 // Given an integer array nums of size n, return the minimum number of moves required to make all array elements equal.
 // In one move, you can increment n - 1 elements of the array by 1.
-
- 
 
 // Example 1:
 
@@ -1643,16 +1640,60 @@
 // Input: nums = [1,1,1]
 // Output: 0
 
-var minMoves = function(nums) {
-    let min = Math.min(...nums);
-    let moves =0;
-    for(let num of nums){
-        moves += (num - min)
-    }
-    return moves;
+// var minMoves = function(nums) {
+//     let min = Math.min(...nums);
+//     let moves =0;
+//     for(let num of nums){
+//         moves += (num - min)
+//     }
+//     return moves;
 
-    
+// };
+// let nums = [1,2,3];
+// console.log("Minimum Moves:",minMoves(nums))
+
+// You are given two integers n and t. Return the smallest number greater than or equal to n such that the product of its digits is divisible by t.
+
+ 
+
+// Example 1:
+
+// Input: n = 10, t = 2
+
+// Output: 10
+
+// Explanation:
+
+// The digit product of 10 is 0, which is divisible by 2, making it the smallest number greater than or equal to 10 that satisfies the condition.
+
+// Example 2:
+
+// Input: n = 15, t = 3
+
+// Output: 16
+
+// Explanation:
+
+// The digit product of 16 is 6, which is divisible by 3, making it the smallest number greater than or equal to 15 that satisfies the condition.
+
+var smallestNumber = function (n, t) {
+  let prod = 1;
+  function getProduct(n) {
+    while (n > 0) {
+      prod *= n % 10;
+      n = Math.floor(n / 10);
+    }
+    return prod;
+  }
+  while (true) {
+    if (getProduct(n) % t === 0) {
+      return n;
+    } else {
+      n++;
+    }
+  }
 };
-let nums = [1,2,3];
-console.log("Minimum Moves:",minMoves(nums))
+let n = 10,
+  t = 2;
+console.log(smallestNumber(n, t));
 
