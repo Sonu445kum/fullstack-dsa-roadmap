@@ -1766,25 +1766,25 @@
 
 // Input: n = 723344511
 
-var getLeastFrequentDigit = function(n) {
-   let freq = {};
-   while(n >0){
-    let digit = n%10;
-    freq[digit] = (freq[digit] || 0) + 1;
-    n = Math.floor(n/10);
-   } 
-   let minValue = Infinity;
-   let result = Infinity;
-   for(let [key,value] of Object.entries(freq)){
-    key = Number(key);
-    if(value < minValue){
-        minValue = value;
-        result = key;
-    }else if (value === minValue){
-        result = Math.min(result ,key);
-    }
-   }
-   return result;
-};
-let  n = 1553322;
-console.log("getLeastFrequentDigit:",getLeastFrequentDigit(n));
+// var getLeastFrequentDigit = function(n) {
+//    let freq = {};
+//    while(n >0){
+//     let digit = n%10;
+//     freq[digit] = (freq[digit] || 0) + 1;
+//     n = Math.floor(n/10);
+//    } 
+//    let minValue = Infinity;
+//    let result = Infinity;
+//    for(let [key,value] of Object.entries(freq)){
+//     key = Number(key);
+//     if(value < minValue){
+//         minValue = value;
+//         result = key;
+//     }else if (value === minValue){
+//         result = Math.min(result ,key);
+//     }
+//    }
+//    return result;
+// };
+// let  n = 1553322;
+// console.log("getLeastFrequentDigit:",getLeastFrequentDigit(n));
