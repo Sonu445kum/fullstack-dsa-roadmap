@@ -518,18 +518,18 @@
 // Input: s = "Mr Ding"
 // Output: "rM gniD"
 
-function reverseWord(s){
-    let result = [];
-    let word = s.split(" ");
-    for(let i =0 ; i<word.length; i++){
-        let str = word[i];
-        let rev = "";
-        for(let j=str.length - 1; j>=0; j--){
-            rev += str[j];
-        }
-        result.push(rev);
-    }
-    return result.join(" ");
-}
-;let s = "Let's take LeetCode contest";
-console.log("Reverse Word:",reverseWord(s));
+// function reverseWord(s){
+//     let result = [];
+//     let word = s.split(" ");
+//     for(let i =0 ; i<word.length; i++){
+//         let str = word[i];
+//         let rev = "";
+//         for(let j=str.length - 1; j>=0; j--){
+//             rev += str[j];
+//         }
+//         result.push(rev);
+//     }
+//     return result.join(" ");
+// }
+// ;let s = "Let's take LeetCode contest";
+// console.log("Reverse Word:",reverseWord(s));
