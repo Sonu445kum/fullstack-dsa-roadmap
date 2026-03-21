@@ -967,23 +967,59 @@
 // Output: 4
 // Explanation: 4 is the even element appears the most.
 
-var mostFrequentEven = function(nums) {
-    let freq = {};
-    for(let num of nums){
-        freq[num] = (freq[num] || 0) + 1;
-    };
-    let mostFreq =0;
-    let result = -1;
-    for(let key in freq){
-        let num = Number(key);
-        if(num % 2 === 0){
-            if(freq[key] > mostFreq || freq[key] === mostFreq && num < result){
-                mostFreq = freq[key];
-                result = num;
-            }
-        }
+// var mostFrequentEven = function(nums) {
+//     let freq = {};
+//     for(let num of nums){
+//         freq[num] = (freq[num] || 0) + 1;
+//     };
+//     let mostFreq =0;
+//     let result = -1;
+//     for(let key in freq){
+//         let num = Number(key);
+//         if(num % 2 === 0){
+//             if(freq[key] > mostFreq || freq[key] === mostFreq && num < result){
+//                 mostFreq = freq[key];
+//                 result = num;
+//             }
+//         }
+//     }
+//     return result;
+// };
+// let nums = [0,1,2,2,4,4,1];
+// console.log("MostFrequentEven:",mostFrequentEven(nums))
+
+// Given an array of integers arr, a lucky integer is an integer that has a frequency in the array equal to its value.
+
+// Return the largest lucky integer in the array. If there is no lucky integer return -1.
+
+ 
+
+// Example 1:
+
+// Input: arr = [2,2,3,4]
+// Output: 2
+// Explanation: The only lucky number in the array is 2 because frequency[2] == 2.
+// Example 2:
+
+// Input: arr = [1,2,2,3,3,3]
+// Output: 3
+// Explanation: 1, 2 and 3 are all lucky numbers, return the largest of them.
+
+var findLucky = function(arr) {
+   let freq = {};
+   for(let num of arr){
+    freq[num] = (freq[num] || 0) + 1;
+   }
+   let max =0;
+   let result = -1;
+   for(let [key,value] of Object.entries(freq)){
+    let num = Number(key);
+    if(num === value && num > max){
+        max = num;
+        result = max;
     }
-    return result;
+   }
+   return result; 
 };
-let nums = [4,4,4,9,2,4];
-console.log("MostFrequentEven:",mostFrequentEven(nums))
+let arr = [1,2,2,3,3,3];
+console.log("FindLucy:",findLucky(arr));
