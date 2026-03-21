@@ -1803,20 +1803,57 @@
 // Input: c = 3
 // Output: false
 
-function sumOfSquare(c){
-    let left = 0;
-    let right = Math.floor(Math.sqrt(c));
-    while(left <= right){
-        let sum = left*left + right*right;
-        if(sum === c){
-            return true;
-        }else if(sum < c){
-            left++;
-        }else{
-            right--;
+// function sumOfSquare(c){
+//     let left = 0;
+//     let right = Math.floor(Math.sqrt(c));
+//     while(left <= right){
+//         let sum = left*left + right*right;
+//         if(sum === c){
+//             return true;
+//         }else if(sum < c){
+//             left++;
+//         }else{
+//             right--;
+//         }
+//     }
+//     return false;
+// }
+// let c = 7;
+// console.log("The Sum Of Sqaure:",sumOfSquare(c));
+
+// You are given a positive integer n.
+
+// Return the integer obtained by removing all zeros from the decimal representation of n.
+
+ 
+
+// Example 1:
+
+// Input: n = 1020030
+
+// Output: 123
+
+// Explanation:
+
+// After removing all zeros from 1020030, we get 123.
+
+var removeZeros = function(n) {
+    let arr = [];
+    let temp = n;
+    while(temp > 0){
+        let lastDigit = temp % 10;
+        if(lastDigit !== 0){
+            arr.push(lastDigit);
         }
+        temp = Math.floor(temp/10);
+    };
+    console.log("Array:",arr);
+    let ans = 0;
+    for(let i = arr.length-1; i>=0; i--){
+        console.log("arr[i]:",)
+        ans = ans*10 + arr[i];
     }
-    return false;
-}
-let c = 7;
-console.log("The Sum Of Sqaure:",sumOfSquare(c));
+    return ans;
+};
+let n = 1020030;
+console.log("After the Removing Zero:",removeZeros(n))
