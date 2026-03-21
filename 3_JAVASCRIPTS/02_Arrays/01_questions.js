@@ -855,37 +855,73 @@
 // numbers = [2,7,11,15], target = 9;
 // console.log("TwoSum:",twoSum(numbers,target));
 
-var sortArray = function(nums) {
-    return mergeSort(nums);
-};
+// var sortArray = function(nums) {
+//     return mergeSort(nums);
+// };
 
-function mergeSort(arr) {
-    if (arr.length <= 1) return arr;
+// function mergeSort(arr) {
+//     if (arr.length <= 1) return arr;
 
-    let mid = Math.floor(arr.length / 2);
+//     let mid = Math.floor(arr.length / 2);
 
-    let left = mergeSort(arr.slice(0, mid));
-    let right = mergeSort(arr.slice(mid));
+//     let left = mergeSort(arr.slice(0, mid));
+//     let right = mergeSort(arr.slice(mid));
 
-    return merge(left, right);
-}
+//     return merge(left, right);
+// }
 
-function merge(left, right) {
-    let result = [];
-    let i = 0, j = 0;
+// function merge(left, right) {
+//     let result = [];
+//     let i = 0, j = 0;
 
-    while (i < left.length && j < right.length) {
-        if (left[i] < right[j]) {
-            result.push(left[i]);
-            i++;
-        } else {
-            result.push(right[j]);
-            j++;
-        }
+//     while (i < left.length && j < right.length) {
+//         if (left[i] < right[j]) {
+//             result.push(left[i]);
+//             i++;
+//         } else {
+//             result.push(right[j]);
+//             j++;
+//         }
+//     }
+
+//     // remaining elements
+//     return result.concat(left.slice(i)).concat(right.slice(j));
+// }
+// let nums = [5,2,3,1];
+// console.log("mergeSort:",sortArray(nums));
+
+// Given an integer array nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. You can return the answer in any order.
+
+// You must write an algorithm that runs in linear runtime complexity and uses only constant extra space.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,1,3,2,5]
+// Output: [3,5]
+// Explanation:  [5, 3] is also a valid answer.
+// Example 2:
+
+// Input: nums = [-1,0]
+// Output: [-1,0]
+// Example 3:
+
+// Input: nums = [0,1]
+// Output: [1,0]
+
+var singleNumber = function(nums) {
+   let freq = {};
+   for(let num of nums){
+    freq[num] = (freq[num] || 0) + 1;
+   };
+   let arr = [];
+   for(let [key,value] of Object.entries(freq)){
+    if(value === 1){
+        arr.push(Number(key));
     }
-
-    // remaining elements
-    return result.concat(left.slice(i)).concat(right.slice(j));
-}
-let nums = [5,2,3,1];
-console.log("mergeSort:",sortArray(nums));
+   }
+   return arr;
+};
+let nums = [1,2,1,3,2,5];
+console.log("SingleNumber:",singleNumber(nums));
