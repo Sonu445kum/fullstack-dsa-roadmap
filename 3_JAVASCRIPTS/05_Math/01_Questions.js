@@ -1837,23 +1837,57 @@
 
 // After removing all zeros from 1020030, we get 123.
 
-var removeZeros = function(n) {
-    let arr = [];
-    let temp = n;
-    while(temp > 0){
-        let lastDigit = temp % 10;
-        if(lastDigit !== 0){
-            arr.push(lastDigit);
-        }
-        temp = Math.floor(temp/10);
-    };
-    console.log("Array:",arr);
-    let ans = 0;
-    for(let i = arr.length-1; i>=0; i--){
-        console.log("arr[i]:",)
-        ans = ans*10 + arr[i];
+// var removeZeros = function(n) {
+//     let arr = [];
+//     while(n > 0){
+//         if(n % 10 !== 0){
+//             arr.push(n%10);
+//         }
+//         n = Math.floor(n/10);
+//     };
+//     console.log("Array:",arr);
+//     let ans = 0;
+//     for(let i = arr.length-1; i>=0; i--){
+//         console.log("arr[i]:",)
+//         ans = ans*10 + arr[i];
+//     }
+//     return ans;
+// };
+// let n = 1020030;
+// console.log("After the Removing Zero:",removeZeros(n))
+
+// You are given an integer array nums.
+
+// In one move, you may increase the value of any single element nums[i] by 1.
+
+// Return the minimum total number of moves required so that all elements in nums become equal.
+
+ 
+
+// Example 1:
+
+// Input: nums = [2,1,3]
+
+// Output: 3
+
+// Explanation:
+
+// To make all elements equal:
+
+// Increase nums[0] = 2 by 1 to make it 3.
+// Increase nums[1] = 1 by 1 to make it 2.
+// Increase nums[1] = 2 by 1 to make it 3.
+
+var minMoves = function(nums) {
+    let max =Math.max(...nums);
+    let count = 0;
+    for(let num of nums){
+        count += (max - num);
     }
-    return ans;
+    return count;
+
 };
-let n = 1020030;
-console.log("After the Removing Zero:",removeZeros(n))
+let nums = [2,1,3];
+console.log("minMoves:",minMoves(nums))
+
+
