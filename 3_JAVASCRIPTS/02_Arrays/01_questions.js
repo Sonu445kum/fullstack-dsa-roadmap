@@ -1005,21 +1005,57 @@
 // Output: 3
 // Explanation: 1, 2 and 3 are all lucky numbers, return the largest of them.
 
-var findLucky = function(arr) {
-   let freq = {};
-   for(let num of arr){
-    freq[num] = (freq[num] || 0) + 1;
-   }
-   let max =0;
-   let result = -1;
-   for(let key in freq){
-    let num = Number(key);
-    if(num === freq[key] && num > max){
-        max = num;
-        result = max;
-    }
-   }
-   return result; 
+// var findLucky = function(arr) {
+//    let freq = {};
+//    for(let num of arr){
+//     freq[num] = (freq[num] || 0) + 1;
+//    }
+//    let max =0;
+//    let result = -1;
+//    for(let key in freq){
+//     let num = Number(key);
+//     if(num === freq[key] && num > max){
+//         max = num;
+//         result = max;
+//     }
+//    }
+//    return result; 
+// };
+// let arr = [1,2,2,3,3,3];
+// console.log("FindLucy:",findLucky(arr));
+
+// You are given a 0-indexed integer array nums and a target element target.
+
+// A target index is an index i such that nums[i] == target.
+
+// Return a list of the target indices of nums after sorting nums in non-decreasing order. If there are no target indices, return an empty list. The returned list must be sorted in increasing order.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,5,2,3], target = 2
+// Output: [1,2]
+// Explanation: After sorting, nums is [1,2,2,3,5].
+// The indices where nums[i] == 2 are 1 and 2.
+// Example 2:
+
+// Input: nums = [1,2,5,2,3], target = 3
+// Output: [3]
+// Explanation: After sorting, nums is [1,2,2,3,5].
+// The index where nums[i] == 3 is 3.
+
+var targetIndices = function(nums, target) {
+    // sort the nums
+    nums.sort((a,b)=> a- b);
+    let ans =[];
+
+    for(let i =0; i<nums.length; i++){
+        if(nums[i] === target){
+            ans.push(i);
+        }
+    } 
+    return ans; 
 };
-let arr = [1,2,2,3,3,3];
-console.log("FindLucy:",findLucky(arr));
+nums = [1,2,5,2,3], target = 3;
+console.log("targetIndices:",targetIndices(nums,target));
