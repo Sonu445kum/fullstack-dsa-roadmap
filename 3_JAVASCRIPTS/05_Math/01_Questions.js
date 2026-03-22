@@ -1903,24 +1903,99 @@
 // Input: n = 0
 // Output: 0
 
-function countDigitOnes(n){
-    let count = 0;
-    for(let place = 1; place <= n; place *= 10){
-        let high = Math.floor(n/(place*10));
-        let current = Math.floor((n/place) % 10);
-        let low = n % 10;
+// function countDigitOnes(n){
+//     let count = 0;
+//     for(let place = 1; place <= n; place *= 10){
+//         let high = Math.floor(n/(place*10));
+//         let current = Math.floor((n/place) % 10);
+//         let low = n % 10;
 
-        // current ===0
-        if(current === 0){
-            count += high * place;
-        }else if (current === 1){
-            count += (high * place) + (low + 1);
-        }else{
-            count += (high + 1) * place;
+//         // current ===0
+//         if(current === 0){
+//             count += high * place;
+//         }else if (current === 1){
+//             count += (high * place) + (low + 1);
+//         }else{
+//             count += (high + 1) * place;
+//         }
+//     }
+//     return count;
+// }
+// let n = 13;
+// console.log("CountDigitOnes:",countDigitOnes(n));
+
+// function decimalTOBinary(n){
+//     let ans = "";
+//     while(n){
+//         ans = n % 2 + ans;
+//         n = Math.floor(n/2);
+//     }
+//     return ans;
+// };
+// let n = 13;
+// console.log("DecimalToBinary:",decimalTOBinary(n));
+
+// function decimalTOBinary(n){
+//     let ans = "";
+//     while(n > 0){
+//         ans = (n & 1) + ans;
+//         n = n >>> 1;
+//     }
+//     return ans || "0";
+// };
+// let n = 13;
+// console.log("DecimalToBinary:",decimalTOBinary(n));
+
+// Given two integers left and right, return the count of numbers in the inclusive range [left, right] having a prime number of set bits in their binary representation.
+
+// Recall that the number of set bits an integer has is the number of 1's present when written in binary.
+
+// For example, 21 written in binary is 10101, which has 3 set bits.
+ 
+
+// Example 1:
+
+// Input: left = 6, right = 10
+// Output: 4
+// Explanation:
+// 6  -> 110 (2 set bits, 2 is prime)
+// 7  -> 111 (3 set bits, 3 is prime)
+// 8  -> 1000 (1 set bit, 1 is not prime)
+// 9  -> 1001 (2 set bits, 2 is prime)
+// 10 -> 1010 (2 set bits, 2 is prime)
+// 4 numbers have a prime number of set bits.
+
+var countPrimeSetBits = function(left, right){
+    let result = 0 ;
+    for(let num = left; num <= right; num++){
+        let bits = countSetBits(num);
+
+        // if countSetBits is prime then increment the result++;
+        if(isPrime(bits)){
+            result++;
         }
+    }
+    return result;
+
+}
+
+// functions for the count countSetBits
+function countSetBits(n){
+    let count = 0;
+    while(n > 0){
+        n = n & (n - 1); // its count number of ones bits
+        count++;
     }
     return count;
 }
-let n = 13;
-console.log("CountDigitOnes:",countDigitOnes(n));
+// functions for check countSetBits(n) is prime or not
+function isPrime(n){
+    if(n < 2) return false;
+    for(let i=2; i*i<=n; i++){
+        if(n % i === 0) return false;
+    }
+    return true;
+}
 
+let left = 6, right = 10;
+console.log("countPrimeSetBits:",countPrimeSetBits(left , right));
