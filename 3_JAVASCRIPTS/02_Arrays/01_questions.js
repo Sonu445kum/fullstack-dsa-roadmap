@@ -1012,9 +1012,9 @@ var findLucky = function(arr) {
    }
    let max =0;
    let result = -1;
-   for(let [key,value] of Object.entries(freq)){
+   for(let key in freq){
     let num = Number(key);
-    if(num === value && num > max){
+    if(num === freq[key] && num > max){
         max = num;
         result = max;
     }

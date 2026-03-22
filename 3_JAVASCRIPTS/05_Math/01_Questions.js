@@ -1878,16 +1878,49 @@
 // Increase nums[1] = 1 by 1 to make it 2.
 // Increase nums[1] = 2 by 1 to make it 3.
 
-var minMoves = function(nums) {
-    let max =Math.max(...nums);
+// var minMoves = function(nums) {
+//     let max =Math.max(...nums);
+//     let count = 0;
+//     for(let num of nums){
+//         count += (max - num);
+//     }
+//     return count;
+
+// };
+// let nums = [2,1,3];
+// console.log("minMoves:",minMoves(nums))
+
+// Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n.
+
+ 
+
+// Example 1:
+
+// Input: n = 13
+// Output: 6
+// Example 2:
+
+// Input: n = 0
+// Output: 0
+
+function countDigitOnes(n){
     let count = 0;
-    for(let num of nums){
-        count += (max - num);
+    for(let place = 1; place <= n; place *= 10){
+        let high = Math.floor(n/(place*10));
+        let current = Math.floor((n/place) % 10);
+        let low = n % 10;
+
+        // current ===0
+        if(current === 0){
+            count += high * place;
+        }else if (current === 1){
+            count += (high * place) + (low + 1);
+        }else{
+            count += (high + 1) * place;
+        }
     }
     return count;
-
-};
-let nums = [2,1,3];
-console.log("minMoves:",minMoves(nums))
-
+}
+let n = 13;
+console.log("CountDigitOnes:",countDigitOnes(n));
 
