@@ -1965,37 +1965,68 @@
 // 10 -> 1010 (2 set bits, 2 is prime)
 // 4 numbers have a prime number of set bits.
 
-var countPrimeSetBits = function(left, right){
-    let result = 0 ;
-    for(let num = left; num <= right; num++){
-        let bits = countSetBits(num);
+// var countPrimeSetBits = function(left, right){
+//     let result = 0 ;
+//     for(let num = left; num <= right; num++){
+//         let bits = countSetBits(num);
 
-        // if countSetBits is prime then increment the result++;
-        if(isPrime(bits)){
-            result++;
-        }
-    }
-    return result;
+//         // if countSetBits is prime then increment the result++;
+//         if(isPrime(bits)){
+//             result++;
+//         }
+//     }
+//     return result;
 
-}
+// }
 
-// functions for the count countSetBits
-function countSetBits(n){
-    let count = 0;
-    while(n > 0){
-        n = n & (n - 1); // its count number of ones bits
+// // functions for the count countSetBits
+// function countSetBits(n){
+//     let count = 0;
+//     while(n > 0){
+//         n = n & (n - 1); // its count number of ones bits
+//         count++;
+//     }
+//     return count;
+// }
+// // functions for check countSetBits(n) is prime or not
+// function isPrime(n){
+//     if(n < 2) return false;
+//     for(let i=2; i*i<=n; i++){
+//         if(n % i === 0) return false;
+//     }
+//     return true;
+// }
+
+// let left = 6, right = 10;
+// console.log("countPrimeSetBits:",countPrimeSetBits(left , right));
+
+// You are given a positive number n.
+
+// Return the smallest number x greater than or equal to n, such that the binary representation of x contains only set bits
+
+ 
+
+// Example 1:
+
+// Input: n = 5
+
+// Output: 7
+
+// Explanation:
+
+// The binary representation of 7 is "111"
+
+var smallestNumber = function(n) {
+    let count =0;
+    while(n>0){
+        n = n & (n-1);
         count++;
     }
     return count;
-}
-// functions for check countSetBits(n) is prime or not
-function isPrime(n){
-    if(n < 2) return false;
-    for(let i=2; i*i<=n; i++){
-        if(n % i === 0) return false;
-    }
-    return true;
-}
+    
+    // find the samllest number >= n (where n have only ones setbits);
 
-let left = 6, right = 10;
-console.log("countPrimeSetBits:",countPrimeSetBits(left , right));
+};
+
+let n = 5;
+console.log("CountSetBits:",smallestNumber(n));
