@@ -1076,16 +1076,33 @@
 // i=2: 2 mod 10 = 2 == nums[2].
 // All indices have i mod 10 == nums[i], so we return the smallest index 0.
 
-var smallestEqual = function(nums) {
-    let minIndex =0;
-    let result = -1;
-    for(let i=0; i<nums.length; i++){
-        if((i % 10 === nums[i]) && result < minIndex){
-            minIndex = i;
-            result = minIndex;
+// var smallestEqual = function(nums) {
+//     let minIndex =0;
+//     let result = -1;
+//     for(let i=0; i<nums.length; i++){
+//         if((i % 10 === nums[i]) && result < minIndex){
+//             minIndex = i;
+//             result = minIndex;
+//         }
+//     }
+//     return result;
+// };
+// let nums = [0,1,2];
+// console.log("smallestEqual:",smallestEqual(nums));
+
+// Brute Force
+// find the subarray -> n*(n+1)/2;
+// if n= 3 then total subarray = 3*4/2 = 6
+function findSubarray(arr){
+    let result =[];
+    for(let i=0; i<arr.length; i++){
+        let temp =[];
+        for(let j=i; j<arr.length; j++){
+            temp.push(arr[j]);
+            result.push([...temp]);
         }
     }
     return result;
-};
-let nums = [0,1,2];
-console.log("smallestEqual:",smallestEqual(nums));
+}
+let arr = [1 ,2 ,3];
+console.log("findSubarray:",findSubarray(arr)); 
