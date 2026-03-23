@@ -1093,16 +1093,52 @@
 // Brute Force
 // find the subarray -> n*(n+1)/2;
 // if n= 3 then total subarray = 3*4/2 = 6
-function findSubarray(arr){
-    let result =[];
-    for(let i=0; i<arr.length; i++){
-        let temp =[];
-        for(let j=i; j<arr.length; j++){
-            temp.push(arr[j]);
-            result.push([...temp]);
-        }
+// function findSubarray(arr){
+//     let result =[];
+//     for(let i=0; i<arr.length; i++){
+//         let temp =[];
+//         for(let j=i; j<arr.length; j++){
+//             temp.push(arr[j]);
+//             result.push([...temp]);
+//         }
+//     }
+//     return result;
+// }
+// let arr = [1 ,2 ,3];
+// console.log("findSubarray:",findSubarray(arr)); 
+
+// You are given an integer array nums consisting of n elements, and an integer k.
+
+// Find a contiguous subarray whose length is equal to k that has the maximum average value and return this value. Any answer with a calculation error less than 10-5 will be accepted.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,12,-5,-6,50,3], k = 4
+// Output: 12.75000
+// Explanation: Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75
+// Example 2:
+
+// Input: nums = [5], k = 1
+// Output: 5.00000
+
+function findMaxAverage(nums , k){
+    let sum =0;
+    let max = -Infinity;
+    // find the sum up to kth element
+    for(let i =0; i<k; i++){
+        sum += nums[i];
     }
-    return result;
-}
-let arr = [1 ,2 ,3];
-console.log("findSubarray:",findSubarray(arr)); 
+    // assign sum into max;
+    max=sum;
+    // traverse loop after the kth element
+    for(let i=k; i<nums.length; i++){
+        sum += nums[i]; // add next element
+        sum -= nums[i-k]; // remove previous element
+        max = Math.max(max,sum); // find the max
+    }
+    return max/k; // return average;
+};
+let nums = [1,12,-5,-6,50,3], k = 4;
+console.log("Max Average:",findMaxAverage(nums,k));
