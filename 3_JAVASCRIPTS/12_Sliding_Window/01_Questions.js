@@ -90,29 +90,67 @@
 // Output: 2
 // Explanation: Any substring of length 2 contains 2 vowels.
 
-var maxVowels = function (s, k) {
-  let sum = 0;
-  let vowels = "aeiou";
-  let max = -Infinity;
-  for (let i = 0; i < k; i++) {
-    if (vowels.includes(s[i])) {
-      sum += 1;
+// var maxVowels = function (s, k) {
+//   let sum = 0;
+//   let vowels = "aeiou";
+//   let max = -Infinity;
+//   for (let i = 0; i < k; i++) {
+//     if (vowels.includes(s[i])) {
+//       sum += 1;
+//     }
+//   }
+//   max = sum;
+//   for (let i = k; i < s.length; i++) {
+//     // Add new char
+//     if (vowels.includes(s[i])) {
+//       sum += 1;
+//     }
+//     // remove old character
+//     if (vowels.includes(s[i - k])) {
+//       sum += 1;
+//     }
+//     max = Math.max(max, sum);
+//   }
+//   return max;
+// };
+// let s = "abciiidef",
+//   k = 3;
+// console.log("MaxVowels:", maxVowels(s, k));
+
+// Given an array of integers nums and an integer k, return the number of contiguous subarrays where the product of all the elements in the subarray is strictly less than k.
+
+ 
+
+// Example 1:
+
+// Input: nums = [10,5,2,6], k = 100
+// Output: 8
+// Explanation: The 8 subarrays that have product less than 100 are:
+// [10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6]
+// Note that [10, 5, 2] is not included as the product of 100 is not strictly less than k.
+// Example 2:
+
+// Input: nums = [1,2,3], k = 0
+// Output: 0
+
+function numSubarrayProductLessThanK(nums , k){
+    // base case
+    if(k <= 1) return 0;
+
+    let count =0;
+    let left = 0;
+    let product = 1;
+    for(let right =0; right <nums.length; right++){
+        // Expand
+        product *= nums[right];
+        // Shrink
+        while(product >= k){
+            product /= nums[left];
+            left++;
+        }
+        count += (right - left + 1);
     }
-  }
-  max = sum;
-  for (let i = k; i < s.length; i++) {
-    // Add new char
-    if (vowels.includes(s[i])) {
-      sum += 1;
-    }
-    // remove old character
-    if (vowels.includes(s[i - k])) {
-      sum += 1;
-    }
-    max = Math.max(max, sum);
-  }
-  return max;
+    return count;
 };
-let s = "abciiidef",
-  k = 3;
-console.log("MaxVowels:", maxVowels(s, k));
+let nums = [10,5,2,6], k = 100;
+console.log("numsSubarrayProductLessThank:",numSubarrayProductLessThanK(nums , k));
