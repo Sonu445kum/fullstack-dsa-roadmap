@@ -2,13 +2,11 @@
 
 // Return the max sliding window.
 
- 
-
 // Example 1:
 
 // Input: nums = [1,3,-1,-3,5,3,6,7], k = 3
 // Output: [3,3,5,5,6,7]
-// Explanation: 
+// Explanation:
 // Window position                Max
 // ---------------               -----
 // [1  3  -1] -3  5  3  6  7       3
@@ -54,25 +52,67 @@
 // Explanation: [0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]
 // Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 
-var longestOnes = function(nums, k) {
-   let left =0;
-   let zeroCount =0;
-   let maxLength = -Infinity;
-   for(let right =0; right < nums.length; right++){
-    // Expand
-    if(nums[right] === 0){
-        zeroCount++;
+// var longestOnes = function(nums, k) {
+//    let left =0;
+//    let zeroCount =0;
+//    let maxLength = -Infinity;
+//    for(let right =0; right < nums.length; right++){
+//     // Expand
+//     if(nums[right] === 0){
+//         zeroCount++;
+//     }
+//     // shrink
+//     while(zeroCount > k){
+//         if(nums[left] === 0){
+//             zeroCount--;
+//         }
+//         left++;
+//     }
+//     maxLength = Math.max(maxLength , right-left + 1);
+//    }
+//    return maxLength;
+// };
+// let nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], k = 3;
+// console.log("LongestOnes:",longestOnes(nums , k));
+
+// Given a string s and an integer k, return the maximum number of vowel letters in any substring of s with length k.
+
+// Vowel letters in English are 'a', 'e', 'i', 'o', and 'u'.
+
+// Example 1:
+
+// Input: s = "abciiidef", k = 3
+// Output: 3
+// Explanation: The substring "iii" contains 3 vowel letters.
+// Example 2:
+
+// Input: s = "aeiou", k = 2
+// Output: 2
+// Explanation: Any substring of length 2 contains 2 vowels.
+
+var maxVowels = function (s, k) {
+  let sum = 0;
+  let vowels = "aeiou";
+  let max = -Infinity;
+  for (let i = 0; i < k; i++) {
+    if (vowels.includes(s[i])) {
+      sum += 1;
     }
-    // shrink
-    while(zeroCount > k){
-        if(nums[left] === 0){
-            zeroCount--;
-        }
-        left++;
+  }
+  max = sum;
+  for (let i = k; i < s.length; i++) {
+    // Add new char
+    if (vowels.includes(s[i])) {
+      sum += 1;
     }
-    maxLength = Math.max(maxLength , right-left + 1);
-   }
-   return maxLength; 
+    // remove old character
+    if (vowels.includes(s[i - k])) {
+      sum += 1;
+    }
+    max = Math.max(max, sum);
+  }
+  return max;
 };
-let nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], k = 3;
-console.log("LongestOnes:",longestOnes(nums , k));
+let s = "abciiidef",
+  k = 3;
+console.log("MaxVowels:", maxVowels(s, k));
