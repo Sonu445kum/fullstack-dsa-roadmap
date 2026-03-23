@@ -1123,22 +1123,43 @@
 // Input: nums = [5], k = 1
 // Output: 5.00000
 
-function findMaxAverage(nums , k){
+// function findMaxAverage(nums , k){
+//     let sum =0;
+//     let max = -Infinity;
+//     // find the sum up to kth element
+//     for(let i =0; i<k; i++){
+//         sum += nums[i];
+//     }
+//     // assign sum into max;
+//     max=sum;
+//     // traverse loop after the kth element
+//     for(let i=k; i<nums.length; i++){
+//         sum += nums[i]; // add next element
+//         sum -= nums[i-k]; // remove previous element
+//         max = Math.max(max,sum); // find the max
+//     }
+//     return max/k; // return average;
+// };
+// let nums = [1,12,-5,-6,50,3], k = 4;
+// console.log("Max Average:",findMaxAverage(nums,k));
+
+// find the Longest subarray with sum <=k
+function longestSubArrSumAtMostK(arr,k){
+    let left =0;
     let sum =0;
-    let max = -Infinity;
-    // find the sum up to kth element
-    for(let i =0; i<k; i++){
-        sum += nums[i];
+    let maxLength =0;
+    for(let right =0; right < arr.length; right++){
+        // expand the array;
+        sum += arr[right];
+        // shrink window ->while condtions is invalid
+        while(sum > k){
+            sum -=arr[left];
+            left++;
+        }
+        // update the answer
+        maxLength = Math.max(maxLength , right - left + 1);
     }
-    // assign sum into max;
-    max=sum;
-    // traverse loop after the kth element
-    for(let i=k; i<nums.length; i++){
-        sum += nums[i]; // add next element
-        sum -= nums[i-k]; // remove previous element
-        max = Math.max(max,sum); // find the max
-    }
-    return max/k; // return average;
-};
-let nums = [1,12,-5,-6,50,3], k = 4;
-console.log("Max Average:",findMaxAverage(nums,k));
+    return maxLength;
+}
+let arr = [1,2,3,4] , k=3;
+console.log("LongestSubarray:",longestSubArrSumAtMostK(arr , k));
