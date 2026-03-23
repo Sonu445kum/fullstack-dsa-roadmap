@@ -1176,22 +1176,22 @@
 // Input: target = 4, nums = [1,4,4]
 // Output: 1
 
-function minAverageSum(target , nums){
-    let left = 0;
-    let sum = 0;
-    let min = Infinity;
-    for(let right = 0; right < nums.length; right++){
-        // Expand the array
-        sum += nums[right];
+// function minAverageSum(target , nums){
+//     let left = 0;
+//     let sum = 0;
+//     let min = Infinity;
+//     for(let right = 0; right < nums.length; right++){
+//         // Expand the array
+//         sum += nums[right];
 
-        // shrink- while conditon is Invalid
-        while(sum >= target){
-            min = Math.min(min , right - left + 1);
-            sum -= nums[left];
-            left++;
-        }  
-    }
-    return min === Infinity ? 0 : min;
-};
-let target = 7, nums = [2,3,1,2,4,3];
-console.log("Minimum Average Sum:",minAverageSum(target , nums));
+//         // shrink- while conditon is Invalid
+//         while(sum >= target){
+//             min = Math.min(min , right - left + 1);
+//             sum -= nums[left];
+//             left++;
+//         }  
+//     }
+//     return min === Infinity ? 0 : min;
+// };
+// let target = 7, nums = [2,3,1,2,4,3];
+// console.log("Minimum Average Sum:",minAverageSum(target , nums));
