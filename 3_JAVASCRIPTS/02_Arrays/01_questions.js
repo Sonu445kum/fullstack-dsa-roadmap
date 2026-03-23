@@ -1144,22 +1144,54 @@
 // console.log("Max Average:",findMaxAverage(nums,k));
 
 // find the Longest subarray with sum <=k
-function longestSubArrSumAtMostK(arr,k){
-    let left =0;
-    let sum =0;
-    let maxLength =0;
-    for(let right =0; right < arr.length; right++){
-        // expand the array;
-        sum += arr[right];
-        // shrink window ->while condtions is invalid
-        while(sum > k){
-            sum -=arr[left];
+// function longestSubArrSumAtMostK(arr,k){
+//     let left =0;
+//     let sum =0;
+//     let maxLength =0;
+//     for(let right =0; right < arr.length; right++){
+//         // expand the array;
+//         sum += arr[right];
+//         // shrink window ->while condtions is invalid
+//         while(sum > k){
+//             sum -=arr[left];
+//             left++;
+//         }
+//         // update the answer
+//         maxLength = Math.max(maxLength , right - left + 1);
+//     }
+//     return maxLength;
+// }
+// let arr = [1,2,3,4] , k=3;
+// console.log("LongestSubarray:",longestSubArrSumAtMostK(arr , k));
+
+// Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
+
+// Example 1:
+
+// Input: target = 7, nums = [2,3,1,2,4,3]
+// Output: 2
+// Explanation: The subarray [4,3] has the minimal length under the problem constraint.
+// Example 2:
+
+// Input: target = 4, nums = [1,4,4]
+// Output: 1
+
+function minAverageSum(target , nums){
+    let left = 0;
+    let sum = 0;
+    let min = Infinity;
+    for(let right = 0; right < nums.length; right++){
+        // Expand the array
+        sum += nums[right];
+
+        // shrink- while conditon is Invalid
+        while(sum >= target){
+            min = Math.min(min , right - left + 1);
+            sum -= nums[left];
             left++;
-        }
-        // update the answer
-        maxLength = Math.max(maxLength , right - left + 1);
+        }  
     }
-    return maxLength;
-}
-let arr = [1,2,3,4] , k=3;
-console.log("LongestSubarray:",longestSubArrSumAtMostK(arr , k));
+    return min === Infinity ? 0 : min;
+};
+let target = 7, nums = [2,3,1,2,4,3];
+console.log("Minimum Average Sum:",minAverageSum(target , nums));
