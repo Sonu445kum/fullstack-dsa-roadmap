@@ -2016,17 +2016,51 @@
 
 // The binary representation of 7 is "111"
 
-var smallestNumber = function(n) {
-    let count =0;
-    while(n>0){
-        n = n & (n-1);
-        count++;
-    }
-    return count;
+// var smallestNumber = function(n) {
+//     let count =0;
+//     while(n>0){
+//         n = n & (n-1);
+//         count++;
+//     }
+//     return count;
     
-    // find the samllest number >= n (where n have only ones setbits);
+//     // find the samllest number >= n (where n have only ones setbits);
 
+// };
+
+// let n = 5;
+// console.log("CountSetBits:",smallestNumber(n));
+
+// Given an integer array nums of size n, return the minimum number of moves required to make all array elements equal.
+
+// In one move, you can increment or decrement an element of the array by 1.
+
+// Test cases are designed so that the answer will fit in a 32-bit integer.
+
+// Example 1:
+
+// Input: nums = [1,2,3]
+// Output: 2
+// Explanation:
+// Only two moves are needed (remember each move increments or decrements one element):
+// [1,2,3]  =>  [2,2,3]  =>  [2,2,2]
+// Example 2:
+
+// Input: nums = [1,10,2,9]
+// Output: 16
+
+function minMoves2(nums){
+    // sort the elements
+    nums.sort((a,b)=>(a-b));
+    // find the median
+    let median = nums[Math.floor((nums.length)/2)];
+    let moves = 0;
+    for(let num of nums){
+        moves += Math.abs(num - median);
+    }
+    return moves;
 };
+let nums = [1,2,3];
+console.log("Minimum Moves to Equal All the Element:",minMoves2(nums));
 
-let n = 5;
-console.log("CountSetBits:",smallestNumber(n));
+
