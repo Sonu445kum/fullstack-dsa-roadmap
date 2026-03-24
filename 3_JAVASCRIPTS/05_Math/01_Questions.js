@@ -2051,7 +2051,7 @@
 
 function minMoves2(nums){
     // sort the elements
-    nums.sort((a,b)=>(a-b));
+    // nums.sort((a,b)=>(a-b));
     // find the median
     let median = nums[Math.floor((nums.length)/2)];
     let moves = 0;
