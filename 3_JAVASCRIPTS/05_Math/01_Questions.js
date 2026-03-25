@@ -2154,30 +2154,64 @@
 // sum(A) = 4, sum(B) = 2 + 3 = 5.
 // The absolute difference is |4 - 5| = 1.
 
-var splitArray = function(nums) {
-    let primeSum =0;
-    let remSum = 0;
-    for(let i =0; i<nums.length; i++){
-        if(isPrimeIndex(i)){
-            primeSum += nums[i];
-        }else{
-            remSum += nums[i];
-        }
-    }
-    return Math.abs(primeSum - remSum);
+// var splitArray = function(nums) {
+//     let primeSum =0;
+//     let remSum = 0;
+//     for(let i =0; i<nums.length; i++){
+//         if(isPrimeIndex(i)){
+//             primeSum += nums[i];
+//         }else{
+//             remSum += nums[i];
+//         }
+//     }
+//     return Math.abs(primeSum - remSum);
+// };
+// function isPrimeIndex(n){
+//     if(n <= 1) return false;
+//     if(n === 2) return true;
+//     if(n % 2 === 0) return false;
+//     for(let i = 3; i*i <= n; i += 2){
+//         if(n % i === 0){
+//             return false;
+//         }
+//     }
+//     return true;
+// };
+// let nums = [-1,5,7,0];
+// console.log("splitArray:",splitArray(nums));
+
+// Define its mirror distance as: abs(n - reverse(n))​​​​​​​ where reverse(n) is the integer formed by reversing the digits of n.
+
+// Return an integer denoting the mirror distance of n​​​​​​​.
+
+// abs(x) denotes the absolute value of x.
+
+ 
+
+// Example 1:
+
+// Input: n = 25
+
+// Output: 27
+
+// Explanation:
+
+// reverse(25) = 52.
+// Thus, the answer is abs(25 - 52) = 27.
+
+var mirrorDistance = function(n) {
+   return Math.abs(n - reverse(n));
 };
-function isPrimeIndex(n){
-    if(n <= 1) return false;
-    if(n === 2) return true;
-    if(n % 2 === 0) return false;
-    for(let i = 3; i*i <= n; i += 2){
-        if(n % i === 0){
-            return false;
-        }
+function reverse(n){
+    let rev = 0;
+    while(n > 0){
+        let lastDigit = n % 10;
+        rev = lastDigit + rev*10;
+        n = Math.floor(n/10);
     }
-    return true;
-};
-let nums = [-1,5,7,0];
-console.log("splitArray:",splitArray(nums));
+    return rev;
+}
+let n=25;
+console.log("MirrorDistance:",mirrorDistance(n));
 
 
