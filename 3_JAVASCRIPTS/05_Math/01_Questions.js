@@ -2104,29 +2104,80 @@
 // Both 2 and 4 have a prime frequency.
 
 // first Appraoch
-function checkPrimeFrequency(nums){
-    let freq ={};
-    for(let num of nums){
-        freq[num] = (freq[num] || 0) + 1;
-    }
-    for(let value of Object.entries(freq)){
-        if(isPrime(value)){
-            return true;
+// function checkPrimeFrequency(nums){
+//     let freq = {}; 
+//     for(let num of nums){
+//         freq[num] = (freq[num] || 0) + 1;
+//     }
+//     for(let value of Object.entries(freq)){
+//         if(isPrime(value)){
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+// // functions for check prime
+// function isPrime(n){
+//     if(n <= 1) return false;
+//     for(let i = 2; i*i <= n; i++){
+//         if(n % i === 0){
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+// let  nums = [1,2,3,4,5,4];
+// console.log("checkPrimeFrequency:",checkPrimeFrequency(nums));
+
+// You are given an integer array nums.
+
+// Split nums into two arrays A and B using the following rule:
+
+// Elements at prime indices in nums must go into array A.
+// All other elements must go into array B.
+// Return the absolute difference between the sums of the two arrays: |sum(A) - sum(B)|.
+
+// Note: An empty array has a sum of 0.
+
+ 
+
+// Example 1:
+
+// Input: nums = [2,3,4]
+
+// Output: 1
+
+// Explanation:
+
+// The only prime index in the array is 2, so nums[2] = 4 is placed in array A.
+// The remaining elements, nums[0] = 2 and nums[1] = 3 are placed in array B.
+// sum(A) = 4, sum(B) = 2 + 3 = 5.
+// The absolute difference is |4 - 5| = 1.
+
+var splitArray = function(nums) {
+    let primeSum =0;
+    let remSum = 0;
+    for(let i =0; i<nums.length; i++){
+        if(isPrimeIndex(i)){
+            primeSum += nums[i];
+        }else{
+            remSum += nums[i];
         }
     }
-    return false;
-}
-// functions for check prime
-function isPrime(n){
+    return Math.abs(primeSum - remSum);
+};
+function isPrimeIndex(n){
     if(n <= 1) return false;
-    for(let i = 2; i*i <= n; i++){
+    if(n === 2) return true;
+    if(n % 2 === 0) return false;
+    for(let i = 3; i*i <= n; i += 2){
         if(n % i === 0){
             return false;
         }
     }
     return true;
-}
-let  nums = [1,2,3,4,5,4];
-console.log("checkPrimeFrequency:",checkPrimeFrequency(nums));
+};
+let nums = [-1,5,7,0];
+console.log("splitArray:",splitArray(nums));
 
 
