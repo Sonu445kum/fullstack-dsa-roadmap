@@ -366,8 +366,6 @@
 // Otherwise, change the first letter to uppercase and the remaining letters to lowercase.
 // Return the capitalized title.
 
- 
-
 // Example 1:
 
 // Input: title = "capiTalIze tHe titLe"
@@ -386,14 +384,12 @@
 //             return word[0].toUpperCase() + word.slice(1);
 //         })
 //         .join(" ");
-    
+
 // };
 // let title = "capiTalIze tHe titLe";
 // console.log("CapitalizeTitle:",capitalizeTitle(title));
 
 // Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.
-
- 
 
 // Example 1:
 
@@ -423,8 +419,6 @@
 
 // Return the letter that was added to t.
 
- 
-
 // Example 1:
 
 // Input: s = "abcd", t = "abcde"
@@ -441,7 +435,7 @@
 //         xor ^= char.charCodeAt(0);
 //     }
 //     return String.fromCharCode(xor);
-    
+
 // };
 // let s = "abcd", t = "abcde";
 // console.log("Diffrences:",findTheDifference(s,t));
@@ -471,7 +465,6 @@
 // Note: If multiple vowels or consonants have the same maximum frequency, you may choose any one of them. If there are no vowels or no consonants in the string, consider their frequency as 0.
 
 // The frequency of a letter x is the number of times it occurs in the string.
- 
 
 // Example 1:
 
@@ -507,8 +500,6 @@
 
 // Given a string s, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
 
- 
-
 // Example 1:
 
 // Input: s = "Let's take LeetCode contest"
@@ -534,11 +525,7 @@
 // ;let s = "Let's take LeetCode contest";
 // console.log("Reverse Word:",reverseWord(s));
 
-
-
 // Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
-
- 
 
 // Example 1:
 
@@ -556,17 +543,53 @@
 
 // Output: 2
 
-function firstUniqChar(s){
-    let freq ={};
-    for(let char of s){
-        freq[char] =(freq[char] || 0) + 1;
+// function firstUniqChar(s){
+//     let freq ={};
+//     for(let char of s){
+//         freq[char] =(freq[char] || 0) + 1;
+//     }
+//     for(let i =0; i<s.length; i++){
+//        if(freq[s[i]] === 1){
+//         return i;
+//        }
+//     }
+//     return -1;
+// };
+// let s = "loveleetcode";
+// console.log("FirstUniqueChar:",firstUniqChar(s));
+
+// Given an alphanumeric string s, return the second largest numerical digit that appears in s, or -1 if it does not exist.
+
+// An alphanumeric string is a string consisting of lowercase English letters and digits.
+
+// Example 1:
+
+// Input: s = "dfa12321afd"
+// Output: 2
+// Explanation: The digits that appear in s are [1, 2, 3]. The second largest digit is 2.
+// Example 2:
+
+// Input: s = "abc1111"
+// Output: -1
+// Explanation: The digits that appear in s are [1]. There is no second largest digit.
+
+var secondHighest = function (s) {
+  let digit = s.match(/\d/g);
+  //  check the digit are number
+  if (!digit) return -1;
+  let firstMax = -1;
+  let secondMax = -1;
+  for (let d of digit) {
+    let num = Number(d);
+    // check for the firstMax
+    if (num > firstMax) {
+      secondMax = firstMax;
+      firstMax = num;
+    } else if (num < firstMax && num > secondMax) {
+      secondMax = num;
     }
-    for(let i =0; i<s.length; i++){
-       if(freq[s[i]] === 1){
-        return i;
-       }
-    }
-    return -1;
+  }
+  return secondMax;
 };
-let s = "loveleetcode";
-console.log("FirstUniqueChar:",firstUniqChar(s));
+let s = "dfa12321afd";
+console.log("secondHighest:", secondHighest(s));
