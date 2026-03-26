@@ -2199,19 +2199,55 @@
 // reverse(25) = 52.
 // Thus, the answer is abs(25 - 52) = 27.
 
-var mirrorDistance = function(n) {
-   return Math.abs(n - reverse(n));
-};
-function reverse(n){
-    let rev = 0;
-    while(n > 0){
-        let lastDigit = n % 10;
-        rev = lastDigit + rev*10;
-        n = Math.floor(n/10);
+// var mirrorDistance = function(n) {
+//    return Math.abs(n - reverse(n));
+// };
+// function reverse(n){
+//     let rev = 0;
+//     while(n > 0){
+//         let lastDigit = n % 10;
+//         rev = lastDigit + rev*10;
+//         n = Math.floor(n/10);
+//     }
+//     return rev;
+// }
+// let n=25;
+// console.log("MirrorDistance:",mirrorDistance(n));
+
+// No-Zero integer is a positive integer that does not contain any 0 in its decimal representation.
+
+// Given an integer n, return a list of two integers [a, b] where:
+
+// a and b are No-Zero integers.
+// a + b = n
+// The test cases are generated so that there is at least one valid solution. If there are many valid solutions, you can return any of them.
+
+ 
+
+// Example 1:
+
+// Input: n = 2
+// Output: [1,1]
+// Explanation: Let a = 1 and b = 1.
+// Both a and b are no-zero integers, and a + b = 2 = n.
+// Example 2:
+
+// Input: n = 11
+// Output: [2,9]
+// Explanation: Let a = 2 and b = 9.
+// Both a and b are no-zero integers, and a + b = 11 = n.
+// Note that there are other valid answers as [8, 3] that can be accepted.
+
+function getNoZeroInteger(n){
+    function hasZero(num){
+        return num.toString().includes('0');
+    };
+    for(let a = 1; a<=n; a++){
+        let b = n - a;
+        if(!hasZero(a) && !hasZero(b)){
+            return [a,b];
+        }
     }
-    return rev;
-}
-let n=25;
-console.log("MirrorDistance:",mirrorDistance(n));
-
-
+};
+let n=11;
+console.log("GetN0ZeroInteger:",getNoZeroInteger(n));
