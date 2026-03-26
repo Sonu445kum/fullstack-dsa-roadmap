@@ -611,18 +611,68 @@
 // Output: 5
 // Explanation: The substring "eeeee" is of length 5 with the character 'e' only.
 
-function maxPower(s){
-  let max = 1;
-    let count = 1;
-    for (let i = 1; i < s.length; i++) {
-        if (s[i] === s[i - 1]) {
-            count++;
-        } else {
-            count = 1;
+// function maxPower(s){
+//   let max = 1;
+//     let count = 1;
+//     for (let i = 1; i < s.length; i++) {
+//         if (s[i] === s[i - 1]) {
+//             count++;
+//         } else {
+//             count = 1;
+//         }
+//         max = Math.max(max, count);
+//     }
+//     return max; 
+// };
+// let s = "abbcccddddeeeeedcba";
+// console.log("maxPower :",maxPower(s));
+
+
+// Given an array of strings words, return the first palindromic string in the array. If there is no such string, return an empty string "".
+
+// A string is palindromic if it reads the same forward and backward.
+
+ 
+
+// Example 1:
+
+// Input: words = ["abc","car","ada","racecar","cool"]
+// Output: "ada"
+// Explanation: The first string that is palindromic is "ada".
+// Note that "racecar" is also palindromic, but it is not the first.
+// Example 2:
+
+// Input: words = ["notapalindrome","racecar"]
+// Output: "racecar"
+// Explanation: The first and only string that is palindromic is "racecar".
+// Example 3:
+
+// Input: words = ["def","ghi"]
+// Output: ""
+// Explanation: There are no palindromic strings, so the empty string is returned.
+
+var firstPalindrome = function(words) {
+    for(let i =0; i<words.length; i++){
+        if(isPalindrome(words[i])){
+            return words[i];
         }
-        max = Math.max(max, count);
     }
-    return max; 
+    return ""; 
 };
-let s = "abbcccddddeeeeedcba";
-console.log("maxPower :",maxPower(s));
+words = ["abc","car","ada","racecar","cool"];
+console.log("firstPlaindrome:",firstPalindrome(words));
+
+// function to check palindrome
+function isPalindrome(s){
+  if(s.length === 1) return true;
+  if(s.length < 1) return false;
+
+  for(let i = 0; i<s.length/2; i++){
+    if(s[i] !== s[s.length - i-1]){
+      return false;
+    }
+  }
+  return true;
+}
+// let s ="nitini";
+// console.log("S is palindrome or not:",isPalindrome(s));
