@@ -651,28 +651,65 @@
 // Output: ""
 // Explanation: There are no palindromic strings, so the empty string is returned.
 
-var firstPalindrome = function(words) {
-    for(let i =0; i<words.length; i++){
-        if(isPalindrome(words[i])){
-            return words[i];
-        }
-    }
-    return ""; 
-};
-words = ["abc","car","ada","racecar","cool"];
-console.log("firstPlaindrome:",firstPalindrome(words));
+// var firstPalindrome = function(words) {
+//     for(let i =0; i<words.length; i++){
+//         if(isPalindrome(words[i])){
+//             return words[i];
+//         }
+//     }
+//     return ""; 
+// };
+// words = ["abc","car","ada","racecar","cool"];
+// console.log("firstPlaindrome:",firstPalindrome(words));
 
-// function to check palindrome
-function isPalindrome(s){
-  if(s.length === 1) return true;
-  if(s.length < 1) return false;
+// // function to check palindrome
+// function isPalindrome(s){
+//   if(s.length === 1) return true;
+//   if(s.length < 1) return false;
 
-  for(let i = 0; i<s.length/2; i++){
-    if(s[i] !== s[s.length - i-1]){
-      return false;
-    }
-  }
-  return true;
-}
+//   for(let i = 0; i<s.length/2; i++){
+//     if(s[i] !== s[s.length - i-1]){
+//       return false;
+//     }
+//   }
+//   return true;
+// }
 // let s ="nitini";
 // console.log("S is palindrome or not:",isPalindrome(s));
+
+// Given a string s, return true if s is a good string, or false otherwise.
+
+// A string s is good if all the characters that appear in s have the same number of occurrences (i.e., the same frequency).
+
+ 
+
+// Example 1:
+
+// Input: s = "abacbc"
+// Output: true
+// Explanation: The characters that appear in s are 'a', 'b', and 'c'. All characters occur 2 times in s.
+// Example 2:
+
+// Input: s = "aaabb"
+// Output: false
+// Explanation: The characters that appear in s are 'a' and 'b'.
+// 'a' occurs 3 times while 'b' occurs 2 times, which is not the same number of times.
+
+var areOccurrencesEqual = function(s) {
+    let freq = {};
+    for(let char of s){
+        freq[char] = (freq[char] || 0) + 1;
+    }
+    let arr = Object.values(freq);
+    return isEqual(arr);
+};
+let s = "abacbc";
+console.log("areOccurencesEqual:",areOccurrencesEqual(s));
+function isEqual(arr){
+    for(let i =1; i<arr.length; i++){
+        if(arr[i] !== arr[i-1]){
+            return false;
+        }
+    }
+    return true;
+}
