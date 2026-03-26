@@ -573,23 +573,56 @@
 // Output: -1
 // Explanation: The digits that appear in s are [1]. There is no second largest digit.
 
-var secondHighest = function (s) {
-  let digit = s.match(/\d/g);
-  //  check the digit are number
-  if (!digit) return -1;
-  let firstMax = -1;
-  let secondMax = -1;
-  for (let d of digit) {
-    let num = Number(d);
-    // check for the firstMax
-    if (num > firstMax) {
-      secondMax = firstMax;
-      firstMax = num;
-    } else if (num < firstMax && num > secondMax) {
-      secondMax = num;
+// var secondHighest = function (s) {
+//   let digit = s.match(/\d/g);
+//   //  check the digit are number
+//   if (!digit) return -1;
+//   let firstMax = -1;
+//   let secondMax = -1;
+//   for (let d of digit) {
+//     let num = Number(d);
+//     // check for the firstMax
+//     if (num > firstMax) {
+//       secondMax = firstMax;
+//       firstMax = num;
+//     } else if (num < firstMax && num > secondMax) {
+//       secondMax = num;
+//     }
+//   }
+//   return secondMax;
+// };
+// let s = "dfa12321afd";
+// console.log("secondHighest:", secondHighest(s));
+
+// The power of the string is the maximum length of a non-empty substring that contains only one unique character.
+
+// Given a string s, return the power of s.
+
+ 
+
+// Example 1:
+
+// Input: s = "leetcode"
+// Output: 2
+// Explanation: The substring "ee" is of length 2 with the character 'e' only.
+// Example 2:
+
+// Input: s = "abbcccddddeeeeedcba"
+// Output: 5
+// Explanation: The substring "eeeee" is of length 5 with the character 'e' only.
+
+function maxPower(s){
+  let max = 1;
+    let count = 1;
+    for (let i = 1; i < s.length; i++) {
+        if (s[i] === s[i - 1]) {
+            count++;
+        } else {
+            count = 1;
+        }
+        max = Math.max(max, count);
     }
-  }
-  return secondMax;
+    return max; 
 };
-let s = "dfa12321afd";
-console.log("secondHighest:", secondHighest(s));
+let s = "abbcccddddeeeeedcba";
+console.log("maxPower :",maxPower(s));
