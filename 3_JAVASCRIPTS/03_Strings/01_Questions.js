@@ -695,21 +695,51 @@
 // Explanation: The characters that appear in s are 'a' and 'b'.
 // 'a' occurs 3 times while 'b' occurs 2 times, which is not the same number of times.
 
-var areOccurrencesEqual = function(s) {
-    let freq = {};
+// var areOccurrencesEqual = function(s) {
+//     let freq = {};
+//     for(let char of s){
+//         freq[char] = (freq[char] || 0) + 1;
+//     }
+//     let arr = Object.values(freq);
+//     return isEqual(arr);
+// };
+// let s = "abacbc";
+// console.log("areOccurencesEqual:",areOccurrencesEqual(s));
+
+// function isEqual(arr){
+//     for(let i =1; i<arr.length; i++){
+//         if(arr[i] !== arr[i-1]){
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+
+// Given a string s and a character letter, return the percentage of characters in s that equal letter rounded down to the nearest whole percent.
+
+ 
+
+// Example 1:
+
+// Input: s = "foobar", letter = "o"
+// Output: 33
+// Explanation:
+// The percentage of characters in s that equal the letter 'o' is 2 / 6 * 100% = 33% when rounded down, so we return 33.
+// Example 2:
+
+// Input: s = "jjjj", letter = "k"
+// Output: 0
+// Explanation:
+// The percentage of characters in s that equal the letter 'k' is 0%, so we return 0.
+
+var percentageLetter = function(s, letter) {
+    let count =0;
     for(let char of s){
-        freq[char] = (freq[char] || 0) + 1;
-    }
-    let arr = Object.values(freq);
-    return isEqual(arr);
-};
-let s = "abacbc";
-console.log("areOccurencesEqual:",areOccurrencesEqual(s));
-function isEqual(arr){
-    for(let i =1; i<arr.length; i++){
-        if(arr[i] !== arr[i-1]){
-            return false;
+        if(char === letter){
+            count++;
         }
     }
-    return true;
-}
+    return Math.floor((count*100)/s.length);
+};
+let s = "foobar", letter = "o";
+console.log("percentageLetter:",percentageLetter(s , letter));
