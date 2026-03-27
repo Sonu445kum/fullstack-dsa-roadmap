@@ -32,24 +32,24 @@
 // console.log("subsets:",subsets(nums));
 
 // find the permutaions:
-function permutations(nums){
-    let result = [];
+// function permutations(nums){
+//     let result = [];
 
-    function backtrack(path){
-        if(path.length === nums.length){
-            result.push([...path]);
-            return;
-        }
+//     function backtrack(path){
+//         if(path.length === nums.length){
+//             result.push([...path]);
+//             return;
+//         }
 
-        for(let num of nums){
-            if(path.includes(num)) continue;
-            path.push(num);
-            backtrack(path);
-            path.pop();
-        }
-    }
-    backtrack([]);
-    return result;
-};
-let nums = [1,2,3];
-console.log("Permutations:",permutations(nums));
+//         for(let num of nums){
+//             if(path.includes(num)) continue;
+//             path.push(num);
+//             backtrack(path);
+//             path.pop();
+//         }
+//     }
+//     backtrack([]);
+//     return result;
+// };
+// let nums = [1,2,3];
+// console.log("Permutations:",permutations(nums));

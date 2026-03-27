@@ -2273,29 +2273,51 @@
 // Input: nums = [13,10,35,24,76]
 // Output: 4
 
-function countNicePairs(nums){
-    let mod =1e9 + 7;
-    let map = new Map();
-    map.set(0,1);
-    let count = 0;
-    for(let num of nums){
-        let key = num - rev(num);
-        if(map.has(key)){
-            count = (count + (map.get(key)))%mod;
-        }
-        map.set(key, (map.get(key)|| 0) + 1);
-    }
-    return count;
+// function countNicePairs(nums){
+//     let mod =1e9 + 7;
+//     let map = new Map();
+//     map.set(0,1);
+//     let count = 0;
+//     for(let num of nums){
+//         let key = num - rev(num);
+//         if(map.has(key)){
+//             count = (count + (map.get(key)))%mod;
+//         }
+//         map.set(key, (map.get(key)|| 0) + 1);
+//     }
+//     return count;
+// }
+// let nums = [13,10,35,24,76];
+// console.log("countNicePairs:",countNicePairs(nums));
+// function rev(n){
+// let reverse =0;
+// let temp = n;
+// while(temp> 0){
+//     let lastDigit = temp % 10;
+//     reverse = reverse*10 + lastDigit;
+//     temp = Math.floor(temp/10);
+// }
+// return reverse
+// }
+
+// Given an integer num, return three consecutive integers (as a sorted array) that sum to num. If num cannot be expressed as the sum of three consecutive integers, return an empty array.
+
+// Example 1:
+
+// Input: num = 33
+// Output: [10,11,12]
+// Explanation: 33 can be expressed as 10 + 11 + 12 = 33.
+// 10, 11, 12 are 3 consecutive integers, so we return [10, 11, 12].
+// Example 2:
+
+// Input: num = 4
+// Output: []
+// Explanation: There is no way to express 4 as the sum of 3 consecutive integers.
+
+var sumOfThree = function(num) {
+    if(num % 3 !== 0) return [];
+    let mid = num/3;
+    return [mid-1,mid,mid+1];
 }
-let nums = [13,10,35,24,76];
-console.log("countNicePairs:",countNicePairs(nums));
-function rev(n){
-let reverse =0;
-let temp = n;
-while(temp> 0){
-    let lastDigit = temp % 10;
-    reverse = reverse*10 + lastDigit;
-    temp = Math.floor(temp/10);
-}
-return reverse
-}
+let num = 33;
+console.log("sumOfThree:",sumOfThree(num));
