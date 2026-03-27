@@ -13,20 +13,43 @@
 // Input: nums = [0]
 // Output: [[],[0]]
 
-function subsets(nums){
+// function subsets(nums){
+//     let result = [];
+
+//     function backtrack(index , path){
+//         result.push([...path]);
+
+//         for(let i = index; i<nums.length; i++){
+//             path.push(nums[i]);
+//             backtrack(i+1,path);
+//             path.pop();
+//         }
+//     }
+//     backtrack(0 , []);
+//     return result;
+// };
+// let nums = [1,2,3];
+// console.log("subsets:",subsets(nums));
+
+// find the permutaions:
+function permutations(nums){
     let result = [];
 
-    function backtrack(index , path){
-        result.push([...path]);
+    function backtrack(path){
+        if(path.length === nums.length){
+            result.push([...path]);
+            return;
+        }
 
-        for(let i = index; i<nums.length; i++){
-            path.push(nums[i]);
-            backtrack(i+1,path);
+        for(let num of nums){
+            if(path.includes(num)) continue;
+            path.push(num);
+            backtrack(path);
             path.pop();
         }
     }
-    backtrack(0 , []);
+    backtrack([]);
     return result;
 };
 let nums = [1,2,3];
-console.log("subsets:",subsets(nums));
+console.log("Permutations:",permutations(nums));
