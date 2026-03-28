@@ -2489,12 +2489,61 @@
 // Perform 4 operations on nums[1] = 9. Now, nums = [3, 5, 7].
 // The sum is 15, which is divisible by 5.
 
-var minOperations = function(nums, k) {
+// var minOperations = function(nums, k) {
+//     let sum =0;
+//     for(let num of nums){
+//         sum += num;
+//     }
+//     return sum%k === 0 ? 0 : sum%k;
+// };
+// let nums = [3,9,7], k = 5;
+// console.log("minOperations:",minOperations(nums , k));
+
+// You are given an integer array nums containing positive integers. We define a function encrypt such that encrypt(x) replaces every digit in x with the largest digit in x. For example, encrypt(523) = 555 and encrypt(213) = 333.
+
+// Return the sum of encrypted elements.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,3]
+
+// Output: 6
+
+// Explanation: The encrypted elements are [1,2,3]. The sum of encrypted elements is 1 + 2 + 3 == 6.
+
+// Example 2:
+
+// Input: nums = [10,21,31]
+
+// Output: 66
+
+// Explanation: The encrypted elements are [11,22,33]. The sum of encrypted elements is 11 + 22 + 33 == 66.
+
+var sumOfEncryptedInt = function(nums) {
     let sum =0;
-    for(let num of nums){
-        sum += num;
+    for(let i=0; i<nums.length; i++){
+        sum += encrypt(nums[i]);
     }
-    return sum%k === 0 ? 0 : sum%k;
+    return sum;
+    
 };
-let nums = [3,9,7], k = 5;
-console.log("minOperations:",minOperations(nums , k));
+let nums = [1,2,3];
+console.log("sumOfEncryptInt:",sumOfEncryptedInt(nums));
+
+function encrypt(num){
+    let count = 0;
+    let max = 0;
+    while(num){
+        let lastDigit = num % 10;
+        count++;
+        max = Math.max(max , lastDigit);
+        num = Math.floor(num/10);
+    }
+    let ans ="";
+    for(let i =1; i<=count; i++){
+        ans += max;
+    }
+    return Number(ans);
+}
