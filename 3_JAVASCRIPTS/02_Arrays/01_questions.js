@@ -1487,17 +1487,50 @@
 // - [1,2,2,1]
 // - [1,2,2,1]
 
-var countKDifference = function(nums, k) {
+// var countKDifference = function(nums, k) {
+//     let count = 0;
+//     for(let i = 0; i < nums.length; i++){
+//         for(let j=i+1; j<nums.length; j++){
+//             let ans = Math.abs(nums[i] - nums[j]); 
+//             if(ans === k){
+//                 count++;
+//             }
+//         }
+//     }
+//     return count;
+// };
+// let nums = [1,2,2,1], k = 1;
+// console.log("countKDifference:",countKDifference(nums , k));
+
+// You are given a 0-indexed, strictly increasing integer array nums and a positive integer diff. A triplet (i, j, k) is an arithmetic triplet if the following conditions are met:
+
+// i < j < k,
+// nums[j] - nums[i] == diff, and
+// nums[k] - nums[j] == diff.
+// Return the number of unique arithmetic triplets.
+
+ 
+
+// Example 1:
+
+// Input: nums = [0,1,4,6,7,10], diff = 3
+// Output: 2
+// Explanation:
+// (1, 2, 4) is an arithmetic triplet because both 7 - 4 == 3 and 4 - 1 == 3.
+// (2, 4, 5) is an arithmetic triplet because both 10 - 7 == 3 and 7 - 4 == 3. 
+
+var arithmeticTriplets = function(nums, diff) {
     let count =0;
     for(let i=0; i<nums.length; i++){
         for(let j=i+1; j<nums.length; j++){
-            let ans = Math.abs(nums[i] - nums[j]); 
-            if(ans === k){
-                count++;
+            for(let k=j+1; k<nums.length; k++){
+                if (((nums[j] - nums[i])=== diff) && ((nums[k] - nums[j])=== diff)){
+                    count++;
+                }
             }
         }
     }
     return count;
 };
-let nums = [1,2,2,1], k = 1;
-console.log("countKDifference:",countKDifference(nums , k));
+let nums = [0,1,4,6,7,10], diff = 3;
+console.log("arithmeticTriplets:",arithmeticTriplets(nums,diff));
