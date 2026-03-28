@@ -1349,20 +1349,46 @@
 // Output: [1,3,3,2,2]
 // Explanation: '2' and '3' both have a frequency of 2, so they are sorted in decreasing order.
 
-function frequencySort(nums){
-    let freq = {};
-    // count the frequcency of Each Element
-    for(let num of nums){
-        freq[num] = (freq[num] || 0) + 1;
-    }
-    // now sort the frequecncy
-    nums.sort((a,b)=>{
-        if(freq[a] === freq[b]){
-            return freq[b] - freq[a];
+// function frequencySort(nums){
+//     let freq = {};
+//     // count the frequcency of Each Element
+//     for(let num of nums){
+//         freq[num] = (freq[num] || 0) + 1;
+//     }
+//     // now sort the frequecncy
+//     nums.sort((a,b)=>{
+//         if(freq[a] === freq[b]){
+//             return freq[b] - freq[a];
+//         }
+//         return freq[a] - freq[b];
+//     })
+//     return nums;
+// }
+// let nums = [1,1,2,2,2,3];
+// console.log("frequcenySort:",frequencySort(nums));
+
+// Given an integer array nums (0-indexed) and two integers target and start, find an index i such that nums[i] == target and abs(i - start) is minimized. Note that abs(x) is the absolute value of x.
+
+// Return abs(i - start).
+
+// It is guaranteed that target exists in nums.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,3,4,5], target = 5, start = 3
+// Output: 1
+// Explanation: nums[4] = 5 is the only value equal to target, so the answer is abs(4 - 3) = 1.
+
+var getMinDistance = function(nums, target, start) {
+    let minDist = Infinity;
+    for(let i=0; i<nums.length; i++){
+        if(nums[i] === target){
+            minDist = Math.min(minDist, Math.abs(i- start));
         }
-        return freq[a] - freq[b];
-    })
-    return nums;
-}
-let nums = [1,1,2,2,2,3];
-console.log("frequcenySort:",frequencySort(nums));
+    }
+    return minDist;
+};
+let nums = [1,2,3,4,5], target = 5, start = 3;
+console.log("getMinDistance:",getMinDistance(nums , target , start));
