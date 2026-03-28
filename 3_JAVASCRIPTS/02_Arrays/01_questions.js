@@ -1456,15 +1456,48 @@
 // Output: false
 // Explanation: There is no i and j that satisfy the conditions.
 
-var checkIfExist = function(arr) {
-   for(let i=0; i<arr.length; i++){
-    for(let j=i+1; j<arr.length; j++){
-        if(arr[i] === 2*arr[j] || 2*arr[i] === arr[j]){
-            return true;
+// var checkIfExist = function(arr) {
+//    for(let i=0; i<arr.length; i++){
+//     for(let j=i+1; j<arr.length; j++){
+//         if(arr[i] === 2*arr[j] || 2*arr[i] === arr[j]){
+//             return true;
+//         }
+//     }
+//    }
+//    return false; 
+// };
+// let arr = [10,2,5,3];
+// console.log("CheckIfExist:",checkIfExist(arr));
+
+// Given an integer array nums and an integer k, return the number of pairs (i, j) where i < j such that |nums[i] - nums[j]| == k.
+
+// The value of |x| is defined as:
+
+// x if x >= 0.
+// -x if x < 0.
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,2,1], k = 1
+// Output: 4
+// Explanation: The pairs with an absolute difference of 1 are:
+// - [1,2,2,1]
+// - [1,2,2,1]
+// - [1,2,2,1]
+// - [1,2,2,1]
+
+var countKDifference = function(nums, k) {
+    let count =0;
+    for(let i=0; i<nums.length; i++){
+        for(let j=i+1; j<nums.length; j++){
+            let ans = Math.abs(nums[i] - nums[j]); 
+            if(ans === k){
+                count++;
+            }
         }
     }
-   }
-   return false; 
+    return count;
 };
-let arr = [10,2,5,3];
-console.log("CheckIfExist:",checkIfExist(arr));
+let nums = [1,2,2,1], k = 1;
+console.log("countKDifference:",countKDifference(nums , k));
