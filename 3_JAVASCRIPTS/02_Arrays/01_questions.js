@@ -1214,25 +1214,66 @@
 // Output: true
 // Explanation: [2, 4] is a continuous subarray of size 2 whose elements sum up to 6.
 
-function continuousSubarrSum(nums){
-    let map = new Map();
-    map.set(0 , -1);
-    let sum = 0 ;
-    for(let i = 0; i<nums.length; i++){
-        sum += nums[i];
-        // find the rem 
-        let rem = sum % k;
-        // now the map for the rem is present or not
-        if(map.has(rem)){
-            if(i - map.get(rem) > 1){
-                return true;
-            }
-        }else{
-            map.set(rem , i);
-        }
-    }
-    return false;
+// function continuousSubarrSum(nums){
+//     let map = new Map();
+//     map.set(0 , -1);
+//     let sum = 0 ;
+//     for(let i = 0; i<nums.length; i++){
+//         sum += nums[i];
+//         // find the rem 
+//         let rem = sum % k;
+//         // now the map for the rem is present or not
+//         if(map.has(rem)){
+//             if(i - map.get(rem) > 1){
+//                 return true;
+//             }
+//         }else{
+//             map.set(rem , i);
+//         }
+//     }
+//     return false;
 
-}
-let nums = [23,2,4,6,7], k = 6;
-console.log("Continuous SubArray Sum:",continuousSubarrSum(nums));
+// }
+// let nums = [23,2,4,6,7], k = 6;
+// console.log("Continuous SubArray Sum:",continuousSubarrSum(nums));
+
+// You have a set of integers s, which originally contains all the numbers from 1 to n. Unfortunately, due to some error, one of the numbers in s got duplicated to another number in the set, which results in repetition of one number and loss of another number.
+
+// You are given an integer array nums representing the data status of this set after the error.
+
+// Find the number that occurs twice and the number that is missing and return them in the form of an array.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,2,4]
+// Output: [2,3]
+// Example 2:
+
+// Input: nums = [1,1]
+// Output: [1,2]
+
+
+var findErrorNums = function(nums) {
+  let freq = {};
+  let n = nums.length;
+  let total = (n * (n + 1)) / 2;
+  let sum = 0;
+  let dup = 0;
+
+  for (let num of nums) {
+    sum += num;
+    freq[num] = (freq[num] || 0) + 1;
+
+    if (freq[num] === 2) {
+      dup = num;
+    }
+  }
+
+  let missing = total - (sum - dup);
+
+  return [dup, missing];
+};
+let nums =[1,2,2,4];
+console.log("FindErrorNums:",findErrorNums(nums));
