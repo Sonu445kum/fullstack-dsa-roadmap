@@ -2378,37 +2378,123 @@
 // Choose nums2[1] = nums1[1] = 3.
 // nums2 = [-1, 3], and both elements are odd. Thus, the answer is true​​​​​​​.
 
-var uniformArray = function(nums1) {
-    let nums2 =[];
-    for(let i =0; i<nums1.length; i++){
-        nums2[i] = nums1[i] - nums1[i+1];
-    };
-    if(isOdd(nums2)){
-        return true;
-    }
-    if(isEven(nums2)){
-        return true;
-    }
-    return false;
+// var uniformArray = function(nums1) {
+//     let nums2 =[];
+//     for(let i =0; i<nums1.length; i++){
+//         nums2[i] = nums1[i] - nums1[i+1];
+//     };
+//     if(isOdd(nums2)){
+//         return true;
+//     }
+//     if(isEven(nums2)){
+//         return true;
+//     }
+//     return false;
     
-};
-let nums1 = [2,3];
-console.log("UniformArray:",uniformArray(nums1));
+// };
+// let nums1 = [2,3];
+// console.log("UniformArray:",uniformArray(nums1));
 
-function isOdd(arr){
-    for(let i=0; i<arr.length; i++){
-        if(arr[i]%2 !== 0){
-            return true;
-        }
-    }
+// function isOdd(arr){
+//     for(let i=0; i<arr.length; i++){
+//         if(arr[i]%2 !== 0){
+//             return true;
+//         }
+//     }
     
-    return false;
-}
-function isEven(n){
-    for(let i=0; i<arr.length; i++){
-        if(arr[i]%2 === 0){
-            return true;
-        }
+//     return false;
+// }
+// function isEven(n){
+//     for(let i=0; i<arr.length; i++){
+//         if(arr[i]%2 === 0){
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+
+// You are given an array nums1 of n distinct integers.
+
+// You want to construct another array nums2 of length n such that the elements in nums2 are either all odd or all even.
+
+// For each index i, you must choose exactly one of the following (in any order):
+
+// nums2[i] = nums1[i]​​​​​​​
+// nums2[i] = nums1[i] - nums1[j], for an index j != i, such that nums1[i] - nums1[j] >= 1
+// Return true if it is possible to construct such an array, otherwise return false.
+
+// Input: nums1 = [1,4,7]
+
+// Output: true
+
+// Explanation:​​​​​​​​​​​​​​
+
+// Set nums2[0] = nums1[0] = 1.
+// Set nums2[1] = nums1[1] - nums1[0] = 4 - 1 = 3.
+// Set nums2[2] = nums1[2] = 7.
+// nums2 = [1, 3, 7], and all elements are odd. Thus, the answer is true.
+
+// var uniformArray = function(nums1) {
+//     let nums2 =[];
+//     for(let i =0; i<nums1.length; i++){
+//         nums2[i] = nums1[i+1] - nums1[i];
+        
+        
+//     };
+//     console.log("nums2:",nums2)
+//     if(isOdd(nums2)){
+//         return true;
+//     }
+//     if(isEven(nums2)){
+//         return true;
+//     }
+//     return false;
+// };
+// let nums1 = [1,4,7];
+// console.log("uniformArray:",uniformArray(nums1))
+
+// function isOdd(arr){
+//     for(let i=0; i<arr.length; i++){
+//         if(arr[i]%2 !== 0){
+//             return true;
+//         }
+//     }
+    
+//     return false;
+// }
+// function isEven(arr){
+//     for(let i=0; i<arr.length; i++){
+//         if(arr[i]%2 === 0){
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+
+// You are given an integer array nums and an integer k. You can perform the following operation any number of times:
+
+// Select an index i and replace nums[i] with nums[i] - 1.
+// Return the minimum number of operations required to make the sum of the array divisible by k.
+
+ 
+
+// Example 1:
+
+// Input: nums = [3,9,7], k = 5
+
+// Output: 4
+
+// Explanation:
+
+// Perform 4 operations on nums[1] = 9. Now, nums = [3, 5, 7].
+// The sum is 15, which is divisible by 5.
+
+var minOperations = function(nums, k) {
+    let sum =0;
+    for(let num of nums){
+        sum += num;
     }
-    return false;
-}
+    return sum%k === 0 ? 0 : sum%k;
+};
+let nums = [3,9,7], k = 5;
+console.log("minOperations:",minOperations(nums , k));
