@@ -1255,25 +1255,52 @@
 // Output: [1,2]
 
 
-var findErrorNums = function(nums) {
-  let freq = {};
-  let n = nums.length;
-  let total = (n * (n + 1)) / 2;
-  let sum = 0;
-  let dup = 0;
+// var findErrorNums = function(nums) {
+//   let freq = {};
+//   let n = nums.length;
+//   let total = (n * (n + 1)) / 2;
+//   let sum = 0;
+//   let dup = 0;
 
-  for (let num of nums) {
-    sum += num;
-    freq[num] = (freq[num] || 0) + 1;
+//   for (let num of nums) {
+//     sum += num;
+//     freq[num] = (freq[num] || 0) + 1;
 
-    if (freq[num] === 2) {
-      dup = num;
+//     if (freq[num] === 2) {
+//       dup = num;
+//     }
+//   }
+
+//   let missing = total - (sum - dup);
+
+//   return [dup, missing];
+// };
+// let nums =[1,2,2,4];
+// console.log("FindErrorNums:",findErrorNums(nums));
+
+// Given the array of integers nums, you will choose two different indices i and j of that array. Return the maximum value of (nums[i]-1)*(nums[j]-1).
+ 
+
+// Example 1:
+
+// Input: nums = [3,4,5,2]
+// Output: 12 
+// Explanation: If you choose the indices i=1 and j=2 (indexed from 0), you will get the maximum value, that is, (nums[1]-1)*(nums[2]-1) = (4-1)*(5-1) = 3*4 = 12. 
+// Example 2:
+
+// Input: nums = [1,5,4,5]
+// Output: 16
+// Explanation: Choosing the indices i=1 and j=3 (indexed from 0), you will get the maximum value of (5-1)*(5-1) = 16.
+
+var maxProduct = function(nums) {
+    let max =0;
+    for(let i=0; i<nums.length; i++){
+        for(let j=i+1; j<nums.length; j++){
+            let ans = (nums[i]-1)*(nums[j]-1);
+            max = Math.max(max , ans);
+        }
     }
-  }
-
-  let missing = total - (sum - dup);
-
-  return [dup, missing];
+    return max;
 };
-let nums =[1,2,2,4];
-console.log("FindErrorNums:",findErrorNums(nums));
+let nums = [3,4,5,2];
+console.log("maxProduct:",maxProduct(nums));
