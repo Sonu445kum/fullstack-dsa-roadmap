@@ -1555,18 +1555,34 @@
 // Since there are 3 triplets, we return 3.
 // Note that (2, 0, 4) is not a valid triplet because 2 > 0.
 
-var unequalTriplets = function(nums) {
-    let count =0;
-    for(let i=0; i<nums.length; i++){
-        for(let j=i+1; j<nums.length; j++){
-            for(let k=j+1; k<nums.length; k++){
-                if((nums[i] !== nums[j]) && (nums[i] !== nums[k]) && (nums[j] !== nums[k])){
-                    count++;
-                }
-            }
+// var unequalTriplets = function(nums) {
+//     let count =0;
+//     for(let i=0; i<nums.length; i++){
+//         for(let j=i+1; j<nums.length; j++){
+//             for(let k=j+1; k<nums.length; k++){
+//                 if((nums[i] !== nums[j]) && (nums[i] !== nums[k]) && (nums[j] !== nums[k])){
+//                     count++;
+//                 }
+//             }
+//         }
+//     }
+//     return count;
+// };
+// let nums = [4,4,2,4,3];
+// console.log("uniqueTriplets:",unequalTriplets(nums));
+
+var duplicateNumbersXOR = function(nums) {
+    let freq = {};
+    for(let num of nums){
+        freq[num] =(freq[num] || 0) + 1;
+    } 
+    let xor =0;
+    for(let num in freq){
+        if(freq[num] === 2){
+            xor ^= Number(num);
         }
     }
-    return count;
+    return xor;
 };
-let nums = [4,4,2,4,3];
-console.log("uniqueTriplets:",unequalTriplets(nums));
+let nums = [1,2,2,1];
+console.log("duplicateNumberXor:",duplicateNumbersXOR(nums))
