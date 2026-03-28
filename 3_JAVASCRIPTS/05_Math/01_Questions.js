@@ -2344,12 +2344,71 @@
 // - [1,3] has an XOR total of 1 XOR 3 = 2.
 // 0 + 1 + 3 + 2 = 6
 
-function subsetXORSum(nums){
-    let or  = 0;
-    for(let num of nums){
-        or |= num;
+// function subsetXORSum(nums){
+//     let or  = 0;
+//     for(let num of nums){
+//         or |= num;
+//     }
+//     return or * (1 << (nums.length -1));
+// }
+// let nums =[1,3];
+// console.log("subsetsXorSum:",subsetXORSum(nums));
+
+// You are given an array nums1 of n distinct integers.
+
+// You want to construct another array nums2 of length n such that the elements in nums2 are either all odd or all even.
+
+// For each index i, you must choose exactly one of the following (in any order):
+
+// nums2[i] = nums1[i]
+// nums2[i] = nums1[i] - nums1[j], for an index j != i
+// Return true if it is possible to construct such an array, otherwise, return false.
+
+ 
+
+// Example 1:
+
+// Input: nums1 = [2,3]
+
+// Output: true
+
+// Explanation:
+
+// Choose nums2[0] = nums1[0] - nums1[1] = 2 - 3 = -1.
+// Choose nums2[1] = nums1[1] = 3.
+// nums2 = [-1, 3], and both elements are odd. Thus, the answer is true​​​​​​​.
+
+var uniformArray = function(nums1) {
+    let nums2 =[];
+    for(let i =0; i<nums1.length; i++){
+        nums2[i] = nums1[i] - nums1[i+1];
+    };
+    if(isOdd(nums2)){
+        return true;
     }
-    return or * (1 << (nums.length -1));
+    if(isEven(nums2)){
+        return true;
+    }
+    return false;
+    
+};
+let nums1 = [2,3];
+console.log("UniformArray:",uniformArray(nums1));
+
+function isOdd(arr){
+    for(let i=0; i<arr.length; i++){
+        if(arr[i]%2 !== 0){
+            return true;
+        }
+    }
+    
+    return false;
 }
-let nums =[1,3];
-console.log("subsetsXorSum:",subsetXORSum(nums));
+function isEven(n){
+    for(let i=0; i<arr.length; i++){
+        if(arr[i]%2 === 0){
+            return true;
+        }
+    }
+    return false;
+}
