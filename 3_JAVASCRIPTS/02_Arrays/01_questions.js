@@ -1292,15 +1292,41 @@
 // Output: 16
 // Explanation: Choosing the indices i=1 and j=3 (indexed from 0), you will get the maximum value of (5-1)*(5-1) = 16.
 
-var maxProduct = function(nums) {
-    let max =0;
-    for(let i=0; i<nums.length; i++){
-        for(let j=i+1; j<nums.length; j++){
-            let ans = (nums[i]-1)*(nums[j]-1);
-            max = Math.max(max , ans);
-        }
+// var maxProduct = function(nums) {
+//     let max =0;
+//     for(let i=0; i<nums.length; i++){
+//         for(let j=i+1; j<nums.length; j++){
+//             let ans = (nums[i]-1)*(nums[j]-1);
+//             max = Math.max(max , ans);
+//         }
+//     }
+//     return max;
+// };
+// let nums = [3,4,5,2];
+// console.log("maxProduct:",maxProduct(nums));
+
+// Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
+
+// Return the running sum of nums.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,3,4]
+// Output: [1,3,6,10]
+// Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].
+// Example 2:
+
+// Input: nums = [1,1,1,1,1]
+// Output: [1,2,3,4,5]
+// Explanation: Running sum is obtained as follows: [1, 1+1, 1+1+1, 1+1+1+1, 1+1+1+1+1].
+
+var runningSum = function(nums) {
+    for(let i=1; i<nums.length; i++){
+        nums[i] = nums[i-1] + nums[i];
     }
-    return max;
+    return nums;
 };
-let nums = [3,4,5,2];
-console.log("maxProduct:",maxProduct(nums));
+let nums = [1,2,3,4];
+console.log("runnningSum:",runningSum(nums));
