@@ -1407,19 +1407,64 @@
 // - nums[2] == nums[4], and 2 * 4 == 8, which is divisible by 2.
 // - nums[3] == nums[4], and 3 * 4 == 12, which is divisible by 2.
 
-var countPairs = function(nums, k) {
-    let count =0;
-    for(let i=0; i<nums.length; i++){
-        for(let j=i+1; j<nums.length; j++){
-            if(nums[i] === nums[j]){
-                let ans = i*j;
-                if(ans % k===0){
-                    count++;
-                }
-            }
+// var countPairs = function(nums, k) {
+//     let count =0;
+//     for(let i=0; i<nums.length; i++){
+//         for(let j=i+1; j<nums.length; j++){
+//             if(nums[i] === nums[j]){
+//                 let ans = i*j;
+//                 if(ans % k===0){
+//                     count++;
+//                 }
+//             }
+//         }
+//     }
+//     return count;
+// };
+// let nums = [3,1,2,2,2,1,3], k = 2;
+// console.log("CountPairs:",countPairs(nums , k));
+
+// var buddyStrings = function(s, goal) {
+//     for(let i=0; i<s.length; i++){
+//         [s[i],s[i+1]] = [s[i+1],s[i]]
+//         console.log(s)
+//     }
+//     console.log(s)
+//     if(s === goal){
+//         return true;
+//     }
+//     return false;
+// };
+// let s ="ab" , goal ="ba";
+// console.log("buddyString:",buddyStrings(s,goal));
+
+// Given an array arr of integers, check if there exist two indices i and j such that :
+
+// i != j
+// 0 <= i, j < arr.length
+// arr[i] == 2 * arr[j]
+ 
+
+// Example 1:
+
+// Input: arr = [10,2,5,3]
+// Output: true
+// Explanation: For i = 0 and j = 2, arr[i] == 10 == 2 * 5 == 2 * arr[j]
+// Example 2:
+
+// Input: arr = [3,1,7,11]
+// Output: false
+// Explanation: There is no i and j that satisfy the conditions.
+
+var checkIfExist = function(arr) {
+   for(let i=0; i<arr.length; i++){
+    for(let j=i+1; j<arr.length; j++){
+        if(arr[i] === 2*arr[j] || 2*arr[i] === arr[j]){
+            return true;
         }
     }
-    return count;
+   }
+   return false; 
 };
-let nums = [3,1,2,2,2,1,3], k = 2;
-console.log("CountPairs:",countPairs(nums , k));
+let arr = [10,2,5,3];
+console.log("CheckIfExist:",checkIfExist(arr));
