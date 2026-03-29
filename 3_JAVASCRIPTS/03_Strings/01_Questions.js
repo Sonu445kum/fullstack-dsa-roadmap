@@ -804,14 +804,27 @@
 // Input: s = "axc", t = "ahbgdc"
 // Output: false
 
-var isSubsequence = function(s, t) {
-    let i = 0;
-    for (let j = 0; j < t.length; j++) {
-        if (s[i] === t[j]) {
-            i++;
+// var isSubsequence = function(s, t) {
+//     let i = 0;
+//     for (let j = 0; j < t.length; j++) {
+//         if (s[i] === t[j]) {
+//             i++;
+//         }
+//     }
+//     return i === s.length;
+// };
+// let s = "abc", t = "ahbgdc";
+// console.log("isSubsequcenc:",isSubsequence(s,t));
+
+var countSegments = function(s) {
+    let count = 0;
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] !== " " && (i === 0 || s[i - 1] === " ")) {
+            count++;
         }
     }
-    return i === s.length;
+    return count;
+    
 };
-let s = "abc", t = "ahbgdc";
-console.log("isSubsequcenc:",isSubsequence(s,t));
+let s = "Hello";
+console.log("Segement:",countSegments(s));

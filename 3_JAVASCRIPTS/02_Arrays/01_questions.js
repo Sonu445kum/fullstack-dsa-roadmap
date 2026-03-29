@@ -1660,18 +1660,18 @@
 // Explanation: Minimum salary and maximum salary are 1000 and 3000 respectively.
 // Average salary excluding minimum and maximum salary is (2000) / 1 = 2000
 
-var average = function(salary) {
-    let n = salary.length;
-    let max = Math.max(...salary);
-    let min = Math.min(...salary);
-    let sum =0;
-    for(let num of salary){
-        sum += num;
-    }
-    let total = min + max;
-    let avg = sum - total;
-    let diffrence = n - 2;
-    return avg/diffrence;
-};
-let  salary = [4000,3000,1000,2000];
-console.log("average:",average(salary));
+// var average = function(salary) {
+//     let n = salary.length;
+//     let max = Math.max(...salary);
+//     let min = Math.min(...salary);
+//     let sum =0;
+//     for(let num of salary){
+//         sum += num;
+//     }
+//     let total = min + max;
+//     let avg = sum - total;
+//     let diffrence = n - 2;
+//     return avg/diffrence;
+// };
+// let  salary = [4000,3000,1000,2000];
+// console.log("average:",average(salary));
