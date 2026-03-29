@@ -134,14 +134,55 @@
 // Output: 2
 // Explanation: 1 is in the array but 2 is missing.
 
-function firstMissingPositive(nums){
-    let n = nums.length;
-    let set = new Set(nums);
-    for(let i = 1; i<=n; i++){
-        if(!set.has(i)){
-            return i;
-        }
+// function firstMissingPositive(nums){
+//     let n = nums.length;
+//     let set = new Set(nums);
+//     for(let i = 1; i<=n; i++){
+//         if(!set.has(i)){
+//             return i;
+//         }
+//     }
+// };
+// let nums = [3,4,-1,1];
+// console.log("First Missing Positive Integer:",firstMissingPositive(nums));
+
+// You are given an integer array nums with the following properties:
+
+// nums.length == 2 * n.
+// nums contains n + 1 unique values, n of which occur exactly once in the array.
+// Exactly one element of nums is repeated n times.
+// Return the element that is repeated n times.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,3,3]
+// Output: 3
+// Example 2:
+
+// Input: nums = [2,1,2,5,3,2]
+// Output: 2
+
+// first Approach
+// var repeatedNTimes = function(nums) {
+//     let freq ={};
+//     for(let num of nums){
+//         freq[num] = (freq[num] || 0) + 1;
+//     }
+//     for(let [key,value] of Object.entries(freq)){
+//         if(value > 1){
+//             return Number(key)
+//         }
+//     }
+// };
+
+var repeatedNTimes = function(nums) {
+    let set = new Set();
+    for(let num of nums){
+        if(set.has(num)) return num;
+        set.add(num);
     }
 };
-let nums = [3,4,-1,1];
-console.log("First Missing Positive Integer:",firstMissingPositive(nums));
+let nums = [1,2,3,3];
+console.log("repeatedTimes:",repeatedNTimes(nums));
