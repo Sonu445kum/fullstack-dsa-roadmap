@@ -2521,29 +2521,83 @@
 
 // Explanation: The encrypted elements are [11,22,33]. The sum of encrypted elements is 11 + 22 + 33 == 66.
 
-var sumOfEncryptedInt = function(nums) {
-    let sum =0;
-    for(let i=0; i<nums.length; i++){
-        sum += encrypt(nums[i]);
-    }
-    return sum;
+// var sumOfEncryptedInt = function(nums) {
+//     let sum =0;
+//     for(let i=0; i<nums.length; i++){
+//         sum += encrypt(nums[i]);
+//     }
+//     return sum;
     
-};
-let nums = [1,2,3];
-console.log("sumOfEncryptInt:",sumOfEncryptedInt(nums));
+// };
+// let nums = [1,2,3];
+// console.log("sumOfEncryptInt:",sumOfEncryptedInt(nums));
 
-function encrypt(num){
-    let count = 0;
-    let max = 0;
-    while(num){
-        let lastDigit = num % 10;
-        count++;
-        max = Math.max(max , lastDigit);
-        num = Math.floor(num/10);
+// function encrypt(num){
+//     let count = 0;
+//     let max = 0;
+//     while(num){
+//         let lastDigit = num % 10;
+//         count++;
+//         max = Math.max(max , lastDigit);
+//         num = Math.floor(num/10);
+//     }
+//     let ans ="";
+//     for(let i =1; i<=count; i++){
+//         ans += max;
+//     }
+//     return Number(ans);
+// }
+
+// You are given a 0-indexed integer array nums. A pair of indices i, j where 0 <= i < j < nums.length is called beautiful if the first digit of nums[i] and the last digit of nums[j] are coprime.
+
+// Return the total number of beautiful pairs in nums.
+
+// Two integers x and y are coprime if there is no integer greater than 1 that divides both of them. In other words, x and y are coprime if gcd(x, y) == 1, where gcd(x, y) is the greatest common divisor of x and y.
+
+ 
+
+// Example 1:
+
+// Input: nums = [2,5,1,4]
+// Output: 5
+// Explanation: There are 5 beautiful pairs in nums:
+// When i = 0 and j = 1: the first digit of nums[0] is 2, and the last digit of nums[1] is 5. We can confirm that 2 and 5 are coprime, since gcd(2,5) == 1.
+// When i = 0 and j = 2: the first digit of nums[0] is 2, and the last digit of nums[2] is 1. Indeed, gcd(2,1) == 1.
+// When i = 1 and j = 2: the first digit of nums[1] is 5, and the last digit of nums[2] is 1. Indeed, gcd(5,1) == 1.
+// When i = 1 and j = 3: the first digit of nums[1] is 5, and the last digit of nums[3] is 4. Indeed, gcd(5,4) == 1.
+// When i = 2 and j = 3: the first digit of nums[2] is 1, and the last digit of nums[3] is 4. Indeed, gcd(1,4) == 1.
+// Thus, we return 5.
+
+var countBeautifulPairs = function(nums) {
+    let count =0;
+    for(let i=0; i<nums.length; i++){
+        let first = getFirstDigit(nums[i]);
+        for(let j=i+1; j<nums.length; j++){
+            let second = nums[j]%10;
+            if(gcd(first,second) === 1){
+                count++;
+            }
+        }
     }
-    let ans ="";
-    for(let i =1; i<=count; i++){
-        ans += max;
+    return count;
+};
+let nums = [2,5,1,4];
+console.log("CountBeautifulPairs:",countBeautifulPairs(nums));
+
+// functions for the find the first Number
+function getFirstDigit(num){
+    let first = num;
+    while(first >=10){
+        first = Math.floor(first/10);
     }
-    return Number(ans);
+    return first;
 }
+// functions for the find the gcd ot two number
+function gcd(a,b){
+    while(b !=0){
+        [a,b] =[b,a%b]
+    }
+    return a;
+}
+let a = 2 ,b = 5;
+console.log("gcd:",gcd(a,b));
