@@ -1571,18 +1571,44 @@
 // let nums = [4,4,2,4,3];
 // console.log("uniqueTriplets:",unequalTriplets(nums));
 
-var duplicateNumbersXOR = function(nums) {
-    let freq = {};
-    for(let num of nums){
-        freq[num] =(freq[num] || 0) + 1;
-    } 
-    let xor =0;
-    for(let num in freq){
-        if(freq[num] === 2){
-            xor ^= Number(num);
+// var duplicateNumbersXOR = function(nums) {
+//     let freq = {};
+//     for(let num of nums){
+//         freq[num] =(freq[num] || 0) + 1;
+//     } 
+//     let xor =0;
+//     for(let num in freq){
+//         if(freq[num] === 2){
+//             xor ^= Number(num);
+//         }
+//     }
+//     return xor;
+// };
+// let nums = [1,2,2,1];
+// console.log("duplicateNumberXor:",duplicateNumbersXOR(nums))
+
+// Given an array nums of n integers where nums[i] is in the range [1, n], return an array of all the integers in the range [1, n] that do not appear in nums.
+
+ 
+
+// Example 1:
+
+// Input: nums = [4,3,2,7,8,2,3,1]
+// Output: [5,6]
+// Example 2:
+
+// Input: nums = [1,1]
+// Output: [2]
+
+var findDisappearedNumbers = function(nums) {
+    let result = [];
+    let set = new Set(nums);
+    for(let i=1; i<=nums.length; i++){
+        if(!set.has(i)){
+            result.push(i);
         }
     }
-    return xor;
+    return result;
 };
-let nums = [1,2,2,1];
-console.log("duplicateNumberXor:",duplicateNumbersXOR(nums))
+let nums = [4,3,2,7,8,2,3,1];
+console.log("FindDisappearsNumbers:",findDisappearedNumbers(nums));
