@@ -765,26 +765,53 @@
 // - We pair the 1st string with the 3rd string, as the reversed string of word[1] is "ca" and is equal to words[3].
 // It can be proven that 2 is the maximum number of pairs that can be formed.
 
-function maximumNumberOfStringPairs(words){
-  let set = new Set();
-  let count = 0;
+// function maximumNumberOfStringPairs(words){
+//   let set = new Set();
+//   let count = 0;
 
-  for(let word of words){
-    let rev = reverse(word);
+//   for(let word of words){
+//     let rev = reverse(word);
 
-    // check the word is already present in the set
-    // if the present then incrment the count,
-    if(set.has(rev)){
-      count++;
+//     // check the word is already present in the set
+//     // if the present then incrment the count,
+//     if(set.has(rev)){
+//       count++;
+//     }
+//     //  otherwise add into the set
+//     set.add(word);
+//   }
+//   return count;
+// }
+// let words = ["cd","ac","dc","ca","zz"];
+// console.log("maximumNumberOfStringPairs:",maximumNumberOfStringPairs(words));
+
+// function reverse(s){
+//   return s.split("").reverse().join("");
+// }
+
+// Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
+
+// A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
+
+ 
+
+// Example 1:
+
+// Input: s = "abc", t = "ahbgdc"
+// Output: true
+// Example 2:
+
+// Input: s = "axc", t = "ahbgdc"
+// Output: false
+
+var isSubsequence = function(s, t) {
+    let i = 0;
+    for (let j = 0; j < t.length; j++) {
+        if (s[i] === t[j]) {
+            i++;
+        }
     }
-    //  otherwise add into the set
-    set.add(word);
-  }
-  return count;
-}
-let words = ["cd","ac","dc","ca","zz"];
-console.log("maximumNumberOfStringPairs:",maximumNumberOfStringPairs(words));
-
-function reverse(s){
-  return s.split("").reverse().join("");
-}
+    return i === s.length;
+};
+let s = "abc", t = "ahbgdc";
+console.log("isSubsequcenc:",isSubsequence(s,t));
