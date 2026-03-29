@@ -1600,15 +1600,43 @@
 // Input: nums = [1,1]
 // Output: [2]
 
-var findDisappearedNumbers = function(nums) {
-    let result = [];
-    let set = new Set(nums);
-    for(let i=1; i<=nums.length; i++){
-        if(!set.has(i)){
-            result.push(i);
-        }
+// var findDisappearedNumbers = function(nums) {
+//     let result = [];
+//     let set = new Set(nums);
+//     for(let i=1; i<=nums.length; i++){
+//         if(!set.has(i)){
+//             result.push(i);
+//         }
+//     }
+//     return result;
+// };
+// let nums = [4,3,2,7,8,2,3,1];
+// console.log("FindDisappearsNumbers:",findDisappearedNumbers(nums));
+
+// Given an integer array sorted in non-decreasing order, there is exactly one integer in the array that occurs more than 25% of the time, return that integer.
+
+ 
+
+// Example 1:
+
+// Input: arr = [1,2,2,6,6,6,6,7,10]
+// Output: 6
+// Example 2:
+
+// Input: arr = [1,1]
+// Output: 1
+
+var findSpecialInteger = function(arr) {
+    let freq =[];
+    for(let num of arr){
+        freq[num] = (freq[num] || 0) + 1;
     }
-    return result;
+    let n =arr.length;
+    for(let [key,value] of Object.entries(freq)){
+        if (value > n / 4) {
+            return Number(key);
+        } 
+    }
 };
-let nums = [4,3,2,7,8,2,3,1];
-console.log("FindDisappearsNumbers:",findDisappearedNumbers(nums));
+let arr = [1,2,2,6,6,6,6,7,10];
+console.log("FindsSpecialInteger:",findSpecialInteger(arr));
