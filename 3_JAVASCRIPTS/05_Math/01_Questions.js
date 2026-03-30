@@ -2568,36 +2568,65 @@
 // When i = 2 and j = 3: the first digit of nums[2] is 1, and the last digit of nums[3] is 4. Indeed, gcd(1,4) == 1.
 // Thus, we return 5.
 
-var countBeautifulPairs = function(nums) {
-    let count =0;
-    for(let i=0; i<nums.length; i++){
-        let first = getFirstDigit(nums[i]);
-        for(let j=i+1; j<nums.length; j++){
-            let second = nums[j]%10;
-            if(gcd(first,second) === 1){
-                count++;
-            }
+// var countBeautifulPairs = function(nums) {
+//     let count =0;
+//     for(let i=0; i<nums.length; i++){
+//         let first = getFirstDigit(nums[i]);
+//         for(let j=i+1; j<nums.length; j++){
+//             let second = nums[j]%10;
+//             if(gcd(first,second) === 1){
+//                 count++;
+//             }
+//         }
+//     }
+//     return count;
+// };
+// let nums = [2,5,1,4];
+// console.log("CountBeautifulPairs:",countBeautifulPairs(nums));
+
+// // functions for the find the first Number
+// function getFirstDigit(num){
+//     let first = num;
+//     while(first >=10){
+//         first = Math.floor(first/10);
+//     }
+//     return first;
+// }
+// // functions for the find the gcd ot two number
+// function gcd(a,b){
+//     while(b !=0){
+//         [a,b] =[b,a%b]
+//     }
+//     return a;
+// }
+// let a = 2 ,b = 5;
+// console.log("gcd:",gcd(a,b));
+
+var intToRoman = function(num) {
+     const values = [
+        1000, 900, 500, 400,
+        100, 90, 50, 40,
+        10, 9, 5, 4,
+        1
+    ];
+    
+    const symbols = [
+        "M", "CM", "D", "CD",
+        "C", "XC", "L", "XL",
+        "X", "IX", "V", "IV",
+        "I"
+    ];
+    
+    let result = "";
+    
+    for (let i = 0; i < values.length; i++) {
+        while (num >= values[i]) {
+            result += symbols[i];
+            num -= values[i];
         }
     }
-    return count;
+    
+    return result;
 };
-let nums = [2,5,1,4];
-console.log("CountBeautifulPairs:",countBeautifulPairs(nums));
-
-// functions for the find the first Number
-function getFirstDigit(num){
-    let first = num;
-    while(first >=10){
-        first = Math.floor(first/10);
-    }
-    return first;
-}
-// functions for the find the gcd ot two number
-function gcd(a,b){
-    while(b !=0){
-        [a,b] =[b,a%b]
-    }
-    return a;
-}
-let a = 2 ,b = 5;
-console.log("gcd:",gcd(a,b));
+let num = 3749;
+console.log("Integer To Roman:",intToRoman(num));
