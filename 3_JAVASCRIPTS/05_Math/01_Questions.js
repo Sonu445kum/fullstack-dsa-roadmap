@@ -2602,65 +2602,65 @@
 // let a = 2 ,b = 5;
 // console.log("gcd:",gcd(a,b));
 
-var intToRoman = function(num) {
-     const values = [
-        1000, 900, 500, 400,
-        100, 90, 50, 40,
-        10, 9, 5, 4,
-        1
-    ];
+// var intToRoman = function(num) {
+//      const values = [
+//         1000, 900, 500, 400,
+//         100, 90, 50, 40,
+//         10, 9, 5, 4,
+//         1
+//     ];
     
-    const symbols = [
-        "M", "CM", "D", "CD",
-        "C", "XC", "L", "XL",
-        "X", "IX", "V", "IV",
-        "I"
-    ];
+//     const symbols = [
+//         "M", "CM", "D", "CD",
+//         "C", "XC", "L", "XL",
+//         "X", "IX", "V", "IV",
+//         "I"
+//     ];
     
-    let result = "";
+//     let result = "";
     
-    for (let i = 0; i < values.length; i++) {
-        while (num >= values[i]) {
-            result += symbols[i];
-            num -= values[i];
-        }
-    }
+//     for (let i = 0; i < values.length; i++) {
+//         while (num >= values[i]) {
+//             result += symbols[i];
+//             num -= values[i];
+//         }
+//     }
     
-    return result;
-};
-let num = 3749;
-console.log("Integer To Roman:",intToRoman(num));
+//     return result;
+// };
+// let num = 3749;
+// console.log("Integer To Roman:",intToRoman(num));
 
-var nthUglyNumber = function(n) {
-    let ugly = new Array(n).fill(0);
-    ugly[0] = 1;
+// var nthUglyNumber = function(n) {
+//     let ugly = new Array(n).fill(0);
+//     ugly[0] = 1;
 
-    let i2 = 0, i3 = 0, i5 = 0;
+//     let i2 = 0, i3 = 0, i5 = 0;
 
-    let next2 = 2, next3 = 3, next5 = 5;
+//     let next2 = 2, next3 = 3, next5 = 5;
 
-    for (let i = 1; i < n; i++) {
-        let nextUgly = Math.min(next2, next3, next5);
-        ugly[i] = nextUgly;
+//     for (let i = 1; i < n; i++) {
+//         let nextUgly = Math.min(next2, next3, next5);
+//         ugly[i] = nextUgly;
 
-        if (nextUgly === next2) {
-            i2++;
-            next2 = ugly[i2] * 2;
-        }
+//         if (nextUgly === next2) {
+//             i2++;
+//             next2 = ugly[i2] * 2;
+//         }
 
-        if (nextUgly === next3) {
-            i3++;
-            next3 = ugly[i3] * 3;
-        }
+//         if (nextUgly === next3) {
+//             i3++;
+//             next3 = ugly[i3] * 3;
+//         }
 
-        if (nextUgly === next5) {
-            i5++;
-            next5 = ugly[i5] * 5;
-        }
-    }
+//         if (nextUgly === next5) {
+//             i5++;
+//             next5 = ugly[i5] * 5;
+//         }
+//     }
 
-    return ugly[n - 1];
-};
+//     return ugly[n - 1];
+// };
 
-let n = 10;
-console.log("nthUglyNumber:",nthUglyNumber(n));
+// let n = 10;
+// console.log("nthUglyNumber:",nthUglyNumber(n));
