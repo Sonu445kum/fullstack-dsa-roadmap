@@ -48,7 +48,8 @@ const App = () => {
       {/* <Questions/> */}
       <h1>Display Data</h1>
       {/* <DisplayData/> */}
-      <TodoApp/>
+      {/* <TodoApp/> */}
+      
     </div>
   )
 }

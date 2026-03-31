@@ -5,7 +5,8 @@ const Questions = () => {
     // create a state
 // const [count , setCount] = useState(0);
 // const [toggle , setToggle] = useState(false);
-consst [charCount , setCharCount] = useState(0);
+// consst [charCount , setCharCount] = useState(0);
+const [text, setText] = useState("");
 
 
     // InCrement Value;
@@ -25,12 +26,12 @@ consst [charCount , setCharCount] = useState(0);
 //     setToggle((prev) => !prev);
 // }
 
-const handleCharacterCount = ()=>{
+// const handleCharacterCount = ()=>{
 
-}
+// }
 
   return (
-    <div>
+     <div>
     {/* 1: Counter App */}
     {/* <h1>Count App:{count}</h1>
         <button onClick={handleInecrement}>Incrment(+)</button>
@@ -42,13 +43,21 @@ const handleCharacterCount = ()=>{
     <button onClick={handleToggle}>ToggleMe</button> */}
 
     {/* Build a live character counter input. */}
-    <div>
+     <div>
         <h1>Live Character Count Input:</h1>
         <input  id='inputFiled' onChange={handleCharacterCount} type="text"  placeholder='Enter here Something'/>
     </div>
 
-    
+     <div>
+      <input onChange={(e) => setText(e.target.value)} />
+      <p>{text}</p>
     </div>
+    
+     </div> 
+
+    
+   
+    
   )
 }
 
