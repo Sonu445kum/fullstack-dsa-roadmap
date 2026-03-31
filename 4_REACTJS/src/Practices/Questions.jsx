@@ -6,7 +6,8 @@ const Questions = () => {
 // const [count , setCount] = useState(0);
 // const [toggle , setToggle] = useState(false);
 // consst [charCount , setCharCount] = useState(0);
-const [text, setText] = useState("");
+// const [text, setText] = useState("");
+const [users, setUsers] = useState([]);
 
 
     // InCrement Value;
@@ -30,6 +31,12 @@ const [text, setText] = useState("");
 
 // }
 
+useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(res => res.json())
+      .then(data => setUsers(data));
+  }, []);
+
   return (
      <div>
     {/* 1: Counter App */}
@@ -43,7 +50,7 @@ const [text, setText] = useState("");
     <button onClick={handleToggle}>ToggleMe</button> */}
 
     {/* Build a live character counter input. */}
-     <div>
+     {/* <div>
         <h1>Live Character Count Input:</h1>
         <input  id='inputFiled' onChange={handleCharacterCount} type="text"  placeholder='Enter here Something'/>
     </div>
@@ -51,7 +58,13 @@ const [text, setText] = useState("");
      <div>
       <input onChange={(e) => setText(e.target.value)} />
       <p>{text}</p>
-    </div>
+    </div> */}
+
+    <ul>
+      {users.map(user => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
     
      </div> 
 
