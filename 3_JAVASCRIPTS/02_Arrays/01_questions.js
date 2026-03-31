@@ -1725,38 +1725,76 @@
 // The reversed integers that were added to the end of the array are underlined. Note that for the integer 10, after reversing it, it becomes 01 which is just 1.
 // The number of distinct integers in this array is 6 (The numbers 1, 10, 12, 13, 21, and 31)
 
-var countDistinctIntegers = function(nums) {
-    let n = nums.length;
-    let ans = [...nums];
-    for(let i=0; i<n; i++){
-        nums[i] = reverseDigit(nums[i]);
+// var countDistinctIntegers = function(nums) {
+//     let n = nums.length;
+//     let ans = [...nums];
+//     for(let i=0; i<n; i++){
+//         nums[i] = reverseDigit(nums[i]);
         
-    }
-    let newArr = ans.concat(nums);
-    console.log(newArr);
-    let count =0;
-    let set = new Set(newArr);
-    for(let num of set){
-        if(set.has(num)){
-            count++;
-        }
-        set.add(num);
-    }
-    return count;
+//     }
+//     let newArr = ans.concat(nums);
+//     console.log(newArr);
+//     let count =0;
+//     let set = new Set(newArr);
+//     for(let num of set){
+//         if(set.has(num)){
+//             count++;
+//         }
+//         set.add(num);
+//     }
+//     return count;
 
     
-};
-let nums = [1,13,10,12,31];
-console.log("CountDistinctIntegers:",countDistinctIntegers(nums));
+// };
+// let nums = [1,13,10,12,31];
+// console.log("CountDistinctIntegers:",countDistinctIntegers(nums));
 
-function reverseDigit(n){
-    let rev = 0;
-    while(n > 0){
-        let lastDigit = n%10;
-        rev = rev*10 + lastDigit;
-        n = Math.floor(n/10);
+// function reverseDigit(n){
+//     let rev = 0;
+//     while(n > 0){
+//         let lastDigit = n%10;
+//         rev = rev*10 + lastDigit;
+//         n = Math.floor(n/10);
+//     }
+//     return rev;
+// }
+// let n=12;
+// console.log("reverseDigit:",reverseDigit(n));
+
+// You are given a 0-indexed integer array nums of size 3 which can form the sides of a triangle.
+
+// A triangle is called equilateral if it has all sides of equal length.
+// A triangle is called isosceles if it has exactly two sides of equal length.
+// A triangle is called scalene if all its sides are of different lengths.
+// Return a string representing the type of triangle that can be formed or "none" if it cannot form a triangle.
+
+ 
+
+// Example 1:
+
+// Input: nums = [3,3,3]
+// Output: "equilateral"
+// Explanation: Since all the sides are of equal length, therefore, it will form an equilateral triangle.
+
+var triangleType = function(nums) {
+     let [a, b, c] = nums;
+
+    if (
+        (a + b <= c) ||
+        (a + c <= b) ||
+        (b + c <= a)
+    ) {
+        return "none";
     }
-    return rev;
-}
-let n=12;
-console.log("reverseDigit:",reverseDigit(n));
+    if (a === b && b === c) {
+        return "equilateral";
+    }
+
+    if (a === b || a === c || b === c) {
+        return "isosceles";
+    }
+
+    return "scalene";
+};
+let nums = [3,3,3];
+console.log("TriangleType:",triangleType(nums));
