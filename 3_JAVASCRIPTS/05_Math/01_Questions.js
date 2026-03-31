@@ -2664,3 +2664,40 @@
 
 // let n = 10;
 // console.log("nthUglyNumber:",nthUglyNumber(n));
+
+// Given two integers num1 and num2, return the sum of the two integers.
+ 
+
+// Example 1:
+
+// Input: num1 = 12, num2 = 5
+// Output: 17
+// Explanation: num1 is 12, num2 is 5, and their sum is 12 + 5 = 17, so 17 is returned.
+// Example 2:
+
+// Input: num1 = -10, num2 = 4
+// Output: -6
+// Explanation: num1 + num2 = -6, so -6 is returned.
+
+var sum = function(num1, num2) {
+    if(num1 >=0 && num2 >=0){
+        return num1+num2;
+    }else if( num1 <=0 && num2 <= 0){
+        return -Math.abs(num1 + num2);
+    }
+    else if(num1 <=0 && num2 >= 0 && Math.abs(num1) > num2){
+        return -Math.abs(num1 + num2);
+    }else if (num1 >=0 && num2 <=0 &&  Math.abs(num2) > num1){
+        return -Math.abs(num1 + num2);
+    }else if (num1 <=0 && num2 >=0 && num2 > Math.abs(num1)){
+        return num1 + num2;
+    }else if (num1 >=0 && num2 <=0 && num1 > Math.abs(num2)){
+        return num1 + num2;
+    }else if (num1 <=0 && num2 >=0 && Math.abs(num1) === Math.abs(num2)){
+        return 0;
+    }else if (num1 >=0 && num2 <=0 && Math.abs(num1) === Math.abs(num2)){
+        return 0;
+    }
+};
+let num1 = 12, num2 = 5;
+console.log("Sum:",sum(num1 , num2));

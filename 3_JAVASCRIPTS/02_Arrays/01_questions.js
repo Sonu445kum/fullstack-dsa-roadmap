@@ -1693,18 +1693,70 @@
 // Input: nums = [1,2]
 // Output: [1,2]
 
-var majorityElement = function(nums) {
-    let freq ={};
-    let ans =[];
-    for(let num of nums){
-        freq[num] = (freq[num] || 0) + 1;
+// var majorityElement = function(nums) {
+//     let freq ={};
+//     let ans =[];
+//     for(let num of nums){
+//         freq[num] = (freq[num] || 0) + 1;
+//     }
+//     for(let [key,value] of Object.entries(freq)){
+//         if(value > nums.length/3){
+//             ans.push(Number(key));
+//         }
+//     }
+//     return ans;
+// };
+// let nums = [3,2,3];
+// console.log("majorityElement:",majorityElement(nums));
+
+// You are given an array nums consisting of positive integers.
+
+// You have to take each integer in the array, reverse its digits, and add it to the end of the array. You should apply this operation to the original integers in nums.
+
+// Return the number of distinct integers in the final array.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,13,10,12,31]
+// Output: 6
+// Explanation: After including the reverse of each number, the resulting array is [1,13,10,12,31,1,31,1,21,13].
+// The reversed integers that were added to the end of the array are underlined. Note that for the integer 10, after reversing it, it becomes 01 which is just 1.
+// The number of distinct integers in this array is 6 (The numbers 1, 10, 12, 13, 21, and 31)
+
+var countDistinctIntegers = function(nums) {
+    let n = nums.length;
+    let ans = [...nums];
+    for(let i=0; i<n; i++){
+        nums[i] = reverseDigit(nums[i]);
+        
     }
-    for(let [key,value] of Object.entries(freq)){
-        if(value > nums.length/3){
-            ans.push(Number(key));
+    let newArr = ans.concat(nums);
+    console.log(newArr);
+    let count =0;
+    let set = new Set(newArr);
+    for(let num of set){
+        if(set.has(num)){
+            count++;
         }
+        set.add(num);
     }
-    return ans;
+    return count;
+
+    
 };
-let nums = [3,2,3];
-console.log("majorityElement:",majorityElement(nums));
+let nums = [1,13,10,12,31];
+console.log("CountDistinctIntegers:",countDistinctIntegers(nums));
+
+function reverseDigit(n){
+    let rev = 0;
+    while(n > 0){
+        let lastDigit = n%10;
+        rev = rev*10 + lastDigit;
+        n = Math.floor(n/10);
+    }
+    return rev;
+}
+let n=12;
+console.log("reverseDigit:",reverseDigit(n));
