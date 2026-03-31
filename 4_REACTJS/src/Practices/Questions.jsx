@@ -7,8 +7,9 @@ const Questions = () => {
 // const [toggle , setToggle] = useState(false);
 // consst [charCount , setCharCount] = useState(0);
 // const [text, setText] = useState("");
-const [users, setUsers] = useState([]);
+// const [users, setUsers] = useState([]);
 
+const [time, setTime] = useState(0);
 
     // InCrement Value;
 // const handleInecrement =()=>{
@@ -31,10 +32,18 @@ const [users, setUsers] = useState([]);
 
 // }
 
+// useEffect(() => {
+//     fetch("https://jsonplaceholder.typicode.com/users")
+//       .then(res => res.json())
+//       .then(data => setUsers(data));
+//   }, []);
+
 useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(res => res.json())
-      .then(data => setUsers(data));
+    const interval = setInterval(() => {
+      setTime(t => t + 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -60,11 +69,13 @@ useEffect(() => {
       <p>{text}</p>
     </div> */}
 
-    <ul>
+    {/* <ul>
       {users.map(user => (
         <li key={user.id}>{user.name}</li>
       ))}
-    </ul>
+    </ul> */}
+
+    <h2>{time}</h2>
     
      </div> 
 
