@@ -88,14 +88,33 @@
 // Creating a Promise
 // new Promise((resolve , reject)=>{});
 
-const p = new Promise((resolve , reject)=>{
-    let success = true;
-    setTimeout(() => {
-        success ? resolve("ok") : reject("Failed")
-    }, 1000);
-})
-p.then((res)=>{
+// const p = new Promise((resolve , reject)=>{
+//     let success = true;
+//     setTimeout(() => {
+//         success ? resolve("ok") : reject("Failed")
+//     }, 1000);
+// })
+// p.then((res)=>{
+//     console.log(res)
+// }).catch((error)=>{
+//     console.log(error)
+// })
+
+// create a functions to check num is greter than or not
+
+function checkNumber(num){
+    return new Promise((resolve , reject)=>{
+       setTimeout(()=>{
+         if(num > 10){
+            resolve("Greater")
+        }else{
+            reject("Less")
+        }
+       },1000);
+    })
+}
+checkNumber(11).then((res)=>{
     console.log(res)
-}).catch((error)=>{
-    console.log(error)
+}).catch((err)=>{
+    console.log(err)
 })
