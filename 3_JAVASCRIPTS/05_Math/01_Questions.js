@@ -2679,25 +2679,85 @@
 // Output: -6
 // Explanation: num1 + num2 = -6, so -6 is returned.
 
-var sum = function(num1, num2) {
-    if(num1 >=0 && num2 >=0){
-        return num1+num2;
-    }else if( num1 <=0 && num2 <= 0){
-        return -Math.abs(num1 + num2);
+// var sum = function(num1, num2) {
+//     if(num1 >=0 && num2 >=0){
+//         return num1+num2;
+//     }else if( num1 <=0 && num2 <= 0){
+//         return -Math.abs(num1 + num2);
+//     }
+//     else if(num1 <=0 && num2 >= 0 && Math.abs(num1) > num2){
+//         return -Math.abs(num1 + num2);
+//     }else if (num1 >=0 && num2 <=0 &&  Math.abs(num2) > num1){
+//         return -Math.abs(num1 + num2);
+//     }else if (num1 <=0 && num2 >=0 && num2 > Math.abs(num1)){
+//         return num1 + num2;
+//     }else if (num1 >=0 && num2 <=0 && num1 > Math.abs(num2)){
+//         return num1 + num2;
+//     }else if (num1 <=0 && num2 >=0 && Math.abs(num1) === Math.abs(num2)){
+//         return 0;
+//     }else if (num1 >=0 && num2 <=0 && Math.abs(num1) === Math.abs(num2)){
+//         return 0;
+//     }
+// };
+// let num1 = 12, num2 = 5;
+// console.log("Sum:",sum(num1 , num2));
+
+var punishmentNumber = function(n) {
+    let total = 0;
+    for(let i=1; i<=n; i++){
+        let ans = i*i;
+        if(sumDigit(ans) === i){
+            total += ans;
+        }
     }
-    else if(num1 <=0 && num2 >= 0 && Math.abs(num1) > num2){
-        return -Math.abs(num1 + num2);
-    }else if (num1 >=0 && num2 <=0 &&  Math.abs(num2) > num1){
-        return -Math.abs(num1 + num2);
-    }else if (num1 <=0 && num2 >=0 && num2 > Math.abs(num1)){
-        return num1 + num2;
-    }else if (num1 >=0 && num2 <=0 && num1 > Math.abs(num2)){
-        return num1 + num2;
-    }else if (num1 <=0 && num2 >=0 && Math.abs(num1) === Math.abs(num2)){
-        return 0;
-    }else if (num1 >=0 && num2 <=0 && Math.abs(num1) === Math.abs(num2)){
-        return 0;
-    }
+    return total;
+    
 };
-let num1 = 12, num2 = 5;
-console.log("Sum:",sum(num1 , num2));
+let n=10;
+console.log("Punishment Number:",punishmentNumber(n));
+// sum of the digit
+function sumDigit(n){
+    let sum =0;
+    while(n>0){
+        sum += n%10;
+        n = Math.floor(n/10);
+    }
+    return sum;
+}
+
+// In the town of Digitville, there was a list of numbers called nums containing integers from 0 to n - 1. Each number was supposed to appear exactly once in the list, however, two mischievous numbers sneaked in an additional time, making the list longer than usual.
+
+// As the town detective, your task is to find these two sneaky numbers. Return an array of size two containing the two numbers (in any order), so peace can return to Digitville.
+
+ 
+
+// Example 1:
+
+// Input: nums = [0,1,1,0]
+
+// Output: [0,1]
+
+// Explanation:
+
+// The numbers 0 and 1 each appear twice in the array.
+
+var getSneakyNumbers = function(nums) {
+    let freq ={};
+    for(let num of nums){
+        freq[num] = (freq[num] || 0) + 1;
+    }
+    let ans = [];
+    // for(let [key ,value] of Object.entries(freq)){
+    //     if(value === 2){
+    //         ans.push(Number(key));
+    //     }
+    // }
+    for(let key in freq){
+        if(freq[key] === 2){
+            ans.push(Number(key));
+        }
+    }
+    return ans;
+};
+let nums = [0,1,1,0];
+console.log("getSneakyNumber:",getSneakyNumbers(nums));
