@@ -160,13 +160,40 @@
 // })
 
 // Promise Chaining
-Promise.resolve(2)
-.then((res)=>res*2)
-.then((res)=>res*3)
-.then((res)=>console.log(res));
+// Promise.resolve(2)
+// .then((res)=>res*2)
+// .then((res)=>res*3)
+// .then((res)=>console.log(res));
 
-Promise.resolve(16)
-.then((num)=>num/2)
-.then((num)=>num/2)
-.then((num)=>num/2)
-.then((res)=>console.log(res));
+// Promise.resolve(16)
+// .then((num)=>num/2)
+// .then((num)=>num/2)
+// .then((num)=>num/2)
+// .then((res)=>console.log(res));
+
+// fetch user
+// fetchUser().then((user)=>fetchOrder(user.id))
+// .then((orders)=>console.log(orders));
+
+// Promise.resolve("A")
+// .then((s)=> s + "B")
+// .then((s)=> s + "C")
+// .then((res)=>console.log(res));
+
+// Error Handling
+// Promise.reject("error")
+// .catch((error)=>console.log(error))
+
+// throw inside then
+// Promise.resolve()
+// .then(()=>{
+//     throw new Error("Something has Borken")
+// }).catch((err)=>{
+//     console.log(err.message)
+// })
+
+// Chain error
+Promise.resolve(10)
+.then((num)=>num/0)
+.then((res)=>console.log(res))
+.catch(err => console.log("Handled"));
