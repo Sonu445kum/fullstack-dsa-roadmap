@@ -193,7 +193,66 @@
 // })
 
 // Chain error
-Promise.resolve(10)
-.then((num)=>num/0)
-.then((res)=>console.log(res))
-.catch(err => console.log("Handled"));
+// Promise.resolve(10)
+// .then((num)=>num/0)
+// .then((res)=>console.log(res))
+// .catch(err => console.log("Handled"));
+
+// Proimse Methods
+// Promise.all()
+// Success
+// Promise.all([
+//     Promise.resolve(1),
+//     Promise.resolve(3)
+// ]).then((res)=>console.log(res));
+
+// Failed
+// Promise.all([
+//     Promise.resolve(1),
+//     Promise.reject("failed")
+// ]).catch(console.log)
+
+// Promise.all([
+//     fetch("https://jsonplaceholder.typicode.com/posts"),
+//     fetch("https://jsonplaceholder.typicode.com/users")
+// ])
+// .then((responses) => Promise.all(responses.map(res => res.json())))
+// .then((data) => console.log(data));
+
+// fetch("https://jsonplaceholder.typicode.com/posts/1")
+// .then((res)=>res.json())
+// .then((data)=>console.log(data))
+// .catch((err)=>console.log(err))
+
+// const getPost = async ()=>{
+//     return  await fetch("https://jsonplaceholder.typicode.com/posts/1")
+//     .then((res)=>res.json());
+// }
+// getPost().then((data)=>console.log(data))
+
+// Promise.race([
+//     new Promise(resolve=>setTimeout(()=>resolve("First"),200)),
+//     new Promise(resolve=>setTimeout(()=>resolve("Second"),200)),
+// ]).then((res)=>console.log(res))
+
+// Promise.race([
+//   Promise.reject("Fail"),
+//   Promise.resolve("Success")
+// ]).catch(console.log);
+
+// Promise.allSettled()
+// Promise.allSettled([
+//     Promise.resolve("sucess"),
+//     Promise.reject("failed")
+// ]).then(console.log)
+
+
+// Promise.any([
+//   Promise.reject("Fail"),
+//   Promise.resolve("Success")
+// ]).then(console.log);
+
+Promise.any([
+  Promise.reject("A"),
+  Promise.reject("B")
+]).catch(console.log);
