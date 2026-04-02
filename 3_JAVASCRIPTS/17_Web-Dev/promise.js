@@ -52,3 +52,30 @@
 //     reject("Failed")
 // })
 // promise.catch((error)=>console.log(error))
+
+// States of Promise
+
+// A Promise has 3 states:
+
+// Pending → waiting
+// Fulfilled → success
+// Rejected → failure
+
+// State Flow
+// const promise = new Promise((resolve)=>{
+//     setTimeout(()=>{
+//         resolve("success")
+//     },1000)
+// });
+// promise.then((res)=>console.log(res));
+
+// Initially → Pending
+// After 1 sec → Fulfilled
+
+// Rejected State
+// const promise = new Promise((resolve , reject)=>{
+//     setTimeout(()=>{
+//         reject("failed")
+//     },1000)
+// });
+// promise.catch((error)=>console.log(error));
