@@ -79,3 +79,23 @@
 //     },1000)
 // });
 // promise.catch((error)=>console.log(error));
+
+// Example 3: Real-life Analogy
+// Order placed → Pending
+// Food delivered → Fulfilled
+// Order cancelled → Rejected
+
+// Creating a Promise
+// new Promise((resolve , reject)=>{});
+
+const p = new Promise((resolve , reject)=>{
+    let success = true;
+    setTimeout(() => {
+        success ? resolve("ok") : reject("Failed")
+    }, 1000);
+})
+p.then((res)=>{
+    console.log(res)
+}).catch((error)=>{
+    console.log(error)
+})
