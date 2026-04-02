@@ -158,3 +158,15 @@
 // }).finally(()=>{
 //     console.log("Always runs")
 // })
+
+// Promise Chaining
+Promise.resolve(2)
+.then((res)=>res*2)
+.then((res)=>res*3)
+.then((res)=>console.log(res));
+
+Promise.resolve(16)
+.then((num)=>num/2)
+.then((num)=>num/2)
+.then((num)=>num/2)
+.then((res)=>console.log(res));
