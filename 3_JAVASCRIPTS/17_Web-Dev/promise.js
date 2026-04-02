@@ -102,19 +102,59 @@
 
 // create a functions to check num is greter than or not
 
-function checkNumber(num){
-    return new Promise((resolve , reject)=>{
-       setTimeout(()=>{
-         if(num > 10){
-            resolve("Greater")
-        }else{
-            reject("Less")
-        }
-       },1000);
-    })
-}
-checkNumber(11).then((res)=>{
-    console.log(res)
-}).catch((err)=>{
-    console.log(err)
-})
+// function checkNumber(num){
+//     return new Promise((resolve , reject)=>{
+//        setTimeout(()=>{
+//          if(num > 10){
+//             resolve("Greater")
+//         }else{
+//             reject("Less")
+//         }
+//        },1000);
+//     })
+// }
+// checkNumber(11).then((res)=>{
+//     console.log(res)
+// }).catch((err)=>{
+//     console.log(err)
+// })
+
+// create a function to fetch data
+// const fetchData =()=>{
+//     return new Promise((resolve , reject)=>{
+//         setTimeout(()=>{
+//             resolve("fetch Data")
+//         },1000)
+//     })
+// }
+// fetchData().then((data)=>{
+//     console.log(data);
+// })
+
+// Consuming a Promise
+
+// Using:
+
+// .then() → success
+// .catch() → error
+// .finally() → always runs
+
+// const p = new Promise((resolve, reject)=>{
+//     let sucess = true;
+//     setTimeout(()=>{
+//         if(sucess){
+//         resolve("successs")
+//     }else{
+//         reject("failed")
+//     }
+//     },1000)
+// })
+
+// // now using all
+// p.then((res)=>{
+//     console.log(res)
+// }).catch((error)=>{
+//     console.log(error)
+// }).finally(()=>{
+//     console.log("Always runs")
+// })
