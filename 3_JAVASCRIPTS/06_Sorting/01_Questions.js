@@ -97,18 +97,39 @@
 
 // insertions sort ->insert element
 
-function insertSort(arr){
-    for(let i=1; i<arr.length; i++){
-        let key = arr[i];
-        let j = i - 1;
+// function insertSort(arr){
+//     for(let i=1; i<arr.length; i++){
+//         let key = arr[i];
+//         let j = i - 1;
 
-        while(j >=0 && arr[j] > key){
-            arr[j+1] = arr[j];
-            j--;
-        }
-        arr[j+1] = key
-    }
-    return arr;
+//         while(j >=0 && arr[j] > key){
+//             arr[j+1] = arr[j];
+//             j--;
+//         }
+//         arr[j+1] = key
+//     }
+//     return arr;
+// }
+// let arr = [3,5,8,4];
+// console.log("After the Sorting with Insert Sort:",insertSort(arr)); 
+
+// merge sort
+function mergeSort(arr){
+    if(arr.length <=1) return arr;
+    let mid = Math.floor(arr.length/2);
+    let left  = mergeSort(arr.slice(0,mid));
+    let right = mergeSort(arr.slice(mid));
+
+    return merge(left , right);
 }
-let arr = [3,5,8,4];
-console.log("After the Sorting with Insert Sort:",insertSort(arr));
+
+function merge(left,rigt){
+    let result = [] , i = 0 , j = 0;
+    while(i < left.length && j < rigt.length){
+        if(left[i] < rigt[j]) result.push(left[i++]);
+        else result.push(rigt[j++]);
+    }
+    return [...result , ...left.slice(i) , ...rigt.slice(j)];
+}
+let arr = [ 3,5,8,4];
+console.log("Merge Sort:",mergeSort(arr));
