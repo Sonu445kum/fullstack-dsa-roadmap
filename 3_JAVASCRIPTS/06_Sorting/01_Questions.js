@@ -64,15 +64,51 @@
 // there are 6 types of sorting algorithm
 // Bubble Sort -> Compare adjacent
 
-function bubbleSort(arr){
-    for(let i =0; i<arr.length; i++){
-        for(let j =0; j<arr.length-i-1; j++){
-            if(arr[j] > arr[j+1]){
-                [arr[j],arr[j+1]] = [arr[j+1],arr[j]];
-            }
+// function bubbleSort(arr){
+//     for(let i =0; i<arr.length; i++){
+//         for(let j =0; j<arr.length-i-1; j++){
+//             if(arr[j] > arr[j+1]){
+//                 [arr[j],arr[j+1]] = [arr[j+1],arr[j]];
+//             }
+//         }
+//     }
+//     return arr;
+// };
+// let arr = [3,5,8,4];
+// console.log("After the Soritng With Bubble Sort:",bubbleSort(arr));
+
+
+// Select Sort->find the minimum element and insert at correct index
+
+// function selectSort(arr){
+//     for(let i =0; i<arr.length; i++){
+//         let minIndex = i;
+//         for(let j=i+1; j < arr.length; j++){
+//             if(arr[j] < arr[minIndex]){
+//                 minIndex = j;
+//             }
+//         }
+//         [arr[i] , arr[minIndex]] = [arr[minIndex] , arr[i]];
+//     }
+//     return arr;
+// }
+// let arr = [ 3,5,8,4];
+// console.log("After the Sorting With Select Sort:",selectSort(arr));
+
+// insertions sort ->insert element
+
+function insertSort(arr){
+    for(let i=1; i<arr.length; i++){
+        let key = arr[i];
+        let j = i - 1;
+
+        while(j >=0 && arr[j] > key){
+            arr[j+1] = arr[j];
+            j--;
         }
+        arr[j+1] = key
     }
     return arr;
-};
+}
 let arr = [3,5,8,4];
-console.log("After the Soritng With Bubble Sort:",bubbleSort(arr));
+console.log("After the Sorting with Insert Sort:",insertSort(arr));
