@@ -203,13 +203,61 @@
 // Output: 3
 // Explanation: The three different integers are "123", "34", and "8". Notice that "34" is only counted once.
 
-var numDifferentIntegers = function(word) {
-    let words = word.match(/\d+/g) || [];
-    let set = new Set();
-    for(let num of words){
-        set.add(BigInt(num).toString());
+// var numDifferentIntegers = function(word) {
+//     let words = word.match(/\d+/g) || [];
+//     let set = new Set();
+//     for(let num of words){
+//         set.add(BigInt(num).toString());
+//     }
+//     return set.size;
+// };
+// let word = "a1b01c001";
+// console.log("numDiffrentInteger:",numDifferentIntegers(word))
+
+// Given a string s, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the number of times it appears in the string.
+
+// Return the sorted string. If there are multiple answers, return any of them.
+
+ 
+
+// Example 1:
+
+// Input: s = "tree"
+// Output: "eert"
+// Explanation: 'e' appears twice while 'r' and 't' both appear once.
+// So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
+
+// var frequencySort = function(s) {
+//     let freq = {};
+//     for(let char of s){
+//         freq[char] = (freq[char] || 0) + 1;
+//     }
+//     // return freq;
+//     // now we have to sort the character by ascending Order:
+//     let res = "";
+//     for(let key in freq){
+
+//     }
+// };
+// let s = "tree";
+// console.log("SortCharacter By Frequency:",frequencySort(s));
+
+var smallerNumbersThanCurrent = function(nums) {
+    let count =0;
+    let arr =[];
+    for(let i=0; i<nums.length; i++){
+        for(let j=i+1; j<nums.length; j++){
+            if(nums[j] < nums[i]){
+                count++; 
+            } 
+        }
+        arr.push(count);
+          
     }
-    return set.size;
+    console.log("Arr:",arr);
+    return arr;
 };
-let word = "a1b01c001";
-console.log("numDiffrentInteger:",numDifferentIntegers(word))
+let nums = [8,1,2,2,3];
+console.log("smallerNumbers:",smallerNumbersThanCurrent(nums));
+
+

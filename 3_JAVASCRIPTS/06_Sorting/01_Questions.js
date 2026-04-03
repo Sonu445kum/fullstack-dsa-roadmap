@@ -27,36 +27,52 @@
 // console.log("The Maximum Product of Three Num:",maxProduct3(nums))
 
 // 2nd Appraoch
-function maxProduct3(nums){
-    let max1 = -Infinity, max2 = -Infinity , max3 = -Infinity;
-    let min1 =  Infinity, min2 =  Infinity;
-    for( let num of nums){
-        // check for the maximum
-        if(num > max1){
-            max3 = max2;
-            max2 = max1;
-            max1 = num;
-        }else if(num > max2){
-            max3 = max2;
-            max2 = num;
-        }else if(num > max3){
-            max3 = num
+// function maxProduct3(nums){
+//     let max1 = -Infinity, max2 = -Infinity , max3 = -Infinity;
+//     let min1 =  Infinity, min2 =  Infinity;
+//     for( let num of nums){
+//         // check for the maximum
+//         if(num > max1){
+//             max3 = max2;
+//             max2 = max1;
+//             max1 = num;
+//         }else if(num > max2){
+//             max3 = max2;
+//             max2 = num;
+//         }else if(num > max3){
+//             max3 = num
 
+//         }
+
+//         // check for the minimum
+//         if(num < min1){
+//             min2 = min1;
+//             min1 = num
+//         }else if(num < min2){
+//             min2 = num
+//         }
+
+//     }
+//     return Math.max(max1 * max2 * max3 , max1 * min1 * min2)
+
+// }
+// let nums = [1,2,3];
+// // let nums = [1,2,3,4];
+// // let nums = [-1,-2,-3];
+// console.log("The Maximum Product of Three Num:",maxProduct3(nums))
+
+// there are 6 types of sorting algorithm
+// Bubble Sort -> Compare adjacent
+
+function bubbleSort(arr){
+    for(let i =0; i<arr.length; i++){
+        for(let j =0; j<arr.length-i-1; j++){
+            if(arr[j] > arr[j+1]){
+                [arr[j],arr[j+1]] = [arr[j+1],arr[j]];
+            }
         }
-
-        // check for the minimum
-        if(num < min1){
-            min2 = min1;
-            min1 = num
-        }else if(num < min2){
-            min2 = num
-        }
-
     }
-    return Math.max(max1 * max2 * max3 , max1 * min1 * min2)
-
-}
-let nums = [1,2,3];
-// let nums = [1,2,3,4];
-// let nums = [-1,-2,-3];
-console.log("The Maximum Product of Three Num:",maxProduct3(nums))
+    return arr;
+};
+let arr = [3,5,8,4];
+console.log("After the Soritng With Bubble Sort:",bubbleSort(arr));

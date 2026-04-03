@@ -252,7 +252,32 @@
 //   Promise.resolve("Success")
 // ]).then(console.log);
 
-Promise.any([
-  Promise.reject("A"),
-  Promise.reject("B")
-]).catch(console.log);
+// Promise.any([
+//   Promise.reject("A"),
+//   Promise.reject("B")
+// ]).catch(console.log);
+
+// fetch("https://jsonplaceholder.typicode.com/posts", {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json"
+//   },
+//   body: JSON.stringify({
+//     title: "Hello",
+//     body: "World",
+//     userId: 1
+//   })
+// })
+// .then(res => res.json())
+// .then(data => console.log(data));
+
+const getData =  async ()=>{
+   try {
+    await fetch("https://jsonplaceholder.typicode.com/posts/1")
+        .then((res)=>res.json())
+        .then((data)=>console.log(data))
+   } catch (error) {
+        console.log(error)
+   }
+}
+getData();
