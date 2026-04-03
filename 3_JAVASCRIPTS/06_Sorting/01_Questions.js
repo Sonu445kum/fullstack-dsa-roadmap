@@ -114,22 +114,38 @@
 // console.log("After the Sorting with Insert Sort:",insertSort(arr)); 
 
 // merge sort
-function mergeSort(arr){
-    if(arr.length <=1) return arr;
-    let mid = Math.floor(arr.length/2);
-    let left  = mergeSort(arr.slice(0,mid));
-    let right = mergeSort(arr.slice(mid));
+// function mergeSort(arr){
+//     if(arr.length <=1) return arr;
+//     let mid = Math.floor(arr.length/2);
+//     let left  = mergeSort(arr.slice(0,mid));
+//     let right = mergeSort(arr.slice(mid));
 
-    return merge(left , right);
-}
+//     return merge(left , right);
+// }
 
-function merge(left,rigt){
-    let result = [] , i = 0 , j = 0;
-    while(i < left.length && j < rigt.length){
-        if(left[i] < rigt[j]) result.push(left[i++]);
-        else result.push(rigt[j++]);
+// function merge(left,rigt){
+//     let result = [] , i = 0 , j = 0;
+//     while(i < left.length && j < rigt.length){
+//         if(left[i] < rigt[j]) result.push(left[i++]);
+//         else result.push(rigt[j++]);
+//     }
+//     return [...result , ...left.slice(i) , ...rigt.slice(j)];
+// }
+// let arr = [ 3,5,8,4];
+// console.log("Merge Sort:",mergeSort(arr));
+
+// quickSort
+function quickSort(arr){
+    if(arr.length <= 1) return arr;
+
+    let pivot = arr[arr.length - 1];
+    let left = [] , right = [];
+
+    for(let i =0; i<arr.length - 1; i++){
+        if(arr[i] < pivot) left.push(arr[i]);
+        else right.push(arr[i]);
     }
-    return [...result , ...left.slice(i) , ...rigt.slice(j)];
-}
-let arr = [ 3,5,8,4];
-console.log("Merge Sort:",mergeSort(arr));
+    return [...quickSort(left) , pivot , ...quickSort(right)];
+};
+let arr = [3,5,8,4];
+console.log("Quick Sort:",quickSort(arr));
