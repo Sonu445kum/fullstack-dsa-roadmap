@@ -58,9 +58,40 @@
 // const newFunc = person1.greet.bind(person1);
 // newFunc();
 
-"use strict";
-function greet() {
-  console.log(this);
-}
+// "use strict";
+// function greet() {
+//   console.log(this);
+// }
 
-greet.call(null); // null
+// greet.call(null); // null
+
+// "use strict";
+// function greet() {
+//   console.log(this);
+// }
+
+// greet.call(undefined); // return global object
+
+// "use strict";
+// function greet() {
+//   console.log(this);
+// }
+
+// greet.call(23); // undefined
+
+// function multiply(a, b) {
+//   return a * b;
+// }
+
+// const double = multiply.bind(null, 2); // null set this
+// const double= function(b){
+//     return multiply(2 , b);
+// }
+
+// console.log(double(5)); // 10
+
+// bind(null, 2)
+// bind({}, 2)
+// bind(undefined, 2)
+
+//  All behave the same here

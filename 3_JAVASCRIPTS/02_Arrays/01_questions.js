@@ -1776,25 +1776,55 @@
 // Output: "equilateral"
 // Explanation: Since all the sides are of equal length, therefore, it will form an equilateral triangle.
 
-var triangleType = function(nums) {
-     let [a, b, c] = nums;
+// var triangleType = function(nums) {
+//      let [a, b, c] = nums;
 
-    if (
-        (a + b <= c) ||
-        (a + c <= b) ||
-        (b + c <= a)
-    ) {
-        return "none";
-    }
-    if (a === b && b === c) {
-        return "equilateral";
-    }
+//     if (
+//         (a + b <= c) ||
+//         (a + c <= b) ||
+//         (b + c <= a)
+//     ) {
+//         return "none";
+//     }
+//     if (a === b && b === c) {
+//         return "equilateral";
+//     }
 
-    if (a === b || a === c || b === c) {
-        return "isosceles";
-    }
+//     if (a === b || a === c || b === c) {
+//         return "isosceles";
+//     }
 
-    return "scalene";
+//     return "scalene";
+// };
+// let nums = [3,3,3];
+// console.log("TriangleType:",triangleType(nums));
+
+// There is an integer array nums sorted in ascending order (with distinct values).
+
+// Prior to being passed to your function, nums is possibly left rotated at an unknown index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be left rotated by 3 indices and become [4,5,6,7,0,1,2].
+
+// Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+
+// You must write an algorithm with O(log n) runtime complexity.
+
+ 
+
+// Example 1:
+
+// Input: nums = [4,5,6,7,0,1,2], target = 0
+// Output: 4
+// Example 2:
+
+// Input: nums = [4,5,6,7,0,1,2], target = 3
+// Output: -1
+
+var search = function(nums, target) {
+    for(let i =0; i<nums.length; i++){
+        if(nums[i] === target){
+            return i;
+        }
+    }
+    return -1;
 };
-let nums = [3,3,3];
-console.log("TriangleType:",triangleType(nums));
+let nums = [4,5,6,7,0,1,2], target = 0;
+console.log("Search Element At Index:",search(nums , target)); 
