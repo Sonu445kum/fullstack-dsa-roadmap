@@ -8,9 +8,33 @@
 // user.greet(); // sonu
 
 // with call
-function greet(){
-    console.log("Hello",this.name);
+// function greet(){
+//     console.log("Hello",this.name);
+// }
+// // create an object
+// const user = {name :"monu"};
+// greet.call(user); // Hello monu
+
+// with argurment and use call() methods
+// function greet(age,city){
+//     console.log("Hello",this.name ,age , city);
+// }
+// const user = {name:"Rahul"};
+// // now using call()
+// greet.call(user , 22 , "Delhi");
+
+// with apply methods
+// function applyFunc(){
+//     console.log("Hello",this.name , this.address);
+// }
+
+// const user = {name :"jai Shree Ram" , address :"Gurugaon"};
+// // now using apply methods
+// applyFunc.apply(user);
+
+// with Apply methods and aerguments
+function message(age,city,code){
+    console.log("Hello :",this.name , age , city ,code);
 }
-// create an object
-const user = {name :"monu"};
-greet.call(user); // Hello monu
+const person = {name:"raju"};
+message.apply(person,  [25, "Delhi","12002"]);
