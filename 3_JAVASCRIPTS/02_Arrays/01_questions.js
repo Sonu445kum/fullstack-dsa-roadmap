@@ -1848,13 +1848,59 @@
 // Input: nums = [2,5,6,0,0,1,2], target = 3
 // Output: false
 
-var search = function(nums, target) {
-    for(let i =0; i<nums.length; i++){
-        if(nums [i] === target){
-            return true;
-        }
+// var search = function(nums, target) {
+//     for(let i =0; i<nums.length; i++){
+//         if(nums [i] === target){
+//             return true;
+//         }
+//     }
+//     return false;
+// };
+// let nums = [2,5,6,0,0,1,2], target = 0;
+// console.log("Is Target present or not:",search(nums,target));
+
+// var longestConsecutive = function(nums) {
+//    let count = 0;
+//     // sort the nums for remove duplicate array   
+//    nums.sort((a,b)=> a-b);
+//     // using set for remove duplicate
+//     let set = new Set(nums);
+//     console.log("Set:",set);
+//     let newArr = [...set];
+//     console.log("newArr:",newArr);
+//     for(let i = 0; i<newArr.length; i++){
+//         if(newArr[i+1] === newArr[i] + 1){
+//             count++;
+//         }
+//     } 
+//     return count;
+// };
+// let nums = [1,0,1,2];
+// console.log(longestConsecutive(nums));
+
+// You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element which appears exactly once.
+
+// Return the single element that appears only once.
+
+// Your solution must run in O(log n) time and O(1) space.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,1,2,3,3,4,4,8,8]
+// Output: 2
+// Example 2:
+
+// Input: nums = [3,3,7,7,10,11,11]
+// Output: 10
+
+var singleNonDuplicate = function(nums) {
+    let ans =0;
+    for(let num of nums){
+        ans ^= num;
     }
-    return false;
+    return ans;
 };
-let nums = [2,5,6,0,0,1,2], target = 0;
-console.log("Is Target present or not:",search(nums,target));
+let nums = [1,1,2,3,3,4,4,8,8];
+console.log("Single Number:",singleNonDuplicate(nums));
