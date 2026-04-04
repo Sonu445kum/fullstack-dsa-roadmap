@@ -39,12 +39,28 @@
 // const person = {name:"raju"};
 // message.apply(person,  [25, "Delhi","12002"]);
 
-const person1 = {
-    name :"Sonu",
-    greet :function(){
-        console.log("Hello" , this.name);
-    }
+// const person1 = {
+//     name :"Sonu",
+//     greet :function(){
+//         console.log("Hello" , this.name);
+//     }
+// }
+// const person2 = {name:"Rahul"};
+// const newFunc = person1.greet.bind(person2);
+// newFunc();
+
+// const person1 = {
+//     name :"Sonu",
+//     greet :function(){
+//         console.log("Hello" , this.name);
+//     }
+// }
+// const newFunc = person1.greet.bind(person1);
+// newFunc();
+
+"use strict";
+function greet() {
+  console.log(this);
 }
-const person2 = {name:"Rahul"};
-const newFunc = person1.greet.bind(person2);
-newFunc();
+
+greet.call(null); // null
