@@ -271,13 +271,23 @@
 // .then(res => res.json())
 // .then(data => console.log(data));
 
-const getData =  async ()=>{
-   try {
-    await fetch("https://jsonplaceholder.typicode.com/posts/1")
-        .then((res)=>res.json())
-        .then((data)=>console.log(data))
-   } catch (error) {
-        console.log(error)
-   }
+// const getData =  async ()=>{
+//    try {
+//     await fetch("https://jsonplaceholder.typicode.com/posts/1")
+//         .then((res)=>res.json())
+//         .then((data)=>console.log(data))
+//    } catch (error) {
+//         console.log(error)
+//    }
+// }
+// getData();
+
+function getData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Data received");
+    }, 2000);
+  });
 }
-getData();
+
+getData().then((res) => console.log(res));
