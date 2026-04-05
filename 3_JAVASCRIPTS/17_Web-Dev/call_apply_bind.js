@@ -145,3 +145,14 @@
 // const arr = [1, 5, 3];
 
 // console.log(Math.max.apply(null, arr));
+
+const person1 = {
+  name: "Sonu",
+  greet: function () {
+    console.log(this.name);
+  }
+};
+
+const person2 = { name: "Rahul" };
+
+person1.greet.call(person2);
