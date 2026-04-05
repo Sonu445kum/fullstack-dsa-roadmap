@@ -95,3 +95,12 @@
 // bind(undefined, 2)
 
 //  All behave the same here
+
+function Person(name) {
+  this.name = name;
+}
+
+const Bound = Person.bind({});
+const p = new Bound("Sonu");
+
+console.log(p.name);
