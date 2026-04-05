@@ -124,12 +124,21 @@
 
 // wrapper.call({ name: "Sonu" });
 
-function greet() {
-  console.log(this.name);
-}
+// function greet() {
+//   console.log(this.name);
+// }
 
-const user1 = { name: "Sonu" };
-const user2 = { name: "Rahul" };
+// const user1 = { name: "Sonu" };
+// const user2 = { name: "Rahul" };
 
-const fn = greet.bind(user1).bind(user2);
-fn();
+// const fn = greet.bind(user1).bind(user2);
+// fn();
+
+// function multiply(a, b) {
+//   return a * b;
+// }
+
+// const double = multiply.bind(null, 2);
+
+// console.log(double(4));
+
