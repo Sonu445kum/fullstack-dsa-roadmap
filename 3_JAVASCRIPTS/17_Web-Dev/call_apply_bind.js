@@ -114,12 +114,22 @@
 
 // setTimeout(user.greet.bind(user), 1000);
 
+// function greet() {
+//   console.log(this.name);
+// }
+
+// function wrapper() {
+//   greet();
+// }
+
+// wrapper.call({ name: "Sonu" });
+
 function greet() {
   console.log(this.name);
 }
 
-function wrapper() {
-  greet();
-}
+const user1 = { name: "Sonu" };
+const user2 = { name: "Rahul" };
 
-wrapper.call({ name: "Sonu" });
+const fn = greet.bind(user1).bind(user2);
+fn();
