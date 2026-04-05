@@ -105,11 +105,21 @@
 
 // console.log(p.name);
 
-const user = {
-  name: "Sonu",
-  greet: function () {
-    console.log(this.name);
-  }
-};
+// const user = {
+//   name: "Sonu",
+//   greet: function () {
+//     console.log(this.name);
+//   }
+// };
 
-setTimeout(user.greet.bind(user), 1000);
+// setTimeout(user.greet.bind(user), 1000);
+
+function greet() {
+  console.log(this.name);
+}
+
+function wrapper() {
+  greet();
+}
+
+wrapper.call({ name: "Sonu" });
