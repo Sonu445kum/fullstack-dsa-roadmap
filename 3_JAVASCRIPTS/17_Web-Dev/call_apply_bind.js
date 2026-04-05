@@ -142,3 +142,6 @@
 
 // console.log(double(4));
 
+// const arr = [1, 5, 3];
+
+// console.log(Math.max.apply(null, arr));
