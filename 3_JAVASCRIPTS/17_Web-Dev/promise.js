@@ -304,12 +304,28 @@
 //   .then((res) => console.log(res))
 //   .catch((err) => console.log(err));
 
-function delay(ms) {
+// function delay(ms) {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve("Done waiting");
+//     }, ms);
+//   });
+// }
+
+// delay(1000).then((res) => console.log(res));
+
+function getData() {
   return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("Done waiting");
-    }, ms);
+    setTimeout(() => resolve("Async Data"), 2000);
   });
 }
 
-delay(1000).then((res) => console.log(res));
+async function fetchData() {
+  console.log("Fetching...");
+
+  let result = await getData();
+
+  console.log(result);
+}
+
+fetchData();
