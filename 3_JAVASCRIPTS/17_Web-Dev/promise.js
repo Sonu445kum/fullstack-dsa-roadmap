@@ -314,18 +314,49 @@
 
 // delay(1000).then((res) => console.log(res));
 
-function getData() {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve("Async Data"), 2000);
+// function getData() {
+//   return new Promise((resolve) => {
+//     setTimeout(() => resolve("Async Data"), 2000);
+//   });
+// }
+
+// async function fetchData() {
+//   console.log("Fetching...");
+
+//   let result = await getData();
+
+//   console.log(result);
+// }
+
+// fetchData();
+
+function login() {
+  return new Promise((res) => {
+    setTimeout(() => res("User logged in"), 1000);
   });
 }
 
-async function fetchData() {
-  console.log("Fetching...");
-
-  let result = await getData();
-
-  console.log(result);
+function getUser() {
+  return new Promise((res) => {
+    setTimeout(() => res("User data"), 1000);
+  });
 }
 
-fetchData();
+function getOrders() {
+  return new Promise((res) => {
+    setTimeout(() => res("Orders data"), 1000);
+  });
+}
+
+async function app() {
+  let loginRes = await login();
+  console.log(loginRes);
+
+  let user = await getUser();
+  console.log(user);
+
+  let orders = await getOrders();
+  console.log(orders);
+}
+
+app();
