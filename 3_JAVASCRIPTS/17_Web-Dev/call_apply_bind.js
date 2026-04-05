@@ -96,11 +96,20 @@
 
 //  All behave the same here
 
-function Person(name) {
-  this.name = name;
-}
+// function Person(name) {
+//   this.name = name;
+// }
 
-const Bound = Person.bind({});
-const p = new Bound("Sonu");
+// const Bound = Person.bind({});
+// const p = new Bound("Sonu");
 
-console.log(p.name);
+// console.log(p.name);
+
+const user = {
+  name: "Sonu",
+  greet: function () {
+    console.log(this.name);
+  }
+};
+
+setTimeout(user.greet.bind(user), 1000);
