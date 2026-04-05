@@ -292,14 +292,24 @@
 
 // getData().then((res) => console.log(res));
 
-function getData() {
-  return new Promise((resolve, reject) => {
+// function getData() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       reject("Error occurred");
+//     }, 2000);
+//   });
+// }
+
+// getData()
+//   .then((res) => console.log(res))
+//   .catch((err) => console.log(err));
+
+function delay(ms) {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      reject("Error occurred");
-    }, 2000);
+      resolve("Done waiting");
+    }, ms);
   });
 }
 
-getData()
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+delay(1000).then((res) => console.log(res));
