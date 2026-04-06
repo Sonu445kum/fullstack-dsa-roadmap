@@ -1895,12 +1895,43 @@
 // Input: nums = [3,3,7,7,10,11,11]
 // Output: 10
 
-var singleNonDuplicate = function(nums) {
-    let ans =0;
-    for(let num of nums){
-        ans ^= num;
+// var singleNonDuplicate = function(nums) {
+//     let ans =0;
+//     for(let num of nums){
+//         ans ^= num;
+//     }
+//     return ans;
+// };
+// let nums = [1,1,2,3,3,4,4,8,8];
+// console.log("Single Number:",singleNonDuplicate(nums));
+
+// Given an unsorted array of integers nums, return the length of the longest continuous increasing subsequence (i.e. subarray). The subsequence must be strictly increasing.
+
+// A continuous increasing subsequence is defined by two indices l and r (l < r) such that it is [nums[l], nums[l + 1], ..., nums[r - 1], nums[r]] and for each l <= i < r, nums[i] < nums[i + 1].
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,3,5,4,7]
+// Output: 3
+// Explanation: The longest continuous increasing subsequence is [1,3,5] with length 3.
+// Even though [1,3,5,7] is an increasing subsequence, it is not continuous as elements 5 and 7 are separated by element
+// 4.
+
+function findLengthOfLCIS(nums){
+    if(nums.length === 0) return 0;
+    let max = 1;
+    let count = 1;
+    for(let i = 1; i<nums.length; i++){
+        if(nums[i] > nums[i-1]){
+            count++;
+        }else{
+            count = 1;
+        }
+        max = Math.max(max , count);
     }
-    return ans;
-};
-let nums = [1,1,2,3,3,4,4,8,8];
-console.log("Single Number:",singleNonDuplicate(nums));
+    return max;
+}
+let nums = [1,3,5,4,7];
+console.log("findLengthOfLCIS:",findLengthOfLCIS(nums));
