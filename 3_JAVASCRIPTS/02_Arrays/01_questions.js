@@ -1919,19 +1919,49 @@
 // Even though [1,3,5,7] is an increasing subsequence, it is not continuous as elements 5 and 7 are separated by element
 // 4.
 
-function findLengthOfLCIS(nums){
-    if(nums.length === 0) return 0;
-    let max = 1;
-    let count = 1;
-    for(let i = 1; i<nums.length; i++){
-        if(nums[i] > nums[i-1]){
-            count++;
-        }else{
-            count = 1;
+// function findLengthOfLCIS(nums){
+//     if(nums.length === 0) return 0;
+//     let max = 1;
+//     let count = 1;
+//     for(let i = 1; i<nums.length; i++){
+//         if(nums[i] > nums[i-1]){
+//             count++;
+//         }else{
+//             count = 1;
+//         }
+//         max = Math.max(max , count);
+//     }
+//     return max;
+// }
+// let nums = [1,3,5,4,7];
+// console.log("findLengthOfLCIS:",findLengthOfLCIS(nums));
+
+// You are given an integer mountain array arr of length n where the values increase to a peak element and then decrease.
+
+// Return the index of the peak element.
+
+// Your task is to solve it in O(log(n)) time complexity.
+
+ 
+
+// Example 1:
+
+// Input: arr = [0,1,0]
+
+// Output: 1
+
+// Example 2:
+
+// Input: arr = [0,2,1,0]
+
+// Output: 1
+
+var peakIndexInMountainArray = function(arr) {
+    for(let i=1; i<arr.length; i++){
+        if(arr[i] > arr[i-1] && arr[i] >arr[i+1]){
+            return i;
         }
-        max = Math.max(max , count);
     }
-    return max;
-}
-let nums = [1,3,5,4,7];
-console.log("findLengthOfLCIS:",findLengthOfLCIS(nums));
+};
+let arr = [0,2,1,0];
+console.log("peakIndexInMountainArray:",peakIndexInMountainArray(arr));
