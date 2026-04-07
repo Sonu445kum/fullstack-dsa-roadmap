@@ -2059,9 +2059,17 @@
 // const arr = [1, [4, 3], [6, [5]]];
 // console.log("falttenArray:",flattenArray(arr));
 
-const arr = [1, [4, 3], [6, [5]]];
-const flatten = (arr) =>
-  arr.reduce((acc, item) => {
-    return acc.concat(Array.isArray(item) ? flatten(item) : item);
-  }, []);
-  console.log("Flatten:",flatten(arr));
+// const arr = [1, [4, 3], [6, [5]]];
+// const flatten = (arr) =>
+//   arr.reduce((acc, item) => {
+//     return acc.concat(Array.isArray(item) ? flatten(item) : item);
+//   }, []);
+//   console.log("Flatten:",flatten(arr));
+
+// Flatten array and return sorted unique values
+const arr = [1, [2, 2], [3, [1]]];
+
+const result = [...new Set(arr.flat(Infinity))]
+  .sort((a, b) => a - b);
+
+console.log(result); // [1,2,3]
