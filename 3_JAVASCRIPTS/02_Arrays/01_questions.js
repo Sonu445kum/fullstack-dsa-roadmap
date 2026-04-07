@@ -2017,20 +2017,28 @@
 // Input: nums = [2,3]
 // Output: [2,3]
 
-var sortArrayByParityII = function(nums) {
-    let arr = new Array(nums.length);
-    let even = 0;
-    let odd = 1;
-    for(let num of nums){
-        if(num % 2 === 0){
-            arr[even] =  num;
-            even += 2;
-        }else{
-            arr[odd] = num;
-            odd += 2;
-        }
-    }
-    return arr;
-};
-let nums = [4,2,5,7];
-console.log("sortArrayByParityII:",sortArrayByParityII(nums));
+// var sortArrayByParityII = function(nums) {
+//     let arr = new Array(nums.length);
+//     let even = 0;
+//     let odd = 1;
+//     for(let num of nums){
+//         if(num % 2 === 0){
+//             arr[even] =  num;
+//             even += 2;
+//         }else{
+//             arr[odd] = num;
+//             odd += 2;
+//         }
+//     }
+//     return arr;
+// };
+// let nums = [4,2,5,7];
+// console.log("sortArrayByParityII:",sortArrayByParityII(nums))
+// 
+
+// Best Ways to Flatten an Array
+const arr = [1, [4, 3], [6, [5]]];
+
+const result = arr.flat(Infinity);
+result.sort((a,b)=>a-b);
+console.log(result); // [1,2,3,4,5]
