@@ -2043,18 +2043,25 @@
 // result.sort((a,b)=>a-b);
 // console.log(result); // [1,2,3,4,5]
 
-function flattenArray(arr) {
-  let result = [];
+// function flattenArray(arr) {
+//   let result = [];
 
-  for (let item of arr) {
-    if (Array.isArray(item)) {
-      result = result.concat(flattenArray(item));
-    } else {
-      result.push(item);
-    }
-  }
+//   for (let item of arr) {
+//     if (Array.isArray(item)) {
+//       result = result.concat(flattenArray(item));
+//     } else {
+//       result.push(item);
+//     }
+//   }
 
-  return result;
-}
+//   return result;
+// }
+// const arr = [1, [4, 3], [6, [5]]];
+// console.log("falttenArray:",flattenArray(arr));
+
 const arr = [1, [4, 3], [6, [5]]];
-console.log("falttenArray:",flattenArray(arr));
+const flatten = (arr) =>
+  arr.reduce((acc, item) => {
+    return acc.concat(Array.isArray(item) ? flatten(item) : item);
+  }, []);
+  console.log("Flatten:",flatten(arr));
