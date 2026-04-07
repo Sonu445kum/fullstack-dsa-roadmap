@@ -2037,8 +2037,24 @@
 // 
 
 // Best Ways to Flatten an Array
-const arr = [1, [4, 3], [6, [5]]];
+// const arr = [1, [4, 3], [6, [5]]];
 
-const result = arr.flat(Infinity);
-result.sort((a,b)=>a-b);
-console.log(result); // [1,2,3,4,5]
+// const result = arr.flat(Infinity);  // Use Infinity for deep nesting
+// result.sort((a,b)=>a-b);
+// console.log(result); // [1,2,3,4,5]
+
+function flattenArray(arr) {
+  let result = [];
+
+  for (let item of arr) {
+    if (Array.isArray(item)) {
+      result = result.concat(flattenArray(item));
+    } else {
+      result.push(item);
+    }
+  }
+
+  return result;
+}
+const arr = [1, [4, 3], [6, [5]]];
+console.log("falttenArray:",flattenArray(arr));
