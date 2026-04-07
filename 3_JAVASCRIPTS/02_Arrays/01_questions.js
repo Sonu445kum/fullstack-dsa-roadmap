@@ -2067,9 +2067,14 @@
 //   console.log("Flatten:",flatten(arr));
 
 // Flatten array and return sorted unique values
-const arr = [1, [2, 2], [3, [1]]];
+// const arr = [1, [2, 2], [3, [1]]];
 
-const result = [...new Set(arr.flat(Infinity))]
-  .sort((a, b) => a - b);
+// const result = [...new Set(arr.flat(Infinity))]
+//   .sort((a, b) => a - b);
 
-console.log(result); // [1,2,3]
+// console.log(result); // [1,2,3]
+
+// Flatten and Return Even Numbers Sorted
+// const arr = [1, [2, 3], [4, [5, 6]]];
+// const res = arr.flat(Infinity).filter((num)=>num % 2 === 0);
+// console.log("Even Number:",res);
