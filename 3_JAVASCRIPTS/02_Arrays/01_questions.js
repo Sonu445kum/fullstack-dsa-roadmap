@@ -2078,3 +2078,14 @@
 // const arr = [1, [2, 3], [4, [5, 6]]];
 // const res = arr.flat(Infinity).filter((num)=>num % 2 === 0);
 // console.log("Even Number:",res);
+
+// Flatten and Find Kth Smallest Element
+
+// function kthSmallest(arr,k){
+//     const res = arr.flat(Infinity).sort((a,b)=>a-b);
+//     return res[k-1];
+
+
+// }
+// const arr = [1, [2, 3], [4, [5, 6]]] , k=3;
+// console.log("Kth Smallest Number:",kthSmallest(arr,k));
