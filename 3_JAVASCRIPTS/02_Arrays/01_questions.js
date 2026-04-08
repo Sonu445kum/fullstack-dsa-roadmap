@@ -2237,16 +2237,35 @@
 // (time[1] = 20, time[3] = 100): total duration 120
 // (time[1] = 20, time[4] = 40): total duration 60
 
-var numPairsDivisibleBy60 = function(time) {
-    let map = new Array(60).fill(0);
+// var numPairsDivisibleBy60 = function(time) {
+//     let map = new Array(60).fill(0);
+//     let count = 0;
+//     for(let t of time){
+//         let rem = t%60;
+//         let comp = (60 - rem) % 60;
+//         count += map[comp];
+//         map[rem]++;
+//     }
+//     return count;
+// };
+// let time = [30,20,150,100,40];
+// console.log("numPairsDivisibleBy60:",numPairsDivisibleBy60(time));
+
+var findPairs = function(nums, k) {
+    if(k < 0) return 0;
+    let map  = new Map();
     let count = 0;
-    for(let t of time){
-        let rem = t%60;
-        let comp = (60 - rem) % 60;
-        count += map[comp];
-        map[rem]++;
+    for(let num of nums){
+        map.set(num ,(map.get(num) || 0) + 1);
+    }
+    for(let [num , freq] of map){
+        if(k === 0){
+            if(freq > 1) count++;
+        }else{
+            if(map.has(num + k)) count++;
+        }
     }
     return count;
 };
-let time = [30,20,150,100,40];
-console.log("numPairsDivisibleBy60:",numPairsDivisibleBy60(time));
+let nums = [3,1,4,1,5], k = 2;
+console.log("findPairs:",findPairs(nums,k));
