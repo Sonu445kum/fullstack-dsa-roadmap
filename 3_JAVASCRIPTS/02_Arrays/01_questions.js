@@ -2178,16 +2178,46 @@
 // Output: 5
 // Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6
 
-var findPeakElement = function(nums) {
-    let max = -Infinity;
-    let indexMax = -Infinity;
-    for(let i =0;i<nums.length; i++){
-        if(nums[i] > max && i > indexMax){
-            max = nums[i];
-            indexMax = i;
+// var findPeakElement = function(nums) {
+//     let max = -Infinity;
+//     let indexMax = -Infinity;
+//     for(let i =0;i<nums.length; i++){
+//         if(nums[i] > max && i > indexMax){
+//             max = nums[i];
+//             indexMax = i;
+//         }
+//     }
+//     return indexMax;
+// };
+// let nums = [1,2,1,3,5,6,4];
+// console.log("FindPeakElement:",findPeakElement(nums));
+
+// Given an integer array nums, return an integer array counts where counts[i] is the number of smaller elements to the right of nums[i].
+
+ 
+
+// Example 1:
+
+// Input: nums = [5,2,6,1]
+// Output: [2,1,1,0]
+// Explanation:
+// To the right of 5 there are 2 smaller elements (2 and 1).
+// To the right of 2 there is only 1 smaller element (1).
+// To the right of 6 there is 1 smaller element (1).
+// To the right of 1 there is 0 smaller element.
+
+var countSmaller = function(nums) {
+    let ans = [];
+    for(let i =0; i<nums.length; i++){
+        let count =0;
+        for(let j = i+1; j<nums.length; j++){
+            if(nums[i] > nums[j]){
+                count++;
+            }
         }
+        ans.push(count);
     }
-    return indexMax;
+    return ans;
 };
-let nums = [1,2,1,3,5,6,4];
-console.log("FindPeakElement:",findPeakElement(nums));
+let nums = [5,2,6,1];
+console.log("countSmaller:",countSmaller(nums));
