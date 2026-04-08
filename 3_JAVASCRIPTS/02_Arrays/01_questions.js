@@ -2206,18 +2206,47 @@
 // To the right of 6 there is 1 smaller element (1).
 // To the right of 1 there is 0 smaller element.
 
-var countSmaller = function(nums) {
-    let ans = [];
-    for(let i =0; i<nums.length; i++){
-        let count =0;
-        for(let j = i+1; j<nums.length; j++){
-            if(nums[i] > nums[j]){
-                count++;
-            }
-        }
-        ans.push(count);
+// var countSmaller = function(nums) {
+//     let ans = [];
+//     for(let i =0; i<nums.length; i++){
+//         let count =0;
+//         for(let j = i+1; j<nums.length; j++){
+//             if(nums[i] > nums[j]){
+//                 count++;
+//             }
+//         }
+//         ans.push(count);
+//     }
+//     return ans;
+// };
+// let nums = [5,2,6,1];
+// console.log("countSmaller:",countSmaller(nums));
+
+// You are given a list of songs where the ith song has a duration of time[i] seconds.
+
+// Return the number of pairs of songs for which their total duration in seconds is divisible by 60. Formally, we want the number of indices i, j such that i < j with (time[i] + time[j]) % 60 == 0.
+
+ 
+
+// Example 1:
+
+// Input: time = [30,20,150,100,40]
+// Output: 3
+// Explanation: Three pairs have a total duration divisible by 60:
+// (time[0] = 30, time[2] = 150): total duration 180
+// (time[1] = 20, time[3] = 100): total duration 120
+// (time[1] = 20, time[4] = 40): total duration 60
+
+var numPairsDivisibleBy60 = function(time) {
+    let map = new Array(60).fill(0);
+    let count = 0;
+    for(let t of time){
+        let rem = t%60;
+        let comp = (60 - rem) % 60;
+        count += map[comp];
+        map[rem]++;
     }
-    return ans;
+    return count;
 };
-let nums = [5,2,6,1];
-console.log("countSmaller:",countSmaller(nums));
+let time = [30,20,150,100,40];
+console.log("numPairsDivisibleBy60:",numPairsDivisibleBy60(time));
