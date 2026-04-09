@@ -69,16 +69,33 @@
 // Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).
 // Total amount you can rob = 1 + 3 = 4.
 
-var rob = function(nums) {
+// var rob = function(nums) {
+//     let n = nums.length;
+//     if(n === 1) return nums[0];
+//     let dp = new Array(n+1).fill(0);
+//     dp[0] = nums[0];
+//     dp[1] = Math.max(nums[0] , nums[1]);
+//     for(let i=2; i<=n; i++){
+//         dp[i] = Math.max(nums[i]+dp[i-2] ,dp[i-1]);
+//     }
+//     return dp[n-1];
+// };
+// let nums = [1,2,3,1];
+// console.log("Robs:",rob(nums));
+
+function knapsack(nums, target){
     let n = nums.length;
-    if(n === 1) return nums[0];
-    let dp = new Array(n+1).fill(0);
-    dp[0] = nums[0];
-    dp[1] = Math.max(nums[0] , nums[1]);
-    for(let i=2; i<=n; i++){
-        dp[i] = Math.max(nums[i]+dp[i-2] ,dp[i-1]);
+    let dp = new Array(target + 1).fill(false);
+
+    dp[0] = true;
+
+    for(let num of nums){
+        for(let j = target; j >= num; j--){
+            dp[j] = dp[j] || dp[j - num];
+        }
     }
-    return dp[n-1];
+
+    return dp[target];
 };
-let nums = [1,2,3,1];
-console.log("Robs:",rob(nums));
+let nums = [1,2,3,1] ,target=6;
+console.log("Knapsacks:",knapsack(nums , target));
