@@ -83,19 +83,38 @@
 // let nums = [1,2,3,1];
 // console.log("Robs:",rob(nums));
 
-function knapsack(nums, target){
-    let n = nums.length;
-    let dp = new Array(target + 1).fill(false);
+// function knapsack(nums, target){
+//     let n = nums.length;
+//     let dp = new Array(target + 1).fill(false);
 
-    dp[0] = true;
+//     dp[0] = true;
 
-    for(let num of nums){
-        for(let j = target; j >= num; j--){
-            dp[j] = dp[j] || dp[j - num];
-        }
-    }
+//     for(let num of nums){
+//         for(let j = target; j >= num; j--){
+//             dp[j] = dp[j] || dp[j - num];
+//         }
+//     }
 
-    return dp[target];
-};
-let nums = [1,2,3,1] ,target=6;
-console.log("Knapsacks:",knapsack(nums , target));
+//     return dp[target];
+// };
+// let nums = [1,2,3,1] ,target=6;
+// console.log("Knapsacks:",knapsack(nums , target));
+
+// var canPartition = function(nums) {
+//     let sum = nums.reduce((a,b) => a+b, 0);
+//     if(sum % 2 !== 0) return false;
+
+//     let target = sum / 2;
+//     let dp = new Array(target + 1).fill(false);
+//     dp[0] = true;
+
+//     for(let num of nums){
+//         for(let j = target; j >= num; j--){
+//             dp[j] = dp[j] || dp[j - num];
+//         }
+//     }
+
+//     return dp[target];
+// };
+// let nums = [1,2,3,1];
+// console.log("canPartition:",canPartition(nums));
