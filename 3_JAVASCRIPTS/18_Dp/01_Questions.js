@@ -118,3 +118,24 @@
 // };
 // let nums = [1,2,3,1];
 // console.log("canPartition:",canPartition(nums));
+
+var findTargetSumWays = function(nums, target) {
+    let sum = nums.reduce((a,b) => a+b, 0);
+
+    if((sum + target) % 2 !== 0 || sum < Math.abs(target)) return 0;
+
+    let P = (sum + target) / 2;
+
+    let dp = new Array(P + 1).fill(0);
+    dp[0] = 1;
+
+    for(let num of nums){
+        for(let j = P; j >= num; j--){
+            dp[j] += dp[j - num];
+        }
+    }
+
+    return dp[P];
+};
+let nums = [1,2,3,1], target = 4;
+console.log("findTargetSumdays:",findTargetSumWays(nums , target));
