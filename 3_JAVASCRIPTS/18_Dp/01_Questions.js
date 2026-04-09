@@ -1,12 +1,12 @@
 // Find the  fibbonacci number:
-// function fib(n , memo = {}){
-//     if(n in memo) return memo[n];
-//     if(n <= 1) return n;
-//     memo[n] = fib(n-1) + fib(n-2);
-//     return memo[n];
-// }
-// let n=13;
-// console.log
+function fib(n , memo = {}){
+    if(n in memo) return memo[n];
+    if(n <= 1) return n;
+    memo[n] = fib(n-1, memo) + fib(n-2, memo);
+    return memo[n];
+}
+let n=13;
+console.log("Fibbonacci Number:",fib(n));
 
 
 // You are climbing a staircase. It takes n steps to reach the top.
@@ -30,14 +30,15 @@
 // 1. 1 step + 1 step + 1 step
 // 2. 1 step + 2 steps
 // 3. 2 steps + 1 step
-var climbStairs = function(n){
-    let dp  = new Array(n+1).fill(0);
-    dp[0] = 1;
-    dp[1] = 1;
-    for(let i=2; i<=n; i++){
-        dp[i] = dp[i-1] + dp[i-2];
-    };
-    return dp[n];
-};
-let n = 3;
-console.log("Total Ways to CLimbs Stairs:",climbStairs(n));
+
+// var climbStairs = function(n){
+//     let dp  = new Array(n+1).fill(0);
+//     dp[0] = 1;
+//     dp[1] = 1;
+//     for(let i=2; i<=n; i++){
+//         dp[i] = dp[i-1] + dp[i-2];
+//     };
+//     return dp[n];
+// };
+// let n = 3;
+// console.log("Total Ways to CLimbs Stairs:",climbStairs(n));
