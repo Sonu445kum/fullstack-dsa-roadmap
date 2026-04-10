@@ -80,3 +80,41 @@
 
 // const res = customMap([1,2,3],num=>num*2);
 // console.log("Res:",res);
+
+
+// Higher Order Functions (HOF)
+// 👉 Definition
+
+// A Higher Order Function is a function that:
+
+// Takes another function as input
+// OR returns a function
+
+// function operations(a,b,operate){
+//     return operate(a,b);
+// }
+// function operate(a,b){
+//     return a+b;
+// };
+// console.log(operations(2,3,operate))
+
+// function multiply(factor){
+//     return function(num){
+//         return num * factor;
+//     }
+// }
+// const double = multiply(2);
+// console.log("Result:",double(5));
+
+const arr = [1,2,3,4,5];
+// map;->HOc
+// const res = arr.map((num)=>num*2);
+// console.log("Result:",res);
+
+// filter ->HOC
+// const even = arr.filter((num)=>num%2 === 0);
+// console.log("Even:",even);
+
+// forEach ->Hoc
+// const odd = arr.filter((num)=>num%2 !==0);
+// console.log("Odd:",odd);
