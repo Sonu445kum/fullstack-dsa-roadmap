@@ -56,18 +56,49 @@
 
 // Return an m x n 2D array constructed according to the above procedure, or an empty 2D array if it is impossible.
 
-var construct2DArray = function(original, m, n) {
-    let twoDArr = [];
-    // base case
-    if(original.length !== m*n) return twoDArr;
-    let index =0;
-    for(let i =0; i< m; i++){
-        twoDArr[i] = [];
-        for(let j=0; j<n; j++){
-            twoDArr[i][j] = original[index++];
+// var construct2DArray = function(original, m, n) {
+//     let twoDArr = [];
+//     // base case
+//     if(original.length !== m*n) return twoDArr;
+//     let index =0;
+//     for(let i =0; i< m; i++){
+//         twoDArr[i] = [];
+//         for(let j=0; j<n; j++){
+//             twoDArr[i][j] = original[index++];
+//         }
+//     }
+//     return twoDArr;
+// };
+// let original = [1,2,3,4], m = 2, n = 2;
+// console.log("construct2DArray:",construct2DArray(original , m ,n));
+
+var numSpecial = function(mat) {
+    let m = mat.length;
+    let n = mat[0].length;
+    let rowCount = new Array(m).fill(0);
+    let colCount = new Array(n).fill(0);
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (mat[i][j] === 1) {
+                rowCount[i]++;
+                colCount[j]++;
+            }
         }
     }
-    return twoDArr;
+    let count = 0;
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (
+                mat[i][j] === 1 &&
+                rowCount[i] === 1 &&
+                colCount[j] === 1
+            ) {
+                count++;
+            }
+        }
+    }
+
+    return count;
 };
-let original = [1,2,3,4], m = 2, n = 2;
-console.log("construct2DArray:",construct2DArray(original , m ,n));
+let mat = [[1,0,0],[0,0,1],[1,0,0]];
+console.log("numSpecial:",numSpecial(mat));
