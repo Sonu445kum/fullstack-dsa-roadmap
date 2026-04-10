@@ -106,7 +106,7 @@
 // const double = multiply(2);
 // console.log("Result:",double(5));
 
-const arr = [1,2,3,4,5];
+// const arr = [1,2,3,4,5];
 // map;->HOc
 // const res = arr.map((num)=>num*2);
 // console.log("Result:",res);
@@ -118,3 +118,52 @@ const arr = [1,2,3,4,5];
 // forEach ->Hoc
 // const odd = arr.filter((num)=>num%2 !==0);
 // console.log("Odd:",odd);
+
+// This is one of the MOST ASKED topics in interviews.
+// 👉 Definition
+// A closure is when a function remembers variables from its outer scope even after the outer function has finished executing.
+
+// function outer(){
+//     let count =0;
+//     function inner(){
+//         count++;
+//         console.log("Count:",count);
+//     }
+//     return inner;
+// }
+// const counter = outer();
+// counter(); // 1
+// counter(); // 2
+// counter(); // 3
+
+// function bankAccount() {
+//   let balance = 1000;
+
+//   return {
+//     deposit: function(amount) {
+//       balance += amount;
+//       console.log(balance);
+//     },
+//     getBalance: function() {
+//       return balance;
+//     }
+//   };
+// }
+
+// const account = bankAccount();
+
+// account.deposit(500); // 1500
+// console.log(account.getBalance()); // 1500
+
+// Definition:
+// Currying is transforming a function with multiple arguments into a sequence of functions, each taking one argument.
+
+function add(a) {
+  return function(b) {
+    return function(c) {
+      return a + b + c;
+    };
+  };
+}
+
+console.log(add(1)(2)(3)); // 6
