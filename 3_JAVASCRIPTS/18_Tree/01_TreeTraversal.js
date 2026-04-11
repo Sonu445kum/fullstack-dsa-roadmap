@@ -64,17 +64,24 @@
 // Output: [1,3,2]
 
 // Explanation:
-var inorderTraversal = function(root){
-    let result = [];
-    function dfs(node){
-        // base case
-        if(!node) return;
-        dfs(node.left);
-        result.push(node.val);
-        dfs(node.right);
-    }
-    dfs(root);
-    return result;
-}
-let root = [1,null,2,3];
-console.log("inorderTraversal:",inorderTraversal(root));
+// var inorderTraversal = function(root){
+//     let result = [];
+//     function dfs(node){
+//         // base case
+//         if(!node) return;
+//         dfs(node.left);
+//         result.push(node.val);
+//         dfs(node.right);
+//     }
+//     dfs(root);
+//     return result;
+// }
+// let root = [1,null,2,3];
+// console.log("inorderTraversal:",inorderTraversal(root));
+
+// var isSameTree = function(p, q) {
+//     if (!p && !q) return true;
+//     if (!p || !q) return false;
+//     if (p.val !== q.val) return false;
+//     return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+// };
