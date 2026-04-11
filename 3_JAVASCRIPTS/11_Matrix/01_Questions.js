@@ -72,33 +72,49 @@
 // let original = [1,2,3,4], m = 2, n = 2;
 // console.log("construct2DArray:",construct2DArray(original , m ,n));
 
-var numSpecial = function(mat) {
-    let m = mat.length;
-    let n = mat[0].length;
-    let rowCount = new Array(m).fill(0);
-    let colCount = new Array(n).fill(0);
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (mat[i][j] === 1) {
-                rowCount[i]++;
-                colCount[j]++;
-            }
-        }
-    }
-    let count = 0;
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (
-                mat[i][j] === 1 &&
-                rowCount[i] === 1 &&
-                colCount[j] === 1
-            ) {
-                count++;
-            }
-        }
-    }
+// var numSpecial = function(mat) {
+//     let m = mat.length;
+//     let n = mat[0].length;
+//     let rowCount = new Array(m).fill(0);
+//     let colCount = new Array(n).fill(0);
+//     for (let i = 0; i < m; i++) {
+//         for (let j = 0; j < n; j++) {
+//             if (mat[i][j] === 1) {
+//                 rowCount[i]++;
+//                 colCount[j]++;
+//             }
+//         }
+//     }
+//     let count = 0;
+//     for (let i = 0; i < m; i++) {
+//         for (let j = 0; j < n; j++) {
+//             if (
+//                 mat[i][j] === 1 &&
+//                 rowCount[i] === 1 &&
+//                 colCount[j] === 1
+//             ) {
+//                 count++;
+//             }
+//         }
+//     }
 
-    return count;
+//     return count;
+// };
+// let mat = [[1,0,0],[0,0,1],[1,0,0]];
+// console.log("numSpecial:",numSpecial(mat));
+
+var exist = function(board, word) {
+    let ans = "";
+    let newArray = board.flat(Infinity);
+    console.log("NewArray:",newArray);
+    for(let i =0; i<newArray.length; i++ ){
+        ans += newArray;
+    }
+    console.log("Ans:",ans);
+    if(ans.includes(word)){
+        return true;
+    }
+    return false;
 };
-let mat = [[1,0,0],[0,0,1],[1,0,0]];
-console.log("numSpecial:",numSpecial(mat));
+let board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED";
+console.log("Word Exists:",exist(board , word));
