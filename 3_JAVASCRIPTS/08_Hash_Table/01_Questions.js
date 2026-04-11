@@ -242,22 +242,58 @@
 // let s = "tree";
 // console.log("SortCharacter By Frequency:",frequencySort(s));
 
-var smallerNumbersThanCurrent = function(nums) {
-    let count =0;
-    let arr =[];
-    for(let i=0; i<nums.length; i++){
-        for(let j=i+1; j<nums.length; j++){
-            if(nums[j] < nums[i]){
-                count++; 
-            } 
-        }
-        arr.push(count);
+// var smallerNumbersThanCurrent = function(nums) {
+//     let count =0;
+//     let arr =[];
+//     for(let i=0; i<nums.length; i++){
+//         for(let j=i+1; j<nums.length; j++){
+//             if(nums[j] < nums[i]){
+//                 count++; 
+//             } 
+//         }
+//         arr.push(count);
           
+//     }
+//     console.log("Arr:",arr);
+//     return arr;
+// };
+// let nums = [8,1,2,2,3];
+// console.log("smallerNumbers:",smallerNumbersThanCurrent(nums));
+
+// A distinct string is a string that is present only once in an array.
+
+// Given an array of strings arr, and an integer k, return the kth distinct string present in arr. If there are fewer than k distinct strings, return an empty string "".
+
+// Note that the strings are considered in the order in which they appear in the array.
+
+ 
+
+// Example 1:
+
+// Input: arr = ["d","b","c","b","c","a"], k = 2
+// Output: "a"
+// Explanation:
+// The only distinct strings in arr are "d" and "a".
+// "d" appears 1st, so it is the 1st distinct string.
+// "a" appears 2nd, so it is the 2nd distinct string.
+// Since k == 2, "a" is returned. 
+
+var kthDistinct = function(arr, k) {
+    let freq = {};
+    for(let char of arr){
+        freq[char] = (freq[char] || 0) + 1;
     }
-    console.log("Arr:",arr);
-    return arr;
+    let ans = [];
+    for(let [key,value] of Object.entries(freq)){
+        if(value === 1){
+            ans.push(key);
+        }
+    }
+    if(ans.length >=k){
+        return ans[k-1];
+    }
+    return "";
+    
 };
-let nums = [8,1,2,2,3];
-console.log("smallerNumbers:",smallerNumbersThanCurrent(nums));
-
-
+let arr = ["d","b","c","b","c","a"], k = 2;
+console.log("KthDistinct:",kthDistinct(arr,k));
