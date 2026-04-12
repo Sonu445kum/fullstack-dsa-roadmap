@@ -1654,8 +1654,6 @@
 
 // You are given two integers n and t. Return the smallest number greater than or equal to n such that the product of its digits is divisible by t.
 
- 
-
 // Example 1:
 
 // Input: n = 10, t = 2
@@ -1703,8 +1701,6 @@
 
 // If no such index exists, return -1.
 
- 
-
 // Example 1:
 
 // Input: nums = [1,3,2]
@@ -1725,8 +1721,6 @@
 // For nums[1] = 10, the sum of digits is 1 + 0 = 1, which is equal to index i = 1.
 // For nums[2] = 11, the sum of digits is 1 + 1 = 2, which is equal to index i = 2.
 // Since index 1 is the smallest, the output is 1.
-
-
 
 // function smallestIndex(nums){
 //     for(let i=0; i<nums.length; i++){
@@ -1750,7 +1744,6 @@
 // Return the chosen digit as an integer.
 
 // The frequency of a digit x is the number of times it appears in the decimal representation of n.
- 
 
 // Example 1:
 
@@ -1772,7 +1765,7 @@
 //     let digit = n%10;
 //     freq[digit] = (freq[digit] || 0) + 1;
 //     n = Math.floor(n/10);
-//    } 
+//    }
 //    let minValue = Infinity;
 //    let result = Infinity;
 //    for(let [key,value] of Object.entries(freq)){
@@ -1790,8 +1783,6 @@
 // console.log("getLeastFrequentDigit:",getLeastFrequentDigit(n));
 
 // Given a non-negative integer c, decide whether there're two integers a and b such that a2 + b2 = c.
-
- 
 
 // Example 1:
 
@@ -1824,8 +1815,6 @@
 // You are given a positive integer n.
 
 // Return the integer obtained by removing all zeros from the decimal representation of n.
-
- 
 
 // Example 1:
 
@@ -1862,8 +1851,6 @@
 
 // Return the minimum total number of moves required so that all elements in nums become equal.
 
- 
-
 // Example 1:
 
 // Input: nums = [2,1,3]
@@ -1891,8 +1878,6 @@
 // console.log("minMoves:",minMoves(nums))
 
 // Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n.
-
- 
 
 // Example 1:
 
@@ -1951,7 +1936,6 @@
 // Recall that the number of set bits an integer has is the number of 1's present when written in binary.
 
 // For example, 21 written in binary is 10101, which has 3 set bits.
- 
 
 // Example 1:
 
@@ -2004,8 +1988,6 @@
 
 // Return the smallest number x greater than or equal to n, such that the binary representation of x contains only set bits
 
- 
-
 // Example 1:
 
 // Input: n = 5
@@ -2023,7 +2005,7 @@
 //         count++;
 //     }
 //     return count;
-    
+
 //     // find the samllest number >= n (where n have only ones setbits);
 
 // };
@@ -2071,8 +2053,6 @@
 
 // A prime number is a natural number greater than 1 with only two factors, 1 and itself.
 
- 
-
 // Example 1:
 
 // Input: nums = [1,2,3,4,5,4]
@@ -2105,7 +2085,7 @@
 
 // first Appraoch
 // function checkPrimeFrequency(nums){
-//     let freq = {}; 
+//     let freq = {};
 //     for(let num of nums){
 //         freq[num] = (freq[num] || 0) + 1;
 //     }
@@ -2138,8 +2118,6 @@
 // Return the absolute difference between the sums of the two arrays: |sum(A) - sum(B)|.
 
 // Note: An empty array has a sum of 0.
-
- 
 
 // Example 1:
 
@@ -2186,8 +2164,6 @@
 
 // abs(x) denotes the absolute value of x.
 
- 
-
 // Example 1:
 
 // Input: n = 25
@@ -2222,8 +2198,6 @@
 // a + b = n
 // The test cases are generated so that there is at least one valid solution. If there are many valid solutions, you can return any of them.
 
- 
-
 // Example 1:
 
 // Input: n = 2
@@ -2252,14 +2226,11 @@
 // let n=11;
 // console.log("GetN0ZeroInteger:",getNoZeroInteger(n));
 
-
 // You are given an array nums that consists of non-negative integers. Let us define rev(x) as the reverse of the non-negative integer x. For example, rev(123) = 321, and rev(120) = 21. A pair of indices (i, j) is nice if it satisfies all of the following conditions:
 
 // 0 <= i < j < nums.length
 // nums[i] + rev(nums[j]) == nums[j] + rev(nums[i])
 // Return the number of nice pairs of indices. Since that number can be too large, return it modulo 109 + 7.
-
- 
 
 // Example 1:
 
@@ -2325,13 +2296,11 @@
 // The XOR total of an array is defined as the bitwise XOR of all its elements, or 0 if the array is empty.
 
 // For example, the XOR total of the array [2,5,6] is 2 XOR 5 XOR 6 = 1.
-// Given an array nums, return the sum of all XOR totals for every subset of nums. 
+// Given an array nums, return the sum of all XOR totals for every subset of nums.
 
 // Note: Subsets with the same elements should be counted multiple times.
 
 // An array a is a subset of an array b if a can be obtained from b by deleting some (possibly zero) elements of b.
-
- 
 
 // Example 1:
 
@@ -2364,8 +2333,6 @@
 // nums2[i] = nums1[i] - nums1[j], for an index j != i
 // Return true if it is possible to construct such an array, otherwise, return false.
 
- 
-
 // Example 1:
 
 // Input: nums1 = [2,3]
@@ -2390,7 +2357,7 @@
 //         return true;
 //     }
 //     return false;
-    
+
 // };
 // let nums1 = [2,3];
 // console.log("UniformArray:",uniformArray(nums1));
@@ -2401,7 +2368,7 @@
 //             return true;
 //         }
 //     }
-    
+
 //     return false;
 // }
 // function isEven(n){
@@ -2438,8 +2405,7 @@
 //     let nums2 =[];
 //     for(let i =0; i<nums1.length; i++){
 //         nums2[i] = nums1[i+1] - nums1[i];
-        
-        
+
 //     };
 //     console.log("nums2:",nums2)
 //     if(isOdd(nums2)){
@@ -2459,7 +2425,7 @@
 //             return true;
 //         }
 //     }
-    
+
 //     return false;
 // }
 // function isEven(arr){
@@ -2475,8 +2441,6 @@
 
 // Select an index i and replace nums[i] with nums[i] - 1.
 // Return the minimum number of operations required to make the sum of the array divisible by k.
-
- 
 
 // Example 1:
 
@@ -2503,8 +2467,6 @@
 
 // Return the sum of encrypted elements.
 
- 
-
 // Example 1:
 
 // Input: nums = [1,2,3]
@@ -2527,7 +2489,7 @@
 //         sum += encrypt(nums[i]);
 //     }
 //     return sum;
-    
+
 // };
 // let nums = [1,2,3];
 // console.log("sumOfEncryptInt:",sumOfEncryptedInt(nums));
@@ -2553,8 +2515,6 @@
 // Return the total number of beautiful pairs in nums.
 
 // Two integers x and y are coprime if there is no integer greater than 1 that divides both of them. In other words, x and y are coprime if gcd(x, y) == 1, where gcd(x, y) is the greatest common divisor of x and y.
-
- 
 
 // Example 1:
 
@@ -2609,23 +2569,23 @@
 //         10, 9, 5, 4,
 //         1
 //     ];
-    
+
 //     const symbols = [
 //         "M", "CM", "D", "CD",
 //         "C", "XC", "L", "XL",
 //         "X", "IX", "V", "IV",
 //         "I"
 //     ];
-    
+
 //     let result = "";
-    
+
 //     for (let i = 0; i < values.length; i++) {
 //         while (num >= values[i]) {
 //             result += symbols[i];
 //             num -= values[i];
 //         }
 //     }
-    
+
 //     return result;
 // };
 // let num = 3749;
@@ -2666,7 +2626,6 @@
 // console.log("nthUglyNumber:",nthUglyNumber(n));
 
 // Given two integers num1 and num2, return the sum of the two integers.
- 
 
 // Example 1:
 
@@ -2711,7 +2670,7 @@
 //         }
 //     }
 //     return total;
-    
+
 // };
 // let n=10;
 // console.log("Punishment Number:",punishmentNumber(n));
@@ -2729,8 +2688,6 @@
 
 // As the town detective, your task is to find these two sneaky numbers. Return an array of size two containing the two numbers (in any order), so peace can return to Digitville.
 
- 
-
 // Example 1:
 
 // Input: nums = [0,1,1,0]
@@ -2747,11 +2704,11 @@
 //         freq[num] = (freq[num] || 0) + 1;
 //     }
 //     let ans = [];
-    // for(let [key ,value] of Object.entries(freq)){
-    //     if(value === 2){
-    //         ans.push(Number(key));
-    //     }
-    // }
+// for(let [key ,value] of Object.entries(freq)){
+//     if(value === 2){
+//         ans.push(Number(key));
+//     }
+// }
 //     for(let key in freq){
 //         if(freq[key] === 2){
 //             ans.push(Number(key));
@@ -2786,21 +2743,56 @@
 
 // A substring is a contiguous sequence of characters within a string.
 
- 
-
 // Example 1:
 
 // Input: num = "52"
 // Output: "5"
 // Explanation: The only non-empty substrings are "5", "2", and "52". "5" is the only odd number.
 
-var largestOddNumber = function(num){
-    for(let i =num.length - 1; i>=0; i--){
-        if((num[i]- '0') % 2 !== 0){
-            return num.substring(0,i+1);
-        }
-    }
-    return "";
-};
-let num = "52";
-console.log("LargestoddNumber:",largestOddNumber(num));
+// var largestOddNumber = function(num){
+//     for(let i =num.length - 1; i>=0; i--){
+//         if((num[i]- '0') % 2 !== 0){
+//             return num.substring(0,i+1);
+//         }
+//     }
+//     return "";
+// };
+// let num = "52";
+// console.log("LargestoddNumber:",largestOddNumber(num));
+
+// var countVowels = function (word) {
+//   let vowels = "aioue";
+//   let result = [];
+//   for (let i = 0; i < word.length; i++) {
+//     for (let j = i; j < word.length; j++) {
+//       result.push(word.substring(i, j + 1));
+//     }
+//   }
+//   let sum = 0;
+//   for (let str of result) {
+//     for (let ch of str) {
+//       if (vowels.includes(ch)) {
+//         sum++;
+//       }
+//     }
+//   }
+
+//   return sum;
+// };
+
+// optimized 
+// var countVowels = function(word) {
+//     let vowels = "aeiou";
+//     let n = word.length;
+//     let sum = 0;
+
+//     for (let i = 0; i < n; i++) {
+//         if (vowels.includes(word[i])) {
+//             sum += (i + 1) * (n - i);
+//         }
+//     }
+
+//     return sum;
+// };
+// let word = "aba";
+// console.log("countVowels:", countVowels(word));
