@@ -2702,28 +2702,28 @@
 // let num1 = 12, num2 = 5;
 // console.log("Sum:",sum(num1 , num2));
 
-var punishmentNumber = function(n) {
-    let total = 0;
-    for(let i=1; i<=n; i++){
-        let ans = i*i;
-        if(sumDigit(ans) === i){
-            total += ans;
-        }
-    }
-    return total;
+// var punishmentNumber = function(n) {
+//     let total = 0;
+//     for(let i=1; i<=n; i++){
+//         let ans = i*i;
+//         if(sumDigit(ans) === i){
+//             total += ans;
+//         }
+//     }
+//     return total;
     
-};
-let n=10;
-console.log("Punishment Number:",punishmentNumber(n));
-// sum of the digit
-function sumDigit(n){
-    let sum =0;
-    while(n>0){
-        sum += n%10;
-        n = Math.floor(n/10);
-    }
-    return sum;
-}
+// };
+// let n=10;
+// console.log("Punishment Number:",punishmentNumber(n));
+// // sum of the digit
+// function sumDigit(n){
+//     let sum =0;
+//     while(n>0){
+//         sum += n%10;
+//         n = Math.floor(n/10);
+//     }
+//     return sum;
+// }
 
 // In the town of Digitville, there was a list of numbers called nums containing integers from 0 to n - 1. Each number was supposed to appear exactly once in the list, however, two mischievous numbers sneaked in an additional time, making the list longer than usual.
 
@@ -2741,23 +2741,43 @@ function sumDigit(n){
 
 // The numbers 0 and 1 each appear twice in the array.
 
-var getSneakyNumbers = function(nums) {
-    let freq ={};
-    for(let num of nums){
-        freq[num] = (freq[num] || 0) + 1;
-    }
-    let ans = [];
+// var getSneakyNumbers = function(nums) {
+//     let freq ={};
+//     for(let num of nums){
+//         freq[num] = (freq[num] || 0) + 1;
+//     }
+//     let ans = [];
     // for(let [key ,value] of Object.entries(freq)){
     //     if(value === 2){
     //         ans.push(Number(key));
     //     }
     // }
-    for(let key in freq){
-        if(freq[key] === 2){
-            ans.push(Number(key));
-        }
+//     for(let key in freq){
+//         if(freq[key] === 2){
+//             ans.push(Number(key));
+//         }
+//     }
+//     return ans;
+// };
+// let nums = [0,1,1,0];
+// console.log("getSneakyNumber:",getSneakyNumbers(nums));
+var nextGreaterElement = function(n) {
+    let ans = reverse(n);
+    console.log(ans);
+    if(n <= ans){
+        return ans;
     }
-    return ans;
+    return -1;
 };
-let nums = [0,1,1,0];
-console.log("getSneakyNumber:",getSneakyNumbers(nums));
+ function reverse(n){
+    let rev = 0;
+    while(n>0){
+        let lastDigit = n%10;
+        rev = rev*10 + lastDigit;
+        n = Math.floor(n/10);
+    }
+    console.log("rev:",rev);
+    return rev;
+}
+let n=101;
+console.log("nextGreaterElement:",nextGreaterElement(n));
