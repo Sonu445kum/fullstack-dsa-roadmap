@@ -412,18 +412,41 @@
 //   k = 4;
 // console.log("topFrequent:", topKFrequent(words, k));
 
-var findMissingElements = function(nums) {
-   let set = new Set(nums);
-   let ans = [];
-   let min = Math.min(...nums);
-   let max = Math.max(...nums);
-    for(let i=min; i<=max; i++){
-        if(!set.has(i)){
-            ans.push(i)
+// var findMissingElements = function(nums) {
+//    let set = new Set(nums);
+//    let ans = [];
+//    let min = Math.min(...nums);
+//    let max = Math.max(...nums);
+//     for(let i=min; i<=max; i++){
+//         if(!set.has(i)){
+//             ans.push(i)
+//         }
+//     }
+//     ans.sort((a,b)=>a-b);
+//     return ans;
+// };
+// let nums =[1,2,4,5];
+// console.log("find the missing Element:",findMissingElements(nums));
+
+// You are given an array of characters letters that is sorted in non-decreasing order, and a character target. There are at least two different characters in letters.
+
+// Return the smallest character in letters that is lexicographically greater than target. If such a character does not exist, return the first character in letters.
+
+ 
+
+// Example 1:
+
+// Input: letters = ["c","f","j"], target = "a"
+// Output: "c"
+// Explanation: The smallest character that is lexicographically greater than 'a' in letters is 'c'.
+
+var nextGreatestLetter = function(letters, target) {
+    for(let i =0; i<letters.length;  i++){
+        if(letters[i] > target){
+        return letters[i];
         }
     }
-    ans.sort((a,b)=>a-b);
-    return ans;
+    return letters[0];
 };
-let nums =[1,2,4,5];
-console.log("find the missing Element:",findMissingElements(nums));
+let letters = ["c","f","j"], target = "a";
+console.log("nextGreatestLetter:",nextGreatestLetter(letters , target));
