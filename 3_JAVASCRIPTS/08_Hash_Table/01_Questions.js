@@ -13,12 +13,11 @@
 
 // Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX. There are six instances where subtraction is used:
 
-// I can be placed before V (5) and X (10) to make 4 and 9. 
-// X can be placed before L (50) and C (100) to make 40 and 90. 
+// I can be placed before V (5) and X (10) to make 4 and 9.
+// X can be placed before L (50) and C (100) to make 40 and 90.
 // C can be placed before D (500) and M (1000) to make 400 and 900.
 // Given a roman numeral, convert it to an integer.
 
- 
 // Example 1:
 
 // Input: s = "III"
@@ -89,8 +88,6 @@
 
 // Given an array of strings strs, group the anagrams together. You can return the answer in any order.
 
- 
-
 // Example 1:
 
 // Input: strs = ["eat","tea","tan","ate","nat","bat"]
@@ -121,8 +118,6 @@
 
 // You must implement an algorithm that runs in O(n) time and uses O(1) auxiliary space.
 
- 
-
 // Example 1:
 
 // Input: nums = [1,2,0]
@@ -152,8 +147,6 @@
 // nums contains n + 1 unique values, n of which occur exactly once in the array.
 // Exactly one element of nums is repeated n times.
 // Return the element that is repeated n times.
-
- 
 
 // Example 1:
 
@@ -195,11 +188,9 @@
 
 // Two integers are considered different if their decimal representations without any leading zeros are different.
 
- 
-
 // Example 1:
 
-// Input: word = 
+// Input: word =
 // Output: 3
 // Explanation: The three different integers are "123", "34", and "8". Notice that "34" is only counted once.
 
@@ -217,8 +208,6 @@
 // Given a string s, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the number of times it appears in the string.
 
 // Return the sorted string. If there are multiple answers, return any of them.
-
- 
 
 // Example 1:
 
@@ -248,11 +237,11 @@
 //     for(let i=0; i<nums.length; i++){
 //         for(let j=i+1; j<nums.length; j++){
 //             if(nums[j] < nums[i]){
-//                 count++; 
-//             } 
+//                 count++;
+//             }
 //         }
 //         arr.push(count);
-          
+
 //     }
 //     console.log("Arr:",arr);
 //     return arr;
@@ -266,8 +255,6 @@
 
 // Note that the strings are considered in the order in which they appear in the array.
 
- 
-
 // Example 1:
 
 // Input: arr = ["d","b","c","b","c","a"], k = 2
@@ -276,7 +263,7 @@
 // The only distinct strings in arr are "d" and "a".
 // "d" appears 1st, so it is the 1st distinct string.
 // "a" appears 2nd, so it is the 2nd distinct string.
-// Since k == 2, "a" is returned. 
+// Since k == 2, "a" is returned.
 
 // var kthDistinct = function(arr, k) {
 //     let freq = {};
@@ -293,7 +280,7 @@
 //         return ans[k-1];
 //     }
 //     return "";
-    
+
 // };
 // let arr = ["d","b","c","b","c","a"], k = 2;
 // console.log("KthDistinct:",kthDistinct(arr,k));
@@ -303,8 +290,6 @@
 // Two strings s and t are isomorphic if the characters in s can be replaced to get t.
 
 // All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.
-
- 
 
 // Example 1:
 
@@ -349,8 +334,6 @@
 
 // Return the sorted string. If there are multiple answers, return any of them.
 
- 
-
 // Example 1:
 
 // Input: s = "tree"
@@ -358,22 +341,73 @@
 // Explanation: 'e' appears twice while 'r' and 't' both appear once.
 // So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
 
-var frequencySort = function(s){
-    let freq = {};
-    for(let char of s){
-        freq[char] = (freq[char] || 0) + 1;
+// var frequencySort = function(s){
+//     let freq = {};
+//     for(let char of s){
+//         freq[char] = (freq[char] || 0) + 1;
+//     }
+//     // split string into array
+//     let arr = s.split('');
+//     // now apply sort methods
+//     arr.sort((a,b)=>{
+//         if(freq[b] === freq[a]){
+//             return a.localeCompare(b);
+//         }
+//         return freq[b] - freq[a];
+//     })
+//     // now convert array into string
+//     return arr.join('');
+// }
+// let s = "tree";
+// console.log("frequencySort:",frequencySort(s));
+
+// Given an array of strings words and an integer k, return the k most frequent strings.
+
+// Return the answer sorted by the frequency from highest to lowest. Sort the words with the same frequency by their lexicographical order.
+
+// Example 1:
+
+// Input: words = ["i","love","leetcode","i","love","coding"], k = 2
+// Output: ["i","love"]
+// Explanation: "i" and "love" are the two most frequent words.
+// Note that "i" comes before "love" due to a lower alphabetical order.
+
+var topKFrequent = function (words, k) {
+  let freq = {};
+  // count the frequency of Each Word;
+  for (let word of words) {
+    freq[word] = (freq[word] || 0) + 1;
+  }
+  let ans = [];
+  for (let [key, value] of Object.entries(freq)) {
+    if (value >= 1) {
+      ans.push(key);
     }
-    // split string into array
-    let arr = s.split('');
-    // now apply sort methods
-    arr.sort((a,b)=>{
-        if(freq[b] === freq[a]){
-            return a.localeCompare(b);
-        }
-        return freq[b] - freq[a];
-    })
-    // now convert array into string
-    return arr.join('');
-}
-let s = "tree";
-console.log("frequencySort:",frequencySort(s));
+  }
+  //    sort by frequency;
+  ans.sort((a, b) => {
+    if (freq[a] === freq[b]) {
+      return a.localeCompare(b);
+    }
+    return freq[b] - freq[a];
+  });
+  let newArr = [];
+  for (let i = 0; i < k; i++) {
+    newArr[i] = ans[i];
+  }
+  return newArr;
+};
+let words = [
+    "the",
+    "day",
+    "is",
+    "sunny",
+    "the",
+    "the",
+    "the",
+    "sunny",
+    "is",
+    "is",
+  ],
+  k = 4;
+console.log("topFrequent:", topKFrequent(words, k));
