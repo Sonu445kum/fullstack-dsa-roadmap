@@ -2761,23 +2761,46 @@
 // };
 // let nums = [0,1,1,0];
 // console.log("getSneakyNumber:",getSneakyNumbers(nums));
-var nextGreaterElement = function(n) {
-    let ans = reverse(n);
-    console.log(ans);
-    if(n <= ans){
-        return ans;
+// var nextGreaterElement = function(n) {
+//     let ans = reverse(n);
+//     console.log(ans);
+//     if(n <= ans){
+//         return ans;
+//     }
+//     return -1;
+// };
+//  function reverse(n){
+//     let rev = 0;
+//     while(n>0){
+//         let lastDigit = n%10;
+//         rev = rev*10 + lastDigit;
+//         n = Math.floor(n/10);
+//     }
+//     console.log("rev:",rev);
+//     return rev;
+// }
+// let n=101;
+// console.log("nextGreaterElement:",nextGreaterElement(n));
+
+// You are given a string num, representing a large integer. Return the largest-valued odd integer (as a string) that is a non-empty substring of num, or an empty string "" if no odd integer exists.
+
+// A substring is a contiguous sequence of characters within a string.
+
+ 
+
+// Example 1:
+
+// Input: num = "52"
+// Output: "5"
+// Explanation: The only non-empty substrings are "5", "2", and "52". "5" is the only odd number.
+
+var largestOddNumber = function(num){
+    for(let i =num.length - 1; i>=0; i--){
+        if((num[i]- '0') % 2 !== 0){
+            return num.substring(0,i+1);
+        }
     }
-    return -1;
+    return "";
 };
- function reverse(n){
-    let rev = 0;
-    while(n>0){
-        let lastDigit = n%10;
-        rev = rev*10 + lastDigit;
-        n = Math.floor(n/10);
-    }
-    console.log("rev:",rev);
-    return rev;
-}
-let n=101;
-console.log("nextGreaterElement:",nextGreaterElement(n));
+let num = "52";
+console.log("LargestoddNumber:",largestOddNumber(num));
