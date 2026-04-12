@@ -372,42 +372,58 @@
 // Explanation: "i" and "love" are the two most frequent words.
 // Note that "i" comes before "love" due to a lower alphabetical order.
 
-var topKFrequent = function (words, k) {
-  let freq = {};
-  // count the frequency of Each Word;
-  for (let word of words) {
-    freq[word] = (freq[word] || 0) + 1;
-  }
-  let ans = [];
-  for (let [key, value] of Object.entries(freq)) {
-    if (value >= 1) {
-      ans.push(key);
+// var topKFrequent = function (words, k) {
+//   let freq = {};
+//   // count the frequency of Each Word;
+//   for (let word of words) {
+//     freq[word] = (freq[word] || 0) + 1;
+//   }
+//   let ans = [];
+//   for (let [key, value] of Object.entries(freq)) {
+//     if (value >= 1) {
+//       ans.push(key);
+//     }
+//   }
+//   //    sort by frequency;
+//   ans.sort((a, b) => {
+//     if (freq[a] === freq[b]) {
+//       return a.localeCompare(b);
+//     }
+//     return freq[b] - freq[a];
+//   });
+//   let newArr = [];
+//   for (let i = 0; i < k; i++) {
+//     newArr[i] = ans[i];
+//   }
+//   return newArr;
+// };
+// let words = [
+//     "the",
+//     "day",
+//     "is",
+//     "sunny",
+//     "the",
+//     "the",
+//     "the",
+//     "sunny",
+//     "is",
+//     "is",
+//   ],
+//   k = 4;
+// console.log("topFrequent:", topKFrequent(words, k));
+
+var findMissingElements = function(nums) {
+   let set = new Set(nums);
+   let ans = [];
+   let min = Math.min(...nums);
+   let max = Math.max(...nums);
+    for(let i=min; i<=max; i++){
+        if(!set.has(i)){
+            ans.push(i)
+        }
     }
-  }
-  //    sort by frequency;
-  ans.sort((a, b) => {
-    if (freq[a] === freq[b]) {
-      return a.localeCompare(b);
-    }
-    return freq[b] - freq[a];
-  });
-  let newArr = [];
-  for (let i = 0; i < k; i++) {
-    newArr[i] = ans[i];
-  }
-  return newArr;
+    ans.sort((a,b)=>a-b);
+    return ans;
 };
-let words = [
-    "the",
-    "day",
-    "is",
-    "sunny",
-    "the",
-    "the",
-    "the",
-    "sunny",
-    "is",
-    "is",
-  ],
-  k = 4;
-console.log("topFrequent:", topKFrequent(words, k));
+let nums =[1,2,4,5];
+console.log("find the missing Element:",findMissingElements(nums));
