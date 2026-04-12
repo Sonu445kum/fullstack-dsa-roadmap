@@ -278,22 +278,69 @@
 // "a" appears 2nd, so it is the 2nd distinct string.
 // Since k == 2, "a" is returned. 
 
-var kthDistinct = function(arr, k) {
-    let freq = {};
-    for(let char of arr){
-        freq[char] = (freq[char] || 0) + 1;
-    }
-    let ans = [];
-    for(let [key,value] of Object.entries(freq)){
-        if(value === 1){
-            ans.push(key);
-        }
-    }
-    if(ans.length >=k){
-        return ans[k-1];
-    }
-    return "";
+// var kthDistinct = function(arr, k) {
+//     let freq = {};
+//     for(let char of arr){
+//         freq[char] = (freq[char] || 0) + 1;
+//     }
+//     let ans = [];
+//     for(let [key,value] of Object.entries(freq)){
+//         if(value === 1){
+//             ans.push(key);
+//         }
+//     }
+//     if(ans.length >=k){
+//         return ans[k-1];
+//     }
+//     return "";
     
+// };
+// let arr = ["d","b","c","b","c","a"], k = 2;
+// console.log("KthDistinct:",kthDistinct(arr,k));
+
+// Given two strings s and t, determine if they are isomorphic.
+
+// Two strings s and t are isomorphic if the characters in s can be replaced to get t.
+
+// All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.
+
+ 
+
+// Example 1:
+
+// Input: s = "egg", t = "add"
+
+// Output: true
+
+// Explanation:
+
+// The strings s and t can be made identical by:
+
+// Mapping 'e' to 'a'.
+// Mapping 'g' to 'd'.
+
+ var isophormic = function(s,t){
+    // base case
+    if(s.length !== t.length) return false;
+    // taking two Map Object
+    let mapST = {};
+    let mapTS = {};
+
+    for(let i =0; i<s.length; i++){
+        let charS = s[i];
+        let charT = t[i];
+        // checking s->t mapping
+        if(mapST[charS] && mapST[charS] !== charT){
+            return false;
+        }
+        // checking t->s mapping
+        if(mapTS[charT] && mapTS[charT] !== charS){
+            return false;
+        }
+        mapST[charS] = charT;
+        mapTS[charT] = charS;
+    }
+    return true;
 };
-let arr = ["d","b","c","b","c","a"], k = 2;
-console.log("KthDistinct:",kthDistinct(arr,k));
+let s = "egg", t = "add";
+console.log("Isophormic:",isophormic(s,t));
