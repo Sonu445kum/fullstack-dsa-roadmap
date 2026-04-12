@@ -319,28 +319,61 @@
 // Mapping 'e' to 'a'.
 // Mapping 'g' to 'd'.
 
- var isophormic = function(s,t){
-    // base case
-    if(s.length !== t.length) return false;
-    // taking two Map Object
-    let mapST = {};
-    let mapTS = {};
+//  var isophormic = function(s,t){
+//     // base case
+//     if(s.length !== t.length) return false;
+//     // taking two Map Object
+//     let mapST = {};
+//     let mapTS = {};
 
-    for(let i =0; i<s.length; i++){
-        let charS = s[i];
-        let charT = t[i];
-        // checking s->t mapping
-        if(mapST[charS] && mapST[charS] !== charT){
-            return false;
-        }
-        // checking t->s mapping
-        if(mapTS[charT] && mapTS[charT] !== charS){
-            return false;
-        }
-        mapST[charS] = charT;
-        mapTS[charT] = charS;
+//     for(let i =0; i<s.length; i++){
+//         let charS = s[i];
+//         let charT = t[i];
+//         // checking s->t mapping
+//         if(mapST[charS] && mapST[charS] !== charT){
+//             return false;
+//         }
+//         // checking t->s mapping
+//         if(mapTS[charT] && mapTS[charT] !== charS){
+//             return false;
+//         }
+//         mapST[charS] = charT;
+//         mapTS[charT] = charS;
+//     }
+//     return true;
+// };
+// let s = "egg", t = "add";
+// console.log("Isophormic:",isophormic(s,t));
+
+// Given a string s, sort it in decreasing order based on the frequency of the characters. The frequency of a character is the number of times it appears in the string.
+
+// Return the sorted string. If there are multiple answers, return any of them.
+
+ 
+
+// Example 1:
+
+// Input: s = "tree"
+// Output: "eert"
+// Explanation: 'e' appears twice while 'r' and 't' both appear once.
+// So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
+
+var frequencySort = function(s){
+    let freq = {};
+    for(let char of s){
+        freq[char] = (freq[char] || 0) + 1;
     }
-    return true;
-};
-let s = "egg", t = "add";
-console.log("Isophormic:",isophormic(s,t));
+    // split string into array
+    let arr = s.split('');
+    // now apply sort methods
+    arr.sort((a,b)=>{
+        if(freq[b] === freq[a]){
+            return a.localeCompare(b);
+        }
+        return freq[b] - freq[a];
+    })
+    // now convert array into string
+    return arr.join('');
+}
+let s = "tree";
+console.log("frequencySort:",frequencySort(s));
