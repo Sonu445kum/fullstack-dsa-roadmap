@@ -42,6 +42,7 @@ import Questions from './Practices/Questions.jsx'
 import DisplayData from './Practices/DisplayData.jsx'
 import TodoApp from './Practices/TodoApp.jsx'
 import ControlledForm from './Practices/ControlledForm.jsx'
+import UncontrolledForm from './Practices/UncontrolledForm.jsx'
 
 const App = () => {
   return (
@@ -50,7 +51,8 @@ const App = () => {
       {/* <h1>Display Data</h1> */}
       {/* <DisplayData/> */}
       {/* <TodoApp/> */}
-      <ControlledForm/>
+      {/* <ControlledForm/> */}
+      <UncontrolledForm/>
       
     </div>
   )
