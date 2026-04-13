@@ -2811,3 +2811,49 @@
 
 // Example 1:
 
+
+// You are given an integer array nums.
+
+// Return an integer that is the maximum distance between the indices of two (not necessarily different) prime numbers in nums.
+
+ 
+
+// Example 1:
+
+// Input: nums = [4,2,9,5,3]
+
+// Output: 3
+
+// Explanation: nums[1], nums[3], and nums[4] are prime. So the answer is |4 - 1| = 3.
+
+// Example 2:
+
+// Input: nums = [4,8,2,8]
+
+// Output: 0
+
+// Explanation: nums[2] is prime. Because there is just one prime number, the answer is |2 - 2| = 0.
+var maximumPrimeDifference = function(nums) {
+    let ans =[];
+    for(let i =0; i<nums.length; i++){
+        let isPrime = prime(nums[i])
+        console.log("IsPrime:",i,isPrime);
+        if(isPrime === true){
+            ans.push(i);
+        }
+    }
+    let max = Math.max(...ans);
+    let min = Math.min(...ans);
+    return Math.abs(max-min);
+};
+function prime(n){
+    if(n <=1) return false;
+    if(n === 2) return true;
+    if(n % 2 === 0) return false;
+    for(let i=3; i*i <= n; i+=2){
+        if(n % i === 0) return false;
+    }
+    return true;
+}
+let nums = [4,2,9,5,3];
+console.log("MaximumPrimeDiffernces:",maximumPrimeDifference(nums));
