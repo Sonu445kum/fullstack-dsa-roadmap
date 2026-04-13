@@ -97,3 +97,15 @@ function App() {
 
 export default App;
 
+function withLoading(Component) {
+  return function EnhancedComponent({ isLoading, ...props }) {
+    if (isLoading) return <h2>Loading...</h2>;
+    return <Component {...props} />;
+  };
+}
+
+// Usage
+const UserListWithLoading = withLoading(UserList);
+
+
+
