@@ -41,14 +41,16 @@ import React from 'react'
 import Questions from './Practices/Questions.jsx'
 import DisplayData from './Practices/DisplayData.jsx'
 import TodoApp from './Practices/TodoApp.jsx'
+import ControlledForm from './Practices/ControlledForm.jsx'
 
 const App = () => {
   return (
     <div>
       {/* <Questions/> */}
-      <h1>Display Data</h1>
+      {/* <h1>Display Data</h1> */}
       {/* <DisplayData/> */}
       {/* <TodoApp/> */}
+      <ControlledForm/>
       
     </div>
   )
