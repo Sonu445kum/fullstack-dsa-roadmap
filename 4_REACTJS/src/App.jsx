@@ -123,3 +123,25 @@ function MouseTracker({ render }) {
   <h1>Mouse: {pos.x}, {pos.y}</h1>
 )} />
 
+
+const TabsContext = React.createContext();
+
+function Tabs({ children }) {
+  const [active, setActive] = useState(0);
+  return (
+    <TabsContext.Provider value={{ active, setActive }}>
+      {children}
+    </TabsContext.Provider>
+  );
+}
+
+function Tab({ index, children }) {
+  const { setActive } = useContext(TabsContext);
+  return <button onClick={() => setActive(index)}>{children}</button>;
+}
+
+function TabPanel({ index, children }) {
+  const { active } = useContext(TabsContext);
+  return active === index ? <div>{children}</div> : null;
+}
+
