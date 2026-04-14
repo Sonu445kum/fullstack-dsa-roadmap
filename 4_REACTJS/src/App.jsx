@@ -13,18 +13,20 @@ const App = () => {
   // }
 
   // Display dynamic data using props.
-  const users = [
-    { id: 1, name: "Sonu", age: 20 },
-    { id: 2, name: "Rahul", age: 22 },
-    { id: 3, name: "Amit", age: 25 }
-  ];
+  // const users = [
+  //   { id: 1, name: "Sonu", age: 20 },
+  //   { id: 2, name: "Rahul", age: 22 },
+  //   { id: 3, name: "Amit", age: 25 }
+  // ];
   return (
     <div>
       {/* <CityManager/> */}
       {/* Basic */}
-      {users.map((user)=>(
+      {/* {users.map((user)=>(
       <Questions key={user.id} user ={user}/>
-      ))}
+      ))} */}
+
+      <Questions/>
       
     </div>
   )

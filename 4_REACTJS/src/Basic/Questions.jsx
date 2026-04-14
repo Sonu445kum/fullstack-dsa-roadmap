@@ -1,5 +1,9 @@
 // import React from 'react'
 
+import { useState } from "react";
+import Signup from "./Signup";
+import Login from "./Login";
+
 // const Questions = () => {
 //   return (
 //     <div>
@@ -72,12 +76,43 @@
 // };
 // export default Questions;
 
-const Questions = ({user})=>{
+// const Questions = ({user})=>{
+//     return (
+//         <div>
+//             <h1>Name:{user.name}</h1>
+//             <h1>Age:{user.age}</h1>
+//         </div>
+//     )
+// }
+// export default Questions;
+
+// Conditional rendering using if and &&.
+// const Questions = ()=>{
+//     const [isCheck,setIsCheck] = useState(true);
+//     return (
+//        <>
+//         <div>
+//             {isCheck ? <Login/> :<Signup/> }
+//         </div>
+//        </>
+//     )
+// }
+// export default Questions;
+
+// Toggle text on button click.
+const Questions =()=>{
+    const [toggle,setToggle] =useState(false);
+    // handle Toogle
+    const handleToogle =()=>{
+        setToggle((prev)=>!prev)
+    }
     return (
+        <>
         <div>
-            <h1>Name:{user.name}</h1>
-            <h1>Age:{user.age}</h1>
+            <h1>Toogle:{toggle ? "Hello Sonu..!!" :"Welcome" }</h1>
+            <button onClick={handleToogle} type="submit">Click me</button>
         </div>
+        </>
     )
 }
 export default Questions;
