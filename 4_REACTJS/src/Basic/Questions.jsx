@@ -172,3 +172,34 @@ import Login from "./Login";
 // };
 // export default Questions;
 
+// Show/hide password input.
+const Questions = ()=>{
+    const [showPassword ,setShowPassword] = useState(false);
+    // handle functions show/hide password
+    const handleShowHide = ()=>{
+        setShowPassword(!showPassword);
+    }
+    return (
+        <>
+        <form>
+        <label>Name:</label>
+        <input type="text" name="username" placeholder="Enter Name" />
+        <br />
+
+        <label>Password:</label>
+        <input
+          type={showPassword ? "text" : "password"}
+          name="userPassword"
+          placeholder="Enter Password"
+        />
+
+        <button type="button" onClick={handleShowHide}>
+          {showPassword ? "Hide" : "Show"}
+        </button>
+
+        <br />
+      </form>
+        </>
+    )
+}
+export default Questions;
