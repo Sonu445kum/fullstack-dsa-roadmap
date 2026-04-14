@@ -1,6 +1,6 @@
 // import React from 'react'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Signup from "./Signup";
 import Login from "./Login";
 
@@ -100,19 +100,38 @@ import Login from "./Login";
 // export default Questions;
 
 // Toggle text on button click.
+// const Questions =()=>{
+//     const [toggle,setToggle] =useState(false);
+//     // handle Toogle
+//     const handleToogle =()=>{
+//         setToggle((prev)=>!prev)
+//     }
+//     return (
+//         <>
+//         <div>
+//             <h1>Toogle:{toggle ? "Hello Sonu..!!" :"Welcome" }</h1>
+//             <button onClick={handleToogle} type="submit">Click me</button>
+//         </div>
+//         </>
+//     )
+// }
+// export default Questions;
+
+// Display current date and time.
 const Questions =()=>{
-    const [toggle,setToggle] =useState(false);
-    // handle Toogle
-    const handleToogle =()=>{
-        setToggle((prev)=>!prev)
-    }
+    const [time , setTime] = useState(new Date());
+    // useEffect
+    useEffect(()=>{
+        const interval = setInterval(()=>{
+            setTime(new Date())
+        },1000);
+        return ()=>clearInterval(interval);
+    })
     return (
-        <>
         <div>
-            <h1>Toogle:{toggle ? "Hello Sonu..!!" :"Welcome" }</h1>
-            <button onClick={handleToogle} type="submit">Click me</button>
+        <h1>Date:{time.toLocaleDateString()}</h1>
+        <h1>Time:{time.toLocaleTimeString()}</h1>
         </div>
-        </>
     )
 }
 export default Questions;
