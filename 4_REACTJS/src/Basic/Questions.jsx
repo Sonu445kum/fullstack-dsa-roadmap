@@ -118,21 +118,57 @@ import Login from "./Login";
 // export default Questions;
 
 // Display current date and time.
-const Questions =()=>{
-    const [time , setTime] = useState(new Date());
-    // useEffect
-    useEffect(()=>{
-        const interval = setInterval(()=>{
-            setTime(new Date())
-        },1000);
-        return ()=>clearInterval(interval);
-    })
-    return (
-        <div>
-        <h1>Date:{time.toLocaleDateString()}</h1>
-        <h1>Time:{time.toLocaleTimeString()}</h1>
-        </div>
-    )
-}
-export default Questions;
+// const Questions =()=>{
+//     const [time , setTime] = useState(new Date());
+//     // useEffect
+//     useEffect(()=>{
+//         const interval = setInterval(()=>{
+//             setTime(new Date()); // updated here every seconds;
+//         },1000);
+
+//         return ()=>clearInterval(interval);
+//     })
+//     return (
+//         <div>
+//         {/* <h1>Date:{time.toLocaleDateString()}</h1>
+//         <h1>Time:{time.toLocaleTimeString()}</h1> */}
+
+//         <h1>Date And Time:{time.toLocaleString(
+//             "en-IN",{
+//                 dateStyle:"full",
+//                 timeStyle:"medium"
+//             }
+//         )}</h1>
+//         </div>
+//     )
+// }
+// export default Questions;
+
+// Create a simple counter app.
+// const Questions =()=>{
+//     const [count , setCount] = useState(0);
+//     // Increment
+//     const handleIncrement = ()=>{
+//         setCount((prev)=>prev+1)
+//     }
+//     // Increment
+//     const handleDecrement = ()=>{
+//         setCount((prev)=>prev-1)
+//     }
+//     // Increment
+//     const handleReset = ()=>{
+//         setCount(0)
+//     }
+//     return (
+//         <>
+//         <div>
+//             <h1>Value:{count}</h1>
+//             <button onClick={handleIncrement}>Increment</button> <br />
+//             <button onClick={handleDecrement}>Decrement</button> <br />
+//             <button onClick={handleReset}>Reset</button>
+//         </div>
+//         </>
+//     )
+// };
+// export default Questions;
 
