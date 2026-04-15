@@ -2833,27 +2833,96 @@
 // Output: 0
 
 // Explanation: nums[2] is prime. Because there is just one prime number, the answer is |2 - 2| = 0.
-var maximumPrimeDifference = function(nums) {
-    let ans =[];
+// var maximumPrimeDifference = function(nums) {
+//     let ans =[];
+//     for(let i =0; i<nums.length; i++){
+//         let isPrime = prime(nums[i])
+//         console.log("IsPrime:",i,isPrime);
+//         if(isPrime === true){
+//             ans.push(i);
+//         }
+//     }
+//     let max = Math.max(...ans);
+//     let min = Math.min(...ans);
+//     return Math.abs(max-min);
+// };
+// function prime(n){
+//     if(n <=1) return false;
+//     if(n === 2) return true;
+//     if(n % 2 === 0) return false;
+//     for(let i=3; i*i <= n; i+=2){
+//         if(n % i === 0) return false;
+//     }
+//     return true;
+// }
+// let nums = [4,2,9,5,3];
+// console.log("MaximumPrimeDiffernces:",maximumPrimeDifference(nums));
+
+// Given an integer n, return true if it is possible to represent n as the sum of distinct powers of three. Otherwise, return false.
+
+// An integer y is a power of three if there exists an integer x such that y == 3x.
+
+ 
+
+// Example 1:
+
+// Input: n = 12
+// Output: true
+// Explanation: 12 = 31 + 32
+// Example 2:
+
+// Input: n = 91
+// Output: true
+// Explanation: 91 = 30 + 32 + 34
+
+// var checkPowersOfThree = function(n) {
+//     let sum =0;
+//    let i=1;
+//     while(i*i <n){
+//         sum += Math.pow(i,3);
+//         console.log("Sum in loops:",sum,i);
+//         if(sum === n){
+//             return true;
+//         }else{
+//             i++;
+//         }
+        
+//     }
+//     console.log("Sum:",sum);
+    
+//     return false;
+// };
+// let n=12;
+// console.log("CheckPowerOf Three:",checkPowersOfThree(n));
+
+var minMirrorPairDistance = function(nums) {
+    let ans = [];
     for(let i =0; i<nums.length; i++){
-        let isPrime = prime(nums[i])
-        console.log("IsPrime:",i,isPrime);
-        if(isPrime === true){
-            ans.push(i);
+        for(let j=i+1; j<nums.length; j++){
+            if(reverse(nums[i]) === nums[j]){
+                ans.push(Math.abs(i-j));
+            }
         }
     }
-    let max = Math.max(...ans);
-    let min = Math.min(...ans);
-    return Math.abs(max-min);
-};
-function prime(n){
-    if(n <=1) return false;
-    if(n === 2) return true;
-    if(n % 2 === 0) return false;
-    for(let i=3; i*i <= n; i+=2){
-        if(n % i === 0) return false;
+    let min = Infinity;
+    let res = -1;
+    for(let num of ans){
+        if(num < min && res < min){
+            min = num;
+            res = min;
+        }
     }
-    return true;
+    return res;
+};
+let nums =[12,21,45,33,54];
+console.log("minMirrorDistance:",minMirrorPairDistance(nums))
+function reverse(n){
+    let rev = 0;
+    while(n>0){
+        let lastDigit = n%10;
+        rev = lastDigit +rev*10;
+        n = Math.floor(n/10);
+    }
+    console.log("Rev:",rev);
+    return rev;
 }
-let nums = [4,2,9,5,3];
-console.log("MaximumPrimeDiffernces:",maximumPrimeDifference(nums));
