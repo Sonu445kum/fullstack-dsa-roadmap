@@ -56,39 +56,84 @@ import { useState } from "react";
 // }
 // export default HooksPractice;
 
-const HooksPractice = ()=>{
-    const [formInput,setFormInput] = useState({
-        username  :"",
-        useremail :"",
-        userPassword :"",
-    });
-    // handleOnchange
-    const handleChange = (e) =>{
-        const {name,value} = e.target;
-        setFormInput((prev)=>({
-            ...prev,
-            [name] :value
-        }))
-    }
-    // handlesubmit
-    const handleSubmit = (e)=>{
+// const HooksPractice = ()=>{
+//     const [formInput,setFormInput] = useState({
+//         username  :"",
+//         email :"",
+//         password :"",
+//     });
+//     // handleOnchange
+//     const handleChange = (e) =>{
+//         const {name,value} = e.target;
+//         setFormInput((prev)=>({
+//             ...prev,
+//             [name] :value
+//         }))
+//     }
+//     // handlesubmit
+//     const handleSubmit = (e)=>{
+//         e.preventDefault();
+//         console.log("FormInput:",formInput)
+
+//     }
+//     return (
+//         <div style={{}}>
+//             <form onSubmit={handleSubmit}>
+//                 <label>Name:</label>
+//                 <input type="text"  value={formInput.name} onChange={handleChange} name="username" placeholder="Enter here Your Name" /> <br />
+//                 <label >Email:</label>
+//                 <input type="email" value={formInput.email} onChange={handleChange} name="email" placeholder="Enter here Your Name" /> <br />
+//                 <label >Name:</label>
+//                 <input type="password" value={formInput.password} onChange={handleChange} name="password" placeholder="Enter here Your Name" /> <br />
+//                 <button type="submit">Login</button>
+
+//             </form>
+//         </div>
+//     )
+// }
+// export default HooksPractice;
+
+// Add items to a list dynamically.
+const HooksPractice =()=>{
+    // create here useState for adding items
+    const [items , setItems] = useState("");
+    const [list , setList] = useState([]);
+
+    // handleAddItems
+    const handleAddItems =(e)=>{
         e.preventDefault();
-        console.log("FormInput:",formInput)
+        // check input field is empty
+        if(!items.trim()) return;
+        setList((prev)=>[...prev,items]);
+        setItems("");
+    }
+
+    // handleRemoveItems
+    const handleRemoveItem =(index)=>{
+        setList((prev)=>prev.filter((_,i)=> i !== index) )
 
     }
-    return (
-        <div style={{}}>
-            <form onSubmit={handleSubmit}>
-                <label>Name:</label>
-                <input type="text"  value={formInput.name} onChange={handleChange} name="username" placeholder="Enter here Your Name" /> <br />
-                <label >Email:</label>
-                <input type="email" value={formInput.email} onChange={handleChange} name="email" placeholder="Enter here Your Name" /> <br />
-                <label >Name:</label>
-                <input type="password" value={formInput.password} onChange={handleChange} name="password" placeholder="Enter here Your Name" /> <br />
-                <button type="submit">Login</button>
 
+
+    return(
+        <>
+        <div>
+            <form onSubmit={handleAddItems}>
+                <label >Item Name:</label>
+                <input type="text" value={items} name="items" onChange={(e)=>setItems(e.target.value)} placeholder="Enter here Items Name" /> <br />
+                <button type="submit">AddItems</button>
             </form>
+            {/* Display Items */}
+            {
+                list.map((value,index)=>(
+                    <ul >
+                    <li key={index}>{value}</li>
+                    <button onClick={()=>handleRemoveItem(index)}>RemoveItem</button>
+                    </ul>
+                ))
+            }
         </div>
+        </>
     )
 }
 export default HooksPractice;
