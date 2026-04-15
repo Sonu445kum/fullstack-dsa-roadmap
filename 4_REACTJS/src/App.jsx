@@ -4,6 +4,7 @@ import React, { use } from 'react'
 import CityManager from './NewTask/CityManager.jsx'
 import Questions from './Basic/Questions.jsx'
 import HooksPractice from './Hooks/HooksPractice.jsx'
+import CounterCrud from './Hooks/CounterCrud.jsx'
 
 const App = () => {
   // Pass props from parent to child.
@@ -28,7 +29,8 @@ const App = () => {
       ))} */}
 
       {/* <Questions/> */}
-      <HooksPractice/>
+      {/* <HooksPractice/> */}
+      <CounterCrud/>
     </div>
   )
 }

@@ -94,46 +94,116 @@ import { useState } from "react";
 // export default HooksPractice;
 
 // Add items to a list dynamically.
-const HooksPractice =()=>{
-    // create here useState for adding items
-    const [items , setItems] = useState("");
-    const [list , setList] = useState([]);
+// const HooksPractice =()=>{
+//     // create here useState for adding items
+//     const [items , setItems] = useState("");
+//     const [list , setList] = useState([]);
 
-    // handleAddItems
-    const handleAddItems =(e)=>{
+//     // handleAddItems
+//     const handleAddItems =(e)=>{
+//         e.preventDefault();
+//         // check input field is empty
+//         if(!items.trim()) return;
+//         setList((prev)=>[...prev,items]);
+//         setItems("");
+//     }
+
+//     // handleRemoveItems
+//     const handleRemoveItem =(index)=>{
+//         setList((prev)=>prev.filter((_,i)=> i !== index) )
+
+//     }
+
+
+//     return(
+//         <>
+//         <div>
+//             <form onSubmit={handleAddItems}>
+//                 <label >Item Name:</label>
+//                 <input type="text" value={items} name="items" onChange={(e)=>setItems(e.target.value)} placeholder="Enter here Items Name" /> <br />
+//                 <button type="submit">AddItems</button>
+//             </form>
+//             {/* Display Items */}
+//             {
+//                 list.map((value,index)=>(
+//                     <ul>
+//                     <li key={index}>{value}</li> 
+//                     <button onClick={()=>handleRemoveItem(index)}>RemoveItem</button>
+//                     </ul>
+//                 ))
+//             }
+//         </div>
+//         </>
+//     )
+// }
+// export default HooksPractice;
+
+const HooksPractice = ()=>{
+    // useState
+    const [item , setItem] = useState("");
+    const [list,setList] = useState([]);
+    const [editId ,setEditId] = useState(null);
+
+    const handleAddTask =(e)=>{
         e.preventDefault();
-        // check input field is empty
-        if(!items.trim()) return;
-        setList((prev)=>[...prev,items]);
-        setItems("");
+        // check inuput field is empty or not
+        if(!item.trim()) return;
+        // update task
+        // if the editId !== null its means it has some id then we have to edit the task
+        if(editId !== null){
+            setList((prev)=>prev.map((el)=>el.id === editId ? {...el,text:item} :el));
+            // setEdit is null
+            setEditId(null);
+        } // if the editId === null then task is add 
+        else{
+            setList((prev)=>[...prev, {id:Date.now(),text:item,completed:false}]);
+            // setItem is equal to empty
+            setItem("")
+        }
     }
 
-    // handleRemoveItems
-    const handleRemoveItem =(index)=>{
-        setList((prev)=>prev.filter((_,i)=> i !== index) )
-
+    // DeleteItem
+    const handleDeleteItem = (id)=>{
+        setList((prev)=>prev.filter((el)=>el.id  !== id))
     }
 
+    // Edit item
+    const handleEditItem =(id)=>{
+        const selected = list.find((el)=>el.id === id);
+        setItem(selected.text);
+        setEditId(id);
+    }
+    // handleToggle Task
+    const handleToggleTask =(id)=>{
+        setList((prev)=>prev.map((el)=> el.id === id ? {...el ,completed : !el.completed} : el));
+    }
 
-    return(
-        <>
+    return (
         <div>
-            <form onSubmit={handleAddItems}>
-                <label >Item Name:</label>
-                <input type="text" value={items} name="items" onChange={(e)=>setItems(e.target.value)} placeholder="Enter here Items Name" /> <br />
-                <button type="submit">AddItems</button>
+            <form onSubmit={handleAddTask} >
+                <label>Task:</label>
+                <input type="text" value={item} onChange={(e)=>setItem(e.target.value)} placeholder="Enter The Task Here..!!"/>
+                <button type="submit">{editId !==null ? "update" :"AddTask"}</button>
             </form>
-            {/* Display Items */}
-            {
-                list.map((value,index)=>(
-                    <ul >
-                    <li key={index}>{value}</li>
-                    <button onClick={()=>handleRemoveItem(index)}>RemoveItem</button>
-                    </ul>
-                ))
-            }
+            {/* display list */}
+            <ul>
+                {list.map((el)=>(
+                    <li key={el.id}>
+                        <span style={{textDecorationLine : el.completed ? "line-through" :"none", marginRight: "10px"}}>
+                            {el.text}
+                        </span>
+                        {/*  completed */}
+                    <button onClick={()=> handleToggleTask(el.id)}>{el.completed ? "Undo" :"Complete"}</button>
+                    {/* Edit */}
+                    <button onClick={()=>handleEditItem(el.id)}>Edit</button>
+
+                    {/* Delete */}
+                    <button onClick={()=>handleDeleteItem(el.id)}>Delete</button>
+                    </li>
+                    
+                ))}
+            </ul>
         </div>
-        </>
     )
 }
 export default HooksPractice;
