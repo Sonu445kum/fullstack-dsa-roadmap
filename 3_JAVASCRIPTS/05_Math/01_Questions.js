@@ -2895,34 +2895,63 @@
 // let n=12;
 // console.log("CheckPowerOf Three:",checkPowersOfThree(n));
 
-var minMirrorPairDistance = function(nums) {
-    let ans = [];
-    for(let i =0; i<nums.length; i++){
-        for(let j=i+1; j<nums.length; j++){
-            if(reverse(nums[i]) === nums[j]){
-                ans.push(Math.abs(i-j));
-            }
+// var minMirrorPairDistance = function(nums) {
+//     let ans = [];
+//     for(let i =0; i<nums.length; i++){
+//         for(let j=i+1; j<nums.length; j++){
+//             if(reverse(nums[i]) === nums[j]){
+//                 ans.push(Math.abs(i-j));
+//             }
+//         }
+//     }
+//     let min = Infinity;
+//     let res = -1;
+//     for(let num of ans){
+//         if(num < min && res < min){
+//             min = num;
+//             res = min;
+//         }
+//     }
+//     return res;
+// };
+// let nums =[12,21,45,33,54];
+// console.log("minMirrorDistance:",minMirrorPairDistance(nums))
+// function reverse(n){
+//     let rev = 0;
+//     while(n>0){
+//         let lastDigit = n%10;
+//         rev = lastDigit +rev*10;
+//         n = Math.floor(n/10);
+//     }
+//     console.log("Rev:",rev);
+//     return rev;
+// }
+
+// Write an efficient algorithm that searches for a value target in an m x n integer matrix matrix. This matrix has the following properties:
+
+// Integers in each row are sorted in ascending from left to right.
+// Integers in each column are sorted in ascending from top to bottom.
+ 
+
+// Example 1:
+
+
+// Input: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5
+// Output: true
+
+var searchMatrix2DArray = function(matrix , target){
+    let row =0;
+    let col = matrix[0].length - 1;
+    while(row < matrix.length && col >= 0){
+        if(matrix[row][col] === target){
+            return true;
+        }else if(matrix[row][col] > target){
+            col--; // move left side;
+        }else{
+            row++;
         }
     }
-    let min = Infinity;
-    let res = -1;
-    for(let num of ans){
-        if(num < min && res < min){
-            min = num;
-            res = min;
-        }
-    }
-    return res;
-};
-let nums =[12,21,45,33,54];
-console.log("minMirrorDistance:",minMirrorPairDistance(nums))
-function reverse(n){
-    let rev = 0;
-    while(n>0){
-        let lastDigit = n%10;
-        rev = lastDigit +rev*10;
-        n = Math.floor(n/10);
-    }
-    console.log("Rev:",rev);
-    return rev;
+    return false;
 }
+let matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5;
+console.log("SearchMatrix2DArray:",searchMatrix2DArray(matrix , target));
