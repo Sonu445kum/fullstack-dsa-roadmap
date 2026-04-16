@@ -31,7 +31,7 @@ const Employee = ()=>{
     const addUppdatedEmp = (e)=>{
         e.preventDefault();
         // check the input field is empty
-        if(!employeeData.employeeName.trim() || !employeeData.employeeRole.trim() || !employeeData.employeeSalary) return;
+        if(!employeeData.employeeName.trim() || !employeeData.employeeRole.trim() || !employeeData.employeeSalary.trim()) return;
         // if the EmployeeId is not null
         if(editId !== null){
             setEmployeeList((prev)=>prev.map((el)=>el.id === editId ? {...el , ...employeeData} :el));
@@ -74,7 +74,7 @@ const Employee = ()=>{
     // add logic for the Filter
     const filteredEmp = filterRole === "All" ? employeeList : employeeList.filter((emp)=>emp.employeeRole.toLowerCase() === filterRole.toLocaleLowerCase());
     return(
-        <div>
+        <div style={{margin:"30px"}}>
             <form onSubmit={addUppdatedEmp}>
                 <div>
                     <label>EmployeeName:</label>
