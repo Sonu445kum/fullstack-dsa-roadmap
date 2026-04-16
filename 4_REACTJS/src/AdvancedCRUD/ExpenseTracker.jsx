@@ -126,19 +126,18 @@ const ExpenseTracker = () => {
   // state for filter
   const [filterCategory, setFilterCategory] = useState("All");
 
-  // ✅ NEW: search state
+  //  NEW: search state
   const [search, setSearch] = useState("");
 
-  // ✅ LOAD from localStorage (on refresh)
+  //  load data from localstoage
   useEffect(() => {
-    const storedData =
-      JSON.parse(localStorage.getItem("expenses")) || [];
+    const storedData = JSON.parse(localStorage.getItem("expense")) || [];
     setExpenseList(storedData);
   }, []);
 
-  // ✅ SAVE to localStorage (whenever list changes)
+  // save data into local storage
   useEffect(() => {
-    localStorage.setItem("expenses", JSON.stringify(expenseList));
+    localStorage.setItem("expense", JSON.stringify(expenseList));
   }, [expenseList]);
 
   // handleOnChange
@@ -159,9 +158,7 @@ const ExpenseTracker = () => {
 
     if (editId !== null) {
       setExpenseList((prev) =>
-        prev.map((el) =>
-          el.id === editId ? { ...el, ...expenseData } : el
-        )
+        prev.map((el) => (el.id === editId ? { ...el, ...expenseData } : el)),
       );
       setEditId(null);
     } else {
@@ -180,9 +177,7 @@ const ExpenseTracker = () => {
 
   // deleteExpense
   const deleteExpense = (id) => {
-    setExpenseList((prev) =>
-      prev.filter((el) => el.id !== id)
-    );
+    setExpenseList((prev) => prev.filter((el) => el.id !== id));
   };
 
   // editExpense
@@ -197,20 +192,18 @@ const ExpenseTracker = () => {
     setEditId(id);
   };
 
-  //  Filter Logic And Search logic 
+  //  Filter Logic And Search logic
   const filteredExpense = expenseList
     // search
     .filter((el) =>
-      el.expenseCategory
-        .toLowerCase()
-        .includes(search.toLowerCase())
+      el.expenseCategory.toLowerCase().includes(search.toLowerCase()),
     )
     // filter
     .filter((expense) =>
       filterCategory === "All"
         ? true
         : expense.expenseCategory.toLowerCase() ===
-          filterCategory.toLowerCase()
+          filterCategory.toLowerCase(),
     );
 
   // total amount
@@ -259,9 +252,7 @@ const ExpenseTracker = () => {
         <div>
           <select
             value={filterCategory}
-            onChange={(e) =>
-              setFilterCategory(e.target.value)
-            }
+            onChange={(e) => setFilterCategory(e.target.value)}
           >
             <option value="All">All</option>
             <option value="Foods">Foods</option>
@@ -270,9 +261,7 @@ const ExpenseTracker = () => {
           </select>
         </div>
 
-        <button type="submit">
-          {editId !== null ? "Update" : "Add"}
-        </button>
+        <button type="submit">{editId !== null ? "Update" : "Add"}</button>
       </form>
 
       <h2>Total Amount: ₹{totalAmount}</h2>
@@ -284,12 +273,8 @@ const ExpenseTracker = () => {
             <p>ExpenseAmount: {el.expenseAmount}</p>
             <p>ExpenseCategory: {el.expenseCategory}</p>
 
-            <button onClick={() => editExpense(el.id)}>
-              Edit
-            </button>
-            <button onClick={() => deleteExpense(el.id)}>
-              Delete
-            </button>
+            <button onClick={() => editExpense(el.id)}>Edit</button>
+            <button onClick={() => deleteExpense(el.id)}>Delete</button>
           </li>
         ))}
       </ul>

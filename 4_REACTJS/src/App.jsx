@@ -12,6 +12,7 @@ import BlogPost from './Hooks/BlogPost.jsx'
 import MoviesWatchList from './Hooks/MoviesWatchList.jsx'
 import Employee from './AdvancedCRUD/Employee.jsx'
 import ExpenseTracker from './AdvancedCRUD/ExpenseTracker.jsx'
+import CrudApi from './AdvancedCRUD/CrudApi.jsx'
 
 const App = () => {
   // Pass props from parent to child.
@@ -45,7 +46,8 @@ const App = () => {
       {/* <BlogPost/> */}
       {/* <MoviesWatchList/> */}
       {/* <Employee/> */}
-      <ExpenseTracker/>
+      {/* <ExpenseTracker/> */}
+      <CrudApi/>
     </div>
   )
 }
