@@ -10,6 +10,7 @@ import UserManagement from './Hooks/UserManagement.jsx'
 import ProductList from './Hooks/ProductList.jsx'
 import BlogPost from './Hooks/BlogPost.jsx'
 import MoviesWatchList from './Hooks/MoviesWatchList.jsx'
+import Employee from './AdvancedCRUD/Employee.jsx'
 
 const App = () => {
   // Pass props from parent to child.
@@ -41,7 +42,8 @@ const App = () => {
       {/* <UserManagement/> */}
       {/* <ProductList/> */}
       {/* <BlogPost/> */}
-      <MoviesWatchList/>
+      {/* <MoviesWatchList/> */}
+      <Employee/>
     </div>
   )
 }
