@@ -8,6 +8,7 @@ import CounterCrud from './Hooks/CounterCrud.jsx'
 import NotesApp from './Hooks/NotesApp.jsx'
 import UserManagement from './Hooks/UserManagement.jsx'
 import ProductList from './Hooks/ProductList.jsx'
+import BlogPost from './Hooks/BlogPost.jsx'
 
 const App = () => {
   // Pass props from parent to child.
@@ -37,7 +38,8 @@ const App = () => {
       {/* <NotesApp/> */}
       {/* User Managemnt */}
       {/* <UserManagement/> */}
-      <ProductList/>
+      {/* <ProductList/> */}
+      <BlogPost/>
     </div>
   )
 }
