@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useCallback } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import axios from "axios"
 
 const BasicExamples = () => {
   // state
@@ -112,20 +113,42 @@ const BasicExamples = () => {
     //     .then((data)=>setData(data));
     // },[])
 
-    // Fetch data from API and display it using try catch
+    // Fetch data from API and display it using try catch + fetch
   
+    // const [data , setData] = useState([]);
+    // const [loading ,setLoading]  = useState(true);
+    // const [error , setError] = useState(null);
+    // useEffect(()=>{
+    //     const api = "https://jsonplaceholder.typicode.com/users";
+    //     const fetchData = async()=>{
+    //         try {
+    //             const res = await fetch(api);
+    //             if(!res.ok) throw new Error("Failed toi fetch data..!!")
+    //             const result = await res.json();
+    //             setData(result);
+    //             setLoading(false);
+    //         } catch (error) {
+    //             setError(error.message)
+    //         }finally{
+    //             setLoading(false);
+    //         }
+    //     }
+    //     fetchData();
+    // },[]);
+
+    // Fetch data from API and display it using try catch + axios
     const [data , setData] = useState([]);
-    const [loading ,setLoading]  = useState(true);
+    const [loading , setLoading] = useState(true);
     const [error , setError] = useState(null);
+
+    // useEffect
     useEffect(()=>{
-        const api = "https://jsonplaceholder.typicode.com/users";
         const fetchData = async()=>{
+            const api = "https://jsonplaceholder.typicode.com/users";
             try {
-                const res = await fetch(api);
-                if(!res.ok) throw new Error("Failed toi fetch data..!!")
-                const result = await res.json();
-                setData(result);
-                setLoading(false);
+                const res = await axios.get(api);
+                setData(res.data);
+                // setLoading(false); 
             } catch (error) {
                 setError(error.message)
             }finally{
@@ -133,7 +156,7 @@ const BasicExamples = () => {
             }
         }
         fetchData();
-    },[]);
+    },[])
 
     if(loading) return <h1>Loading....!!</h1>
     if(error) return <h1>{error}</h1>
