@@ -432,8 +432,6 @@
 
 // Return the smallest character in letters that is lexicographically greater than target. If such a character does not exist, return the first character in letters.
 
- 
-
 // Example 1:
 
 // Input: letters = ["c","f","j"], target = "a"
@@ -455,13 +453,11 @@
 
 // Return all lonely numbers in nums. You may return the answer in any order.
 
- 
-
 // Example 1:
 
 // Input: nums = [10,6,5,8]
 // Output: [10,8]
-// Explanation: 
+// Explanation:
 // - 10 is a lonely number since it appears exactly once and 9 and 11 does not appear in nums.
 // - 8 is a lonely number since it appears exactly once and 7 and 9 does not appear in nums.
 // - 5 is not a lonely number since 6 appears in nums and vice versa.
@@ -488,8 +484,6 @@
 // We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1.
 
 // Given an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.
-
- 
 
 // Example 1:
 
@@ -536,7 +530,7 @@
 //         }
 //     }
 //     return max;
-    
+
 // };
 // let nums = [1,3,2,2,5,2,3,7];
 // console.log("findLHS:",findLHS(nums));
@@ -544,8 +538,6 @@
 // Given two strings a and b, return the length of the longest uncommon subsequence between a and b. If no such uncommon subsequence exists, return -1.
 
 // An uncommon subsequence between two strings is a string that is a subsequence of exactly one of them.
-
- 
 
 // Example 1:
 
@@ -576,8 +568,6 @@
 
 // Return the total number of good pairs.
 
- 
-
 // Example 1:
 
 // Input: nums1 = [1,3,4], nums2 = [1,3,4], k = 1
@@ -588,17 +578,93 @@
 
 // The 5 good pairs are (0, 0), (1, 0), (1, 1), (2, 0), and (2, 2).
 
-var numberOfPairs = function(nums1, nums2, k) {
+// var numberOfPairs = function(nums1, nums2, k) {
+//     let count =0;
+//     for(let i =0; i<nums1.length; i++){
+//         for(let j = 0; j<nums2.length; j++){
+//             if(nums1[i] %( nums2[j]*k) === 0){
+//                 count++;
+//             }
+//         }
+//     }
+//     return count;
+// };
+// let nums1 = [1,3,4], nums2 = [1,3,4], k = 1;
+// console.log("numberOfPairs:",numberOfPairs(nums1 , nums2 , k));
+
+// You are given an array nums consisting of positive integers where all integers have the same number of digits.
+
+// The digit difference between two integers is the count of different digits that are in the same position in the two integers.
+
+// Return the sum of the digit differences between all pairs of integers in nums.
+
+ 
+
+// Example 1:
+
+// Input: nums = [13,23,12]
+
+// Output: 4
+
+// Explanation:
+// We have the following:
+// - The digit difference between 13 and 23 is 1.
+// - The digit difference between 13 and 12 is 1.
+// - The digit difference between 23 and 12 is 2.
+// So the total sum of digit differences between all pairs of integers is 1 + 1 + 2 = 4.
+
+// var sumDigitDifferences = function (nums) {
+//   let sum = 0;
+//   let ans = [];
+//   for (let i = 0; i < nums.length; i++) {
+//     for (let j = i + 1; j < nums.length; j++) {
+//       let res =
+//         Math.abs(firstDigit(nums[i]) - firstDigit(nums[j])) +
+//         Math.abs((nums[i] % 10) - (nums[j] % 10));
+//       sum += res;
+//     }
+//   }
+//   return sum;
+// };
+// let nums = [50,28,48];
+// console.log("sumDigitDiffrences:",sumDigitDifferences(nums));
+// function firstDigit(n) {
+//   while (n >= 10) {
+//     n = Math.floor(n / 10);
+//   }
+//   console.log("rev:",n);
+//   return n;
+// }
+
+// map Appraoch
+// var numberOfSpecialChars = function(word) {
+//     let s = word.split("");
+//     let map = new Map();
+//     for(let char of s){
+//         map.set(char , (map.get(char) || 0) + 1);
+//     }
+//     let count = 0;
+//     for(let ch of map.keys()){
+//         if(ch >= 'a' && ch <= 'z' && map.has(ch.toUpperCase())){
+//             count++;
+//         }
+        
+//     }
+//     return count;
+// };
+
+var numberOfSpecialChars = function(word) {
+    let set = new Set(word);
+    console.log(set);
     let count =0;
-    for(let i =0; i<nums1.length; i++){
-        for(let j = 0; j<nums2.length; j++){
-            if(nums1[i] %( nums2[j]*k) === 0){
-                count++;
-            }
+    for(let ch of set){
+        if(ch >= 'a' && ch <= 'z' && set.has(ch.toUpperCase())){
+            count++;
         }
     }
     return count;
 };
-let nums1 = [1,3,4], nums2 = [1,3,4], k = 1;
-console.log("numberOfPairs:",numberOfPairs(nums1 , nums2 , k));
+
+let word = "aaAbcBC";
+console.log("numberOfSpecialCharacter:",numberOfSpecialChars(word));
 
