@@ -522,21 +522,51 @@
 
 // using map method
 
-var findLHS = function(nums){
-    // find the freq of Each Element;
-    let map = new Map();
-    for(let num of nums){
-        map.set(num , (map.get(num) || 0)+1);
-    }
-    // find the max;
-    let max =0;
-    for(let [num, count] of map){
-        if(map.has(num+1)){
-            max = Math.max(max , count + map.get(num+1));
-        }
-    }
-    return max;
+// var findLHS = function(nums){
+//     // find the freq of Each Element;
+//     let map = new Map();
+//     for(let num of nums){
+//         map.set(num , (map.get(num) || 0)+1);
+//     }
+//     // find the max;
+//     let max =0;
+//     for(let [num, count] of map){
+//         if(map.has(num+1)){
+//             max = Math.max(max , count + map.get(num+1));
+//         }
+//     }
+//     return max;
     
+// };
+// let nums = [1,3,2,2,5,2,3,7];
+// console.log("findLHS:",findLHS(nums));
+
+// Given two strings a and b, return the length of the longest uncommon subsequence between a and b. If no such uncommon subsequence exists, return -1.
+
+// An uncommon subsequence between two strings is a string that is a subsequence of exactly one of them.
+
+ 
+
+// Example 1:
+
+// Input: a = "aba", b = "cdc"
+// Output: 3
+// Explanation: One longest uncommon subsequence is "aba" because "aba" is a subsequence of "aba" but not "cdc".
+// Note that "cdc" is also a longest uncommon subsequence.
+
+var findLUSlength = function(a, b) {
+    if( a=== b) return -1;
+    if( a === reverse(b)) return -1;
+    if( a !== reverse(b) && a.length > b.length) return a.length;
+    if(a !== reverse(b)) return b.length;
 };
-let nums = [1,3,2,2,5,2,3,7];
-console.log("findLHS:",findLHS(nums));
+let a = "aba", b = "cdc";
+console.log("findLUSLength:",findLUSlength(a , b));
+function reverse(s){
+    let rev = "";
+    for(let i = s.length - 1; i>=0; i--){
+        rev += s[i];
+    }
+    return rev;
+}
+
