@@ -468,19 +468,55 @@
 // Hence, the lonely numbers in nums are [10, 8].
 // Note that [8, 10] may also be returned.
 
-var findLonely = function(nums) {
+// var findLonely = function(nums) {
+//     let freq = {};
+//     for(let num of nums){
+//         freq[num] = (freq[num] || 0) + 1;
+//     }
+//     let ans =[];
+//     for(let [key,value] of Object.entries(freq)){
+//         let res = Number(key);
+//         if(value === 1 && !freq[res - 1] && !freq[res + 1]){
+//             ans.push(res);
+//         }
+//     }
+//     return ans;
+// };
+// let nums = [10,6,5,8];
+// console.log("findLonely Number:",findLonely(nums));
+
+// We define a harmonious array as an array where the difference between its maximum value and its minimum value is exactly 1.
+
+// Given an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,3,2,2,5,2,3,7]
+
+// Output: 5
+
+// Explanation:
+
+// The longest harmonious subsequence is [3,2,2,2,3].
+
+var findLHS = function(nums){
+    // find the freq of Each Element;
     let freq = {};
     for(let num of nums){
         freq[num] = (freq[num] || 0) + 1;
     }
-    let ans =[];
-    for(let [key,value] of Object.entries(freq)){
-        let res = Number(key);
-        if(value === 1 && !freq[res - 1] && !freq[res + 1]){
-            ans.push(res);
+    // find the maxLength;
+    let maxLength = 0;
+    for(let ans in freq){
+        let num = Number(ans);
+        if(freq[num+1]){
+            let length = freq[num] + freq[num+1];
+            maxLength = Math.max(maxLength , length);
         }
     }
-    return ans;
+    return maxLength;
 };
-let nums = [10,6,5,8];
-console.log("findLonely Number:",findLonely(nums));
+let nums = [1,3,2,2,5,2,3,7];
+console.log("findLHS:",findLHS(nums));
