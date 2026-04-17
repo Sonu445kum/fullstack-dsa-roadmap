@@ -653,18 +653,46 @@
 //     return count;
 // };
 
-var numberOfSpecialChars = function(word) {
+// var numberOfSpecialChars = function(word) {
+//     let set = new Set(word);
+//     console.log(set);
+//     let count =0;
+//     for(let ch of set){
+//         if(ch >= 'a' && ch <= 'z' && set.has(ch.toUpperCase())){
+//             count++;
+//         }
+//     }
+//     return count;
+// };
+
+// let word = "aaAbcBC";
+// console.log("numberOfSpecialCharacter:",numberOfSpecialChars(word));
+
+// you are given a string word. A letter c is called special if it appears both in lowercase and uppercase in word, and every lowercase occurrence of c appears before the first uppercase occurrence of c.
+
+// Return the number of special letters in word.
+
+var numberOfSpecialCharsII = function(word) {
     let set = new Set(word);
     console.log(set);
     let count =0;
     for(let ch of set){
-        if(ch >= 'a' && ch <= 'z' && set.has(ch.toUpperCase())){
-            count++;
+        if(ch >= 'a' && ch <= 'z'){
+            let upper = ch.toUpperCase();
+            if(set.has(upper)){
+                let firstOcc = word.lastIndexOf(ch);
+                let lastOcc = word.indexOf(upper);
+
+                // check if firstOcc < lastOcc
+                if(firstOcc < lastOcc){
+                    count++;
+                }
+            }
         }
     }
     return count;
 };
-
 let word = "aaAbcBC";
-console.log("numberOfSpecialCharacter:",numberOfSpecialChars(word));
+console.log("numberOfSpecialCharacter:",numberOfSpecialCharsII(word));
+
 
