@@ -1,18 +1,19 @@
 
 
 import React, { use } from 'react'
-import CityManager from './NewTask/CityManager.jsx'
-import Questions from './Basic/Questions.jsx'
-import HooksPractice from './Hooks/HooksPractice.jsx'
-import CounterCrud from './Hooks/CounterCrud.jsx'
-import NotesApp from './Hooks/NotesApp.jsx'
-import UserManagement from './Hooks/UserManagement.jsx'
-import ProductList from './Hooks/ProductList.jsx'
-import BlogPost from './Hooks/BlogPost.jsx'
-import MoviesWatchList from './Hooks/MoviesWatchList.jsx'
-import Employee from './AdvancedCRUD/Employee.jsx'
-import ExpenseTracker from './AdvancedCRUD/ExpenseTracker.jsx'
-import CrudApi from './AdvancedCRUD/CrudApi.jsx'
+// import CityManager from './NewTask/CityManager.jsx'
+// import Questions from './Basic/Questions.jsx'
+// import HooksPractice from './Hooks/HooksPractice.jsx'
+// import CounterCrud from './Hooks/CounterCrud.jsx'
+// import NotesApp from './Hooks/NotesApp.jsx'
+// import UserManagement from './Hooks/UserManagement.jsx'
+// import ProductList from './Hooks/ProductList.jsx'
+// import BlogPost from './Hooks/BlogPost.jsx'
+// import MoviesWatchList from './Hooks/MoviesWatchList.jsx'
+// import Employee from './AdvancedCRUD/Employee.jsx'
+// import ExpenseTracker from './AdvancedCRUD/ExpenseTracker.jsx'
+// import CrudApi from './AdvancedCRUD/CrudApi.jsx'
+import BasicExamples from './UseEffect/BasicExamples.jsx'
 
 const App = () => {
   // Pass props from parent to child.
@@ -47,7 +48,8 @@ const App = () => {
       {/* <MoviesWatchList/> */}
       {/* <Employee/> */}
       {/* <ExpenseTracker/> */}
-      <CrudApi/>
+      {/* <CrudApi/> */}
+      <BasicExamples/>
     </div>
   )
 }
