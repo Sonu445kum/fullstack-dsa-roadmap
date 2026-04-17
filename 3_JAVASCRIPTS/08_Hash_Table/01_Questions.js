@@ -500,23 +500,43 @@
 // Explanation:
 
 // The longest harmonious subsequence is [3,2,2,2,3].
+// using frequency methods
+
+// var findLHS = function(nums){
+//     // find the freq of Each Element;
+//     let freq = {};
+//     for(let num of nums){
+//         freq[num] = (freq[num] || 0) + 1;
+//     }
+//     // find the maxLength;
+//     let maxLength = 0;
+//     for(let ans in freq){
+//         let num = Number(ans);
+//         if(freq[num+1]){
+//             let length = freq[num] + freq[num+1];
+//             maxLength = Math.max(maxLength , length);
+//         }
+//     }
+//     return maxLength;
+// };
+
+// using map method
 
 var findLHS = function(nums){
     // find the freq of Each Element;
-    let freq = {};
+    let map = new Map();
     for(let num of nums){
-        freq[num] = (freq[num] || 0) + 1;
+        map.set(num , (map.get(num) || 0)+1);
     }
-    // find the maxLength;
-    let maxLength = 0;
-    for(let ans in freq){
-        let num = Number(ans);
-        if(freq[num+1]){
-            let length = freq[num] + freq[num+1];
-            maxLength = Math.max(maxLength , length);
+    // find the max;
+    let max =0;
+    for(let [num, count] of map){
+        if(map.has(num+1)){
+            max = Math.max(max , count + map.get(num+1));
         }
     }
-    return maxLength;
+    return max;
+    
 };
 let nums = [1,3,2,2,5,2,3,7];
 console.log("findLHS:",findLHS(nums));
