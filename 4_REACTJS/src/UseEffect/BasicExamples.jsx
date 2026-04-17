@@ -94,12 +94,50 @@ const BasicExamples = () => {
     // },[count])
 
     // Create a counter and update document title using useEffect
-    const [counter , setCounter] = useState(0);
-    // useEffects
+    // const [counter , setCounter] = useState(0);
+    // // useEffects
+    // useEffect(()=>{
+    //     document.title = `Counter: ${counter}`
+    //     console.log("Counter update:",counter)
+    // },[counter])
+
+    // Fetch data from API and display it
+    // const [data , setData] = useState([]);
+
+    // const api = "https://jsonplaceholder.typicode.com/users"
+    // // useEffects
+    // useEffect(()=>{
+    //     fetch(api).
+    //     then((res)=>res.json())
+    //     .then((data)=>setData(data));
+    // },[])
+
+    // Fetch data from API and display it using try catch
+  
+    const [data , setData] = useState([]);
+    const [loading ,setLoading]  = useState(true);
+    const [error , setError] = useState(null);
     useEffect(()=>{
-        document.title = `Counter: ${counter}`
-        console.log("Counter update:",counter)
-    },[counter])
+        const api = "https://jsonplaceholder.typicode.com/users";
+        const fetchData = async()=>{
+            try {
+                const res = await fetch(api);
+                if(!res.ok) throw new Error("Failed toi fetch data..!!")
+                const result = await res.json();
+                setData(result);
+                setLoading(false);
+            } catch (error) {
+                setError(error.message)
+            }finally{
+                setLoading(false);
+            }
+        }
+        fetchData();
+    },[]);
+
+    if(loading) return <h1>Loading....!!</h1>
+    if(error) return <h1>{error}</h1>
+
   return (
     // <div style={{ margin: "20px" }}>
     //   This is a Simple Example of the UseEffect
@@ -107,13 +145,27 @@ const BasicExamples = () => {
     // </div>
 
     // counterApp
-    <div style={{margin:"20px",alignContent:"center"}}>
-        <h1>Counter App</h1>
-        <h2>Counter Value:{counter}</h2>
-        <div>
-            <button onClick={()=>setCounter(counter+1)}>Increment(+)</button>
-            <button onClick={()=>setCounter(counter - 1)}>Decrement(-)</button>
-        </div>
+    // <div style={{margin:"20px",alignContent:"center"}}>
+    //     <h1>Counter App</h1>
+    //     <h2>Counter Value:{counter}</h2>
+    //     <div>
+    //         <button onClick={()=>setCounter(counter+1)}>Increment(+)</button>
+    //         <button onClick={()=>setCounter(counter - 1)}>Decrement(-)</button>
+    //     </div>
+    // </div>
+
+    // Fetch data from API and display it
+    <div style={{margin:"20px"}}>
+        <h1>Fetch data from API and display it </h1>
+        {
+            data.map((user)=>(
+                <li key={user.id}>
+                    <p>{user.id}</p>
+                    <p>{user.name}</p>
+                    <p>{user.email}</p>
+                </li>
+            ))
+        }
     </div>
   );
 };
