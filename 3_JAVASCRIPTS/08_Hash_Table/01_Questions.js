@@ -672,27 +672,65 @@
 
 // Return the number of special letters in word.
 
-var numberOfSpecialCharsII = function(word) {
-    let set = new Set(word);
-    console.log(set);
-    let count =0;
-    for(let ch of set){
-        if(ch >= 'a' && ch <= 'z'){
-            let upper = ch.toUpperCase();
-            if(set.has(upper)){
-                let firstOcc = word.lastIndexOf(ch);
-                let lastOcc = word.indexOf(upper);
+// var numberOfSpecialCharsII = function(word) {
+//     let set = new Set(word);
+//     console.log(set);
+//     let count =0;
+//     for(let ch of set){
+//         if(ch >= 'a' && ch <= 'z'){
+//             let upper = ch.toUpperCase();
+//             if(set.has(upper)){
+//                 let firstOcc = word.lastIndexOf(ch);
+//                 let lastOcc = word.indexOf(upper);
 
-                // check if firstOcc < lastOcc
-                if(firstOcc < lastOcc){
-                    count++;
-                }
-            }
+//                 // check if firstOcc < lastOcc
+//                 if(firstOcc < lastOcc){
+//                     count++;
+//                 }
+//             }
+//         }
+//     }
+//     return count;
+// };
+// let word = "aaAbcBC";
+// console.log("numberOfSpecialCharacter:",numberOfSpecialCharsII(word));
+
+// You are given an array nums consisting of positive integers.
+
+// Return the total frequencies of elements in nums such that those elements all have the maximum frequency.
+
+// The frequency of an element is the number of occurrences of that element in the array.
+
+ 
+
+// Example 1:
+
+// Input: nums = [1,2,2,3,1,4]
+// Output: 4
+// Explanation: The elements 1 and 2 have a frequency of 2 which is the maximum frequency in the array.
+// So the number of elements in the array with maximum frequency is 4.
+
+var findMaxFrequencyCount = function(nums){
+    // find freq of each element
+    let map = new Map();
+    for(let num of nums){
+        map.set(num , (map.get(num)|| 0) + 1);
+    }
+    // find the maxFreq
+    let maxFreq = 0;
+    for(let count of map.values()){
+        maxFreq = Math.max(maxFreq , count);
+    }
+    // find the total MaxFreq
+    let total = 0;
+    for(let count of map.values()){
+        if(count === maxFreq){
+            total += count;
         }
     }
-    return count;
-};
-let word = "aaAbcBC";
-console.log("numberOfSpecialCharacter:",numberOfSpecialCharsII(word));
+    return total;
+}
+let nums = [1,2,2,3,1,4];
+console.log("FindMaxFrequencyCount:",findMaxFrequencyCount(nums));
 
 
