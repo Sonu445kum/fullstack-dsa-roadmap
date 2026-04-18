@@ -1,17 +1,17 @@
 
 
-import React, { use, useState } from 'react'
-import Users from './CustomHooks/Users'
-import Parent from './UseCallback/Parent'
-import Optimizes from './UseCallback/Optimizes'
-import InputFocus from './UseRef/InputFocus'
-import StorePrevious from './UseRef/StorePrevoius'
-import { ThemeContext } from './UseContext/ThemeContext.jsx'
-import Home from './UseContext/Home.jsx'
-import { AuthContext } from './UseContext/AuthContext.jsx'
-import Navbar from './UseContext/Navbar.jsx'
-import Dashboard from './AllHooks/Dashboard.jsx'
-import Counter from './UseReducers/Counter.jsx'
+// import React, { use, useState } from 'react'
+// import Users from './CustomHooks/Users'
+// import Parent from './UseCallback/Parent'
+// import Optimizes from './UseCallback/Optimizes'
+// import InputFocus from './UseRef/InputFocus'
+// import StorePrevious from './UseRef/StorePrevoius'
+// import { ThemeContext } from './UseContext/ThemeContext.jsx'
+// import Home from './UseContext/Home.jsx'
+// import { AuthContext } from './UseContext/AuthContext.jsx'
+// import Navbar from './UseContext/Navbar.jsx'
+// import Dashboard from './AllHooks/Dashboard.jsx'
+// import Counter from './UseReducers/Counter.jsx'
 // import CityManager from './NewTask/CityManager.jsx'
 // import Questions from './Basic/Questions.jsx'
 // import HooksPractice from './Hooks/HooksPractice.jsx'
@@ -25,6 +25,7 @@ import Counter from './UseReducers/Counter.jsx'
 // import ExpenseTracker from './AdvancedCRUD/ExpenseTracker.jsx'
 // import CrudApi from './AdvancedCRUD/CrudApi.jsx'
 // import BasicExamples from './UseEffect/BasicExamples.jsx'
+import Counter from "./ReduxToolkit/Counter.jsx";
 
 const App = () => {
   // Pass props from parent to child.
@@ -45,15 +46,15 @@ const App = () => {
   // const [theme , setTheme] = useState("light");
 
   // Authentications System
-  const [user ,setUser]  = useState(null);
-  // login
-  const login = ()=>{
-    setUser({name:"Sonu"});
-  }
-  // logout
-  const logout = ()=>{
-    setUser(null);
-  }
+  // const [user ,setUser]  = useState(null);
+  // // login
+  // const login = ()=>{
+  //   setUser({name:"Sonu"});
+  // }
+  // // logout
+  // const logout = ()=>{
+  //   setUser(null);
+  // }
   return (
     <div>
       {/* <CityManager/> */}
