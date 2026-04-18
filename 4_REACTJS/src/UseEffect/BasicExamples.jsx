@@ -3,6 +3,7 @@ import { useCallback } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios"
+import { useSyncExternalStore } from "react";
 
 const BasicExamples = () => {
   // state
@@ -137,29 +138,83 @@ const BasicExamples = () => {
     // },[]);
 
     // Fetch data from API and display it using try catch + axios
-    const [data , setData] = useState([]);
-    const [loading , setLoading] = useState(true);
-    const [error , setError] = useState(null);
+    // const [data , setData] = useState([]);
+    // const [loading , setLoading] = useState(true);
+    // const [error , setError] = useState(null);
 
-    // useEffect
+    // // useEffect
+    // useEffect(()=>{
+    //     const fetchData = async()=>{
+    //         const api = "https://jsonplaceholder.typicode.com/users";
+    //         try {
+    //             const res = await axios.get(api);
+    //             setData(res.data);
+    //             // setLoading(false); 
+    //         } catch (error) {
+    //             setError(error.message)
+    //         }finally{
+    //             setLoading(false);
+    //         }
+    //     }
+    //     fetchData();
+    // },[])
+
+    // if(loading) return <h1>Loading....!!</h1>
+    // if(error) return <h1>{error}</h1>
+
+
+    // Show alert when component mounts
+    // useEffect(()=>{
+    //     alert("Hello sonu..!!")
+    // },[])
+
+    // Log message when input value changes
+    // const [data,setData] = useState("");
+    // const [list ,setList] = useState([]);
+    // // useEffects
+    // useEffect(()=>{
+    //     if(!data.trim()) return;
+    //     console.log("Name:",data);
+    //     setList((prev)=>[...prev , ...data])
+    //     setData("");
+       
+    // },[data]);
+
+    // store value in the localstorage
+    // const [value,setValue] = useState("");
+
+    // // load value from the localstorage
+    // useEffect(()=>{
+    //     const storeValue = localStorage.getItem("useranme");
+    //     if(storeValue){
+    //         setValue(storeValue);
+    //     }
+    // },[]);
+
+    // // store value in the localstorage
+    // useEffect(()=>{
+    //     localStorage.setItem("username",value);
+    // },[value])
+
+    // Create a timer using setInterval
+    // useEffect(()=>{
+    //     const timeInterval = setInterval(()=>{
+    //         console.log("time")
+    //     },1000)
+    // },[])
+
+    const [count , setCount] = useState(0);
+    const [isRunning ,setIsRunning] = useState(false);
+
     useEffect(()=>{
-        const fetchData = async()=>{
-            const api = "https://jsonplaceholder.typicode.com/users";
-            try {
-                const res = await axios.get(api);
-                setData(res.data);
-                // setLoading(false); 
-            } catch (error) {
-                setError(error.message)
-            }finally{
-                setLoading(false);
-            }
+        if(!isRunning) return;
+        const timer = setInterval(()=>{
+            setCount((prev)=>prev+1);
+        },1000)
+        return ()=>{
+            clearInterval(timer);
         }
-        fetchData();
-    },[])
-
-    if(loading) return <h1>Loading....!!</h1>
-    if(error) return <h1>{error}</h1>
+    },[isRunning])
 
   return (
     // <div style={{ margin: "20px" }}>
@@ -179,7 +234,7 @@ const BasicExamples = () => {
 
     // Fetch data from API and display it
     <div style={{margin:"20px"}}>
-        <h1>Fetch data from API and display it </h1>
+        {/* <h1>Fetch data from API and display it </h1>
         {
             data.map((user)=>(
                 <li key={user.id}>
@@ -188,7 +243,39 @@ const BasicExamples = () => {
                     <p>{user.email}</p>
                 </li>
             ))
-        }
+        } */}
+
+        {/* Log message when input value changes */}
+        {/* <div>
+            <label>Name:</label>
+            <input type="text" name="name" value={data} onChange={(e)=>setData(e.target.value)} placeholder="Enter something..!! here" />
+        </div>
+        {/* display name */}
+        {/* <div>
+           <ul>
+             {
+                list.map((item)=>(
+                    <li key={item.id}>
+                        <p>Name:{item}</p>
+                    </li>
+                ))
+            }
+           </ul>
+        </div> */} 
+
+        {/* Store value in the localstorage */}
+        <div>
+            {/* <label>Name:</label>
+            <input type="text" name="name" value={value}  onChange={(e)=>setValue(e.target.value)}/> */}
+        </div>
+        
+        <div>
+            <h1>Value:{count}</h1>
+            <button onClick={()=>setIsRunning(true)}>Start</button>
+            <button onClick={()=>setIsRunning(false)}>Stop</button>
+            <button onClick={()=>{setCount(0);setIsRunning(false)}}>Reset</button>
+        </div>
+
     </div>
   );
 };
