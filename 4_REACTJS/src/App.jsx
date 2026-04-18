@@ -1,6 +1,11 @@
 
 
 import React, { use } from 'react'
+import Users from './CustomHooks/Users'
+import Parent from './UseCallback/Parent'
+import Optimizes from './UseCallback/Optimizes'
+import InputFocus from './UseRef/InputFocus'
+import StorePrevious from './UseRef/StorePrevoius'
 // import CityManager from './NewTask/CityManager.jsx'
 // import Questions from './Basic/Questions.jsx'
 // import HooksPractice from './Hooks/HooksPractice.jsx'
@@ -13,7 +18,7 @@ import React, { use } from 'react'
 // import Employee from './AdvancedCRUD/Employee.jsx'
 // import ExpenseTracker from './AdvancedCRUD/ExpenseTracker.jsx'
 // import CrudApi from './AdvancedCRUD/CrudApi.jsx'
-import BasicExamples from './UseEffect/BasicExamples.jsx'
+// import BasicExamples from './UseEffect/BasicExamples.jsx'
 
 const App = () => {
   // Pass props from parent to child.
@@ -49,7 +54,17 @@ const App = () => {
       {/* <Employee/> */}
       {/* <ExpenseTracker/> */}
       {/* <CrudApi/> */}
-      <BasicExamples/>
+      {/* <BasicExamples/> */}
+      {/* customs Hooks */}
+      {/* <Users/> */}
+
+      {/* UseCallback */}
+      {/* <Parent/> */}
+      {/* <Optimizes/> */}
+
+      {/* useRef */}
+      {/* <InputFocus/> */}
+      <StorePrevious/>
     </div>
   )
 }
