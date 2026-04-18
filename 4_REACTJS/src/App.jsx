@@ -1,11 +1,16 @@
 
 
-import React, { use } from 'react'
+import React, { use, useState } from 'react'
 import Users from './CustomHooks/Users'
 import Parent from './UseCallback/Parent'
 import Optimizes from './UseCallback/Optimizes'
 import InputFocus from './UseRef/InputFocus'
 import StorePrevious from './UseRef/StorePrevoius'
+import { ThemeContext } from './UseContext/ThemeContext.jsx'
+import Home from './UseContext/Home.jsx'
+import { AuthContext } from './UseContext/AuthContext.jsx'
+import Navbar from './UseContext/Navbar.jsx'
+import Dashboard from './AllHooks/Dashboard.jsx'
 // import CityManager from './NewTask/CityManager.jsx'
 // import Questions from './Basic/Questions.jsx'
 // import HooksPractice from './Hooks/HooksPractice.jsx'
@@ -34,6 +39,20 @@ const App = () => {
   //   { id: 2, name: "Rahul", age: 22 },
   //   { id: 3, name: "Amit", age: 25 }
   // ];
+
+  // useContext Example
+  // const [theme , setTheme] = useState("light");
+
+  // Authentications System
+  const [user ,setUser]  = useState(null);
+  // login
+  const login = ()=>{
+    setUser({name:"Sonu"});
+  }
+  // logout
+  const logout = ()=>{
+    setUser(null);
+  }
   return (
     <div>
       {/* <CityManager/> */}
@@ -64,7 +83,20 @@ const App = () => {
 
       {/* useRef */}
       {/* <InputFocus/> */}
-      <StorePrevious/>
+      {/* <StorePrevious/> */}
+
+      {/* UseContext */}
+      {/* <ThemeContext.Provider value={{theme ,setTheme}}>
+        <Home/>
+      </ThemeContext.Provider> */}
+
+      {/* Authentication */}
+      {/* <AuthContext.Provider value={{value , login , logout}}>
+        <Navbar/>
+      </AuthContext.Provider> */}
+
+      {/* All Hooks */}
+      <Dashboard/>
     </div>
   )
 }
