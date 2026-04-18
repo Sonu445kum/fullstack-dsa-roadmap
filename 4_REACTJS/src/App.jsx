@@ -11,6 +11,7 @@ import Home from './UseContext/Home.jsx'
 import { AuthContext } from './UseContext/AuthContext.jsx'
 import Navbar from './UseContext/Navbar.jsx'
 import Dashboard from './AllHooks/Dashboard.jsx'
+import Counter from './UseReducers/Counter.jsx'
 // import CityManager from './NewTask/CityManager.jsx'
 // import Questions from './Basic/Questions.jsx'
 // import HooksPractice from './Hooks/HooksPractice.jsx'
@@ -96,7 +97,9 @@ const App = () => {
       </AuthContext.Provider> */}
 
       {/* All Hooks */}
-      <Dashboard/>
+      {/* <Dashboard/> */}
+      {/* <Counter/> */}
+      <Counter/>
     </div>
   )
 }
