@@ -3072,35 +3072,50 @@
 // let strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
 // console.log("groupAnagram:",groupAnagram(strs));
 
-var maximumSum = function(nums) {
+// var maximumSum = function(nums) {
+//     let map = new Map();
+//     let max = -1;
+
+//     for (let num of nums) {
+//         let sum = 0;
+//         let temp = num;
+
+//         while (temp > 0) {
+//             sum += temp % 10;
+//             temp = Math.floor(temp / 10);
+//         }
+
+//         if (!map.has(sum)) {
+//             map.set(sum, []);
+//         }
+
+//         map.get(sum).push(num);
+//     }
+
+//     for (let arr of map.values()) {
+//         if (arr.length >= 2) {
+//             arr.sort((a, b) => b - a);
+//             let pairSum = arr[0] + arr[1];
+//             max = Math.max(max, pairSum);
+//         }
+//     }
+
+//     return max;
+// };
+// let nums = [18,43,36,13,7];
+// console.log("MaximumSum:",maximumSum(nums));
+
+// Group Even or Odd
+var groupEvenOdd = function(nums){
     let map = new Map();
-    let max = -1;
-
-    for (let num of nums) {
-        let sum = 0;
-        let temp = num;
-
-        while (temp > 0) {
-            sum += temp % 10;
-            temp = Math.floor(temp / 10);
+    for(num of nums){
+        let key = num % 2 === 0 ? "even" :"odd";
+        if(!map.has(key)){
+            map.set(key,[]);
         }
-
-        if (!map.has(sum)) {
-            map.set(sum, []);
-        }
-
-        map.get(sum).push(num);
+        map.get(key).push(num);
     }
-
-    for (let arr of map.values()) {
-        if (arr.length >= 2) {
-            arr.sort((a, b) => b - a);
-            let pairSum = arr[0] + arr[1];
-            max = Math.max(max, pairSum);
-        }
-    }
-
-    return max;
-};
-let nums = [18,43,36,13,7];
-console.log("MaximumSum:",maximumSum(nums));
+    return map;
+}
+let nums = [1,2,3,4,5,6,7,8];
+console.log("GroupingEvenOdd:",groupEvenOdd(nums));
