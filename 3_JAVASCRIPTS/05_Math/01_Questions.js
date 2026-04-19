@@ -3013,19 +3013,43 @@
 // Explanation: Pairs are (1,9),(2,8),(3,7),(4,6) and (5,10).
 
 var canArrange = function(arr, k) {
-    let n = arr.length;
-    let count =0;
-    let left = 0;
-    let right = n-1;
-    while(left < right){
-        if((arr[left] + arr[right]) % k === 0){
-            count++;
-            left++;
-            right--;
+    // let n = arr.length;
+    // let count =0;
+    // let left = 0;
+    // let right = n-1;
+    // while(left < right){
+    //     if((arr[left] + arr[right]) % k === 0){
+    //         count++;
+    //         left++;
+    //         right--;
+    //     }
+    // }
+    // console.log("Count:",count);
+    // return count === n/2;
+    // let n = arr.length;
+    // let count =0;
+    // for(let i =0; i<n/2 ; i++){
+    //     if((Math.abs(arr[i])+Math.abs(arr[n-i-1])) % k === 0){
+    //         count++;
+    //     }
+    // }
+    // console.log("Count:",count);
+    // return count === n/2;
+
+    let map = new Map();
+    for(let num of arr){
+        let rem = ((num % k) + k)%k;
+        map.set(rem , (map.get(rem) || 0) + 1);
+    }
+    for(let [rem ,count] of map){
+        if(rem === 0){
+            if(count % 2 !==0) return false;
+        }else{
+            let other = k - rem;
+            if((map.get(other) || 0) !==count) return false;
         }
     }
-    console.log("Count:",count);
-    return count === n/2;
+    return true;
 };
-let arr = [1,2,3,4,5,10,6,7,8,9], k = 5;
+let arr = [-1,1,-2,2,-3,3,-4,4], k = 5;
 console.log("CanArrange:",canArrange(arr , k));
