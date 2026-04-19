@@ -2970,30 +2970,62 @@
 // - (0, 2), both numbers have a sum of digits equal to 9, and their sum is 18 + 36 = 54.
 // - (1, 4), both numbers have a sum of digits equal to 7, and their sum is 43 + 7 = 50.
 // So the maximum sum that we can obtain is 54.
- var maximumSum = function(nums){
-    let map = new Map();
-    let max = -1;
+//  var maximumSum = function(nums){
+//     let map = new Map();
+//     let max = -1;
 
-    for(let num of nums){
-        let sum = sumDigit(num);
-        if(map.has(sum)){
-            max = Math.max(max , num + map.get(sum));
-            map.set(sum , Math.max(map.get(sum)), num);
-        }else{
-            map.set(sum ,num);
+//     for(let num of nums){
+//         let sum = sumDigit(num);
+//         if(map.has(sum)){
+//             max = Math.max(max , num + map.get(sum));
+//             map.set(sum , Math.max(map.get(sum)), num);
+//         }else{
+//             map.set(sum ,num);
+//         }
+//     }
+//     return max;
+
+// }
+// let nums = [18,43,36,13,7];
+// console.log("maximumSum:",maximumSum(nums));
+// function sumDigit(n){
+//     let sum =0;
+//     while(n > 0){
+//         let lastDigit = n % 10;
+//         sum += lastDigit;
+//         n = Math.floor(n/10);
+//     }
+//     return sum;
+// }
+
+// Given an array of integers arr of even length n and an integer k.
+
+// We want to divide the array into exactly n / 2 pairs such that the sum of each pair is divisible by k.
+
+// Return true If you can find a way to do that or false otherwise.
+
+ 
+
+// Example 1:
+
+// Input: arr = [1,2,3,4,5,10,6,7,8,9], k = 5
+// Output: true
+// Explanation: Pairs are (1,9),(2,8),(3,7),(4,6) and (5,10).
+
+var canArrange = function(arr, k) {
+    let n = arr.length;
+    let count =0;
+    let left = 0;
+    let right = n-1;
+    while(left < right){
+        if((arr[left] + arr[right]) % k === 0){
+            count++;
+            left++;
+            right--;
         }
     }
-    return max;
-
-}
-let nums = [18,43,36,13,7];
-console.log("maximumSum:",maximumSum(nums));
-function sumDigit(n){
-    let sum =0;
-    while(n > 0){
-        let lastDigit = n % 10;
-        sum += lastDigit;
-        n = Math.floor(n/10);
-    }
-    return sum;
-}
+    console.log("Count:",count);
+    return count === n/2;
+};
+let arr = [1,2,3,4,5,10,6,7,8,9], k = 5;
+console.log("CanArrange:",canArrange(arr , k));
