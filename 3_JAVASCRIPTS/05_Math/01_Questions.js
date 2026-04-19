@@ -3012,7 +3012,7 @@
 // Output: true
 // Explanation: Pairs are (1,9),(2,8),(3,7),(4,6) and (5,10).
 
-var canArrange = function(arr, k) {
+// var canArrange = function(arr, k) {
     // let n = arr.length;
     // let count =0;
     // let left = 0;
@@ -3036,20 +3036,71 @@ var canArrange = function(arr, k) {
     // console.log("Count:",count);
     // return count === n/2;
 
+//     let map = new Map();
+//     for(let num of arr){
+//         let rem = ((num % k) + k)%k;
+//         map.set(rem , (map.get(rem) || 0) + 1);
+//     }
+//     for(let [rem ,count] of map){
+//         if(rem === 0){
+//             if(count % 2 !==0) return false;
+//         }else{
+//             let other = k - rem;
+//             if((map.get(other) || 0) !==count) return false;
+//         }
+//     }
+//     return true;
+// };
+// let arr = [-1,1,-2,2,-3,3,-4,4], k = 5;
+// console.log("CanArrange:",canArrange(arr , k));
+
+// Given an array of strings, group the anagrams together.
+
+// var groupAnagram = function(strs){
+//     let map = new Map();
+//     for(let str of strs){
+//         let key= str.split('').sort().join('');
+//         console.log("Key:",key);
+//         if(!map.has(key)){
+//             map.set(key,[]);
+//         }
+//         console.log("map.get(key):",map.get(key))
+//         map.get(key).push(str);
+//     }
+//     return Array.from(map.values());
+// }
+// let strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+// console.log("groupAnagram:",groupAnagram(strs));
+
+var maximumSum = function(nums) {
     let map = new Map();
-    for(let num of arr){
-        let rem = ((num % k) + k)%k;
-        map.set(rem , (map.get(rem) || 0) + 1);
+    let max = -1;
+
+    for (let num of nums) {
+        let sum = 0;
+        let temp = num;
+
+        while (temp > 0) {
+            sum += temp % 10;
+            temp = Math.floor(temp / 10);
+        }
+
+        if (!map.has(sum)) {
+            map.set(sum, []);
+        }
+
+        map.get(sum).push(num);
     }
-    for(let [rem ,count] of map){
-        if(rem === 0){
-            if(count % 2 !==0) return false;
-        }else{
-            let other = k - rem;
-            if((map.get(other) || 0) !==count) return false;
+
+    for (let arr of map.values()) {
+        if (arr.length >= 2) {
+            arr.sort((a, b) => b - a);
+            let pairSum = arr[0] + arr[1];
+            max = Math.max(max, pairSum);
         }
     }
-    return true;
+
+    return max;
 };
-let arr = [-1,1,-2,2,-3,3,-4,4], k = 5;
-console.log("CanArrange:",canArrange(arr , k));
+let nums = [18,43,36,13,7];
+console.log("MaximumSum:",maximumSum(nums));
