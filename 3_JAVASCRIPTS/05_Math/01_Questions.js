@@ -2939,19 +2939,61 @@
 // Input: matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5
 // Output: true
 
-var searchMatrix2DArray = function(matrix , target){
-    let row =0;
-    let col = matrix[0].length - 1;
-    while(row < matrix.length && col >= 0){
-        if(matrix[row][col] === target){
-            return true;
-        }else if(matrix[row][col] > target){
-            col--; // move left side;
+// var searchMatrix2DArray = function(matrix , target){
+//     let row =0;
+//     let col = matrix[0].length - 1;
+//     while(row < matrix.length && col >= 0){
+//         if(matrix[row][col] === target){
+//             return true;
+//         }else if(matrix[row][col] > target){
+//             col--; // move left side;
+//         }else{
+//             row++;
+//         }
+//     }
+//     return false;
+// }
+// let matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5;
+// console.log("SearchMatrix2DArray:",searchMatrix2DArray(matrix , target));
+
+// You are given a 0-indexed array nums consisting of positive integers. You can choose two indices i and j, such that i != j, and the sum of digits of the number nums[i] is equal to that of nums[j].
+
+// Return the maximum value of nums[i] + nums[j] that you can obtain over all possible indices i and j that satisfy the conditions. If no such pair of indices exists, return -1.
+
+ 
+
+// Example 1:
+
+// Input: nums = [18,43,36,13,7]
+// Output: 54
+// Explanation: The pairs (i, j) that satisfy the conditions are:
+// - (0, 2), both numbers have a sum of digits equal to 9, and their sum is 18 + 36 = 54.
+// - (1, 4), both numbers have a sum of digits equal to 7, and their sum is 43 + 7 = 50.
+// So the maximum sum that we can obtain is 54.
+ var maximumSum = function(nums){
+    let map = new Map();
+    let max = -1;
+
+    for(let num of nums){
+        let sum = sumDigit(num);
+        if(map.has(sum)){
+            max = Math.max(max , num + map.get(sum));
+            map.set(sum , Math.max(map.get(sum)), num);
         }else{
-            row++;
+            map.set(sum ,num);
         }
     }
-    return false;
+    return max;
+
 }
-let matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5;
-console.log("SearchMatrix2DArray:",searchMatrix2DArray(matrix , target));
+let nums = [18,43,36,13,7];
+console.log("maximumSum:",maximumSum(nums));
+function sumDigit(n){
+    let sum =0;
+    while(n > 0){
+        let lastDigit = n % 10;
+        sum += lastDigit;
+        n = Math.floor(n/10);
+    }
+    return sum;
+}
