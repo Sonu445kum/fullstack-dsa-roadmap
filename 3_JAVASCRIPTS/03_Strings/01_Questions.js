@@ -885,13 +885,47 @@
 
 // No smaller index satisfies the condition, so the answer is 1.
 
-var firstMatchingIndex = function(s) {
-    for(let i =0 ; i<s.length; i++){
-        if(s[i] === s[s.length - i-1]){
-            return i;
+// var firstMatchingIndex = function(s) {
+//     for(let i =0 ; i<s.length; i++){
+//         if(s[i] === s[s.length - i-1]){
+//             return i;
+//         }
+//     }
+//     return -1;
+// };
+// let s = "abcacbd";
+// console.log("firstMatchingIndex:",firstMatchingIndex(s));
+
+// You are given a string s consisting of lowercase English letters, spaces, and digits.
+
+// Let v be the number of vowels in s and c be the number of consonants in s.
+
+// A vowel is one of the letters 'a', 'e', 'i', 'o', or 'u', while any other letter in the English alphabet is considered a consonant.
+
+// The score of the string s is defined as follows:
+
+// If c > 0, the score = floor(v / c) where floor denotes rounding down to the nearest integer.
+// Otherwise, the score = 0.
+// Return an integer denoting the score of the string.
+
+var vowelConsonantScore = function(s) {
+    let vowelCount = 0;
+    let consonantCount =0;
+    let vowels = "aeiou";
+    for(let i =0; i<s.length; i++){
+        let ch = s[i];
+        if(ch >= 'a' && ch <= 'z'){
+            if(vowels.includes(ch)){
+                vowelCount++;
+            }else{
+            consonantCount++;
+            }    
         }
     }
-    return -1;
+    if(consonantCount > 0){
+        return Math.floor(vowelCount/consonantCount)
+    }
+    return 0 ;
 };
-let s = "abcacbd";
-console.log("firstMatchingIndex:",firstMatchingIndex(s));
+let s = "cooear";
+console.log("Score:",vowelConsonantScore(s));
