@@ -3227,27 +3227,47 @@
 // let  nums = [0,1,2,3];
 // console.log("perfectPairs:",perfectPairs(nums)); 
 
-var mostCommonWord = function(paragraph, banned) {
-    paragraph = paragraph.toLowerCase().replace(/[^a-z]/g, " ");
+// var mostCommonWord = function(paragraph, banned) {
+//     paragraph = paragraph.toLowerCase().replace(/[^a-z]/g, " ");
 
-    let words = paragraph.split(" ");
+//     let words = paragraph.split(" ");
+//     let freq = {};
+//     let bannedSet = new Set(banned);
+
+//     let maxCount = 0;
+//     let result = "";
+
+//     for (let word of words) {
+//         if (word === "" || bannedSet.has(word)) continue;
+
+//         freq[word] = (freq[word] || 0) + 1;
+
+//         if (freq[word] > maxCount) {
+//             maxCount = freq[word];
+//             result = word;
+//         }
+//     }
+//     return result;
+// };
+// let paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.", banned = ["hit"];
+// console.log("mostCommonWord:",mostCommonWord(paragraph, banned));
+
+var removeDuplicateLetters = function(s) {
     let freq = {};
-    let bannedSet = new Set(banned);
-
-    let maxCount = 0;
-    let result = "";
-
-    for (let word of words) {
-        if (word === "" || bannedSet.has(word)) continue;
-
-        freq[word] = (freq[word] || 0) + 1;
-
-        if (freq[word] > maxCount) {
-            maxCount = freq[word];
-            result = word;
+    for(let char of s){
+        freq[char] = (freq[char] || 0) + 1;
+    }
+    let ans ="";
+    let set  = new Set();
+    for(let char in freq){
+        if(!set.has(char)){
+            ans += char;
         }
     }
-    return result;
+    // sort the character
+    let newArr = ans.split("").sort().join("");
+   
+    return newArr;
 };
-let paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.", banned = ["hit"];
-console.log("mostCommonWord:",mostCommonWord(paragraph, banned));
+let s = "bca";
+console.log("removeDuplicateLetter:",removeDuplicateLetters(s));
