@@ -829,20 +829,38 @@
 // let s = "Hello";
 // console.log("Segement:",countSegments(s));
 
+// var buddyStrings = function(s, goal) {
+//    if (s.length !== goal.length) return false;
+
+//     let arr = s.split("");
+
+//     for (let i = 0; i < arr.length - 1; i++) {
+//         let temp = arr[i];
+//         arr[i] = arr[i + 1];
+//         arr[i + 1] = temp;
+//     }
+
+//     let newStr = arr.join("");
+
+//     return newStr === goal;
+// };
+
+// optimal Approach
 var buddyStrings = function(s, goal) {
    if (s.length !== goal.length) return false;
 
-    let arr = s.split("");
-
-    for (let i = 0; i < arr.length - 1; i++) {
-        let temp = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = temp;
+//    if the both strings are equal
+    if(s === goal){
+        let set = new Set(s);
+        return set.size < s.length;
     }
-
-    let newStr = arr.join("");
-
-    return newStr === goal;
+    let diff = [];
+    for(let i =0; i<s.length; i++){
+        if(s[i] !== goal[i]){
+            diff.push(i);
+        }
+    }
+    return diff.length === 2 && (s[diff[0]] === goal[diff[1]]) && (s[diff[1]] === goal[diff[0]]);
 };
 let s = "aa", goal = "aa";
 console.log("budding String:",buddyStrings(s,goal));
