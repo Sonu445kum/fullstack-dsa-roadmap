@@ -3208,21 +3208,46 @@
 
 // Output: 2
 
-var perfectPairs = function(nums){
-    // convert negative number into postive
-    nums.map((num)=>Math.abs(num));
-    // sort the number
-    nums.sort((a,b)=> a-b);
+// var perfectPairs = function(nums){
+//     // convert negative number into postive
+//     nums.map((num)=>Math.abs(num));
+//     // sort the number
+//     nums.sort((a,b)=> a-b);
 
-    let left =0;
-    let count =0;
-    for(let right =0; right < nums.length; right++){
-        if(nums[right] > 2 *(nums[left])){
-            left++;
+//     let left =0;
+//     let count =0;
+//     for(let right =0; right < nums.length; right++){
+//         if(nums[right] > 2 *(nums[left])){
+//             left++;
+//         }
+//         count += right - left;
+//     }
+//     return count;
+// }
+// let  nums = [0,1,2,3];
+// console.log("perfectPairs:",perfectPairs(nums)); 
+
+var mostCommonWord = function(paragraph, banned) {
+    paragraph = paragraph.toLowerCase().replace(/[^a-z]/g, " ");
+
+    let words = paragraph.split(" ");
+    let freq = {};
+    let bannedSet = new Set(banned);
+
+    let maxCount = 0;
+    let result = "";
+
+    for (let word of words) {
+        if (word === "" || bannedSet.has(word)) continue;
+
+        freq[word] = (freq[word] || 0) + 1;
+
+        if (freq[word] > maxCount) {
+            maxCount = freq[word];
+            result = word;
         }
-        count += right - left;
     }
-    return count;
-}
-let  nums = [0,1,2,3];
-console.log("perfectPairs:",perfectPairs(nums)); 
+    return result;
+};
+let paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.", banned = ["hit"];
+console.log("mostCommonWord:",mostCommonWord(paragraph, banned));
