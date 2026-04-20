@@ -3136,20 +3136,54 @@
 // The elements 9, 5, and 3 are less than the pivot so they are on the left side of the array.
 // The elements 12 and 14 are greater than the pivot so they are on the right side
 
-var pivotArray = function(nums){
-    let less =[];
-    let eqaul = [];
-    let greater = [];
-    for(let num of nums){
-        if(num < pivot){
-            less.push(num);
-        }else if(num === pivot){
-            eqaul.push(num);
-        }else{
-            greater.push(num);
-        }
+// var pivotArray = function(nums){
+//     let less =[];
+//     let eqaul = [];
+//     let greater = [];
+//     for(let num of nums){
+//         if(num < pivot){
+//             less.push(num);
+//         }else if(num === pivot){
+//             eqaul.push(num);
+//         }else{
+//             greater.push(num);
+//         }
+//     }
+//     return [...less , ...eqaul , ...greater];
+// }
+// let nums = [9,12,5,10,14,3,10], pivot = 10;
+// console.log("pivotArray:",pivotArray(nums));
+
+// Given an integer n, return the nth digit of the infinite integer sequence [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...].
+
+ 
+
+// Example 1:
+
+// Input: n = 3
+// Output: 3
+// Example 2:
+
+// Input: n = 11
+// Output: 0
+// Explanation: The 11th digit of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ... is a 0, which is part of the number 10.
+
+var findNthDigit = function(n){
+    let digitLength = 9;
+    let count = 1;
+    let start = 1;
+
+    while(n > digitLength * count){
+        n -= digitLength*count;
+        count *= 10;
+        start *= 10;
     }
-    return [...less , ...eqaul , ...greater];
+    // find the actual Number
+    let number = start + Math.floor((n-1)/digitLength);
+    // find the digitIndex
+    let digitIndex = (n-1)%digitLength;
+
+    return Number(String(number)[digitIndex]);
 }
-let nums = [9,12,5,10,14,3,10], pivot = 10;
-console.log("pivotArray:",pivotArray(nums));
+let n=11;
+console.log("FindNthDigit:",findNthDigit(n));
