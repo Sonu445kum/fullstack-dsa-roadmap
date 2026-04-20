@@ -828,3 +828,21 @@
 // };
 // let s = "Hello";
 // console.log("Segement:",countSegments(s));
+
+var buddyStrings = function(s, goal) {
+   if (s.length !== goal.length) return false;
+
+    let arr = s.split("");
+
+    for (let i = 0; i < arr.length - 1; i++) {
+        let temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+    }
+
+    let newStr = arr.join("");
+
+    return newStr === goal;
+};
+let s = "aa", goal = "aa";
+console.log("budding String:",buddyStrings(s,goal));
