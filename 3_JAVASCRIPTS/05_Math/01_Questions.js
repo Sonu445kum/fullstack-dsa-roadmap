@@ -3168,22 +3168,61 @@
 // Output: 0
 // Explanation: The 11th digit of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ... is a 0, which is part of the number 10.
 
-var findNthDigit = function(n){
-    let digitLength = 9;
-    let count = 1;
-    let start = 1;
+// var findNthDigit = function(n){
+//     let digitLength = 9;
+//     let count = 1;
+//     let start = 1;
 
-    while(n > digitLength * count){
-        n -= digitLength*count;
-        count *= 10;
-        start *= 10;
+//     while(n > digitLength * count){
+//         n -= digitLength*count;
+//         count *= 10;
+//         start *= 10;
+//     }
+//     // find the actual Number
+//     let number = start + Math.floor((n-1)/digitLength);
+//     // find the digitIndex
+//     let digitIndex = (n-1)%digitLength;
+
+//     return Number(String(number)[digitIndex]);
+// }
+// let n=11;
+// console.log("FindNthDigit:",findNthDigit(n));
+
+// You are given an integer array nums.
+
+// A pair of indices (i, j) is called perfect if the following conditions are satisfied:
+
+// i < j
+// Let a = nums[i], b = nums[j]. Then:
+// min(|a - b|, |a + b|) <= min(|a|, |b|)
+// max(|a - b|, |a + b|) >= max(|a|, |b|)
+// Return the number of distinct perfect pairs.
+
+// Note: The absolute value |x| refers to the non-negative value of x.
+
+ 
+
+// Example 1:
+
+// Input: nums = [0,1,2,3]
+
+// Output: 2
+
+var perfectPairs = function(nums){
+    // convert negative number into postive
+    nums.map((num)=>Math.abs(num));
+    // sort the number
+    nums.sort((a,b)=> a-b);
+
+    let left =0;
+    let count =0;
+    for(let right =0; right < nums.length; right++){
+        if(nums[right] > 2 *(nums[left])){
+            left++;
+        }
+        count += right - left;
     }
-    // find the actual Number
-    let number = start + Math.floor((n-1)/digitLength);
-    // find the digitIndex
-    let digitIndex = (n-1)%digitLength;
-
-    return Number(String(number)[digitIndex]);
+    return count;
 }
-let n=11;
-console.log("FindNthDigit:",findNthDigit(n));
+let  nums = [0,1,2,3];
+console.log("perfectPairs:",perfectPairs(nums)); 
