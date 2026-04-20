@@ -846,21 +846,52 @@
 // };
 
 // optimal Approach
-var buddyStrings = function(s, goal) {
-   if (s.length !== goal.length) return false;
+// var buddyStrings = function(s, goal) {
+//    if (s.length !== goal.length) return false;
 
-//    if the both strings are equal
-    if(s === goal){
-        let set = new Set(s);
-        return set.size < s.length;
-    }
-    let diff = [];
-    for(let i =0; i<s.length; i++){
-        if(s[i] !== goal[i]){
-            diff.push(i);
+// //    if the both strings are equal
+//     if(s === goal){
+//         let set = new Set(s);
+//         return set.size < s.length;
+//     }
+//     let diff = [];
+//     for(let i =0; i<s.length; i++){
+//         if(s[i] !== goal[i]){
+//             diff.push(i);
+//         }
+//     }
+//     return diff.length === 2 && (s[diff[0]] === goal[diff[1]]) && (s[diff[1]] === goal[diff[0]]);
+// };
+// let s = "aa", goal = "aa";
+// console.log("budding String:",buddyStrings(s,goal));
+
+// You are given a string s of length n consisting of lowercase English letters.
+
+// Return the smallest index i such that s[i] == s[n - i - 1].
+
+// If no such index exists, return -1.
+
+ 
+
+// Example 1:
+
+// Input: s = "abcacbd"
+
+// Output: 1
+
+// Explanation:
+
+// At index i = 1, s[1] and s[5] are both 'b'.
+
+// No smaller index satisfies the condition, so the answer is 1.
+
+var firstMatchingIndex = function(s) {
+    for(let i =0 ; i<s.length; i++){
+        if(s[i] === s[s.length - i-1]){
+            return i;
         }
     }
-    return diff.length === 2 && (s[diff[0]] === goal[diff[1]]) && (s[diff[1]] === goal[diff[0]]);
+    return -1;
 };
-let s = "aa", goal = "aa";
-console.log("budding String:",buddyStrings(s,goal));
+let s = "abcacbd";
+console.log("firstMatchingIndex:",firstMatchingIndex(s));
