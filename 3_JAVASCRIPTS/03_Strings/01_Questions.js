@@ -985,17 +985,97 @@
 // - i = 0 and j = 1 : both words[0] and words[1] only consist of characters 'a' and 'b'. 
 // - i = 3 and j = 4 : both words[3] and words[4] only consist of characters 'a', 'b', and 'c'. 
 
-var similarPairs = function(words){
-    let map = new Map();
-    let count = 0;
-    for(let word of words){
-        let key = [...new Set(word)].sort().join("");
-        if(map.has(key)){
-            count += map.get(key);
-        }
-        map.set(key , (map.get(key) || 0) + 1);
+// var similarPairs = function(words){
+//     let map = new Map();
+//     let count = 0;
+//     for(let word of words){
+//         let key = [...new Set(word)].sort().join("");
+//         console.log("Key:",key);
+//         if(map.has(key)){
+//             count += map.get(key);
+//         }
+//         map.set(key , (map.get(key) || 0) + 1);
+//     }
+//     return count;
+// };
+// let words = ["aba","aabb","abcd","bac","aabc"];
+// console.log("SimilarPairs:",similarPairs(words));
+
+// Given a string s, calculate its reverse degree.
+
+// The reverse degree is calculated as follows:
+
+// For each character, multiply its position in the reversed alphabet ('a' = 26, 'b' = 25, ..., 'z' = 1) with its position in the string (1-indexed).
+// Sum these products for all characters in the string.
+// Return the reverse degree of s.
+
+ 
+
+// Example 1:
+
+// Input: s = "abc"
+
+// Output: 148
+
+// Explanation:
+
+// Letter	Index in Reversed Alphabet	Index in String	Product
+// 'a'	26	1	26
+// 'b'	25	2	50
+// 'c'	24	3	72
+// The reversed degree is 26 + 50 + 72 = 148.
+
+// Example 2:
+
+// Input: s = "zaza"
+
+// Output: 160
+
+// Explanation:
+
+// Letter	Index in Reversed Alphabet	Index in String	Product
+// 'z'	1	1	1
+// 'a'	26	2	52
+// 'z'	1	3	3
+// 'a'	26	4	104
+// The reverse degree is 1 + 52 + 3 + 104 = 160.
+
+// var reverseDegree = function(s){
+//     let sum =0;
+//     for(let i =0; i<s.length; i++){
+//         let reverseValue = 26 - (s[i].charCodeAt(0) - 97);
+//         let postions = i + 1;
+//         sum += reverseValue * postions;
+//     }
+//     return sum;
+// }
+// let s = "abc";
+// console.log("ReverseDegree:",reverseDegree(s));
+
+// You are given a string s. The score of a string is defined as the sum of the absolute difference between the ASCII values of adjacent characters.
+
+// Return the score of s.
+
+ 
+
+// Example 1:
+
+// Input: s = "hello"
+
+// Output: 13
+
+// Explanation:
+
+// The ASCII values of the characters in s are: 'h' = 104, 'e' = 101, 'l' = 108, 'o' = 111. So, the score of s would be |104 - 101| + |101 - 108| + |108 - 108| + |108 - 111| = 3 + 7 + 0 + 3 = 13.
+
+// Example 2:
+
+var scoreOfString = function(s){
+    let sum = 0;
+    for(let i=1; i<s.length; i++){
+        sum += (Math.abs(s[i].charCodeAt(0) - (Math.abs(s[i-1].charCodeAt(0)))))
     }
-    return count;
-};
-let words = ["aba","aabb","abcd","bac","aabc"];
-console.log("SimilarPairs:",similarPairs(words));
+    return sum;
+}
+let s = "hello";
+console.log("ScoreOfString:",scoreOfString(s));
