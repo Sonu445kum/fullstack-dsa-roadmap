@@ -908,24 +908,61 @@
 // Otherwise, the score = 0.
 // Return an integer denoting the score of the string.
 
-var vowelConsonantScore = function(s) {
-    let vowelCount = 0;
-    let consonantCount =0;
-    let vowels = "aeiou";
-    for(let i =0; i<s.length; i++){
-        let ch = s[i];
-        if(ch >= 'a' && ch <= 'z'){
-            if(vowels.includes(ch)){
-                vowelCount++;
-            }else{
-            consonantCount++;
-            }    
+// var vowelConsonantScore = function(s) {
+//     let vowelCount = 0;
+//     let consonantCount =0;
+//     let vowels = "aeiou";
+//     for(let i =0; i<s.length; i++){
+//         let ch = s[i];
+//         if(ch >= 'a' && ch <= 'z'){
+//             if(vowels.includes(ch)){
+//                 vowelCount++;
+//             }else{
+//             consonantCount++;
+//             }    
+//         }
+//     }
+//     if(consonantCount > 0){
+//         return Math.floor(vowelCount/consonantCount)
+//     }
+//     return 0 ;
+// };
+// let s = "cooear";
+// console.log("Score:",vowelConsonantScore(s));
+
+// The value of an alphanumeric string can be defined as:
+
+// The numeric representation of the string in base 10, if it comprises of digits only.
+// The length of the string, otherwise.
+// Given an array strs of alphanumeric strings, return the maximum value of any string in strs.
+
+ 
+
+// Example 1:
+
+// Input: strs = ["alic3","bob","3","4","00000"]
+// Output: 5
+// Explanation: 
+// - "alic3" consists of both letters and digits, so its value is its length, i.e. 5.
+// - "bob" consists only of letters, so its value is also its length, i.e. 3.
+// - "3" consists only of digits, so its value is its numeric equivalent, i.e. 3.
+// - "4" also consists only of digits, so its value is 4.
+// - "00000" consists only of digits, so its value is 0.
+// Hence, the maximum value is 5, of "alic3".
+
+var maximmumValue = function(strs){
+    let max =0;
+    for(let word of strs){
+        let hasLetter = /[a-z]/i.test(word);
+        let value;
+        if(hasLetter){
+            value = word.length;
+        }else{
+            value = Number(word);
         }
+        max  = Math.max(max , value);
     }
-    if(consonantCount > 0){
-        return Math.floor(vowelCount/consonantCount)
-    }
-    return 0 ;
+    return max;
 };
-let s = "cooear";
-console.log("Score:",vowelConsonantScore(s));
+let strs = ["alic3","bob","3","4","00000"];
+console.log("maximumValue:",maximmumValue(strs));
