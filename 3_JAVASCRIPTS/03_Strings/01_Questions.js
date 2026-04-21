@@ -1070,12 +1070,30 @@
 
 // Example 2:
 
-var scoreOfString = function(s){
-    let sum = 0;
-    for(let i=1; i<s.length; i++){
-        sum += (Math.abs(s[i].charCodeAt(0) - (Math.abs(s[i-1].charCodeAt(0)))))
+// var scoreOfString = function(s){
+//     let sum = 0;
+//     for(let i=1; i<s.length; i++){
+//         sum += (Math.abs(s[i].charCodeAt(0) - (Math.abs(s[i-1].charCodeAt(0)))))
+//     }
+//     return sum;
+// }
+// let s = "hello";
+// console.log("ScoreOfString:",scoreOfString(s));
+
+var getLucky = function(s, k) {
+    let res = "";
+    for(let i = 0; i<s.length; i++){
+        res += (s[i].charCodeAt(0)-96)
     }
-    return sum;
-}
-let s = "hello";
-console.log("ScoreOfString:",scoreOfString(s));
+    while(k>0){
+        let sum =0;
+        for(let ch of res){
+            sum += Number(ch);
+        }
+        res = sum.toString();
+        k--;
+    }
+    return Number(res);
+};
+let s = "iiii" , k=1;
+console.log("getLucky:",getLucky(s,k));
