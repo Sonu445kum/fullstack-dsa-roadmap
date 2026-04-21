@@ -1080,20 +1080,52 @@
 // let s = "hello";
 // console.log("ScoreOfString:",scoreOfString(s));
 
-var getLucky = function(s, k) {
+// var getLucky = function(s, k) {
+//     let res = "";
+//     for(let i = 0; i<s.length; i++){
+//         res += (s[i].charCodeAt(0)-96)
+//     }
+//     while(k>0){
+//         let sum =0;
+//         for(let ch of res){
+//             sum += Number(ch);
+//         }
+//         res = sum.toString();
+//         k--;
+//     }
+//     return Number(res);
+// };
+// let s = "iiii" , k=1;
+// console.log("getLucky:",getLucky(s,k));
+
+// Given an integer columnNumber, return its corresponding column title as it appears in an Excel sheet.
+
+// For example:
+
+// A -> 1
+// B -> 2
+// C -> 3
+// ...
+// Z -> 26
+// AA -> 27
+// AB -> 28 
+// ...
+ 
+
+// Example 1:
+
+// Input: columnNumber = 1
+// Output: "A"
+
+var convertToTitle = function(columnNumber){
     let res = "";
-    for(let i = 0; i<s.length; i++){
-        res += (s[i].charCodeAt(0)-96)
+    while(columnNumber > 0){
+        columnNumber--;
+        let char = String.fromCharCode(65 + (columnNumber % 26));
+        res = char + res;
+        columnNumber = Math.floor(columnNumber/26);
     }
-    while(k>0){
-        let sum =0;
-        for(let ch of res){
-            sum += Number(ch);
-        }
-        res = sum.toString();
-        k--;
-    }
-    return Number(res);
-};
-let s = "iiii" , k=1;
-console.log("getLucky:",getLucky(s,k));
+    return res;
+}
+let columnNumber = 1;
+console.log("ConvertToTile:",convertToTitle(columnNumber));
