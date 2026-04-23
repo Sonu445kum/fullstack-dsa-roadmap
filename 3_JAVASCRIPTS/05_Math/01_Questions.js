@@ -3252,22 +3252,64 @@
 // let paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.", banned = ["hit"];
 // console.log("mostCommonWord:",mostCommonWord(paragraph, banned));
 
-var removeDuplicateLetters = function(s) {
-    let freq = {};
-    for(let char of s){
-        freq[char] = (freq[char] || 0) + 1;
-    }
-    let ans ="";
-    let set  = new Set();
-    for(let char in freq){
-        if(!set.has(char)){
-            ans += char;
+// var removeDuplicateLetters = function(s) {
+//     let freq = {};
+//     for(let char of s){
+//         freq[char] = (freq[char] || 0) + 1;
+//     }
+//     let ans ="";
+//     let set  = new Set();
+//     for(let char in freq){
+//         if(!set.has(char)){
+//             ans += char;
+//         }
+//     }
+//     // sort the character
+//     let newArr = ans.split("").sort().join("");
+   
+//     return newArr;
+// };
+// let s = "bca";
+// console.log("removeDuplicateLetter:",removeDuplicateLetters(s));
+
+// You are given an integer n. We say that two integers x and y form a prime number pair if:
+
+// 1 <= x <= y <= n
+// x + y == n
+// x and y are prime numbers
+// Return the 2D sorted list of prime number pairs [xi, yi]. The list should be sorted in increasing order of xi. If there are no prime number pairs at all, return an empty array.
+
+// Note: A prime number is a natural number greater than 1 with only two factors, itself and 1.
+
+ 
+
+// Example 1:
+
+// Input: n = 10
+// Output: [[3,7],[5,5]]
+// Explanation: In this example, there are two prime pairs that satisfy the criteria. 
+// These pairs are [3,7] and [5,5], and we return them in the sorted order as described in the problem statement.
+
+var findThePrimePair = function(n){
+    let ans = [];
+    for(let i=2; i<=n/2; i++){
+        let j = n-i;
+        if(isPrime(i) && isPrime(j)){
+            ans.push([i,j]);
         }
     }
-    // sort the character
-    let newArr = ans.split("").sort().join("");
-   
-    return newArr;
-};
-let s = "bca";
-console.log("removeDuplicateLetter:",removeDuplicateLetters(s));
+    return ans;
+
+}
+let n=10;
+console.log("Find Prime Pairs:",findThePrimePair(n));
+function isPrime(n){
+    if(n <=1) return false;
+    if(n === 2) return true;
+    if(n%2 === 0) return false;
+
+    for(let i=3; i*i <= n; i+=2){
+        if(n%i === 0) return false;
+    }
+    return true;
+}
