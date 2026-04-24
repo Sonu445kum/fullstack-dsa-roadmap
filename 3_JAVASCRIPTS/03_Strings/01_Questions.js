@@ -1117,15 +1117,53 @@
 // Input: columnNumber = 1
 // Output: "A"
 
-var convertToTitle = function(columnNumber){
-    let res = "";
-    while(columnNumber > 0){
-        columnNumber--;
-        let char = String.fromCharCode(65 + (columnNumber % 26));
-        res = char + res;
-        columnNumber = Math.floor(columnNumber/26);
+// var convertToTitle = function(columnNumber){
+//     let res = "";
+//     while(columnNumber > 0){
+//         columnNumber--;
+//         let char = String.fromCharCode(65 + (columnNumber % 26));
+//         res = char + res;
+//         columnNumber = Math.floor(columnNumber/26);
+//     }
+//     return res;
+// }
+// let columnNumber = 1;
+// console.log("ConvertToTile:",convertToTitle(columnNumber));
+
+// You are given a string s of even length. Split this string into two halves of equal lengths, and let a be the first half and b be the second half.
+
+// Two strings are alike if they have the same number of vowels ('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'). Notice that s contains uppercase and lowercase letters.
+
+// Return true if a and b are alike. Otherwise, return false.
+
+ 
+
+// Example 1:
+
+// Input: s = "book"
+// Output: true
+// Explanation: a = "bo" and b = "ok". a has 1 vowel and b has 1 vowel. Therefore, they are alike.
+
+var halvesAreAlike = function(s) {
+    let n = s.length;
+    let vowels = "aioueAEOUI";
+    let countA =0;
+    let countB =0 ;
+    let a =s.slice(0 , n/2);
+    console.log("A:",a);
+    let b =s.slice(n/2 , n);
+    console.log("b",b);
+    for(let char of a){
+        if(vowels.includes(char)){
+            countA++;
+        }
     }
-    return res;
-}
-let columnNumber = 1;
-console.log("ConvertToTile:",convertToTitle(columnNumber));
+    for(let char of b){
+        if(vowels.includes(char)){
+            countB++;
+        }
+    }
+    return countA === countB;
+};
+let s = "book";
+console.log("halvesAreAlike:",halvesAreAlike(s));
