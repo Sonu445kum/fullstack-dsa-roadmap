@@ -36,3 +36,37 @@ WORKDIR /app
 COPY . .
 RUN npm install
 CMD ["npm", "start"]
+
+Docker Hub:
+Public registry to store images
+Like GitHub but for Docker images
+
+Docker Engine
+The core service that runs containers
+
+Includes:
+
+Docker CLI
+Docker Daemon
+
+How Docker Works (Flow)
+Write Dockerfile
+Build Image
+Run Container
+
+docker build -t myapp .
+docker run -p 3000:3000 myapp
+
+
+Important Docker Commands
+Basic Commands
+docker --version
+docker pull nginx
+docker images
+docker ps
+docker ps -a
+
+Run & Stop Containers
+docker run nginx
+docker stop <container_id>
+docker rm <container_id>
