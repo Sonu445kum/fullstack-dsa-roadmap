@@ -13,3 +13,26 @@ Consistent environment
 Fast deployment
 Lightweight (compared to VMs)
 Easy scaling (used in cloud, Kubernetes).
+
+Docker Image
+Blueprint/template of your app
+Contains code + dependencies
+
+👉 Example:
+Node.js app image, Python app image
+
+Docker Container
+Running instance of an image
+Like a live app
+
+👉 Image = class
+👉 Container = object
+
+Dockerfile:
+A file with instructions to build an image.
+
+FROM node:18
+WORKDIR /app
+COPY . .
+RUN npm install
+CMD ["npm", "start"]
