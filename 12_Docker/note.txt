@@ -1,0 +1,15 @@
+What is Docker?
+Docker is a platform that lets you package an application along with all its dependencies (libraries, configs, runtime)
+into a single unit called a container.
+
+Why Docker is Used
+Problems Docker Solves:
+Different environments (dev, test, production)
+Dependency conflicts
+Difficult setup for new developers
+Deployment issues
+
+Consistent environment
+Fast deployment
+Lightweight (compared to VMs)
+Easy scaling (used in cloud, Kubernetes).
