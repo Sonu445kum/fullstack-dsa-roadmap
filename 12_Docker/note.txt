@@ -85,3 +85,14 @@ Docker Client → CLI (you use commands)
 Docker Daemon → Runs containers
 Docker Images
 Docker Containers
+
+What is Docker Compose?
+
+Used to run multiple containers together
+
+Example: MERN App
+
+React (frontend)
+Node (backend)
+MongoDB (database):
+
