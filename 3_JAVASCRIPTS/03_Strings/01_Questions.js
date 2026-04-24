@@ -1144,26 +1144,38 @@
 // Output: true
 // Explanation: a = "bo" and b = "ok". a has 1 vowel and b has 1 vowel. Therefore, they are alike.
 
-var halvesAreAlike = function(s) {
-    let n = s.length;
-    let vowels = "aioueAEOUI";
-    let countA =0;
-    let countB =0 ;
-    let a =s.slice(0 , n/2);
-    console.log("A:",a);
-    let b =s.slice(n/2 , n);
-    console.log("b",b);
-    for(let char of a){
-        if(vowels.includes(char)){
-            countA++;
-        }
-    }
-    for(let char of b){
-        if(vowels.includes(char)){
-            countB++;
-        }
-    }
-    return countA === countB;
+// var halvesAreAlike = function(s) {
+//     let n = s.length;
+//     let vowels = "aioueAEOUI";
+//     let countA =0;
+//     let countB =0 ;
+//     let a =s.slice(0 , n/2);
+//     console.log("A:",a);
+//     let b =s.slice(n/2 , n);
+//     console.log("b",b);
+//     for(let char of a){
+//         if(vowels.includes(char)){
+//             countA++;
+//         }
+//     }
+//     for(let char of b){
+//         if(vowels.includes(char)){
+//             countB++;
+//         }
+//     }
+//     return countA === countB;
+// };
+// let s = "book";
+// console.log("halvesAreAlike:",halvesAreAlike(s));
+
+var truncateSentence = function(s, k) {
+   let newS = s.split(" ");
+ 
+   let res = " ";
+   for(let i=0; i<k; i++){
+        res += newS[i]+ " ";
+   }
+   return res; 
 };
-let s = "book";
-console.log("halvesAreAlike:",halvesAreAlike(s));
+let s = "Hello how are you Contestant", k = 4
+console.log("truncateSentence:",truncateSentence(s,k));
