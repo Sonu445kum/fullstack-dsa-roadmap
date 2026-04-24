@@ -70,3 +70,18 @@ Run & Stop Containers
 docker run nginx
 docker stop <container_id>
 docker rm <container_id>
+
+Build & Run Custom App
+docker build -t myapp .
+docker run -d -p 5000:5000 myapp
+
+Logs & Debugging
+docker logs <container_id>
+docker exec -it <container_id> bash
+
+Docker Architecture
+Components:
+Docker Client → CLI (you use commands)
+Docker Daemon → Runs containers
+Docker Images
+Docker Containers
