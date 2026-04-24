@@ -96,3 +96,22 @@ React (frontend)
 Node (backend)
 MongoDB (database):
 
+
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+  mongo:
+    image: mongo
+
+Real Use Cases (Very Important for Interviews)
+1. MERN Stack App
+Frontend + Backend + DB in containers
+2. Microservices
+Each service runs in separate container
+3. CI/CD Pipelines
+Jenkins + Docker for deployment
+4. Cloud Deployment
+AWS, Azure, GCP use Docker
