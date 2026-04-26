@@ -1231,25 +1231,40 @@
 // Input: s = "abcd", k = 2
 // Output: "bacd"
 
-var reverseStr = function(s, k) {
-    let n = s.length;
-    let rev = "";
-    let halfrev = "";
-    for(let i = n-1; i>=0; i--){
-        rev += s[i];
-    }
-    // rev->gfedcba;
-    let lastKRev ="";
-    for(let i= rev.length-k; i<rev.length; i++){
-        lastKRev += rev[i];
-    }
-    console.log("lastKRev:",lastKRev);
-    for(let i=rev.length-1-k; i>=0; i--){
-        halfrev += rev[i];
+// var reverseStr = function(s, k) {
+//     let n = s.length;
+//     let rev = "";
+//     let halfrev = "";
+//     for(let i = n-1; i>=0; i--){
+//         rev += s[i];
+//     }
+//     // rev->gfedcba;
+//     let lastKRev ="";
+//     for(let i= rev.length-k; i<rev.length; i++){
+//         lastKRev += rev[i];
+//     }
+//     console.log("lastKRev:",lastKRev);
+//     for(let i=rev.length-1-k; i>=0; i--){
+//         halfrev += rev[i];
 
+//     }
+//     console.log("halfRev:",halfrev);
+//     return lastKRev+halfrev;
+// };
+
+// optimized Appraoch
+var reverseStr = function(s, k) {
+    let arr = s.split("");
+    for(let i=0; i<arr.length; i += 2*k){
+        let left = i;
+        let right = Math.min(i+k-1 , arr.length);
+        while(left < right){
+            [arr[left] , arr[right]] = [arr[right] , arr[left]];
+            left++;
+            right--;
+        }
     }
-    console.log("halfRev:",halfrev);
-    return lastKRev+halfrev;
+    return arr.join("");
 };
 let s = "abcdefg", k = 2;
 console.log("reverseStr:",reverseStr(s,k));
