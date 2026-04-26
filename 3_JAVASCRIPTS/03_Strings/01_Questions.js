@@ -1253,18 +1253,42 @@
 // };
 
 // optimized Appraoch
-var reverseStr = function(s, k) {
-    let arr = s.split("");
-    for(let i=0; i<arr.length; i += 2*k){
-        let left = i;
-        let right = Math.min(i+k-1 , arr.length);
-        while(left < right){
-            [arr[left] , arr[right]] = [arr[right] , arr[left]];
-            left++;
-            right--;
-        }
-    }
-    return arr.join("");
-};
-let s = "abcdefg", k = 2;
-console.log("reverseStr:",reverseStr(s,k));
+// var reverseStr = function(s, k) {
+//     let arr = s.split("");
+//     for(let i=0; i<arr.length; i += 2*k){
+//         let left = i;
+//         let right = Math.min(i+k-1 , arr.length);
+//         while(left < right){
+//             [arr[left] , arr[right]] = [arr[right] , arr[left]];
+//             left++;
+//             right--;
+//         }
+//     }
+//     return arr.join("");
+// };
+// let s = "abcdefg", k = 2;
+// console.log("reverseStr:",reverseStr(s,k));
+
+// You are given a positive number n.
+
+// Return the smallest number x greater than or equal to n, such that the binary representation of x contains only set bits
+
+ 
+
+// Example 1:
+
+// Input: n = 5
+
+// Output: 7
+
+// Explanation:
+
+// The binary representation of 7 is "111".
+
+var smallestNumber = function(n){
+    let smallest = n.toString(2).length;
+    return (1 << smallest) - 1;
+
+}
+let n = 5;
+console.log("The Smalllest Set Bits:",smallestNumber(n));
