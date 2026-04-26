@@ -1168,14 +1168,88 @@
 // let s = "book";
 // console.log("halvesAreAlike:",halvesAreAlike(s));
 
-var truncateSentence = function(s, k) {
-   let newS = s.split(" ");
+// var truncateSentence = function(s, k) {
+//    let newS = s.split(" ");
+//    let res = "";
+//    for(let i=0; i<k; i++){
+//         res += newS[i]+ " ";
+//    }
+//    return res.trim(); 
+// };
+// let s = "Hello how are you Contestant", k = 4
+// console.log("truncateSentence:",truncateSentence(s,k));
+
+// We define the usage of capitals in a word to be right when one of the following cases holds:
+
+// All letters in this word are capitals, like "USA".
+// All letters in this word are not capitals, like "leetcode".
+// Only the first letter in this word is capital, like "Google".
+// Given a string word, return true if the usage of capitals in it is right.
+
+// Example 1:
+// Input: word = "USA"
+// Output: true
+
+// var detectCapitalUse = function(word) {
+//    let splitChar = word.split("");
+//    console.log("SplitChar:",splitChar);
+   
+
+// };
+// let word = "FlaGe";
+// console.log("DetectCapitalUse:",detectCapitalUse(word));
+
+// var commonChars = function(words) {
+//     let n = words.length;
+//     let splitWord = words.split("");
+//     let freq = {};
+//     for(let char of splitWord){
+//         freq[char] = (freq[word] || 0) + 1;
+//     }
+//     let ans =[];
+//     for(let [key,value] of Object.entries(freq)){
+//         if(value === n){
+//             ans.push(key);
+//         }
+//     }
+//     return ans;
+// };
+// let words =
+
+// Given a string s and an integer k, reverse the first k characters for every 2k characters counting from the start of the string.
+
+// If there are fewer than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and leave the other as original.
+
  
-   let res = " ";
-   for(let i=0; i<k; i++){
-        res += newS[i]+ " ";
-   }
-   return res; 
+
+// Example 1:
+
+// Input: s = "abcdefg", k = 2
+// Output: "bacdfeg"
+// Example 2:
+
+// Input: s = "abcd", k = 2
+// Output: "bacd"
+
+var reverseStr = function(s, k) {
+    let n = s.length;
+    let rev = "";
+    let halfrev = "";
+    for(let i = n-1; i>=0; i--){
+        rev += s[i];
+    }
+    // rev->gfedcba;
+    let lastKRev ="";
+    for(let i= rev.length-k; i<rev.length; i++){
+        lastKRev += rev[i];
+    }
+    console.log("lastKRev:",lastKRev);
+    for(let i=rev.length-1-k; i>=0; i--){
+        halfrev += rev[i];
+
+    }
+    console.log("halfRev:",halfrev);
+    return lastKRev+halfrev;
 };
-let s = "Hello how are you Contestant", k = 4
-console.log("truncateSentence:",truncateSentence(s,k));
+let s = "abcdefg", k = 2;
+console.log("reverseStr:",reverseStr(s,k));
