@@ -3290,26 +3290,47 @@
 // Explanation: In this example, there are two prime pairs that satisfy the criteria. 
 // These pairs are [3,7] and [5,5], and we return them in the sorted order as described in the problem statement.
 
-var findThePrimePair = function(n){
-    let ans = [];
-    for(let i=2; i<=n/2; i++){
-        let j = n-i;
-        if(isPrime(i) && isPrime(j)){
-            ans.push([i,j]);
-        }
-    }
-    return ans;
+// var findThePrimePair = function(n){
+//     let ans = [];
+//     for(let i=2; i<=n/2; i++){
+//         let j = n-i;
+//         if(isPrime(i) && isPrime(j)){
+//             ans.push([i,j]);
+//         }
+//     }
+//     return ans;
 
-}
-let n=10;
-console.log("Find Prime Pairs:",findThePrimePair(n));
-function isPrime(n){
-    if(n <=1) return false;
-    if(n === 2) return true;
-    if(n%2 === 0) return false;
+// }
+// let n=10;
+// console.log("Find Prime Pairs:",findThePrimePair(n));
+// function isPrime(n){
+//     if(n <=1) return false;
+//     if(n === 2) return true;
+//     if(n%2 === 0) return false;
 
-    for(let i=3; i*i <= n; i+=2){
-        if(n%i === 0) return false;
-    }
-    return true;
-}
+//     for(let i=3; i*i <= n; i+=2){
+//         if(n%i === 0) return false;
+//     }
+//     return true;
+// }
+
+// Given a positive integer n, find the pivot integer x such that:
+
+// The sum of all elements between 1 and x inclusively equals the sum of all elements between x and n inclusively.
+// Return the pivot integer x. If no such integer exists, return -1. It is guaranteed that there will be at most one pivot index for the given input.
+
+ 
+
+// Example 1:
+
+// Input: n = 8
+// Output: 6
+// Explanation: 6 is the pivot integer since: 1 + 2 + 3 + 4 + 5 + 6 = 6 + 7 + 8 = 21.
+
+var pivotInteger = function(n) {
+    let total = n*(n+1)/2;
+    let x  = Math.sqrt(total);
+    return Number.isInteger(x) ? x : -1;
+};
+let n = 8;
+console.log("PivotInteger:",pivotInteger(n));
