@@ -3408,23 +3408,48 @@
 //     return parseInt(result);
 // }
 
-var generateKey = function(num1, num2, num3) {
+// var generateKey = function(num1, num2, num3) {
+//     let result = 0;
+//     let place = 1;
+
+//     for (let i = 0; i < 4; i++) {
+//         let d1 = num1 % 10;
+//         let d2 = num2 % 10;
+//         let d3 = num3 % 10;
+
+//         let minDigit = Math.min(d1, d2, d3);
+
+//         result += minDigit * place;
+
+//         // move to next digit
+//         num1 = Math.floor(num1 / 10);
+//         num2 = Math.floor(num2 / 10);
+//         num3 = Math.floor(num3 / 10);
+
+//         place *= 10;
+//     }
+
+//     return result;
+// };
+
+// Solve for k numbers instead of 3
+var generateKey = function(nums) {
     let result = 0;
     let place = 1;
 
     for (let i = 0; i < 4; i++) {
-        let d1 = num1 % 10;
-        let d2 = num2 % 10;
-        let d3 = num3 % 10;
+        let minDigit = 9;
 
-        let minDigit = Math.min(d1, d2, d3);
+        for (let j = 0; j < nums.length; j++) {
+            minDigit = Math.min(minDigit, nums[j] % 10);
+        }
 
         result += minDigit * place;
 
-        // move to next digit
-        num1 = Math.floor(num1 / 10);
-        num2 = Math.floor(num2 / 10);
-        num3 = Math.floor(num3 / 10);
+        // move all numbers to next digit
+        for (let j = 0; j < nums.length; j++) {
+            nums[j] = Math.floor(nums[j] / 10);
+        }
 
         place *= 10;
     }
