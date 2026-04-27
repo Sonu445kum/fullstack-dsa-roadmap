@@ -3393,19 +3393,43 @@
 // The 4th digit of the key is min(1, 0, 0).
 // Hence, the key is "0000", i.e. 0.
 
-var generateKey = function(num1 , num2 , num3){
-    // padding 4 digit with zero
-    let a = num1.toString().padStart(4,'0');
-    let b = num2.toString().padStart(4,'0');
-    let c = num3.toString().padStart(4,'0');
+// var generateKey = function(num1 , num2 , num3){
+//     // padding 4 digit with zero
+//     let a = num1.toString().padStart(4,'0');
+//     let b = num2.toString().padStart(4,'0');
+//     let c = num3.toString().padStart(4,'0');
 
-    // compare each digit
-    let result = '';
-    for(let i =0 ; i<4; i++){
-        let minDigit =Math.min(a[i],b[i],c[i]);
-        result += minDigit;
+//     // compare each digit
+//     let result = '';
+//     for(let i =0 ; i<4; i++){
+//         let minDigit =Math.min(a[i],b[i],c[i]);
+//         result += minDigit;
+//     }
+//     return parseInt(result);
+// }
+
+var generateKey = function(num1, num2, num3) {
+    let result = 0;
+    let place = 1;
+
+    for (let i = 0; i < 4; i++) {
+        let d1 = num1 % 10;
+        let d2 = num2 % 10;
+        let d3 = num3 % 10;
+
+        let minDigit = Math.min(d1, d2, d3);
+
+        result += minDigit * place;
+
+        // move to next digit
+        num1 = Math.floor(num1 / 10);
+        num2 = Math.floor(num2 / 10);
+        num3 = Math.floor(num3 / 10);
+
+        place *= 10;
     }
-    return parseInt(result);
-}
+
+    return result;
+};
 let num1 = 1, num2 = 10, num3 = 1000;
 console.log("GenerateKey:",generateKey(num1 ,num2 , num3));
